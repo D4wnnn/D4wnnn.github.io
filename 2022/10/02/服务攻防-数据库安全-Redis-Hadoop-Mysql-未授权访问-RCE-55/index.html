@@ -23,13 +23,9 @@
 <meta property="og:site_name" content="D4wn">
 <meta property="og:description" content="服务攻防-数据库安全&amp;Redis&amp;Hadoop&amp;Mysql&amp;未授权访问&amp;RCE-55前置知识服务攻防大致流程：     服务开放了 扫描到的端口没开放:  端口修改了 只能内网访问 防护应用  Hadoop靶场:https:&#x2F;&#x2F;vulfocus.cn 123456789101112131415161718192021222324import requests">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://d4wnnn.github.io/2022/10/02/%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8-Redis-Hadoop-Mysql-%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE-RCE-55/image.png">
-<meta property="og:image" content="https://d4wnnn.github.io/2022/10/02/%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8-Redis-Hadoop-Mysql-%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE-RCE-55/image-20221003104516314.png">
-<meta property="og:image" content="https://d4wnnn.github.io/2022/10/02/%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8-Redis-Hadoop-Mysql-%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE-RCE-55/image-20221003104522419.png">
-<meta property="og:image" content="https://d4wnnn.github.io/2022/10/02/%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8-Redis-Hadoop-Mysql-%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE-RCE-55/image-20221003103333793.png">
-<meta property="og:image" content="https://d4wnnn.github.io/2022/10/02/%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8-Redis-Hadoop-Mysql-%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE-RCE-55/image-20221003103340860.png">
+<meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-10-02T08:52:50.000Z">
-<meta property="article:modified_time" content="2022-10-03T12:34:07.342Z">
+<meta property="article:modified_time" content="2022-10-05T17:29:29.043Z">
 <meta property="article:author" content="D4wn">
 <meta property="article:tag" content="服务攻防">
 <meta property="article:tag" content="数据库安全">
@@ -39,7 +35,7 @@
 <meta property="article:tag" content="未授权访问">
 <meta property="article:tag" content="RCE">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://d4wnnn.github.io/2022/10/02/%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8-Redis-Hadoop-Mysql-%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE-RCE-55/image.png">
+<meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -77,6 +73,10 @@
     <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
 
 
 
@@ -204,7 +204,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/index.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -592,7 +592,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Github</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Github</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
     </div>
   
   
@@ -782,5 +782,5 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
