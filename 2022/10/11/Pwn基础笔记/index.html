@@ -16,16 +16,16 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Git学习Git概述Git是一个免费的开源的分布式版本控制系统. Git易于学习,占地面积小,性能极快. 版本控制是一种记录文件内容变化,以便将来查阅特定版本修订情况的系统. Git常用命令Git首次安装必须设置用户签名,否则无法提交代码.注意,这个签名随便设置.">
+    <meta name="description" content="Pwn基础笔记环境配置安装python2.7: apt install python2.7 python-pip python-dev git libssl-dev libffi-dev build-essential 安装gdb,gdb-multiarch,同时安装binfmt(binfmt*)识别文件类型; 安装gdb插件pwndbg(github安装https:&#x2F;&#x2F;github.com&#x2F;pw">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git学习">
-<meta property="og:url" content="https://d4wnnn.github.io/2022/10/10/Git%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:title" content="Pwn基础笔记">
+<meta property="og:url" content="https://d4wnnn.github.io/2022/10/11/Pwn%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Git学习Git概述Git是一个免费的开源的分布式版本控制系统. Git易于学习,占地面积小,性能极快. 版本控制是一种记录文件内容变化,以便将来查阅特定版本修订情况的系统. Git常用命令Git首次安装必须设置用户签名,否则无法提交代码.注意,这个签名随便设置.">
+<meta property="og:description" content="Pwn基础笔记环境配置安装python2.7: apt install python2.7 python-pip python-dev git libssl-dev libffi-dev build-essential 安装gdb,gdb-multiarch,同时安装binfmt(binfmt*)识别文件类型; 安装gdb插件pwndbg(github安装https:&#x2F;&#x2F;github.com&#x2F;pw">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
-<meta property="article:published_time" content="2022-10-09T16:54:19.000Z">
-<meta property="article:modified_time" content="2022-10-10T02:14:17.884Z">
+<meta property="article:published_time" content="2022-10-11T12:36:13.000Z">
+<meta property="article:modified_time" content="2022-10-11T13:31:37.379Z">
 <meta property="article:author" content="D4wn">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
@@ -34,7 +34,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Git学习 - D4wn</title>
+  <title>Pwn基础笔记 - D4wn</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -231,7 +231,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Git学习"></span>
+            <span id="subtitle" data-typed-text="Pwn基础笔记"></span>
           
         </div>
 
@@ -247,8 +247,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-10 00:54" pubdate>
-          2022年10月10日 凌晨
+        <time datetime="2022-10-11 20:36" pubdate>
+          2022年10月11日 晚上
         </time>
       </span>
     
@@ -259,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          129 字
+          363 字
         
       </span>
     
@@ -270,7 +270,7 @@
         
         
         
-          2 分钟
+          4 分钟
         
       </span>
     
@@ -308,16 +308,24 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Git学习</h1>
+            <h1 style="display: none">Pwn基础笔记</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Git学习"><a href="#Git学习" class="headerlink" title="Git学习"></a>Git学习</h1><h2 id="Git概述"><a href="#Git概述" class="headerlink" title="Git概述"></a>Git概述</h2><p>Git是一个免费的开源的分布式版本控制系统.</p>
-<p>Git易于学习,占地面积小,性能极快.</p>
-<p>版本控制是一种记录文件内容变化,以便将来查阅特定版本修订情况的系统.</p>
-<h2 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h2><p>Git首次安装必须设置用户签名,否则无法提交代码.注意,这个签名随便设置.</p>
-<p><img src="/2022/10/10/Git%E5%AD%A6%E4%B9%A0/image-20221010011500676.png" srcset="/img/loading.gif" lazyload alt="image-20221010011500676"></p>
+                <h1 id="Pwn基础笔记"><a href="#Pwn基础笔记" class="headerlink" title="Pwn基础笔记"></a>Pwn基础笔记</h1><h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>安装python2.7:</p>
+<p><code>apt install python2.7 python-pip python-dev git libssl-dev libffi-dev build-essential</code></p>
+<p>安装<code>gdb</code>,<code>gdb-multiarch</code>,同时安装<code>binfmt</code>(<code>binfmt*</code>)识别文件类型;</p>
+<p>安装gdb插件<code>pwndbg</code>(github安装<a target="_blank" rel="noopener" href="https://github.com/pwndbg/pwndbg.git">https://github.com/pwndbg/pwndbg.git</a>)</p>
+<p>安装<code>pwntools</code></p>
+<p>安装<code>gcc-multilib</code>可以在64位linux下运行32位程序</p>
+<h2 id="Pwn基础理论"><a href="#Pwn基础理论" class="headerlink" title="Pwn基础理论"></a>Pwn基础理论</h2><p>在计算机中,当要表示的数据超出计算机所使用的数据的表示范围的时候,则产生数据的溢出.</p>
+<p>产生的原因:</p>
+<ol>
+<li>使用非类型安全的语言比如c&#x2F;c++</li>
+<li>以不可靠的方式存取或者复制内存缓冲区</li>
+<li>编译器设置的内存缓冲区太靠近关键数据结构</li>
+</ol>
 
                 
               </div>
@@ -325,6 +333,27 @@
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Pwn/" class="category-chain-item">Pwn</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
 </div>
@@ -335,8 +364,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Git学习</div>
-      <div>https://d4wnnn.github.io/2022/10/10/Git学习/</div>
+      <div>Pwn基础笔记</div>
+      <div>https://d4wnnn.github.io/2022/10/11/Pwn基础笔记/</div>
     </div>
     <div class="license-meta">
       
@@ -348,7 +377,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月10日</div>
+          <div>2022年10月11日</div>
         </div>
       
       
@@ -386,9 +415,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/" title="计算机组成原理3-存储系统">
+                      <a href="/2022/10/11/%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0/" title="汇编学习">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">计算机组成原理3-存储系统</span>
+                        <span class="hidden-mobile">汇编学习</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -396,8 +425,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/08/Java-IO/" title="Java-IO">
-                        <span class="hidden-mobile">Java-IO</span>
+                      <a href="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%867-IO/" title="计算机组成原理7-IO">
+                        <span class="hidden-mobile">计算机组成原理7-IO</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
