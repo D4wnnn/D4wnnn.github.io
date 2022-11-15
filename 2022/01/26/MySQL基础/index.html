@@ -16,16 +16,16 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="Mysql">
   
-    <meta name="description" content="MySQL基础12#数据类型：字符串、日期、数值#windows下不能跨区选择文件夹 应该cd &#x2F;d D:\web   DDL(Data Definition Languages)语句——定义1234567891011121314show databases;#查看数据库create database name_database;drop database name_database;use na">
+    <meta name="description" content="MySQL基础12#数据类型：字符串、日期、数值#windows下不能跨区选择文件夹 应该cd &#x2F;d D:\web  Mysql语句是不区分大小写的; 1.基本的SELLECT语句 列的别名可以用双引号,不要用单引号  字符串,日期类型的变量需要使用单引号  查询时怎么去除重复行呢? select distinct username from users  所有运算符遇到null运算的结果都是nu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL基础">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/01/26/MySQL%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="MySQL基础12#数据类型：字符串、日期、数值#windows下不能跨区选择文件夹 应该cd &#x2F;d D:\web   DDL(Data Definition Languages)语句——定义1234567891011121314show databases;#查看数据库create database name_database;drop database name_database;use na">
+<meta property="og:description" content="MySQL基础12#数据类型：字符串、日期、数值#windows下不能跨区选择文件夹 应该cd &#x2F;d D:\web  Mysql语句是不区分大小写的; 1.基本的SELLECT语句 列的别名可以用双引号,不要用单引号  字符串,日期类型的变量需要使用单引号  查询时怎么去除重复行呢? select distinct username from users  所有运算符遇到null运算的结果都是nu">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-01-26T12:49:08.000Z">
-<meta property="article:modified_time" content="2022-10-05T17:29:29.035Z">
+<meta property="article:modified_time" content="2022-11-15T08:58:29.706Z">
 <meta property="article:author" content="D4wn">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary_large_image">
@@ -260,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          3.5k 字
         
       </span>
     
@@ -271,7 +271,7 @@
         
         
         
-          10 分钟
+          30 分钟
         
       </span>
     
@@ -316,10 +316,172 @@
                 
                 <h1 id="MySQL基础"><a href="#MySQL基础" class="headerlink" title="MySQL基础"></a>MySQL基础</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql">#数据类型：字符串、日期、数值<br>#windows下不能跨区选择文件夹 应该cd <span class="hljs-operator">/</span>d D:\web<br></code></pre></td></tr></table></figure>
 
-<hr>
-<h2 id="DDL-Data-Definition-Languages-语句——定义"><a href="#DDL-Data-Definition-Languages-语句——定义" class="headerlink" title="DDL(Data Definition Languages)语句——定义"></a>DDL(Data Definition Languages)语句——定义</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">show</span> databases;#查看数据库<br><span class="hljs-keyword">create</span> database name_database;<br><span class="hljs-keyword">drop</span> database name_database;<br>use name_database;<br><span class="hljs-keyword">show</span> tables;<br><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> name_table(id1 <span class="hljs-type">int</span>,id2 <span class="hljs-type">int</span>);<br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">table</span> name_table;<br><span class="hljs-keyword">desc</span> name_table;#查看表信息<br><span class="hljs-keyword">show</span> <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> name_table \G#查看创建表的<span class="hljs-keyword">SQL</span>语句，不用加分号 <br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> name_table modify <span class="hljs-keyword">column</span> name_column <span class="hljs-type">int</span> <span class="hljs-keyword">first</span>;#修改字段类型<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> name_table <span class="hljs-keyword">add</span> <span class="hljs-keyword">column</span> name_column2 after id1;##增加字段<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> name_table <span class="hljs-keyword">drop</span> <span class="hljs-keyword">column</span> name_column2;#删除字段<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> name_table change <span class="hljs-keyword">column</span> id2 id_new <span class="hljs-type">int</span>;#更改字段名和类型<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> name_table rename name_new;#更改表名<br></code></pre></td></tr></table></figure>
+<p>Mysql语句是不区分大小写的;</p>
+<h2 id="1-基本的SELLECT语句"><a href="#1-基本的SELLECT语句" class="headerlink" title="1.基本的SELLECT语句"></a>1.基本的SELLECT语句</h2><ul>
+<li><p>列的别名可以用双引号,不要用单引号</p>
+</li>
+<li><p>字符串,日期类型的变量需要使用单引号</p>
+</li>
+<li><p>查询时怎么去除重复行呢?</p>
+<p><code>select distinct username from users</code></p>
+</li>
+<li><p>所有运算符遇到null运算的结果都是null</p>
+<p>若想让null当做0,则需要函数ifnull(xxx,0)</p>
+</li>
+<li><p>要保证你的字段没有和保留字,数据库系统或常用方法冲突,若坚持使用,则需要使用反引号引起来</p>
+</li>
+</ul>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><p><code>+-*/%或者div mod</code></p>
+<p><code>select 100+&#39;a&#39;;输出100</code></p>
+<p><code>select 100+&#39;1&#39;;输出101</code></p>
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-number">1</span><span class="hljs-operator">=</span><span class="hljs-string">&#x27;1&#x27;</span> 字符串存在隐式转换<br><span class="hljs-keyword">select</span> <span class="hljs-keyword">null</span><span class="hljs-operator">=</span><span class="hljs-keyword">null</span> 返回<span class="hljs-keyword">null</span> 若等号两边有一个是<span class="hljs-keyword">null</span>,则返回<span class="hljs-keyword">null</span><br>安全等于运算符<span class="hljs-operator">&lt;=&gt;</span> 与<span class="hljs-operator">=</span>的区别是前者可以对<span class="hljs-keyword">null</span>做判断<br><span class="hljs-operator">&lt;&gt;</span>等同于<span class="hljs-operator">!=</span><br>https:<span class="hljs-operator">/</span><span class="hljs-operator">/</span>www.bilibili.com<span class="hljs-operator">/</span>video<span class="hljs-operator">/</span>BV1iq4y1u7vj?t<span class="hljs-operator">=</span><span class="hljs-number">1209.6</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="DML-Data-Manipulation-Languages-语句——操纵"><a href="#DML-Data-Manipulation-Languages-语句——操纵" class="headerlink" title="DML(Data Manipulation Languages)语句——操纵"></a>DML(Data Manipulation Languages)语句——操纵</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> viking_tb;#查看表数据<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> viking_tb (id1,id2,flag) <span class="hljs-keyword">values</span>(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>) after id<span class="hljs-operator">=</span><span class="hljs-number">1</span>;#向表中加入数据<br><span class="hljs-keyword">update</span> viknig_tb <span class="hljs-keyword">set</span> id1<span class="hljs-operator">=</span><span class="hljs-number">111111</span> <span class="hljs-keyword">where</span> id2<span class="hljs-operator">=</span><span class="hljs-number">2</span>;#更新表<br><span class="hljs-keyword">update</span> viking_tb,viking_tb2 <span class="hljs-keyword">set</span> viking_tb.id1<span class="hljs-operator">=</span><span class="hljs-number">1</span>,viking_tb2.id11<span class="hljs-operator">=</span><span class="hljs-number">1</span>;#更新多个表<br><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> viking_tb <span class="hljs-keyword">where</span> id<span class="hljs-operator">=</span><span class="hljs-number">1</span>;#删除数据<br><span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> name <span class="hljs-keyword">from</span> viking_tb;#查询不同数据<br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> t1 <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> flag1 <span class="hljs-keyword">asc</span>;#升序<br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> t1 <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> flag1 <span class="hljs-keyword">desc</span>;#降序<br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> ti <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> flag1 <span class="hljs-keyword">asc</span> limit <span class="hljs-number">0</span>,<span class="hljs-number">3</span>#限制查询数目<br>#下面为一些聚合方法<br><span class="hljs-keyword">select</span> <span class="hljs-built_in">max</span>() <span class="hljs-keyword">from</span> t1;<br><span class="hljs-built_in">min</span>(),<span class="hljs-built_in">sum</span>(),<span class="hljs-built_in">count</span>(<span class="hljs-operator">*</span>)<br><span class="hljs-keyword">select</span> id,<span class="hljs-built_in">sum</span>(salary) <span class="hljs-keyword">from</span> t1 <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> department;#分类汇总<br><span class="hljs-keyword">with</span> <span class="hljs-keyword">rollup</span>;#对分类汇总的结果再汇总<br><span class="hljs-keyword">having</span> 条件;#对分类汇总的结果限制<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="2-DDL-Data-Definition-Languages-语句——定义"><a href="#2-DDL-Data-Definition-Languages-语句——定义" class="headerlink" title="2.DDL(Data Definition Languages)语句——定义"></a>2.DDL(Data Definition Languages)语句——定义</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">show</span> databases;#查看数据库<br><span class="hljs-keyword">create</span> database name_database;<br><span class="hljs-keyword">drop</span> database name_database;<br>use name_database;<br><span class="hljs-keyword">show</span> tables;<br><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> name_table(id1 <span class="hljs-type">int</span>,id2 <span class="hljs-type">int</span>);<br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">table</span> name_table;<br><span class="hljs-keyword">desc</span> name_table;#查看表信息<br><span class="hljs-keyword">show</span> <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> name_table \G#查看创建表的<span class="hljs-keyword">SQL</span>语句，不用加分号 <br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> name_table modify <span class="hljs-keyword">column</span> name_column <span class="hljs-type">int</span> <span class="hljs-keyword">first</span>;#修改字段类型<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> name_table <span class="hljs-keyword">add</span> <span class="hljs-keyword">column</span> name_column2 after id1;##增加字段<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> name_table <span class="hljs-keyword">drop</span> <span class="hljs-keyword">column</span> name_column2;#删除字段<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> name_table change <span class="hljs-keyword">column</span> id2 id_new <span class="hljs-type">int</span>;#更改字段名和类型<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> name_table rename name_new;#更改表名<br></code></pre></td></tr></table></figure>
+
+<h2 id="3-DML-Data-Manipulation-Languages-语句——操纵"><a href="#3-DML-Data-Manipulation-Languages-语句——操纵" class="headerlink" title="3.DML(Data Manipulation Languages)语句——操纵"></a>3.DML(Data Manipulation Languages)语句——操纵</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> viking_tb;#查看表数据<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> viking_tb (id1,id2,flag) <span class="hljs-keyword">values</span>(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>) after id<span class="hljs-operator">=</span><span class="hljs-number">1</span>;#向表中加入数据<br><span class="hljs-keyword">update</span> viknig_tb <span class="hljs-keyword">set</span> id1<span class="hljs-operator">=</span><span class="hljs-number">111111</span> <span class="hljs-keyword">where</span> id2<span class="hljs-operator">=</span><span class="hljs-number">2</span>;#更新表<br><span class="hljs-keyword">update</span> viking_tb,viking_tb2 <span class="hljs-keyword">set</span> viking_tb.id1<span class="hljs-operator">=</span><span class="hljs-number">1</span>,viking_tb2.id11<span class="hljs-operator">=</span><span class="hljs-number">1</span>;#更新多个表<br><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> viking_tb <span class="hljs-keyword">where</span> id<span class="hljs-operator">=</span><span class="hljs-number">1</span>;#删除数据<br><span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> name <span class="hljs-keyword">from</span> viking_tb;#查询不同数据<br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> t1 <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> flag1 <span class="hljs-keyword">asc</span>;#升序<br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> t1 <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> flag1 <span class="hljs-keyword">desc</span>;#降序<br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> ti <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> flag1 <span class="hljs-keyword">asc</span> limit <span class="hljs-number">0</span>,<span class="hljs-number">3</span>#限制查询数目<br>#下面为一些聚合方法<br><span class="hljs-keyword">select</span> <span class="hljs-built_in">max</span>() <span class="hljs-keyword">from</span> t1;<br><span class="hljs-built_in">min</span>(),<span class="hljs-built_in">sum</span>(),<span class="hljs-built_in">count</span>(<span class="hljs-operator">*</span>)<br><span class="hljs-keyword">select</span> id,<span class="hljs-built_in">sum</span>(salary) <span class="hljs-keyword">from</span> t1 <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> department;#分类汇总<br><span class="hljs-keyword">with</span> <span class="hljs-keyword">rollup</span>;#对分类汇总的结果再汇总<br><span class="hljs-keyword">having</span> 条件;#对分类汇总的结果限制<br></code></pre></td></tr></table></figure>
+
+<h2 id="4-三大范式"><a href="#4-三大范式" class="headerlink" title="4.三大范式"></a>4.三大范式</h2><p>在关系型数据库中，关于数据表设计的基本原则、规则就称为范式。</p>
+<p><img src="/2022/01/26/MySQL%E5%9F%BA%E7%A1%80/image-20221112213706358.png" srcset="/img/loading.gif" lazyload alt="image-20221112213706358"></p>
+<h3 id="1NF"><a href="#1NF" class="headerlink" title="1NF"></a>1NF</h3><p><img src="/2022/01/26/MySQL%E5%9F%BA%E7%A1%80/image-20221112175010752.png" srcset="/img/loading.gif" lazyload alt="image-20221112175010752"></p>
+<h3 id="2NF"><a href="#2NF" class="headerlink" title="2NF"></a>2NF</h3><h3 id><a href="#" class="headerlink" title></a><img src="/2022/01/26/MySQL%E5%9F%BA%E7%A1%80/image-20221112214149558.png" srcset="/img/loading.gif" lazyload alt="image-20221112175400275"></h3><p><img src="/2022/01/26/MySQL%E5%9F%BA%E7%A1%80/image-20221112214509949.png" srcset="/img/loading.gif" lazyload alt="image-20221112214509949"></p>
+<p><img src="/2022/01/26/MySQL%E5%9F%BA%E7%A1%80/image-20221112175400275.png" srcset="/img/loading.gif" lazyload alt="image-20221112175400275"> </p>
+<p><img src="/2022/01/26/MySQL%E5%9F%BA%E7%A1%80/image-20221112191905930.png" srcset="/img/loading.gif" lazyload alt="image-20221112191905930"></p>
+<h2 id="5-ER模型"><a href="#5-ER模型" class="headerlink" title="5.ER模型"></a>5.ER模型</h2><p>entity-relationship模型</p>
+<p><img src="/2022/01/26/MySQL%E5%9F%BA%E7%A1%80/image-20221113002000242.png" srcset="/img/loading.gif" lazyload alt="image-20221113002000242"></p>
+<h2 id="6-事务"><a href="#6-事务" class="headerlink" title="6.事务"></a>6.事务</h2><p>在Mysql中,只用InnoDB引擎支持事务</p>
+<h3 id="6-1事务是什么"><a href="#6-1事务是什么" class="headerlink" title="6.1事务是什么?"></a>6.1事务是什么?</h3><p>就是一组逻辑单元,使数据从一种状态到另一种状态</p>
+<h3 id="6-2ACID是什么"><a href="#6-2ACID是什么" class="headerlink" title="6.2ACID是什么?"></a>6.2ACID是什么?</h3><ul>
+<li><p>原子性</p>
+<p>就是说事务不可分割,要么全成功,要么全失败</p>
+</li>
+<li><p>一致性</p>
+<p>指的是数据从一种合法状态到另一种合法状态</p>
+</li>
+<li><p>隔离性</p>
+<p>一个事务的执行不受其他事务干扰</p>
+</li>
+<li><p>持久性</p>
+<p>数据的改变是永久性的</p>
+</li>
+</ul>
+<h3 id="6-3事务的状态"><a href="#6-3事务的状态" class="headerlink" title="6.3事务的状态"></a>6.3事务的状态</h3><ul>
+<li><p>活动的</p>
+<p>就是正在执行</p>
+</li>
+<li><p>部分提交的</p>
+<p>事务的操作完成,但是只是在内存中,并没有刷新到磁盘</p>
+</li>
+<li><p>失败的</p>
+<p>事务在活动的或者部分提交的状态遇到了错误或者认为停止</p>
+</li>
+<li><p>中止的</p>
+<p>回滚完成时,就是处于中止状态</p>
+</li>
+<li><p>提交的</p>
+<p>同步到磁盘上</p>
+</li>
+</ul>
+<p><img src="/2022/01/26/MySQL%E5%9F%BA%E7%A1%80/image-20221114110608221.png" srcset="/img/loading.gif" lazyload alt="image-20221114110608221"></p>
+<h3 id="6-4如何使用事务"><a href="#6-4如何使用事务" class="headerlink" title="6.4如何使用事务?"></a>6.4如何使用事务?</h3><h4 id="显式事务"><a href="#显式事务" class="headerlink" title="显式事务"></a>显式事务</h4><ol>
+<li><p><code>start transaction</code>或者<code>begin</code></p>
+<p>注意<code>start transaction</code>后面能接修饰符</p>
+<ul>
+<li>read only:只读事务</li>
+<li>read write:读写事务</li>
+<li>with consistent snapshot:启动一致性读</li>
+</ul>
+</li>
+<li><p>一系列事务的操作</p>
+</li>
+<li><p>提交事务或者回滚事务</p>
+<ul>
+<li><p>提交:commit</p>
+</li>
+<li><p>回滚:rollback或者rollback to [savepoint]</p>
+<p>在一个事务中可以存在多个保存点:</p>
+<p>创建保存点<code>savepoint 保存点名称</code></p>
+<p>删除保存点<code>release savepoint 保存点名称</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="隐式事务"><a href="#隐式事务" class="headerlink" title="隐式事务"></a>隐式事务</h4><p>查看自动提交功能:<code> show variables like &#39;autocommit&#39;;</code></p>
+<p>如何关闭自动提交呢?</p>
+<p><code>set autocommit = OFF;</code>针对DML语句有效,针对DDL语句无效</p>
+<h3 id="6-5隐式提交数据的情况"><a href="#6-5隐式提交数据的情况" class="headerlink" title="6.5隐式提交数据的情况"></a>6.5隐式提交数据的情况</h3><ol>
+<li>有一个事务还没提交或者回滚的时候就用<code>begin</code>或者<code>start transaction</code></li>
+<li>将原来的<code>autocommit</code>设置为<code>ON</code></li>
+<li>使用<code>LOCK TABLES</code>,<code>UNLOCK TABLES</code>等关于锁定的语句也会隐式提交前面语句所属事务</li>
+<li>DDL语句</li>
+</ol>
+<h3 id="6-5-数据并发问题"><a href="#6-5-数据并发问题" class="headerlink" title="6.5 数据并发问题"></a>6.5 数据并发问题</h3><ul>
+<li><p>脏写:</p>
+<p>B正在修改数据,A突然来修改B修改过的数据,然后A就commit,按理来说根据数据的持久性,数据不该再变化,但是B这个时候rollback一下,就出现了脏写的问题</p>
+</li>
+<li><p>脏读:</p>
+<p>还是说B正在修改数据,A突然来读了一下,然后B直接rollback,这个时候A读取的数据就是临时且无效的.</p>
+</li>
+<li><p>不可重复读:</p>
+<p>大多在并发问题的时候出现</p>
+<p>就是说A读取了一个数据,然后B更新数据,A再次读,数据就不一样了</p>
+</li>
+<li><p>幻读</p>
+<p>A读取一个数据然后B插入(必须是插入,不是删除)一些新的行,之后A再次读取同一个表就会多出几行.新插入的那些记录成为幻影记录</p>
+</li>
+</ul>
+<h3 id="6-6-SQL中的四种隔离级别"><a href="#6-6-SQL中的四种隔离级别" class="headerlink" title="6.6 SQL中的四种隔离级别"></a>6.6 SQL中的四种隔离级别</h3><ul>
+<li>READ UNCOMMITTED 读未提交 一般不选此标准</li>
+<li>READ COMMITTED 读已提交  Oracle默认为此</li>
+<li>REPEATABLE READ 可重复读 Mysql默认为此</li>
+<li>SERIALIZABLE 可串行化</li>
+</ul>
+<p> 上面四种标准都解决的脏写的问题</p>
+<p><img src="/2022/01/26/MySQL%E5%9F%BA%E7%A1%80/image-20221114165659809.png" srcset="/img/loading.gif" lazyload alt="image-20221114165659809"></p>
+<h4 id="a-如何查看mysql隔离级别"><a href="#a-如何查看mysql隔离级别" class="headerlink" title="a.如何查看mysql隔离级别?"></a>a.如何查看mysql隔离级别?</h4><p><code>select @@transaction_isolation;</code></p>
+<p>b.如何修改mysql隔离级别?</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">set global transaction_isolation = &#x27;read-committed&#x27;<br>当前session无效,需要新建session<br>set session transaction_isolation = &#x27;read-committed<br>当前session有效,以后的session无效<br>注意,上面两种都是在内存级别修改,若重启服务器则失效<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="7-锁"><a href="#7-锁" class="headerlink" title="7.锁"></a>7.锁</h2><p>当多个线程并发访问一些敏感数据的时候,我们需要保证这个数据在任何时刻最多只有一个线程在访问,所以引入了锁的概念.</p>
+<h3 id="7-1-并发事务访问相同记录"><a href="#7-1-并发事务访问相同记录" class="headerlink" title="7.1 并发事务访问相同记录"></a>7.1 并发事务访问相同记录</h3><ul>
+<li><p>读-读情况:</p>
+<p>无影响</p>
+</li>
+<li><p>写-写情况:</p>
+<p>会出现脏写的问题,任一隔离界别都不允许这种问题的发生,所以要执行多个未提交事务时需要排队执行.</p>
+<p>当一个事务想对这条记录改动时,首先看看内存有没有与这条记录相关的锁结构,没有就创建.</p>
+<p>在锁结构里面有很多信息,有两个比较重要的属性:</p>
+<ul>
+<li>trx:当先锁是哪个事务生成的</li>
+<li>is_waiting:当前事务是否在等待</li>
+</ul>
+</li>
+<li><p>读-写情况:</p>
+<p>可能出现脏读,不可重复读,幻读</p>
+</li>
+<li><p>并发问题的解决方案</p>
+<ul>
+<li>方案一:读操作利用多版本并发控制MVCC,写操作进行加锁</li>
+<li>方案二:读写操作都加锁</li>
+</ul>
+</li>
+</ul>
+<h3 id="7-2-数据操作类型的角度理解S锁与X锁"><a href="#7-2-数据操作类型的角度理解S锁与X锁" class="headerlink" title="7.2 数据操作类型的角度理解S锁与X锁"></a>7.2 数据操作类型的角度理解S锁与X锁</h3><p>对于InnoDB引擎,读锁和写锁既可以加在表上,也可以加在行上</p>
+<ul>
+<li><p>S锁:共享锁&#x2F;读锁</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select ... lock in share mode # 对读取的记录加S锁<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>X锁:排他锁&#x2F;写锁</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select ... for update # 加X锁<br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1iq4y1u7vj?t=1136.1">https://www.bilibili.com/video/BV1iq4y1u7vj?t=1136.1</a></p>
+</li>
+</ul>
 
                 
               </div>
