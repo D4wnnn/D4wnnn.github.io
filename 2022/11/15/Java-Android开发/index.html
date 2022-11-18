@@ -16,16 +16,16 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Git学习Git概述Git是一个免费的开源的分布式版本控制系统. Git易于学习,占地面积小,性能极快. 版本控制是一种记录文件内容变化,以便将来查阅特定版本修订情况的系统. Git常用命令Git首次安装必须设置用户签名,否则无法提交代码.注意,这个签名随便设置.  12git rm --cache hello.txt # 从缓冲区删除,但是工作区还有,和git add相对git log # 查看">
+    <meta name="description" content="Java-Android开发工程目录结构 manifests:APP的运行配置文件 java包下有三个包,一个是源代码,两个是测试包 res drawable:图片文件 layout:布局文件 mipmap:图标 values:一些常量,比如字符串,颜色   Gradle Scripts build.gradle:分为项目级别和模块级别 proguard-rules.pro:描述Java代码的混淆">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git学习">
-<meta property="og:url" content="https://d4wnnn.github.io/2022/10/10/Git%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:title" content="Java-Android开发">
+<meta property="og:url" content="https://d4wnnn.github.io/2022/11/15/Java-Android%E5%BC%80%E5%8F%91/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Git学习Git概述Git是一个免费的开源的分布式版本控制系统. Git易于学习,占地面积小,性能极快. 版本控制是一种记录文件内容变化,以便将来查阅特定版本修订情况的系统. Git常用命令Git首次安装必须设置用户签名,否则无法提交代码.注意,这个签名随便设置.  12git rm --cache hello.txt # 从缓冲区删除,但是工作区还有,和git add相对git log # 查看">
+<meta property="og:description" content="Java-Android开发工程目录结构 manifests:APP的运行配置文件 java包下有三个包,一个是源代码,两个是测试包 res drawable:图片文件 layout:布局文件 mipmap:图标 values:一些常量,比如字符串,颜色   Gradle Scripts build.gradle:分为项目级别和模块级别 proguard-rules.pro:描述Java代码的混淆">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
-<meta property="article:published_time" content="2022-10-09T16:54:19.000Z">
-<meta property="article:modified_time" content="2022-11-18T06:29:22.468Z">
+<meta property="article:published_time" content="2022-11-15T09:33:17.000Z">
+<meta property="article:modified_time" content="2022-11-16T10:33:14.443Z">
 <meta property="article:author" content="D4wn">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
@@ -34,7 +34,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Git学习 - D4wn</title>
+  <title>Java-Android开发 - D4wn</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -231,7 +231,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Git学习"></span>
+            <span id="subtitle" data-typed-text="Java-Android开发"></span>
           
         </div>
 
@@ -247,8 +247,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-10 00:54" pubdate>
-          2022年10月10日 凌晨
+        <time datetime="2022-11-15 17:33" pubdate>
+          2022年11月15日 下午
         </time>
       </span>
     
@@ -259,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.6k 字
+          423 字
         
       </span>
     
@@ -270,7 +270,7 @@
         
         
         
-          22 分钟
+          4 分钟
         
       </span>
     
@@ -308,77 +308,32 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Git学习</h1>
+            <h1 style="display: none">Java-Android开发</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Git学习"><a href="#Git学习" class="headerlink" title="Git学习"></a>Git学习</h1><h2 id="Git概述"><a href="#Git概述" class="headerlink" title="Git概述"></a>Git概述</h2><p>Git是一个免费的开源的分布式版本控制系统.</p>
-<p>Git易于学习,占地面积小,性能极快.</p>
-<p>版本控制是一种记录文件内容变化,以便将来查阅特定版本修订情况的系统.</p>
-<h2 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h2><p>Git首次安装必须设置用户签名,否则无法提交代码.注意,这个签名随便设置.</p>
-<p><img src="/2022/10/10/Git%E5%AD%A6%E4%B9%A0/image-20221010011500676.png" srcset="/img/loading.gif" lazyload alt="image-20221010011500676"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">rm</span> --cache hello.txt <span class="hljs-comment"># 从缓冲区删除,但是工作区还有,和git add相对</span><br>git <span class="hljs-built_in">log</span> <span class="hljs-comment"># 查看详细版本记录</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">git branch -v <span class="hljs-comment"># 查看当前分支</span><br>git branch <span class="hljs-built_in">test</span> <span class="hljs-comment"># 创建分支</span><br>git brach -d xxx <span class="hljs-comment"># 删除指定分支</span><br>git branch -D <span class="hljs-comment"># 强制删除指定分支，分支在没有被合并前不允许删除，需要强制删除。</span><br>git branch -M/m <span class="hljs-comment"># 分支改名</span><br>git merge <span class="hljs-built_in">test</span> <span class="hljs-comment"># 把test分支合并到当前分支</span><br></code></pre></td></tr></table></figure>
-
-<p>什么时候会出现合并冲突?</p>
-<p>当两个分支对同一个位置有着完全不同的修改.需要人为决定合并</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">hello<br>hello<br>&lt;&lt;&lt;&lt;&lt;&lt;&lt; <span class="hljs-string">HEAD</span><br><span class="hljs-string">hello 123432</span><br><span class="hljs-string">hello</span><br><span class="hljs-string">=======</span><br><span class="hljs-string">hello</span><br><span class="hljs-string">hello 123123</span><br><span class="hljs-string">&gt;&gt;&gt;&gt;&gt;&gt;&gt; hot-fix2</span><br></code></pre></td></tr></table></figure>
-
-<p>上半部分是当前分支的修改,下半部分是待合并分支的修改</p>
-<p>手动用vim等编辑器修改后,直接git commit -m “xxx” 后面不能有文件名,否则报错</p>
-<h2 id="Git团队协作"><a href="#Git团队协作" class="headerlink" title="Git团队协作"></a>Git团队协作</h2><h2 id="Git远程仓库"><a href="#Git远程仓库" class="headerlink" title="Git远程仓库"></a>Git远程仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">git remote -v 查看远程仓库<br>git remote add 别名 远程地址<br>git remote <span class="hljs-built_in">rm</span> 别名 <br>git push 别名 分支<br>git pull 别名 分支<br></code></pre></td></tr></table></figure>
-
-<h2 id="SSH免密登录"><a href="#SSH免密登录" class="headerlink" title="SSH免密登录"></a>SSH免密登录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t rsa -C d4wn@acdawn.cn<br><span class="hljs-comment"># 然后把公钥放到github</span><br><span class="hljs-comment"># 然后push就不用每次输入密码</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="GitLab"><a href="#GitLab" class="headerlink" title="GitLab"></a>GitLab</h2><p>什么是CI&#x2F;CD?</p>
-<p>CI:持续集成</p>
-<p>CD:连续交付</p>
-<h3 id="CI"><a href="#CI" class="headerlink" title="CI"></a>CI</h3><p>中心思想是每一次push到github的时候,都会触发一次脚本执行,进行测试编译部署等</p>
-<h2 id="Runner"><a href="#Runner" class="headerlink" title="Runner"></a>Runner</h2><p>GitLab Runner是一个开源项目,用于运行作业并将结果发送到GitLab</p>
-<p>特点:</p>
-<ul>
-<li>同时执行多个作业</li>
+                <h1 id="Java-Android开发"><a href="#Java-Android开发" class="headerlink" title="Java-Android开发"></a>Java-Android开发</h1><h2 id="工程目录结构"><a href="#工程目录结构" class="headerlink" title="工程目录结构"></a>工程目录结构</h2><ul>
+<li>manifests:APP的运行配置文件</li>
+<li>java包下有三个包,一个是源代码,两个是测试包</li>
+<li>res<ul>
+<li>drawable:图片文件</li>
+<li>layout:布局文件</li>
+<li>mipmap:图标</li>
+<li>values:一些常量,比如字符串,颜色</li>
 </ul>
-<p>类型:</p>
-<ul>
-<li>shared共享类型 运行整个平台项目的作业</li>
-<li>group 项目组类型 运行特定group下所有项目的作业</li>
-<li>specific项目类型 运行指定的作业</li>
-</ul>
-<p>状态:</p>
-<ul>
-<li>locked 锁定状态,无法运行项目作业</li>
-<li>paused 暂停状态,暂时不会接收新的作业</li>
-</ul>
-<p>步骤</p>
-<ul>
-<li><p>注册:<code>gitlab-runner register</code>(此为交互式)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo gitlab-runner register \<br>  --non-interactive \ <span class="hljs-comment">#代表非交互模式</span><br>  --url <span class="hljs-string">&quot;http://192.168.221.133/&quot;</span> \<br>  --registration-token <span class="hljs-string">&quot;QHkFLuzFHobsdksAmw8s&quot;</span> \<br>  --executor <span class="hljs-string">&quot;shell&quot;</span> \<br>  --description <span class="hljs-string">&quot;docker-runner&quot;</span> \<br>  --maintenance-note <span class="hljs-string">&quot;this is a test&quot;</span> \<br>  --tag-list <span class="hljs-string">&quot;Test&quot;</span> \<br>  --run-untagged=<span class="hljs-string">&quot;true&quot;</span> \<br>  --locked=<span class="hljs-string">&quot;false&quot;</span> \<br>  --access-level=<span class="hljs-string">&quot;not_protected&quot;</span><br></code></pre></td></tr></table></figure>
 </li>
-<li><p>其他命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">gitlab-runner list <span class="hljs-comment"># 列出保存在配置文件中的所有运行程序</span><br>gitlab-runner verify <span class="hljs-comment"># 检查注册的runner是否可以连接</span><br>gitlab-runner unregister --name xxx <span class="hljs-comment"># 注销runner</span><br>gitlab-runner unregister --all-runners <span class="hljs-comment"># 注销所有runner</span><br>gitlab-runner unregister --url 	xxx  --token xxx <span class="hljs-comment"># 使用令牌注销</span><br>gitlab-runner status <span class="hljs-comment"># 查看gitlab runner服务的状态</span><br></code></pre></td></tr></table></figure></li>
+<li>Gradle Scripts<ul>
+<li>build.gradle:分为项目级别和模块级别</li>
+<li>proguard-rules.pro:描述Java代码的混淆规则</li>
+<li>gradle.properties:描述编译工程的命令行参数,一般无需改动</li>
+<li>settings.gradle:需要编译哪些模块,默认只编译app模块</li>
+<li>local.propertie:项目的本地配置文件,在编译时自动生成,用于描述开发者的电脑环境配置,包括SDK的本地路径</li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19U4y1R7zV?t=238.1">https://www.bilibili.com/video/BV19U4y1R7zV?t=238.1</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19U4y1R7zV?t=240.1">https://www.bilibili.com/video/BV19U4y1R7zV?t=240.1</a></li>
 </ul>
-<p>如何检查<code>/gitlab-ci.yml</code>语法是否正确？</p>
-<p>在项目中-&gt;CI&#x2F;CD-&gt;CI Lint</p>
-<h2 id="Pipeline语法"><a href="#Pipeline语法" class="headerlink" title="Pipeline语法"></a>Pipeline语法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs bash">job <span class="hljs-comment"># 每个配置文件可有多个作业，每个作业至少一个script</span><br>before_script <span class="hljs-comment"># 该命令在每个作业前运行，必须是一个数组</span><br>after_script <span class="hljs-comment"># 该命令在每个作业后运行，分配一个独立的shell，必须是一个数组</span><br>stages <span class="hljs-comment"># 定义作业可以使用的阶段</span><br>stage为 .pre和.post分别对应管道的第一个和最后一个阶段<br>variables <span class="hljs-comment"># 变量</span><br>tags <span class="hljs-comment"># 指定runner</span><br>allow_failure <span class="hljs-comment"># 允许失败</span><br>when <span class="hljs-comment"># 控制作业运行</span><br>	on_success <span class="hljs-comment"># 前面的作业都成功时</span><br>	on_failure <span class="hljs-comment"># 前面的作业有失败时</span><br>	always <span class="hljs-comment"># 总是</span><br>	manual <span class="hljs-comment"># 手动</span><br>	delayed <span class="hljs-comment"># 延迟执行</span><br>retry <span class="hljs-comment"># 配置在失败的情况下重试的次数</span><br><span class="hljs-built_in">timeout</span> <span class="hljs-comment"># 超时时间</span><br>parallel <span class="hljs-comment"># 并行运行</span><br>only <span class="hljs-comment"># 定义哪些分支和标签的git项目将会被job执行</span><br>expect <span class="hljs-comment"># 定义哪些分支和标签的git项目将不会被job执行</span><br>rules <span class="hljs-comment"># rules将逐步替代only/expect</span><br>	<span class="hljs-comment"># rules不能与only。expect组合使用</span><br>	<span class="hljs-keyword">if</span> 如果条件匹配<br>	changes 指定文件发生变化<br>	exists 指定文件存在<br>由于缓存在job之间是共享的，如果不同的job使用不同的路径就出现了缓存覆盖的问题，那么如何让不同的job缓存不同的cache呢？<br>设置不同的key<br>所谓的key，就是为缓存做个标记<br></code></pre></td></tr></table></figure>
-
-<p>可能遇到的问题：</p>
-<p>并行无法执行。需要修改runner每次运行的作业数量，默认为1。<code>vim /etc/gitlab-runner/config.toml</code></p>
-<p><code>concurrent = 10</code>更改后无需重启</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">job1:</span><br>	<span class="hljs-attr">script:</span> <span class="hljs-string">&quot;xxx&quot;</span><br></code></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="学习链接"><a href="#学习链接" class="headerlink" title="学习链接"></a>学习链接</h2><blockquote>
-<p>GitLab</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_17775997/article/details/115700703">https://blog.csdn.net/sinat_17775997/article/details/115700703</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV18y4y1S7VC/">https://www.bilibili.com/video/BV18y4y1S7VC/</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1YP411N7sT">https://www.bilibili.com/video/BV1YP411N7sT</a></p>
-</blockquote>
+</li>
+</ul>
 
                 
               </div>
@@ -396,8 +351,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Git学习</div>
-      <div>https://d4wnnn.github.io/2022/10/10/Git学习/</div>
+      <div>Java-Android开发</div>
+      <div>https://d4wnnn.github.io/2022/11/15/Java-Android开发/</div>
     </div>
     <div class="license-meta">
       
@@ -409,7 +364,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月10日</div>
+          <div>2022年11月15日</div>
         </div>
       
       
@@ -447,18 +402,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/" title="计算机组成原理3-存储系统">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">计算机组成原理3-存储系统</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/08/Java-IO/" title="Java-IO">
-                        <span class="hidden-mobile">Java-IO</span>
+                      <a href="/2022/11/13/RBAC%E6%9D%83%E9%99%90%E6%A8%A1%E5%9E%8B/" title="RBAC权限模型">
+                        <span class="hidden-mobile">RBAC权限模型</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
