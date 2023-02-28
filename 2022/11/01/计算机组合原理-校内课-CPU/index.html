@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-11-01T11:42:33.000Z">
-<meta property="article:modified_time" content="2022-11-24T13:46:02.832Z">
+<meta property="article:modified_time" content="2023-02-10T11:18:26.250Z">
 <meta property="article:author" content="D4wn">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
@@ -259,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          2.3k 字
         
       </span>
     
@@ -270,7 +270,7 @@
         
         
         
-          10 分钟
+          20 分钟
         
       </span>
     
@@ -404,6 +404,109 @@
 <h2 id="统一编址"><a href="#统一编址" class="headerlink" title="统一编址"></a>统一编址</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>IO端口地址占CPU提供的全部地址空间的一部分</p>
 <p>地址码本身可区分是存储单元地址还是端口地址</p>
 <p>统一编址时,设备接口中的寄存器视为一个存储单元</p>
+<h2 id="模型机"><a href="#模型机" class="headerlink" title="模型机"></a>模型机</h2><ul>
+<li>控制器分为组合逻辑控制器和微程序控制器</li>
+</ul>
+<h3 id="组合逻辑控制器"><a href="#组合逻辑控制器" class="headerlink" title="组合逻辑控制器"></a>组合逻辑控制器</h3><ul>
+<li><p>什么是组合逻辑控制器?</p>
+<p>组合逻辑控制器的微命令是由组合逻辑电路实现,每种微命令需要一组逻辑电路</p>
+<p>全机所有的微命令所需的逻辑电路就构成了微命令发生器</p>
+</li>
+<li><p>组合逻辑控制器时序系统</p>
+<ul>
+<li><p>取指周期FT</p>
+</li>
+<li><p>取源操作数ST</p>
+<p>只有非寄存器寻址才有ST</p>
+</li>
+<li><p>取目的操作数DT</p>
+</li>
+<li><p>执行周期ET</p>
+</li>
+<li><p>DMA周期DMAT</p>
+</li>
+<li><p>中断周期IT</p>
+</li>
+</ul>
+</li>
+<li><p>每个工作周期设置一个状态触发器,说明cpu现在所处的状态 比如1就是工作开始 0就是工作结束</p>
+<p>同一时刻,只能有一个工作周期状态触发器为1</p>
+</li>
+<li><p>模型机以一次访存时间作为时钟周期长度</p>
+<ul>
+<li>一次读主存操作</li>
+<li>一次内部数据通路传送操作</li>
+<li>一次写主存操作</li>
+</ul>
+</li>
+<li><p>每个时钟周期末尾设置一个工作脉冲,作为各种同步脉冲的来源</p>
+</li>
+<li><p>传送指令</p>
+<p><img src="/2022/11/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E5%90%88%E5%8E%9F%E7%90%86-%E6%A0%A1%E5%86%85%E8%AF%BE-CPU/image-20230209212902121.png" srcset="/img/loading.gif" lazyload alt="image-20230209212902121"></p>
+<p>注意 这里的自增型双重间址 也可以是四个节拍 也就是将橙色的部分合并</p>
+<p>同时MDR并不能直接到C 必须经过一轮的ALU</p>
+<p>为什么这里是五拍呢 同一周期的同一节拍所做的工作如果相似的话 电路是比较容易实现的</p>
+<p>可以看目的周期 这里的目的周期就是直接合并了</p>
+<p>对于目的周期 若单纯存到寄存器里面 就没有目的周期 同时注意PC要+1</p>
+<p>对于执行周期 为什么当源操作数在寄存器中 目的操作数在内存中时两个节拍不能合并?</p>
+<p>因为时间不够了 可以认为写内存的时间太长</p>
+<p>微命令分为电平型和脉冲型</p>
+<p>节拍和周期的切换称为时序命令</p>
+<p><img src="/2022/11/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E5%90%88%E5%8E%9F%E7%90%86-%E6%A0%A1%E5%86%85%E8%AF%BE-CPU/image-20230210094149161.png" srcset="/img/loading.gif" lazyload alt="image-20230210094149161"></p>
+</li>
+<li><p>时序切换命令补充</p>
+<p>机器加电后 由于此时的时序系统尚未正常 所以采取由S端置入的方法使FT为1</p>
+<p>切换周期的时候T计数器会自动清零</p>
+<p>灰色的部分默认可以不写</p>
+<p>同步控制就是各项操作与统一的时序信号同步</p>
+<p>异步控制就是各项操作按其需要选择不同的时间 不受统一的时钟周期但是约束 各操作之间的衔接与各部件之间的信息价交换采取应答方式</p>
+</li>
+</ul>
+<h3 id="微程序控制器"><a href="#微程序控制器" class="headerlink" title="微程序控制器"></a>微程序控制器</h3><ul>
+<li><p>模型机的微程序控制器</p>
+<ul>
+<li><p>微操作:计算机工作过程中电路实现的最基本操作</p>
+</li>
+<li><p>微命令:控制各功能部件的电平和脉冲信号</p>
+</li>
+<li><p>微指令:执行一步操作所需的微命令序列 按一定编码方式构成微指令</p>
+</li>
+<li><p>微程序:对应一条机器指令 是一系列相关微指令的有序集合</p>
+</li>
+<li><p>微周期:读取一条微指令并执行相应的一步操作所需的时间 通常是一个时钟周期</p>
+</li>
+<li><p><img src="/2022/11/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E5%90%88%E5%8E%9F%E7%90%86-%E6%A0%A1%E5%86%85%E8%AF%BE-CPU/image-20230210154211685.png" srcset="/img/loading.gif" lazyload alt="image-20230210154211685"></p>
+</li>
+<li><p>注意 微命令和微操作一一对应,微操作强调做什么,而微命令强调完成这个微操作需要发出什么样的信号</p>
+</li>
+<li><p>微指令的基本格式是什么?</p>
+<p>微命令字段</p>
+<p>顺序控制字段</p>
+<p>操作控制是指明用了哪些微操作 顺序控制是下一条微指令的地址</p>
+</li>
+<li><p><img src="/2022/11/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E5%90%88%E5%8E%9F%E7%90%86-%E6%A0%A1%E5%86%85%E8%AF%BE-CPU/image-20230210160219355.png" srcset="/img/loading.gif" lazyload alt="image-20230210160219355"></p>
+</li>
+<li><p>执行步骤:首先比如要执行一条机器指令<code>mov a,b</code>，首先进入微地址形成部件，形成初始微地址，然后为地址放入μAR。也就是微地址寄存器，经过地址译码后再CM中找到微指令，然后微指令的操作控制部分发出控制信号，顺序控制部分继续进入微地址形成部件</p>
+<p><img src="/2022/11/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E5%90%88%E5%8E%9F%E7%90%86-%E6%A0%A1%E5%86%85%E8%AF%BE-CPU/image-20230210160945922.png" srcset="/img/loading.gif" lazyload alt="image-20230210160945922"></p>
+</li>
+<li><p>优点：</p>
+<ul>
+<li>设计规整，设计效率高</li>
+<li>易于修改和拓展指令系统功能</li>
+<li>性价比高</li>
+</ul>
+</li>
+<li><p>缺点：</p>
+<ul>
+<li>速度慢</li>
+<li>执行效率不高</li>
+</ul>
+</li>
+<li><p>比较适用于对速度要求不高 系统比较复杂的情况</p>
+</li>
+</ul>
+</li>
+</ul>
 
                 
               </div>
