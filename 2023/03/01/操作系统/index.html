@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2023-02-28T16:34:05.000Z">
-<meta property="article:modified_time" content="2023-03-01T05:23:32.058Z">
+<meta property="article:modified_time" content="2023-03-29T04:58:38.327Z">
 <meta property="article:author" content="D4wn">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
@@ -259,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          900 字
+          4k 字
         
       </span>
     
@@ -270,7 +270,7 @@
         
         
         
-          8 分钟
+          34 分钟
         
       </span>
     
@@ -383,27 +383,57 @@
 <ul>
 <li>间断性</li>
 <li>不可再现性</li>
+<li>失去封闭性</li>
 </ul>
 </blockquote>
 <h3 id="2-2-进程的描述"><a href="#2-2-进程的描述" class="headerlink" title="2.2 进程的描述"></a>2.2 进程的描述</h3><h4 id="2-2-1-进程的定义和特征"><a href="#2-2-1-进程的定义和特征" class="headerlink" title="2.2.1 进程的定义和特征"></a>2.2.1 进程的定义和特征</h4><blockquote>
 <p>进程：进程是程序的一次执行</p>
-<p>进程是一个程序及其数据在处理机上顺序执行时发生的活动</p>
-<p>进程是程序在一个数据集合上运行的过程，是系统进行资源分配和调度的一个独立单位</p>
+<p>进程是系统进行资源分配和调度的一个基本单位</p>
 </blockquote>
-<h5 id="进程的结构"><a href="#进程的结构" class="headerlink" title="进程的结构"></a>进程的结构</h5><blockquote>
-<p>为使程序(含数据)能独立运行，应为之配置一进程控制块，即PCB</p>
-<p>调度器也是一个程序</p>
-<p>进程实体：</p>
+<p>PCB</p>
+<blockquote>
+<p>PCB：进程控制块，是一个数据结构，管理进程的信息放在PCB中。</p>
+<p>当进程被创建时，操作系统会为其创建PCB，进程结束时，会回收PCB。</p>
+<p>PCB是进程存在的唯一标志。</p>
+<p>PCB的内容：</p>
 <ul>
-<li>程序段</li>
-<li>相关的数据段</li>
-<li>PCB</li>
+<li>进程描述信息<ul>
+<li>PID</li>
+<li>UID</li>
+</ul>
+</li>
+<li>进程控制和管理信息<ul>
+<li>CPU、磁盘、网络使用信息</li>
+<li>进程当前状态</li>
+</ul>
+</li>
+<li>资源分配清单<ul>
+<li>正在使用哪些文件</li>
+<li>正在使用哪些内存</li>
+<li>正在使用哪些IO</li>
+</ul>
+</li>
+<li>处理机相关<ul>
+<li>比如各种寄存器的值</li>
+</ul>
+</li>
 </ul>
 </blockquote>
-<h5 id="进程的特征"><a href="#进程的特征" class="headerlink" title="进程的特征"></a>进程的特征</h5><blockquote>
+<p>进程的结构</p>
+<blockquote>
+<p>为使程序(含数据)能独立运行，应为之配置一进程控制块，即PCB</p>
+<p>调度器也是一个程序</p>
+<p>进程实体（进程在某个时间点的快照）：</p>
 <ul>
-<li><p>动态性：是进程最基本的特征</p>
-<p>也就是有生命周期</p>
+<li>程序段</li>
+<li>数据段</li>
+<li>PCB：PCB是给操作系统用的，程序段和数据段是程序自己用的</li>
+</ul>
+</blockquote>
+<p>进程的特征</p>
+<blockquote>
+<ul>
+<li><p>动态性：是进程最基本的特征，也就是有生命周期</p>
 </li>
 <li><p>并发性</p>
 </li>
@@ -420,9 +450,352 @@
 <li>执行状态</li>
 <li>阻塞状态</li>
 </ul>
+<p><img src="/2023/03/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/image-20230306201505467.png" srcset="/img/loading.gif" lazyload alt="image-20230306201505467"></p>
 </blockquote>
-<h3 id="2-3-进程控制"><a href="#2-3-进程控制" class="headerlink" title="2.3 进程控制"></a>2.3 进程控制</h3><h3 id="2-4-进程同步"><a href="#2-4-进程同步" class="headerlink" title="2.4 进程同步"></a>2.4 进程同步</h3><h3 id="2-5-经典进程的同步问题"><a href="#2-5-经典进程的同步问题" class="headerlink" title="2.5 经典进程的同步问题"></a>2.5 经典进程的同步问题</h3><h3 id="2-6-进程通信"><a href="#2-6-进程通信" class="headerlink" title="2.6 进程通信"></a>2.6 进程通信</h3><p>会考编程题15分</p>
-<h2 id="三、处理机调度与死锁"><a href="#三、处理机调度与死锁" class="headerlink" title="三、处理机调度与死锁"></a>三、处理机调度与死锁</h2><h2 id="四、存储器管理"><a href="#四、存储器管理" class="headerlink" title="四、存储器管理"></a>四、存储器管理</h2>
+<h4 id="2-2-3-进程的组织"><a href="#2-2-3-进程的组织" class="headerlink" title="2.2.3 进程的组织"></a>2.2.3 进程的组织</h4><p>链接方式：</p>
+<p>按照进程状态，将PCB分为多个队列</p>
+<blockquote>
+<ul>
+<li>执行指针</li>
+<li>就绪队列指针</li>
+<li>阻塞队列指针</li>
+</ul>
+</blockquote>
+<p>索引方式：</p>
+<p>根据进程状态的不同，建立几张索引表</p>
+<blockquote>
+<ul>
+<li>执行指针</li>
+<li>就绪表指针</li>
+<li>阻塞表指针</li>
+</ul>
+</blockquote>
+<h3 id="2-3-进程控制"><a href="#2-3-进程控制" class="headerlink" title="2.3 进程控制"></a>2.3 进程控制</h3><blockquote>
+<p>进程控制就是实现进程状态的转换</p>
+<p>原语：是一种特殊的程序，它的执行具有原子性</p>
+<p>进程的控制用原语实现</p>
+</blockquote>
+<p>引起进程创建的事件</p>
+<blockquote>
+<ul>
+<li>用户登录</li>
+<li>作业调度</li>
+<li>提供服务</li>
+<li>应用请求</li>
+</ul>
+</blockquote>
+<p>创建原语的过程</p>
+<blockquote>
+<ul>
+<li><p>申请空白PCB</p>
+</li>
+<li><p>为新进程分配所需资源</p>
+</li>
+<li><p>初始化PCB</p>
+</li>
+<li><p>将PCB插入就绪队列</p>
+</li>
+</ul>
+</blockquote>
+<p>撤销原语的过程</p>
+<blockquote>
+<ul>
+<li>从PCB集合中找到终止进程的PCB</li>
+<li>若进程正在进行，立即剥夺CPU，将CPU分配给其他进程</li>
+<li>终止所有子进程</li>
+<li>将该进程拥有的所有资源归还给父进程或操作系统</li>
+<li>删除PCB</li>
+</ul>
+</blockquote>
+<p>引起进程终止的事件</p>
+<blockquote>
+<ul>
+<li><p>正常结束</p>
+<p>批处理中</p>
+</li>
+<li><p>异常结束</p>
+</li>
+<li><p>外界干预</p>
+</li>
+</ul>
+</blockquote>
+<p>切换原语的过程</p>
+<blockquote>
+<ul>
+<li>将运行环境信息放入PCB</li>
+<li>PCB移入相应队列</li>
+<li>选取另一个进程，并且更新 PCB</li>
+<li>根据PCB恢复进程所需的环境</li>
+</ul>
+</blockquote>
+<p>引起进程切换的事件</p>
+<blockquote>
+<ul>
+<li>当前进程事件片到</li>
+<li>有更高优先级的进程</li>
+<li>当前进程主动阻塞</li>
+<li>当前进程终止</li>
+</ul>
+</blockquote>
+<h3 id="2-4-进程同步"><a href="#2-4-进程同步" class="headerlink" title="2.4 进程同步"></a>2.4 进程同步</h3><blockquote>
+<p>为了实现对临界资源的互斥访问，需要遵循一下原则：</p>
+<ul>
+<li>空闲让进</li>
+<li>忙则等待</li>
+<li>有限等待：也就是保证不会饥饿</li>
+<li>让权等待：当进程不能进入临界区的时候，应该立即释放处理机</li>
+</ul>
+<p>什么是进程同步？</p>
+<p>就是要让并发进程按照要求有序地推进</p>
+</blockquote>
+<h4 id="2-4-1-硬件同步机制-了解"><a href="#2-4-1-硬件同步机制-了解" class="headerlink" title="2.4.1 硬件同步机制(了解)"></a>2.4.1 硬件同步机制(了解)</h4><blockquote>
+<ol>
+<li><p>关中断</p>
+<p>缺点：</p>
+<p>滥用关中断会引发严重后果</p>
+<p>关中断时间过长会影响系统效率</p>
+<p>不适用于多CPU系统</p>
+</li>
+<li><p>Test-and-Set</p>
+</li>
+<li><p>Swap-交换两个字的内容</p>
+</li>
+</ol>
+</blockquote>
+<h4 id="2-4-2-软件方法-了解"><a href="#2-4-2-软件方法-了解" class="headerlink" title="2.4.2 软件方法(了解)"></a>2.4.2 软件方法(了解)</h4><p>临界区中的操作可能被截断，并没有原子性</p>
+<blockquote>
+<p>Dekker算法</p>
+<p>Peterson算法</p>
+<p>软件方法作为额外的理解，始终不能解决忙等现象，降低系统效率</p>
+<p>通常能实现两个进程的互斥，很难控制多个进程的互斥</p>
+<p>算法设计需要非常小心，否则可能出现死锁，或者互斥失败等严重问题。</p>
+</blockquote>
+<h4 id="2-4-3-信号量机制"><a href="#2-4-3-信号量机制" class="headerlink" title="2.4.3 信号量机制"></a>2.4.3 信号量机制</h4><blockquote>
+<p>信号量可以理解为一种变量，表示系统中某种资源的数量</p>
+<p>wait和signal常简称为P、V操作</p>
+</blockquote>
+<p>整形信号量：</p>
+<blockquote>
+<p>表示系统中某种资源的数量，仍然未解决忙等，未满足让权等待原则，很少使用</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> S = <span class="hljs-number">1</span>;<br><span class="hljs-type">void</span> <span class="hljs-title function_">wait</span><span class="hljs-params">(<span class="hljs-type">int</span> S)</span>&#123;<br>    <span class="hljs-keyword">while</span> (S &lt;= <span class="hljs-number">0</span>);<br>    S = S - <span class="hljs-number">1</span>;<br>&#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">signal</span> <span class="hljs-params">(<span class="hljs-type">int</span> S)</span>&#123;<br>    S = S + <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<p>记录型信号量：</p>
+<blockquote>
+<figure class="highlight pascal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs pascal"><br><br><span class="hljs-keyword">type</span>  semaphore = <span class="hljs-keyword">record</span><br>                            value  ：integer； /*信号量的值*/<br>                            L：list  <span class="hljs-keyword">of</span>  process； /*等待该信号量的阻塞进程*/<br>                            <span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
+<p>什么是记录型信号量？</p>
+<p>就是用记录型数据结构表示的信号量</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span><br>    <span class="hljs-type">int</span> value;<span class="hljs-comment">//剩余资源数</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">process</span> *<span class="hljs-title">L</span>;</span><span class="hljs-comment">//等待队列</span><br>&#125; semaphore;<br><span class="hljs-type">void</span> <span class="hljs-title function_">wait</span><span class="hljs-params">(semaphore S)</span>&#123;<br>    S.value--;<br>    <span class="hljs-keyword">if</span> (S.value&lt;<span class="hljs-number">0</span>)&#123;<br>        block (S.L);<br>    &#125;<br>&#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">signal</span><span class="hljs-params">(semaphore S)</span>&#123;<br>    S.value++;<br>    <span class="hljs-keyword">if</span> (S.value&lt;=<span class="hljs-number">0</span>)&#123;<br>        wakeup (S.L);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<p>AND型信号量</p>
+<blockquote>
+<p>可以看做是对记录型信号量的改进</p>
+</blockquote>
+<h4 id="2-4-5-管程机制-简单看一下"><a href="#2-4-5-管程机制-简单看一下" class="headerlink" title="2.4.5 管程机制(简单看一下)"></a>2.4.5 管程机制(简单看一下)</h4><h3 id="2-5-经典进程的同步问题"><a href="#2-5-经典进程的同步问题" class="headerlink" title="2.5 经典进程的同步问题"></a>2.5 经典进程的同步问题</h3><h4 id="2-5-1-生产者-消费者问题"><a href="#2-5-1-生产者-消费者问题" class="headerlink" title="2.5.1 生产者-消费者问题"></a>2.5.1 生产者-消费者问题</h4><blockquote>
+<p>实现互斥的P操作，一定要在实现同步的P操作之后</p>
+<p>两个V操作的操作顺序可以交换</p>
+<p><img src="/2023/03/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/image-20230328200910980.png" srcset="/img/loading.gif" lazyload alt="image-20230328200910980"></p>
+</blockquote>
+<h4 id="2-5-2-哲学家进餐问题"><a href="#2-5-2-哲学家进餐问题" class="headerlink" title="2.5.2 哲学家进餐问题"></a>2.5.2 哲学家进餐问题</h4><h4 id="2-5-3-读者-写者问题"><a href="#2-5-3-读者-写者问题" class="headerlink" title="2.5.3 读者-写者问题"></a>2.5.3 读者-写者问题</h4><blockquote>
+<p>要求：</p>
+<ul>
+<li>读进程可以共享同一对象</li>
+<li>写进程无法共享同一对象</li>
+</ul>
+</blockquote>
+<h3 id="2-6-进程通信"><a href="#2-6-进程通信" class="headerlink" title="2.6 进程通信"></a>2.6 进程通信</h3><blockquote>
+<p>为了保证安全，一个进程不能直接访问另一个进程的地址空间</p>
+</blockquote>
+<h4 id="2-6-1-共享存储"><a href="#2-6-1-共享存储" class="headerlink" title="2.6.1 共享存储"></a>2.6.1 共享存储</h4><blockquote>
+<p>两个进程对共享空间的访问必须是互斥的</p>
+</blockquote>
+<p>基于数据结构的共享</p>
+<blockquote>
+<p>数据的形式是固定的，这种共享方式速度慢，限制多，是一种低级的通信方式</p>
+</blockquote>
+<p>基于存储区的共享</p>
+<blockquote>
+<p>在内存中画出一块共享区，数据的形式、存放位置都由进程控制，而不是操作系统，这种共享方式速度更快，更加高级</p>
+</blockquote>
+<h4 id="2-6-2-消息传递"><a href="#2-6-2-消息传递" class="headerlink" title="2.6.2 消息传递"></a>2.6.2 消息传递</h4><h4 id="2-6-3-管道通信"><a href="#2-6-3-管道通信" class="headerlink" title="2.6.3 管道通信"></a>2.6.3 管道通信</h4><blockquote>
+<p>就是用于连接读写进程的共享文件，其实就是在内存中开辟一个大小固定的缓冲区</p>
+<p>管道只能采用半双工通信，某一个时间段只能实现单向的传输。</p>
+</blockquote>
+<p>会考编程题15分</p>
+<p>线程</p>
+<blockquote>
+<p>进程的概念体现了两个基本属性：</p>
+<p>资源所有权</p>
+<p>调度执行</p>
+<p>为了区分这两种特点，调度并分配的部分通常成为线程或者轻便进程，而资源所有权的通常成为进程</p>
+<p>线程不进行资源管理</p>
+<p>线程的属性：</p>
+<ul>
+<li>线程是可以并发执行的</li>
+<li>共享进程资源</li>
+<li>进程中所有的线程共享同一个地址空间，挂起进程会挂起所有线程</li>
+<li>线程是轻型实体，在切换时只需保存少量寄存器的内容，不涉及存储器的管理，因此系统开销小</li>
+</ul>
+<p>线程控制块：TCB(Tack Control Block)</p>
+<p>多个线程先后运行是否有顺序？</p>
+<p>用户自己说了算！可玩性大大增加！</p>
+<p>操作系统的权限分为内核态和用户态</p>
+<p>进程和线程的比较：</p>
+<ul>
+<li>线程是资源调度的基本单位</li>
+<li>线程的切换开销小</li>
+<li>进程是资源分配的基本单位</li>
+<li>在内核态，所有线程一视同仁，平均分配到所有核中</li>
+</ul>
+<p>线程的状态</p>
+<ul>
+<li>运行状态</li>
+<li>就绪状态</li>
+<li>阻塞状态</li>
+</ul>
+<p>注意：没有挂起，也没有创建和终止</p>
+<p>TCB的内容：</p>
+<ul>
+<li>线程表示符(进程之内唯一)</li>
+<li>一组寄存器：它包括PC和堆栈指针中的内容</li>
+<li>线程运行状态</li>
+<li>优先级</li>
+<li>专有存储区</li>
+<li>用户栈：保存局部边和返回地址</li>
+<li>信号屏蔽</li>
+</ul>
+<p>线程状态变化的4种基本操作</p>
+<ul>
+<li>派生</li>
+<li>阻塞</li>
+<li>解除阻塞</li>
+<li>结束</li>
+</ul>
+<p>线程的分类:</p>
+<ul>
+<li><p>内核支持线程KST</p>
+<p>优点：</p>
+<ul>
+<li>内核种可以同时把同一个进程中的线程调度到多个处理器中并行执行</li>
+<li>如果进程中的一个线程被阻塞。内核可以调度同一个进程中的另一个线程，也可以运行其他进程的线程</li>
+<li>内核例程本身也可以多线程</li>
+<li>结构简单，高效</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>系统开销大</li>
+</ul>
+</li>
+<li><p>用户级线程ULT</p>
+<p>无需内核的支持</p>
+<p>优点：</p>
+<ul>
+<li>线程控制块设置在用户空间，内核完全不知道用户级线程的存在，这样可以节省模式切换系统开销</li>
+<li>各进程可以独立选择线程调度算法</li>
+<li>与操作系统无关，甚至可以在不支持线程机制的操作系统平台实现</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>当线程执行系统调用引起进程阻塞时，进程中所有的线程都会被阻塞</li>
+<li>不能有效利用多处理机</li>
+</ul>
+</li>
+<li><p>混合状态</p>
+</li>
+</ul>
+<p>线程的实现：</p>
+<ul>
+<li><p>内核支持线程的实现</p>
+<p>系统为每个进程创建任务数据区</p>
+</li>
+<li><p>用户级线程的实现</p>
+<ul>
+<li>运行时系统，也就是虚拟机</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="三、处理机调度与死锁"><a href="#三、处理机调度与死锁" class="headerlink" title="三、处理机调度与死锁"></a>三、处理机调度与死锁</h2><blockquote>
+<p>调度应该按照什么原则？</p>
+<p>也就是调度算法是什么</p>
+<p>何时分配?</p>
+<p>如何分配？</p>
+</blockquote>
+<p>处理机调度的基本概念</p>
+<blockquote>
+<p>高级调度：</p>
+<p>也就是作业调度。又称长程调度，用于决定外存尚处于后备队列中的哪些作业调入内存</p>
+<p>低级调度：</p>
+<p>也就是进程调度或者短程调度，用来决定就绪队列中的哪个内核级线程应获得处理机</p>
+<p>中级调度：</p>
+<p>提高内存的利用率和系统吞吐量，也就是就绪状态和挂起状态的切换</p>
+</blockquote>
+<p>高级调度</p>
+<blockquote>
+<p>取决于多道程序度，允许多个作业同时在内存中运行</p>
+<p>运行频率最低</p>
+</blockquote>
+<p>低级调度</p>
+<blockquote>
+<p>决定内核级哪个进程应该获得处理机</p>
+<p>频率最高，是毫秒级</p>
+<p>低级调度的三个基本机制：</p>
+<p>排队器</p>
+<p>分派器</p>
+<p>上下文切换机制</p>
+</blockquote>
+<p>中级调度(内存调度)</p>
+<blockquote>
+<p>频率中等</p>
+</blockquote>
+<p>如何选择调度算法？</p>
+<blockquote>
+<p>CPU利用率 &#x3D; cpu的有效工作台时间&#x2F;总时间</p>
+<p>面向用户的准则：</p>
+<ul>
+<li>周转时间尽量短</li>
+<li>响应时间快</li>
+<li>截止时间的保证</li>
+<li>优先权准则</li>
+</ul>
+<p>面向系统的准则：</p>
+<ul>
+<li>系统吞吐量高</li>
+<li>处理机利用率好</li>
+<li>各类资源的平衡利用</li>
+</ul>
+</blockquote>
+<p>作业与作业调度</p>
+<blockquote>
+<p>作业运行的三个阶段和三种状态</p>
+<ul>
+<li>收容状态</li>
+<li>运行状态</li>
+<li>完成状态</li>
+</ul>
+</blockquote>
+<p>调度算法</p>
+<blockquote>
+<ul>
+<li><p>先来先服务FCFS</p>
+<p>对短进程不公平</p>
+</li>
+<li><p>短进程优先SJF</p>
+</li>
+<li><p>时间片轮转</p>
+</li>
+<li><p>基于优先级的调度算法</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="3-5-进程死锁"><a href="#3-5-进程死锁" class="headerlink" title="3.5 进程死锁"></a>3.5 进程死锁</h3><blockquote>
+<p>为什么死锁？</p>
+<ul>
+<li>竞争资源</li>
+<li>进程推进顺序非法</li>
+</ul>
+</blockquote>
+<h2 id="四、存储器管理"><a href="#四、存储器管理" class="headerlink" title="四、存储器管理"></a>四、存储器管理</h2>
                 
               </div>
             

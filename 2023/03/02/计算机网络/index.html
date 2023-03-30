@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2023-03-02T06:37:56.000Z">
-<meta property="article:modified_time" content="2023-03-02T10:36:16.130Z">
+<meta property="article:modified_time" content="2023-03-09T08:05:16.449Z">
 <meta property="article:author" content="D4wn">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
@@ -259,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          765 字
+          2k 字
         
       </span>
     
@@ -270,7 +270,7 @@
         
         
         
-          7 分钟
+          17 分钟
         
       </span>
     
@@ -417,10 +417,156 @@
 <p>连接在计算机网络上的主机在数字信道上传输数据位数的速率</p>
 <p>当形容速率时，相邻单位相差10^3，当形容存储容量时，相邻单位相差2^10</p>
 <p>带宽：网络设备所支持的最高速度</p>
-<p>吞吐量：表示在单位时间内通过某个网络的数据量</p>
+<p>吞吐量：表示在单位时间内通过某个网络（或信道、接口）的数据量</p>
 <p>吞吐量受网络的带宽或网络的额定速率的影响</p>
 </blockquote>
-<h2 id="二、物理层"><a href="#二、物理层" class="headerlink" title="二、物理层"></a>二、物理层</h2><h2 id="三、数据链路层"><a href="#三、数据链路层" class="headerlink" title="三、数据链路层"></a>三、数据链路层</h2><h2 id="四、网络层"><a href="#四、网络层" class="headerlink" title="四、网络层"></a>四、网络层</h2><h2 id="五、传输层"><a href="#五、传输层" class="headerlink" title="五、传输层"></a>五、传输层</h2><h2 id="六、应用层"><a href="#六、应用层" class="headerlink" title="六、应用层"></a>六、应用层</h2>
+<p>时延</p>
+<blockquote>
+<ul>
+<li>发送时延&#x2F;传输时延：$\frac {数据长度}{信道带宽}$</li>
+<li>传播时延：$\frac{信道长度}{电磁波在信道中的传播速度}$</li>
+<li>排队时延</li>
+<li>处理时延</li>
+</ul>
+</blockquote>
+<p>时延带宽积</p>
+<blockquote>
+<p>时延带宽积 &#x3D; 传播时延 * 带宽，也就是指某段链路现在有多少比特</p>
+</blockquote>
+<p>往返时延RTT</p>
+<blockquote>
+<p>RTT主要包括传播时延 * 2 和末端的处理时间，不包括传输时延</p>
+</blockquote>
+<p>利用率</p>
+<blockquote>
+<p>$信道利用率 &#x3D; \frac{有数据通过的时间}{总时间}$</p>
+<p>$网络利用率&#x3D; 信道利用率加权求平均值$</p>
+<p><img src="/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20230307150430664.png" srcset="/img/loading.gif" lazyload alt="image-20230307150430664"></p>
+</blockquote>
+<h3 id="1-4-分层结构"><a href="#1-4-分层结构" class="headerlink" title="1.4 分层结构"></a>1.4 分层结构</h3><blockquote>
+<p>SDU服务数据单元：为完成用户要求的功能而应传送的数据</p>
+<p>PCI协议控制信息：控制协议操作的信息</p>
+<p>PDU协议数据单元：对等层次之间传送的数据单位，也就是SDU+PCI</p>
+<p>计算机网络体系结构是计算机网络的各层及其协议的集合</p>
+<p>仅仅在相邻层间存在接口</p>
+</blockquote>
+<p>OSI</p>
+<blockquote>
+<ul>
+<li><p>应用层</p>
+<p>所有能和用户交互产生流量的程序</p>
+<p>典型应用层服务：FTP，HTTP，SMTP</p>
+</li>
+<li><p>表示层</p>
+<p>用于处理两个通信系统中交换信息的表示方式（语法和语义）</p>
+<p>功能：数据格式变换，数据加解密，数据压缩及恢复</p>
+</li>
+<li><p>会话层</p>
+<p>向表示层实体&#x2F;用户进程提供建立连接并在连接上有序的传输数据</p>
+<p>功能：建立、管理、终止对话，数据同步</p>
+</li>
+<li><p>传输层：面向连接</p>
+<p>负责主机中两个进程的通信，即端到端的通信(端口到端口，一个进程是占用一个端口)</p>
+<p>功能：</p>
+<ul>
+<li>可靠传输，不可靠传输</li>
+<li>差错控制</li>
+<li>流量控制</li>
+<li>复用分用</li>
+</ul>
+<p>主要协议：TCP，UDP</p>
+</li>
+<li><p>网络层：无连接+面向连接</p>
+<p>主要任务是把分组从源端传到目的端，为分组交换网上的不同主机提供通信服务。</p>
+<p>网络层传输单位是数据报</p>
+<p>主要功能：</p>
+<ul>
+<li>路由选择</li>
+<li>流量控制</li>
+<li>差错控制</li>
+<li>拥塞控制</li>
+</ul>
+<p>主要协议：IP、IPX，ICMP，IGMP，ARP，RARP，OSPF</p>
+</li>
+<li><p>数据链路层</p>
+<p>把网络层传下来的数据报组装成帧</p>
+<p>数据链路层传输的单位是帧</p>
+<p>主要功能：</p>
+<ul>
+<li>成帧(定义帧的开始和结束)</li>
+<li>差错控制：帧错+位错</li>
+<li>流量控制</li>
+<li>访问控制</li>
+</ul>
+<p>主要协议：SDLC，HDLC，PPP，STP</p>
+</li>
+<li><p>物理层</p>
+<p>传输单位是比特</p>
+<p>功能：</p>
+<ul>
+<li>定义接口特性</li>
+<li>定义传输模式</li>
+<li>定义传输速率</li>
+<li>比特同步</li>
+<li>比特编码</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>TCP&#x2F;IP</p>
+<blockquote>
+<ul>
+<li>应用层</li>
+<li>传输层：无连接+面向连接</li>
+<li>网际层：无连接</li>
+<li>网络接口层</li>
+</ul>
+</blockquote>
+<p>五层参考模型</p>
+<blockquote>
+<ul>
+<li>应用层</li>
+<li>传输层</li>
+<li>网络层</li>
+<li>数据链路层</li>
+<li>物理层</li>
+</ul>
+</blockquote>
+<h2 id="二、应用层"><a href="#二、应用层" class="headerlink" title="二、应用层"></a>二、应用层</h2><h3 id="2-1-应用层原理"><a href="#2-1-应用层原理" class="headerlink" title="2.1 应用层原理"></a>2.1 应用层原理</h3><blockquote>
+<p>CS模式</p>
+<p>可拓展性比较差，用户数量过多时，性能呈断崖式下降</p>
+<p>可靠性比较差</p>
+<p>UDP上的socket是传递三个东西：SDU，二元组（源ip，源port），目的ip与端口</p>
+<p>在发送数据报的时候</p>
+<p>TCP上的socket是传递两个东西：SDU，四元组</p>
+<p>TCP和UDP都没有进行加密，都是明文传输</p>
+<p>SSL在应用层</p>
+</blockquote>
+<h3 id="2-2-Web和HTTP"><a href="#2-2-Web和HTTP" class="headerlink" title="2.2 Web和HTTP"></a>2.2 Web和HTTP</h3><blockquote>
+<p>HTTP是无状态的</p>
+<p>HTTP1.0和1.1有何区别？</p>
+<p>HTTP1.0是非持久的</p>
+<p>HTTP1.0支持POST GET HEAD</p>
+<p>HTTP1.1 添加了PUT DELETE</p>
+</blockquote>
+<p>HTTP请求报文</p>
+<blockquote>
+<ul>
+<li>请求行</li>
+<li>首部行</li>
+<li>请求体</li>
+</ul>
+</blockquote>
+<p>HTTP响应报文</p>
+<blockquote>
+<ul>
+<li>状态行</li>
+<li>首部行</li>
+<li>实体行</li>
+</ul>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JV411t7ow?t=3531.2&amp;p=13">https://www.bilibili.com/video/BV1JV411t7ow?t=3531.2&amp;p=13</a></p>
+
                 
               </div>
             
@@ -487,6 +633,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/03/05/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="深度学习">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">深度学习</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
