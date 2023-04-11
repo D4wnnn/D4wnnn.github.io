@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2023-03-02T06:37:56.000Z">
-<meta property="article:modified_time" content="2023-03-09T08:05:16.449Z">
+<meta property="article:modified_time" content="2023-04-11T13:10:12.027Z">
 <meta property="article:author" content="D4wn">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
@@ -259,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          3.7k 字
         
       </span>
     
@@ -270,7 +270,7 @@
         
         
         
-          17 分钟
+          31 分钟
         
       </span>
     
@@ -532,7 +532,7 @@
 <li>物理层</li>
 </ul>
 </blockquote>
-<h2 id="二、应用层"><a href="#二、应用层" class="headerlink" title="二、应用层"></a>二、应用层</h2><h3 id="2-1-应用层原理"><a href="#2-1-应用层原理" class="headerlink" title="2.1 应用层原理"></a>2.1 应用层原理</h3><blockquote>
+<h2 id="二、应用层"><a href="#二、应用层" class="headerlink" title="二、应用层"></a>二、应用层</h2><h3 id="2-1-应用层协议原理"><a href="#2-1-应用层协议原理" class="headerlink" title="2.1 应用层协议原理"></a>2.1 应用层协议原理</h3><blockquote>
 <p>CS模式</p>
 <p>可拓展性比较差，用户数量过多时，性能呈断崖式下降</p>
 <p>可靠性比较差</p>
@@ -545,9 +545,18 @@
 <h3 id="2-2-Web和HTTP"><a href="#2-2-Web和HTTP" class="headerlink" title="2.2 Web和HTTP"></a>2.2 Web和HTTP</h3><blockquote>
 <p>HTTP是无状态的</p>
 <p>HTTP1.0和1.1有何区别？</p>
-<p>HTTP1.0是非持久的</p>
-<p>HTTP1.0支持POST GET HEAD</p>
-<p>HTTP1.1 添加了PUT DELETE</p>
+<ul>
+<li><p>HTTP1.0是非持久的</p>
+</li>
+<li><p>HTTP1.0支持POST GET HEAD</p>
+</li>
+<li><p>HTTP1.1 添加了PUT DELETE</p>
+</li>
+</ul>
+<p>URL格式：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">协议:<span class="hljs-regexp">//</span>用户:口令@主机名<span class="hljs-regexp">/路径名/</span>端口<br></code></pre></td></tr></table></figure>
+
+
 </blockquote>
 <p>HTTP请求报文</p>
 <blockquote>
@@ -566,13 +575,175 @@
 </ul>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JV411t7ow?t=3531.2&amp;p=13">https://www.bilibili.com/video/BV1JV411t7ow?t=3531.2&amp;p=13</a></p>
-
+<p>FTP(建立在TCP之上)</p>
+<blockquote>
+<p>端口21传送控制指令</p>
+<p>端口20传送文件</p>
+<p>21端口是全程打开的</p>
+<p>是否使用端口20是与传输模式有关的</p>
+<p>主动方式的话是20端口</p>
+<p>被动方式是服务器和客户端自行协商端口，但是端口要&gt;1024</p>
+<p>FTP有两种传输模式：</p>
+<ul>
+<li>文本模式：ASCII模式</li>
+<li>二进制模式</li>
+</ul>
+</blockquote>
+<h3 id="2-3-电子邮件"><a href="#2-3-电子邮件" class="headerlink" title="2.3 电子邮件"></a>2.3 电子邮件</h3><blockquote>
+<ul>
+<li><p>SMTP协议(建立在TCP之上，端口号25)：</p>
+<p>规定了在两个相互通信的SMTP进程之间应如何交换信息</p>
+<p>SMTP规定了14条命令和21种应答信息</p>
+<p>缺点：</p>
+<ul>
+<li>不能传输可执行文件或者其他二进制对象</li>
+<li>只能传送7位的ASCII码，不能传送其他非英语国家的文字</li>
+<li>会拒绝超过一定长度的邮件</li>
+</ul>
+<p>如何解决？</p>
+<p>使用通用因特网邮件补充MIME，使电子邮件支持声音，图像，视频</p>
+<p>传输的三个阶段：</p>
+<ul>
+<li>握手</li>
+<li>传输报文</li>
+<li>关闭</li>
+</ul>
+</li>
+<li><p>POP3(建立在TCP之上，端口号110)</p>
+<p>工作方式有两种：</p>
+<ul>
+<li>下载并保留</li>
+<li>下载并删除</li>
+</ul>
+<p>分为两个阶段：</p>
+<ul>
+<li>用户确认阶段</li>
+<li>事务处理阶段</li>
+</ul>
+</li>
+<li><p>IMAP网际报文存取协议(143端口)</p>
+<p>比POP协议更加复杂，允许用户像对待本地邮箱那样操纵远程邮箱的邮件</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JV411t7ow?t=898.0&amp;p=16">https://www.bilibili.com/video/BV1JV411t7ow?t=898.0&amp;p=16</a></p>
+</li>
+</ul>
+</blockquote>
+<h3 id="2-4-DNS"><a href="#2-4-DNS" class="headerlink" title="2.4 DNS"></a>2.4 DNS</h3><blockquote>
+<p>顶级域名分为三类：</p>
+<ul>
+<li>国家顶级域名</li>
+<li>通用顶级域名</li>
+<li>基础结构域名&#x2F;反向域名：arpa</li>
+</ul>
+<p>域名服务器可分为哪几种？</p>
+<ul>
+<li>根服务器：存储着所有顶级域名服务器的地址</li>
+<li>顶级域名服务器：存储着该顶级域名服务器所有注册的二级域名</li>
+<li>权限域名服务器：负责一个区的域名服务器</li>
+<li>本地域名服务器</li>
+</ul>
+<p>域名解析过程可分为两种：</p>
+<ul>
+<li><p>递归查询(比较少用)</p>
+</li>
+<li><p>迭代查询</p>
+<p>由于递归查询对被查询的DNS服务器负担太大，因此通常是从请求主机到本地域名服务器的查询是递归查询，其余的是迭代查询。</p>
+</li>
+</ul>
+<p>区域名字服务器维护资源记录：</p>
+<p>(name,value,type,ttl)</p>
+<p>DNS报文：</p>
+<p><img src="/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20230408173551875.png" srcset="/img/loading.gif" lazyload alt="image-20230408173551875"></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JV411t7ow?t=2608.3&amp;p=17">https://www.bilibili.com/video/BV1JV411t7ow?t=2608.3&amp;p=17</a></p>
+<p>DNS 重定向攻击：</p>
+<p>又称DNS污染，是指用户向递归服务器发动DNS查询请求时，攻击者发送伪造的响应报文，从而让用户访问错误的IP。</p>
+<p>DNS反弹式拒绝服务攻击：</p>
+<p>指的是攻击者搜集大量的开放式递归DNS服务器，然后攻击者构造伪造的DNS请求，源IP为受害者IP查询的域名通常比较大，响应报文也比较大，从而达到攻击的目的。</p>
+</blockquote>
+<h3 id="2-5-P2P文件分发"><a href="#2-5-P2P文件分发" class="headerlink" title="2.5 P2P文件分发"></a>2.5 P2P文件分发</h3><blockquote>
+<p>p2p如何进行管理？</p>
+<ul>
+<li>非结构化p2p<ul>
+<li>集中化目录</li>
+</ul>
+</li>
+<li>DHT(结构化)p2p</li>
+</ul>
+</blockquote>
+<h3 id="2-6-视频流和内容分发网"><a href="#2-6-视频流和内容分发网" class="headerlink" title="2.6 视频流和内容分发网"></a>2.6 视频流和内容分发网</h3><h3 id="2-7-套接字编程"><a href="#2-7-套接字编程" class="headerlink" title="2.7 套接字编程"></a>2.7 套接字编程</h3><h2 id="三、运输层"><a href="#三、运输层" class="headerlink" title="三、运输层"></a>三、运输层</h2><h3 id="3-1-概述和运输层服务"><a href="#3-1-概述和运输层服务" class="headerlink" title="3.1 概述和运输层服务"></a>3.1 概述和运输层服务</h3><blockquote>
+<p>在两个不同的主机上运行的应用程序之间提供逻辑通信</p>
+</blockquote>
+<h3 id="3-2-多路复用和多路分解"><a href="#3-2-多路复用和多路分解" class="headerlink" title="3.2 多路复用和多路分解"></a>3.2 多路复用和多路分解</h3><blockquote>
+<p>TCP&#x2F;IP体系的运输层使用端口号区分不同的进程</p>
+<ul>
+<li>熟知端口号：0-1023端口号被分配给最重要的一些应用协议</li>
+<li>登记端口号：1024-49151端口号为没有熟知端口号的应用程序使用，使用这类端口必须在IANA按照规定的手续登记，防止重复，比如RDP</li>
+<li>短暂端口号：49152-65535端口号留给用户应用进程暂时使用</li>
+</ul>
+</blockquote>
+<h3 id="3-3-无连接运输：UDP"><a href="#3-3-无连接运输：UDP" class="headerlink" title="3.3 无连接运输：UDP"></a>3.3 无连接运输：UDP</h3><blockquote>
+<p>UDP(用户数据报协议)和TCP(传输控制协议)的对比：</p>
+<ul>
+<li>UDP是无连接的，TCP是面向连接的</li>
+<li>UDP支持单播，多播，广播，也就是支持一对一，一对多，一对全，TCP仅支持单播</li>
+<li>UDP是面向应用报文的，TCP是面向字节流发</li>
+<li><img src="/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20230406150614762.png" srcset="/img/loading.gif" lazyload alt="image-20230406150614762"></li>
+<li></li>
+</ul>
+</blockquote>
+<h3 id="3-4-可靠数据传输原理"><a href="#3-4-可靠数据传输原理" class="headerlink" title="3.4 可靠数据传输原理"></a>3.4 可靠数据传输原理</h3><h3 id="3-5-面向连接的运输：TCP"><a href="#3-5-面向连接的运输：TCP" class="headerlink" title="3.5 面向连接的运输：TCP"></a>3.5 面向连接的运输：TCP</h3><blockquote>
+<p>流量控制：就是让发送方的发送速率不要太快，要让接收方来得及接收，利用滑动窗口机制可以很方便的实现流量控制</p>
+</blockquote>
+<h3 id="3-6-拥塞控制原理"><a href="#3-6-拥塞控制原理" class="headerlink" title="3.6 拥塞控制原理"></a>3.6 拥塞控制原理</h3><blockquote>
+<p>有四种方法实现拥塞控制</p>
+<ul>
+<li>慢开始</li>
+<li>拥塞避免</li>
+<li>快重传</li>
+<li>快恢复</li>
+</ul>
+<p>判断出现网络拥塞的依据：超时重传</p>
+<p>拥塞窗口：cwnd</p>
+<p>发送窗口：swnd</p>
+<p>维护一个慢开始门限ssthresh的状态变量</p>
+<ul>
+<li>当cwnd&lt;ssthresh：使用慢开始</li>
+<li>当cwnd&gt;ssthresh：使用拥塞控制</li>
+<li>当swnd&#x3D;ssthresh：既可使用慢开始，也可使用拥塞控制</li>
+</ul>
+<p>当重传计时器超时，判断网络很可能发生了拥塞，接下来执行以下步骤：</p>
+<ul>
+<li>ssthresh变为发生拥塞时的一半</li>
+<li>cwnd变为1，重新执行慢开始算法</li>
+</ul>
+</blockquote>
+<h3 id="3-7-TCP拥塞控制"><a href="#3-7-TCP拥塞控制" class="headerlink" title="3.7 TCP拥塞控制"></a>3.7 TCP拥塞控制</h3>
                 
               </div>
             
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="category-chain-item">计算机基础知识</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
 </div>

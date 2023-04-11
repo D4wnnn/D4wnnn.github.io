@@ -16,16 +16,16 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="蓝桥杯https:&#x2F;&#x2F;programmercarl.com 一、搜索二、几何三、思维四、数据结构五、动态规划  如果一个问题有很多重叠子问题，那么适宜用动态规划 解题步骤： 确定dp数组以及下标的含义 确定递归公式 dp数组如何初始化 确定遍历顺序 举例推导dp数组     5.0 常见问题使用最小花费爬楼梯 给你一个整数数组 cost ，其中 cost[i] 是从楼梯第 i 个台阶向上爬需要支付">
+    <meta name="description" content="蓝桥杯https:&#x2F;&#x2F;programmercarl.com 一、搜索1.1 二分法 卡牌 - 蓝桥云课 (lanqiao.cn) 分析： 二分法的难点在于区间的原则，此后我们选择闭区间，最后打印的元素要根据实际题目变化 12345678910111213141516171819202122232425n, m &#x3D; map(int, input().split())ai &#x3D; list(map(int">
 <meta property="og:type" content="article">
 <meta property="og:title" content="蓝桥杯">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AF/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="蓝桥杯https:&#x2F;&#x2F;programmercarl.com 一、搜索二、几何三、思维四、数据结构五、动态规划  如果一个问题有很多重叠子问题，那么适宜用动态规划 解题步骤： 确定dp数组以及下标的含义 确定递归公式 dp数组如何初始化 确定遍历顺序 举例推导dp数组     5.0 常见问题使用最小花费爬楼梯 给你一个整数数组 cost ，其中 cost[i] 是从楼梯第 i 个台阶向上爬需要支付">
+<meta property="og:description" content="蓝桥杯https:&#x2F;&#x2F;programmercarl.com 一、搜索1.1 二分法 卡牌 - 蓝桥云课 (lanqiao.cn) 分析： 二分法的难点在于区间的原则，此后我们选择闭区间，最后打印的元素要根据实际题目变化 12345678910111213141516171819202122232425n, m &#x3D; map(int, input().split())ai &#x3D; list(map(int">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2023-02-28T13:15:38.000Z">
-<meta property="article:modified_time" content="2023-03-09T16:28:18.090Z">
+<meta property="article:modified_time" content="2023-04-11T13:12:09.081Z">
 <meta property="article:author" content="D4wn">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
@@ -270,7 +270,7 @@
         
         
         
-          100 分钟
+          104 分钟
         
       </span>
     
@@ -314,7 +314,13 @@
               <div class="markdown-body">
                 
                 <h1 id="蓝桥杯"><a href="#蓝桥杯" class="headerlink" title="蓝桥杯"></a>蓝桥杯</h1><p><a target="_blank" rel="noopener" href="https://programmercarl.com/">https://programmercarl.com</a></p>
-<h2 id="一、搜索"><a href="#一、搜索" class="headerlink" title="一、搜索"></a>一、搜索</h2><h2 id="二、几何"><a href="#二、几何" class="headerlink" title="二、几何"></a>二、几何</h2><h2 id="三、思维"><a href="#三、思维" class="headerlink" title="三、思维"></a>三、思维</h2><h2 id="四、数据结构"><a href="#四、数据结构" class="headerlink" title="四、数据结构"></a>四、数据结构</h2><h2 id="五、动态规划"><a href="#五、动态规划" class="headerlink" title="五、动态规划"></a>五、动态规划</h2><blockquote>
+<h2 id="一、搜索"><a href="#一、搜索" class="headerlink" title="一、搜索"></a>一、搜索</h2><h3 id="1-1-二分法"><a href="#1-1-二分法" class="headerlink" title="1.1 二分法"></a>1.1 二分法</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.lanqiao.cn/problems/2191/learning/">卡牌 - 蓝桥云课 (lanqiao.cn)</a></p>
+<p>分析：</p>
+<p>二分法的难点在于区间的原则，此后我们选择闭区间，最后打印的元素要根据实际题目变化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python">n, m = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>, <span class="hljs-built_in">input</span>().split())<br>ai = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>, <span class="hljs-built_in">input</span>().split()))<br>bi = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>, <span class="hljs-built_in">input</span>().split()))<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">check</span>(<span class="hljs-params">mid: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>    buf = m<br>    <span class="hljs-keyword">for</span> k, i <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(ai):<br>        <span class="hljs-comment"># 符合</span><br>        <span class="hljs-keyword">if</span> ai[k] &gt;= mid: <span class="hljs-keyword">continue</span><br>        <span class="hljs-keyword">if</span> ai[k] + bi[k] &lt; mid <span class="hljs-keyword">or</span> mid - ai[i] &gt; buf:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        <span class="hljs-keyword">else</span>:<br>            buf -= (mid - ai[i])<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br><br>l, r = <span class="hljs-number">0</span>, <span class="hljs-number">2</span> * n<br><span class="hljs-keyword">while</span> l &lt;= r:<br>    mid = (l + r) // <span class="hljs-number">2</span><br>    <span class="hljs-keyword">if</span> check(mid):<br>        l = mid + <span class="hljs-number">1</span><br>    <span class="hljs-keyword">else</span>:<br>        r = mid - <span class="hljs-number">1</span><br><span class="hljs-built_in">print</span>(r)<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="1-2-BFS"><a href="#1-2-BFS" class="headerlink" title="1.2 BFS"></a>1.2 BFS</h3><h3 id="1-3-DFS"><a href="#1-3-DFS" class="headerlink" title="1.3 DFS"></a>1.3 DFS</h3><h2 id="二、几何"><a href="#二、几何" class="headerlink" title="二、几何"></a>二、几何</h2><h2 id="三、思维"><a href="#三、思维" class="headerlink" title="三、思维"></a>三、思维</h2><h2 id="四、数据结构"><a href="#四、数据结构" class="headerlink" title="四、数据结构"></a>四、数据结构</h2><h2 id="五、动态规划"><a href="#五、动态规划" class="headerlink" title="五、动态规划"></a>五、动态规划</h2><blockquote>
 <ul>
 <li>如果一个问题有很多重叠子问题，那么适宜用动态规划</li>
 <li>解题步骤：<ul>
@@ -537,13 +543,34 @@
 </ul>
 <p>其实只要搞清楚局部最优是什么就好了</p>
 </blockquote>
-<h2 id="八、字符串"><a href="#八、字符串" class="headerlink" title="八、字符串"></a>八、字符串</h2><h2 id="九、图论"><a href="#九、图论" class="headerlink" title="九、图论"></a>九、图论</h2><h2 id="十、数论"><a href="#十、数论" class="headerlink" title="十、数论"></a>十、数论</h2>
+<h2 id="八、字符串"><a href="#八、字符串" class="headerlink" title="八、字符串"></a>八、字符串</h2>
                 
               </div>
             
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
 </div>

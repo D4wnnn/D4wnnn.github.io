@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2023-02-28T02:50:45.000Z">
-<meta property="article:modified_time" content="2023-03-28T11:12:43.016Z">
+<meta property="article:modified_time" content="2023-04-11T13:12:20.075Z">
 <meta property="article:author" content="D4wn">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
@@ -259,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          3.6k 字
         
       </span>
     
@@ -270,7 +270,7 @@
         
         
         
-          17 分钟
+          30 分钟
         
       </span>
     
@@ -442,18 +442,181 @@
 <p><code>select * from employees limit 3 offset 4</code></p>
 <p>注意:limit语句必须放在整个select语句的最后</p>
 </blockquote>
-<h2 id="六、多表查询"><a href="#六、多表查询" class="headerlink" title="六、多表查询"></a>六、多表查询</h2><h2 id="七、单行函数"><a href="#七、单行函数" class="headerlink" title="七、单行函数"></a>七、单行函数</h2><h2 id="八、聚合函数"><a href="#八、聚合函数" class="headerlink" title="八、聚合函数"></a>八、聚合函数</h2><h2 id="九、子查询"><a href="#九、子查询" class="headerlink" title="九、子查询"></a>九、子查询</h2><h2 id="十、创建和管理类"><a href="#十、创建和管理类" class="headerlink" title="十、创建和管理类"></a>十、创建和管理类</h2><h2 id="十一、数据处理之增删改"><a href="#十一、数据处理之增删改" class="headerlink" title="十一、数据处理之增删改"></a>十一、数据处理之增删改</h2><h2 id="十二、MySQL数据类型精讲"><a href="#十二、MySQL数据类型精讲" class="headerlink" title="十二、MySQL数据类型精讲"></a>十二、MySQL数据类型精讲</h2><h2 id="十三、数据库关系模型"><a href="#十三、数据库关系模型" class="headerlink" title="十三、数据库关系模型"></a>十三、数据库关系模型</h2><h3 id="13-2-关系模型的原理"><a href="#13-2-关系模型的原理" class="headerlink" title="13.2 关系模型的原理"></a>13.2 关系模型的原理</h3><h4 id="13-2-3-数据完整性约束"><a href="#13-2-3-数据完整性约束" class="headerlink" title="13.2.3 数据完整性约束"></a>13.2.3 数据完整性约束</h4><p>实体完整性</p>
-<blockquote>
-<p>实体完整性约束规则：</p>
-<p>没有复合外键</p>
+<h2 id="十三、数据库操作SQL语言"><a href="#十三、数据库操作SQL语言" class="headerlink" title="十三、数据库操作SQL语言"></a>十三、数据库操作SQL语言</h2><h3 id="13-1-SQL语言概述"><a href="#13-1-SQL语言概述" class="headerlink" title="13.1 SQL语言概述"></a>13.1 SQL语言概述</h3><blockquote>
+<p>SQL语言特点：</p>
+<ul>
+<li>一体化</li>
+<li>使用方式灵活</li>
+<li>非过程化</li>
+<li>语言语句简单</li>
+</ul>
 </blockquote>
-<h2 id="十四、数据库操作原因"><a href="#十四、数据库操作原因" class="headerlink" title="十四、数据库操作原因"></a>十四、数据库操作原因</h2>
+<h3 id="13-2-数据定义SQL语句DDL"><a href="#13-2-数据定义SQL语句DDL" class="headerlink" title="13.2 数据定义SQL语句DDL"></a>13.2 数据定义SQL语句DDL</h3><blockquote>
+<p>数据库相关</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> database xxx;<br><span class="hljs-keyword">alter</span> database xxx rename <span class="hljs-keyword">to</span> yyy;<br><span class="hljs-keyword">drop</span> database yyy;<br></code></pre></td></tr></table></figure>
+
+<p>表相关</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> xxx (列名 数据类型 [类完整性约束],<br>                  列名 数据类型 [类完整性约束],<br>                  列名 数据类型 [类完整性约束]);<br><span class="hljs-keyword">primary</span> key,<span class="hljs-keyword">null</span>,<span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>,<span class="hljs-keyword">default</span>,<span class="hljs-keyword">unique</span>,<span class="hljs-keyword">check</span><br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> xxx rename <span class="hljs-keyword">to</span> yyy;<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> xxx rename 原列名 <span class="hljs-keyword">to</span> 新列名;<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">add</span> 新列名 数据类型 约束;<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> xxx <span class="hljs-keyword">alter</span> <span class="hljs-keyword">column</span> yyy type 新的数据类型;<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">drop</span> <span class="hljs-keyword">column</span> 列名;<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">drop</span> <span class="hljs-keyword">constraint</span> 约束名;<br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">table</span> yyy;<br></code></pre></td></tr></table></figure>
+
+<p>使用列约束关键词<code>primary key</code>只能定义单列主键。若要定义复合主键，只能使用表约束，比如</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> xxx (列名 数据类型 [类完整性约束],<br>                  列名 数据类型 [类完整性约束],<br>                  列名 数据类型 [类完整性约束]<br><span class="hljs-keyword">constraint</span> 约束名 <span class="hljs-keyword">primary</span> key(主键列));<br></code></pre></td></tr></table></figure>
+
+<p>如何设置代理键？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> xxx (<br>    			  代理键列名 <span class="hljs-operator">&lt;</span>Serial 数据类型<span class="hljs-operator">&gt;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>,<br>    			  列名 数据类型 [类完整性约束],<br>                  列名 数据类型 [类完整性约束],<br>                  列名 数据类型 [类完整性约束]<br><span class="hljs-keyword">constraint</span> 约束名 <span class="hljs-keyword">primary</span> key(代理键列名);<br></code></pre></td></tr></table></figure>
+
+<p>定义外键</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> xxx (列名 数据类型 [类完整性约束],<br>                  列名 数据类型 [类完整性约束],<br>                  列名 数据类型 [类完整性约束]<br><span class="hljs-keyword">constraint</span> 约束名 <span class="hljs-keyword">foreign</span> key(外键列));<br></code></pre></td></tr></table></figure>
+
+<p>创建索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> index 索引名 <span class="hljs-keyword">on</span> 表名 (列名)<br></code></pre></td></tr></table></figure>
+
+<p>修改索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">alter</span> index 索引名 rename <span class="hljs-keyword">to</span> 新索引名;<br></code></pre></td></tr></table></figure>
+
+<p>删除索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">drop</span> index 索引名;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="13-3-数据操纵SQL语句DML"><a href="#13-3-数据操纵SQL语句DML" class="headerlink" title="13.3 数据操纵SQL语句DML"></a>13.3 数据操纵SQL语句DML</h3><blockquote>
+<p>数据插入</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> 视图名<span class="hljs-operator">/</span>表名 [列名] <span class="hljs-keyword">values</span> (列值表)<br></code></pre></td></tr></table></figure>
+
+<p>数据更新</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">update</span> 视图名<span class="hljs-operator">/</span>表名 <span class="hljs-keyword">set</span> 列名<span class="hljs-operator">=</span>值 [<span class="hljs-keyword">where</span> ...]<br></code></pre></td></tr></table></figure>
+
+<p>数据删除</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> 视图名<span class="hljs-operator">/</span>表名 [<span class="hljs-keyword">where</span>]<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="13-4-数据查询SQL语句DQL"><a href="#13-4-数据查询SQL语句DQL" class="headerlink" title="13.4 数据查询SQL语句DQL"></a>13.4 数据查询SQL语句DQL</h3><blockquote>
+<p>单表数据查询</p>
+<p><a target="_blank" rel="noopener" href="https://www.xuetangx.com/learn/EST08091001150/EST08091001150/14767710/video/30164525?channel=i.area.learn_title">数据库系统原理与开发 - 电子科技大学 - 学堂在线 (xuetangx.com)</a></p>
+</blockquote>
+<h3 id="13-5-数据控制SQL语句DCL"><a href="#13-5-数据控制SQL语句DCL" class="headerlink" title="13.5 数据控制SQL语句DCL"></a>13.5 数据控制SQL语句DCL</h3><h3 id="13-6-视图SQL语句"><a href="#13-6-视图SQL语句" class="headerlink" title="13.6 视图SQL语句"></a>13.6 视图SQL语句</h3><h3 id="13-7-Postgresql数据库SQL实践"><a href="#13-7-Postgresql数据库SQL实践" class="headerlink" title="13.7 Postgresql数据库SQL实践"></a>13.7 Postgresql数据库SQL实践</h3><h2 id="十四、数据库设计与实现"><a href="#十四、数据库设计与实现" class="headerlink" title="十四、数据库设计与实现"></a>十四、数据库设计与实现</h2><h3 id="14-1-数据库设计概述"><a href="#14-1-数据库设计概述" class="headerlink" title="14.1 数据库设计概述"></a>14.1 数据库设计概述</h3><blockquote>
+<p>数据库应用架构可分为四种：</p>
+<ul>
+<li>单用户结构</li>
+<li>集中式结构</li>
+<li>客户端&#x2F;服务器结构</li>
+<li>分布式结构</li>
+</ul>
+<p>数据库结构模型设计分为三种：</p>
+<ul>
+<li>概念模型</li>
+<li>逻辑模型</li>
+<li>物理模型</li>
+</ul>
+<p>数据库应用访问方式设计：</p>
+<ul>
+<li>基于本地接口</li>
+<li>基于标准接口</li>
+<li>基于数据访问层框架</li>
+</ul>
+</blockquote>
+<h3 id="14-2-E-R模型"><a href="#14-2-E-R模型" class="headerlink" title="14.2 E-R模型"></a>14.2 E-R模型</h3><blockquote>
+<p>E-R模型：实体-联系模型</p>
+<p>标识符：表示不同实体实例的属性，标识符可以是一个或多个属性</p>
+<p>标识符和主键的区别是标识符是一个逻辑概念，主键是一个物理概念</p>
+<p>鸟足版本的实体-联系符号含义</p>
+<p><img src="/2023/02/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/image-20230406104149407.png" srcset="/img/loading.gif" lazyload alt="image-20230406104149407"></p>
+<p>在继承性联系中，可分为两种：</p>
+<ul>
+<li>互斥性继承联系</li>
+<li>非互斥性继承联系</li>
+</ul>
+<p>继承性联系还有另一种分类：</p>
+<ul>
+<li>完整继承联系</li>
+<li>非完整继承联系</li>
+</ul>
+<p>继承联系的图形符号：</p>
+<p><img src="/2023/02/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/image-20230406104714468.png" srcset="/img/loading.gif" lazyload alt="image-20230406104714468"></p>
+<p>按照语义联系可分为两种：</p>
+<ul>
+<li>强实体</li>
+<li>弱实体<ul>
+<li>标识符依赖</li>
+<li>非标识符依赖</li>
+</ul>
+</li>
+</ul>
+<p>如果弱实体的标识符中含有所依赖实体的标识符，则称为标识符依赖弱实体</p>
+<p>如果弱实体的标识符中不含有所依赖实体的标识符，则称为非标识符依赖弱实体</p>
+</blockquote>
+<h3 id="14-3-数据库建模设计"><a href="#14-3-数据库建模设计" class="headerlink" title="14.3 数据库建模设计"></a>14.3 数据库建模设计</h3><blockquote>
+<p>概念数据模型设计步骤：</p>
+<ul>
+<li>业务数据分析，抽取数据实体</li>
+<li>定义实体属性及标识</li>
+<li>建立实体联系，构建局部ER图</li>
+<li>分类、聚集、概括各个部分ER模型图</li>
+<li>完善全局ER图，建立系统业务数据组成结构</li>
+</ul>
+<p>数据模型元素对应关系：</p>
+<table>
+<thead>
+<tr>
+<th>CDM</th>
+<th>LDM</th>
+<th>PDM</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>实体</td>
+<td>实体</td>
+<td>表</td>
+</tr>
+<tr>
+<td>属性</td>
+<td>属性</td>
+<td>列</td>
+</tr>
+<tr>
+<td>标识符</td>
+<td>标识符</td>
+<td>主键、外键</td>
+</tr>
+<tr>
+<td>联系</td>
+<td>联系</td>
+<td>参照完整性约束</td>
+</tr>
+</tbody></table>
+</blockquote>
+<h3 id="14-4-数据库规范化设计"><a href="#14-4-数据库规范化设计" class="headerlink" title="14.4 数据库规范化设计"></a>14.4 数据库规范化设计</h3><blockquote>
+<p>为什么需要规范化数据库设计？</p>
+<ul>
+<li>减少数据库中的冗余数据，尽量使同一数据在数据库中仅保存一份，有效降低维护数据一致性的工作量。</li>
+<li>设计合理的表间依赖关系和约束关系，便于实现数据完整性和一致性。</li>
+<li>设计合理的数据库结构，便于系统对数据的高效访问处理。</li>
+</ul>
+</blockquote>
+
                 
               </div>
             
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="category-chain-item">计算机基础知识</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
 </div>
@@ -525,8 +688,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/01/17/ret2shellcode-ctf-wiki/" title="ret2shellcode-ctf-wiki">
-                        <span class="hidden-mobile">ret2shellcode-ctf-wiki</span>
+                      <a href="/2023/01/17/Ret2shellcode-64%E4%BD%8D%E5%AE%9E%E4%BE%8B/" title="Ret2shellcode-64位实例">
+                        <span class="hidden-mobile">Ret2shellcode-64位实例</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
