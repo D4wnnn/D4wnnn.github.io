@@ -16,16 +16,16 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="Node.js">
   
-    <meta name="description" content="初识Node.js前置知识 待执行的JS代码通过JS解析引擎被浏览器执行  不同的浏览器JS解析引擎不同  Chrome的为V8(性能最好)  Firefox的为OdinMonkey(奥丁猴)    为什么JS可以执行DOM和BOM 每个浏览器内置了DOM API,BOM API,Ajax API,JS可以调用他们  什么是Node.js Node.js是一个基于Chrome的V8引擎的JS运行环">
+    <meta name="description" content="初识Node.jshttps:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1a34y167AZ?p&#x3D;6&amp;spm_id_from&#x3D;pageDriver&amp;vd_source&#x3D;bf133d296119691c661008e881da330a&amp;t&#x3D;681.2 一、前置知识 待执行的JS代码通过JS解析引擎被浏览器执行  不同的浏览器JS解析引擎不同  Chrome的为V8">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初识Node.js">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/10/04/%E5%88%9D%E8%AF%86Node-js/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="初识Node.js前置知识 待执行的JS代码通过JS解析引擎被浏览器执行  不同的浏览器JS解析引擎不同  Chrome的为V8(性能最好)  Firefox的为OdinMonkey(奥丁猴)    为什么JS可以执行DOM和BOM 每个浏览器内置了DOM API,BOM API,Ajax API,JS可以调用他们  什么是Node.js Node.js是一个基于Chrome的V8引擎的JS运行环">
+<meta property="og:description" content="初识Node.jshttps:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1a34y167AZ?p&#x3D;6&amp;spm_id_from&#x3D;pageDriver&amp;vd_source&#x3D;bf133d296119691c661008e881da330a&amp;t&#x3D;681.2 一、前置知识 待执行的JS代码通过JS解析引擎被浏览器执行  不同的浏览器JS解析引擎不同  Chrome的为V8">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-10-03T17:01:05.000Z">
-<meta property="article:modified_time" content="2023-02-28T09:12:20.374Z">
+<meta property="article:modified_time" content="2023-04-20T05:09:08.362Z">
 <meta property="article:author" content="D4wn">
 <meta property="article:tag" content="Node.js">
 <meta name="twitter:card" content="summary_large_image">
@@ -260,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          512 字
+          1.4k 字
         
       </span>
     
@@ -271,7 +271,7 @@
         
         
         
-          5 分钟
+          13 分钟
         
       </span>
     
@@ -314,7 +314,8 @@
             
               <div class="markdown-body">
                 
-                <h1 id="初识Node-js"><a href="#初识Node-js" class="headerlink" title="初识Node.js"></a>初识Node.js</h1><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><p><img src="/2022/10/04/%E5%88%9D%E8%AF%86Node-js/image-20221004010324506.png" srcset="/img/loading.gif" lazyload alt="image-20221004010324506"></p>
+                <h1 id="初识Node-js"><a href="#初识Node-js" class="headerlink" title="初识Node.js"></a>初识Node.js</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1a34y167AZ?p=6&amp;spm_id_from=pageDriver&amp;vd_source=bf133d296119691c661008e881da330a&amp;t=681.2">https://www.bilibili.com/video/BV1a34y167AZ?p=6&amp;spm_id_from=pageDriver&amp;vd_source=bf133d296119691c661008e881da330a&amp;t=681.2</a></p>
+<h2 id="一、前置知识"><a href="#一、前置知识" class="headerlink" title="一、前置知识"></a>一、前置知识</h2><p><img src="/2022/10/04/%E5%88%9D%E8%AF%86Node-js/image-20221004010324506.png" srcset="/img/loading.gif" lazyload alt="image-20221004010324506"></p>
 <p>待执行的JS代码通过JS解析引擎被浏览器执行</p>
 <ul>
 <li><p>不同的浏览器JS解析引擎不同</p>
@@ -338,12 +339,22 @@
 <p><img src="/2022/10/04/%E5%88%9D%E8%AF%86Node-js/image-20221004012615415.png" srcset="/img/loading.gif" lazyload alt="image-20221004012615415"></p>
 <h2 id="使用Node-js执行JS代码"><a href="#使用Node-js执行JS代码" class="headerlink" title="使用Node.js执行JS代码"></a>使用Node.js执行JS代码</h2><p><code>node js文件</code></p>
 <p>使用<code>esc</code> 能快速清楚当前输入的命令</p>
-<h2 id="fs系统模块"><a href="#fs系统模块" class="headerlink" title="fs系统模块"></a>fs系统模块</h2><p>fs模块是Node.js官方提供的用来操作文件的模块</p>
+<h2 id="二、fs系统模块"><a href="#二、fs系统模块" class="headerlink" title="二、fs系统模块"></a>二、fs系统模块</h2><blockquote>
+<p>fs模块是Node.js官方提供的用来操作文件的模块</p>
 <p>但是要提前导入:<code>const fs = require(&#39;fs&#39;)</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">fs.<span class="hljs-title function_">readFile</span>()<br>fs.<span class="hljs-title function_">writeFile</span>()<br></code></pre></td></tr></table></figure>
+</blockquote>
+<p>Demo：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js">读取文件<br><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);<br>fs.<span class="hljs-title function_">readFile</span>(__dirname + <span class="hljs-string">&#x27;/a.txt&#x27;</span>, <span class="hljs-string">&#x27;utf-8&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">err, dataStr</span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err);<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(dataStr);<br>&#125;)<br>写入文件<br><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);<br>fs.<span class="hljs-title function_">writeFile</span>(__dirname + <span class="hljs-string">&#x27;/a.txt&#x27;</span>, <span class="hljs-string">&#x27;newData&#x27;</span>,<span class="hljs-string">&#x27;utf-8&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) &#123;<br>    <span class="hljs-comment">//只能用来创建文件，不能用来创建目录</span><br>    <span class="hljs-keyword">if</span>(err)&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">message</span>);<br>    &#125;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;success&#x27;</span>);<br>&#125;)<br><span class="hljs-comment">//__dirname代表当前文件的路径</span><br></code></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1a34y167AZ?p=6&amp;spm_id_from=pageDriver&amp;vd_source=bf133d296119691c661008e881da330a&amp;t=681.2">https://www.bilibili.com/video/BV1a34y167AZ?p=6&amp;spm_id_from=pageDriver&amp;vd_source=bf133d296119691c661008e881da330a&amp;t=681.2</a></p>
+<h2 id="三、path路径模块"><a href="#三、path路径模块" class="headerlink" title="三、path路径模块"></a>三、path路径模块</h2><blockquote>
+<p>path是NodeJS官方提供的用来处理路径的模块，满足用户对路径的需求</p>
+</blockquote>
+<p>Demo：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);<br><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>)<br><span class="hljs-keyword">const</span> fPath = path.<span class="hljs-title function_">join</span>(__dirname, <span class="hljs-string">&#x27;/a.txt&#x27;</span>)<br>fs.<span class="hljs-title function_">writeFile</span>(fPath, <span class="hljs-string">&#x27;newData&#x27;</span>, <span class="hljs-string">&#x27;utf-8&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) &#123;<br>    <span class="hljs-comment">//合并路径</span><br>    <span class="hljs-keyword">if</span> (err) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">message</span>);<br>    &#125;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-title function_">basename</span>(fPath) + <span class="hljs-string">&#x27;写入成功&#x27;</span>);<span class="hljs-comment">//获取文件名</span><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-title function_">basename</span>(fPath, path.<span class="hljs-title function_">extname</span>(fPath)) + <span class="hljs-string">&#x27;写入成功&#x27;</span>);<br>    <span class="hljs-comment">//获取无后缀的拓展名</span><br>&#125;)<br><span class="hljs-comment">//a.txt写入成功</span><br><span class="hljs-comment">//a写入成功</span><br></code></pre></td></tr></table></figure>
 
+
+
+<h2 id="四、http模块"><a href="#四、http模块" class="headerlink" title="四、http模块"></a>四、http模块</h2><h2 id="五、模块化"><a href="#五、模块化" class="headerlink" title="五、模块化"></a>五、模块化</h2>
                 
               </div>
             

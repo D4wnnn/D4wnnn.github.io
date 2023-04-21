@@ -16,16 +16,16 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="操作系统一、操作系统引论1.1 操作系统的目标和作用 联机命令接口：交互式命令接口 脱机命令接口：批处理命令接口 裸机：没有任何软件支持的计算机  1.2 操作系统的发展过程  手工操作阶段 缺点： 用户独占全机 cpu等待人工操作 人机速度矛盾导致资源利用率低     批处理阶段 单道批处理系统 多道批处理系统(操作系统开始出现)   分时操作系统 实时操作系统   1.3 操作系统的基本特性">
+    <meta name="description" content="操作系统一、操作系统引论1.1 操作系统的目标和作用 联机命令接口：交互式命令接口 脱机命令接口：批处理命令接口 裸机：没有任何软件支持的计算机 操作系统的目标：  方便性 有效性 可拓展性 开放性   1.2 操作系统的发展过程  手工操作阶段  缺点： 用户独占全机 cpu等待人工操作 人机速度矛盾导致资源利用率低     批处理阶段  单道批处理系统 特征：自动性、顺序性、单道性 缺点：资源">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作系统">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/03/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="操作系统一、操作系统引论1.1 操作系统的目标和作用 联机命令接口：交互式命令接口 脱机命令接口：批处理命令接口 裸机：没有任何软件支持的计算机  1.2 操作系统的发展过程  手工操作阶段 缺点： 用户独占全机 cpu等待人工操作 人机速度矛盾导致资源利用率低     批处理阶段 单道批处理系统 多道批处理系统(操作系统开始出现)   分时操作系统 实时操作系统   1.3 操作系统的基本特性">
+<meta property="og:description" content="操作系统一、操作系统引论1.1 操作系统的目标和作用 联机命令接口：交互式命令接口 脱机命令接口：批处理命令接口 裸机：没有任何软件支持的计算机 操作系统的目标：  方便性 有效性 可拓展性 开放性   1.2 操作系统的发展过程  手工操作阶段  缺点： 用户独占全机 cpu等待人工操作 人机速度矛盾导致资源利用率低     批处理阶段  单道批处理系统 特征：自动性、顺序性、单道性 缺点：资源">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2023-02-28T16:34:05.000Z">
-<meta property="article:modified_time" content="2023-04-11T13:14:43.853Z">
+<meta property="article:modified_time" content="2023-04-19T06:26:14.563Z">
 <meta property="article:author" content="D4wn">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
@@ -259,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.3k 字
+          11k 字
         
       </span>
     
@@ -270,7 +270,7 @@
         
         
         
-          45 分钟
+          89 分钟
         
       </span>
     
@@ -317,10 +317,18 @@
 <p>联机命令接口：交互式命令接口</p>
 <p>脱机命令接口：批处理命令接口</p>
 <p>裸机：没有任何软件支持的计算机</p>
+<p>操作系统的目标：</p>
+<ul>
+<li>方便性</li>
+<li>有效性</li>
+<li>可拓展性</li>
+<li>开放性</li>
+</ul>
 </blockquote>
 <h3 id="1-2-操作系统的发展过程"><a href="#1-2-操作系统的发展过程" class="headerlink" title="1.2 操作系统的发展过程"></a>1.2 操作系统的发展过程</h3><blockquote>
 <ul>
-<li>手工操作阶段<ul>
+<li><p>手工操作阶段</p>
+<ul>
 <li>缺点：<ul>
 <li>用户独占全机</li>
 <li>cpu等待人工操作</li>
@@ -329,13 +337,24 @@
 </li>
 </ul>
 </li>
-<li>批处理阶段<ul>
-<li>单道批处理系统</li>
-<li>多道批处理系统(操作系统开始出现)</li>
+<li><p>批处理阶段</p>
+<ul>
+<li><p>单道批处理系统</p>
+<p>特征：自动性、顺序性、单道性</p>
+<p>缺点：资源利用率不高、平均周转时间长、没有交互能力</p>
+</li>
+<li><p>多道批处理系统(操作系统开始出现)</p>
+<p>特征：调度性、无序性、多道性</p>
+<p>缺点：平均周转时间长、没有交互能力</p>
+</li>
 </ul>
 </li>
-<li>分时操作系统</li>
-<li>实时操作系统</li>
+<li><p>分时操作系统</p>
+<p>特征：多路性、独立性、及时性、交互性</p>
+</li>
+<li><p>实时操作系统</p>
+<p>特征：多路性、独立性、交互性、可靠性、及时性</p>
+</li>
 </ul>
 </blockquote>
 <h3 id="1-3-操作系统的基本特性"><a href="#1-3-操作系统的基本特性" class="headerlink" title="1.3 操作系统的基本特性"></a>1.3 操作系统的基本特性</h3><blockquote>
@@ -368,7 +387,42 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="1-4-操作系统的主要功能"><a href="#1-4-操作系统的主要功能" class="headerlink" title="1.4 操作系统的主要功能"></a>1.4 操作系统的主要功能</h3><h3 id="1-5-操作系统的体系结构"><a href="#1-5-操作系统的体系结构" class="headerlink" title="1.5 操作系统的体系结构"></a>1.5 操作系统的体系结构</h3><blockquote>
+<h3 id="1-4-操作系统的主要功能"><a href="#1-4-操作系统的主要功能" class="headerlink" title="1.4 操作系统的主要功能"></a>1.4 操作系统的主要功能</h3><blockquote>
+<ul>
+<li>处理机管理功能<ul>
+<li>进程控制</li>
+<li>进程同步</li>
+<li>进程通信</li>
+<li>调度</li>
+</ul>
+</li>
+<li>存储器管理<ul>
+<li>内存分配</li>
+<li>内存保护</li>
+<li>地址映射</li>
+<li>内存扩充</li>
+</ul>
+</li>
+<li>设备管理<ul>
+<li>缓冲管理</li>
+<li>设备分配</li>
+<li>设备处理</li>
+</ul>
+</li>
+<li>文件管理<ul>
+<li>文件存储空间的管理</li>
+<li>目录管理</li>
+<li>文件的读&#x2F;写管理和保护</li>
+</ul>
+</li>
+<li>操作系统与用户之间的接口<ul>
+<li>用户接口</li>
+<li>程序接口</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="1-5-操作系统的体系结构"><a href="#1-5-操作系统的体系结构" class="headerlink" title="1.5 操作系统的体系结构"></a>1.5 操作系统的体系结构</h3><blockquote>
 <ul>
 <li>无结构操作系统</li>
 <li>模块结构OS</li>
@@ -385,10 +439,23 @@
 <li>不可再现性</li>
 <li>失去封闭性</li>
 </ul>
+<p>程序顺序执行时的特征：</p>
+<ul>
+<li>顺序性</li>
+<li>封闭性</li>
+<li>可再现性</li>
+</ul>
 </blockquote>
 <h3 id="2-2-进程的描述"><a href="#2-2-进程的描述" class="headerlink" title="2.2 进程的描述"></a>2.2 进程的描述</h3><h4 id="2-2-1-进程的定义和特征"><a href="#2-2-1-进程的定义和特征" class="headerlink" title="2.2.1 进程的定义和特征"></a>2.2.1 进程的定义和特征</h4><blockquote>
-<p>进程：进程是程序的一次执行</p>
-<p>进程是系统进行资源分配和调度的一个基本单位</p>
+<p>进程：进程是程序的一次执行，进程是系统进行资源分配和调度的一个基本单位</p>
+<p>特征：</p>
+<ul>
+<li>结构性</li>
+<li>动态性：是进程最基本的特征，也就是有生命周期。</li>
+<li>并发性</li>
+<li>独立性</li>
+<li>异步性</li>
+</ul>
 </blockquote>
 <p>PCB</p>
 <blockquote>
@@ -397,26 +464,18 @@
 <p>PCB是进程存在的唯一标志。</p>
 <p>PCB的内容：</p>
 <ul>
-<li>进程描述信息<ul>
-<li>PID</li>
-<li>UID</li>
+<li>进程标识符</li>
+<li>处理机状态：主要是由处理机的各种寄存器中的内容组成，比如通用寄存器，程序计数器，程序状态字PSW，用户栈指针</li>
+<li>进程的调度信息：比如进程的状态，进程的优先级，堵塞的原因</li>
+<li>进程的控制信息：比如程序和数据的地址，进程同步和通信机制，资源清单，链接指针</li>
 </ul>
-</li>
-<li>进程控制和管理信息<ul>
-<li>CPU、磁盘、网络使用信息</li>
-<li>进程当前状态</li>
-</ul>
-</li>
-<li>资源分配清单<ul>
-<li>正在使用哪些文件</li>
-<li>正在使用哪些内存</li>
-<li>正在使用哪些IO</li>
-</ul>
-</li>
-<li>处理机相关<ul>
-<li>比如各种寄存器的值</li>
-</ul>
-</li>
+<p>PCB的作用：</p>
+<ul>
+<li>是进程存在的唯一标志</li>
+<li>能实现间断性运行方式</li>
+<li>提供进程管理所需要的信息</li>
+<li>提供进程调度所需要的信息</li>
+<li>实现与其他进程的同步与通信</li>
 </ul>
 </blockquote>
 <p>进程的结构</p>
@@ -430,19 +489,6 @@
 <li>PCB：PCB是给操作系统用的，程序段和数据段是程序自己用的</li>
 </ul>
 </blockquote>
-<p>进程的特征</p>
-<blockquote>
-<ul>
-<li><p>动态性：是进程最基本的特征，也就是有生命周期</p>
-</li>
-<li><p>并发性</p>
-</li>
-<li><p>独立性</p>
-</li>
-<li><p>异步性</p>
-</li>
-</ul>
-</blockquote>
 <h4 id="2-2-2-进程的基本状态及切换"><a href="#2-2-2-进程的基本状态及切换" class="headerlink" title="2.2.2 进程的基本状态及切换"></a>2.2.2 进程的基本状态及切换</h4><blockquote>
 <p>进程的三种基本装填</p>
 <ul>
@@ -452,28 +498,37 @@
 </ul>
 <p><img src="/2023/03/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/image-20230306201505467.png" srcset="/img/loading.gif" lazyload alt="image-20230306201505467"></p>
 </blockquote>
-<h4 id="2-2-3-进程的组织"><a href="#2-2-3-进程的组织" class="headerlink" title="2.2.3 进程的组织"></a>2.2.3 进程的组织</h4><p>链接方式：</p>
-<p>按照进程状态，将PCB分为多个队列</p>
-<blockquote>
+<h4 id="2-2-3-进程的组织-PCB的组织"><a href="#2-2-3-进程的组织-PCB的组织" class="headerlink" title="2.2.3 进程的组织(PCB的组织)"></a>2.2.3 进程的组织(PCB的组织)</h4><blockquote>
 <ul>
+<li>线性方式</li>
+<li>链接方式：按照进程状态，将PCB分为多个队列<ul>
 <li>执行指针</li>
 <li>就绪队列指针</li>
 <li>阻塞队列指针</li>
 </ul>
-</blockquote>
-<p>索引方式：</p>
-<p>根据进程状态的不同，建立几张索引表</p>
-<blockquote>
-<ul>
+</li>
+<li>索引方式：根据进程状态的不同，建立几张索引表<ul>
 <li>执行指针</li>
 <li>就绪表指针</li>
 <li>阻塞表指针</li>
 </ul>
+</li>
+</ul>
 </blockquote>
 <h3 id="2-3-进程控制"><a href="#2-3-进程控制" class="headerlink" title="2.3 进程控制"></a>2.3 进程控制</h3><blockquote>
-<p>进程控制就是实现进程状态的转换</p>
+<p>进程控制：就是实现进程状态的转换</p>
 <p>原语：是一种特殊的程序，它的执行具有原子性</p>
 <p>进程的控制用原语实现</p>
+<p>处理机的执行态：</p>
+<ul>
+<li>系统态，又称管态，也称为内核态</li>
+<li>用户态，也称目态</li>
+</ul>
+<p>OS内核包含两大功能：</p>
+<ul>
+<li>支撑功能</li>
+<li>资源管理功能</li>
+</ul>
 </blockquote>
 <p>引起进程创建的事件</p>
 <blockquote>
@@ -511,7 +566,6 @@
 <blockquote>
 <ul>
 <li><p>正常结束</p>
-<p>批处理中</p>
 </li>
 <li><p>异常结束</p>
 </li>
@@ -531,10 +585,44 @@
 <p>引起进程切换的事件</p>
 <blockquote>
 <ul>
-<li>当前进程事件片到</li>
+<li>当前进程时间片到</li>
 <li>有更高优先级的进程</li>
 <li>当前进程主动阻塞</li>
 <li>当前进程终止</li>
+</ul>
+</blockquote>
+<p>引起进程堵塞的事件</p>
+<blockquote>
+<ul>
+<li>请求系统服务</li>
+<li>启动某种操作</li>
+<li>新数据尚未到达</li>
+<li>无新工作可做</li>
+</ul>
+</blockquote>
+<p>进程堵塞过程</p>
+<blockquote>
+<ul>
+<li>进程通过block把自己堵塞</li>
+<li>把PCB中的状态改为堵塞，并且把PCB插入到堵塞队列</li>
+<li>转调度程序重新调度</li>
+</ul>
+</blockquote>
+<p>进程唤醒过程</p>
+<blockquote>
+<ul>
+<li>首先把被堵塞的进程从该事件的堵塞队列中移出，然后把PCB中的现行状态由堵塞改为就绪</li>
+<li>将PCB插入到就绪队列中</li>
+</ul>
+</blockquote>
+<p>进程切换的基本步骤</p>
+<blockquote>
+<ul>
+<li>保存进程上下文环境</li>
+<li>更新PCB，改变其状态</li>
+<li>将PCB移到响应的队列</li>
+<li>改变需投入运行的进程的PCB内容，改变其运行状态</li>
+<li>恢复需投入运行的进程的上下文环境</li>
 </ul>
 </blockquote>
 <h3 id="2-4-进程同步"><a href="#2-4-进程同步" class="headerlink" title="2.4 进程同步"></a>2.4 进程同步</h3><blockquote>
@@ -581,11 +669,9 @@
 </blockquote>
 <p>记录型信号量：</p>
 <blockquote>
-<figure class="highlight pascal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs pascal"><br><br><span class="hljs-keyword">type</span>  semaphore = <span class="hljs-keyword">record</span><br>                            value  ：integer； /*信号量的值*/<br>                            L：list  <span class="hljs-keyword">of</span>  process； /*等待该信号量的阻塞进程*/<br>                            <span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
-
 <p>什么是记录型信号量？</p>
 <p>就是用记录型数据结构表示的信号量</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span><br>    <span class="hljs-type">int</span> value;<span class="hljs-comment">//剩余资源数</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">process</span> *<span class="hljs-title">L</span>;</span><span class="hljs-comment">//等待队列</span><br>&#125; semaphore;<br><span class="hljs-type">void</span> <span class="hljs-title function_">wait</span><span class="hljs-params">(semaphore S)</span>&#123;<br>    S.value--;<br>    <span class="hljs-keyword">if</span> (S.value&lt;<span class="hljs-number">0</span>)&#123;<br>        block (S.L);<br>    &#125;<br>&#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">signal</span><span class="hljs-params">(semaphore S)</span>&#123;<br>    S.value++;<br>    <span class="hljs-keyword">if</span> (S.value&lt;=<span class="hljs-number">0</span>)&#123;<br>        wakeup (S.L);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+   <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c">   <span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span><br>    <span class="hljs-type">int</span> value;<span class="hljs-comment">//剩余资源数</span><br> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">process</span> *<span class="hljs-title">L</span>;</span><span class="hljs-comment">//等待队列</span><br>&gt;&#125; semaphore;<br><span class="hljs-type">void</span> <span class="hljs-title function_">wait</span><span class="hljs-params">(semaphore S)</span>&#123;<br>S.value--;<br> <span class="hljs-keyword">if</span> (S.value&lt;<span class="hljs-number">0</span>)&#123;<br>    block (S.L);<br> &#125;<br>&#125;<br>   <span class="hljs-type">void</span> <span class="hljs-title function_">signal</span><span class="hljs-params">(semaphore S)</span>&#123;<br>    S.value++;<br> <span class="hljs-keyword">if</span> (S.value&lt;=<span class="hljs-number">0</span>)&#123;<br>     wakeup (S.L);<br>    &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
 </blockquote>
 <p>AND型信号量</p>
 <blockquote>
@@ -594,39 +680,77 @@
 <h4 id="2-4-5-管程机制-简单看一下"><a href="#2-4-5-管程机制-简单看一下" class="headerlink" title="2.4.5 管程机制(简单看一下)"></a>2.4.5 管程机制(简单看一下)</h4><h3 id="2-5-经典进程的同步问题"><a href="#2-5-经典进程的同步问题" class="headerlink" title="2.5 经典进程的同步问题"></a>2.5 经典进程的同步问题</h3><h4 id="2-5-1-生产者-消费者问题"><a href="#2-5-1-生产者-消费者问题" class="headerlink" title="2.5.1 生产者-消费者问题"></a>2.5.1 生产者-消费者问题</h4><blockquote>
 <p>实现互斥的P操作，一定要在实现同步的P操作之后</p>
 <p>两个V操作的操作顺序可以交换</p>
-<p><img src="/2023/03/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/image-20230328200910980.png" srcset="/img/loading.gif" lazyload alt="image-20230328200910980"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs c">semaphore mutex = <span class="hljs-number">1</span>;<br>semaphore empty = <span class="hljs-number">1</span>;<br>semaphore full = <span class="hljs-number">0</span>;<br><span class="hljs-type">void</span> <span class="hljs-title function_">producer</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>        wait(empty);<br>        wait(mutex);<br>        <span class="hljs-comment">//produce</span><br>        signal(mutex);<br>        signal(full);<br>    &#125;<br>&#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">consumer</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>        wait(full);<br>        wait(mutex);<br>        <span class="hljs-comment">//consume</span><br>        signal(mutex);<br>        signal(empty);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>多生产者多消费者问题：也就是生产者或消费者各自的种类有很多，而不是数量</p>
+<blockquote>
+<p>桌子上有一只盘子，每次只能向其中放入一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，儿子专等着吃盘子中的橘子，女儿专等着吃盘子中的苹果。只有盘子空时，爸爸或妈妈才可向盘子中放一个水果，仅当盘子中有自己需要的水果时，儿子或女儿可以从盘子中取出水果用PV操作实现上述过程.</p>
 </blockquote>
-<h4 id="2-5-2-哲学家进餐问题"><a href="#2-5-2-哲学家进餐问题" class="headerlink" title="2.5.2 哲学家进餐问题"></a>2.5.2 哲学家进餐问题</h4><h4 id="2-5-3-读者-写者问题"><a href="#2-5-3-读者-写者问题" class="headerlink" title="2.5.3 读者-写者问题"></a>2.5.3 读者-写者问题</h4><blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs c">semaphore mutex = <span class="hljs-number">1</span>;<br>semaphore plate = <span class="hljs-number">1</span>; <span class="hljs-comment">//盘子中有多少空位</span><br>semaphore apple = <span class="hljs-number">0</span>;<br>semaphore orange = <span class="hljs-number">0</span>; <br><span class="hljs-type">void</span> <span class="hljs-title function_">dad</span><span class="hljs-params">()</span>&#123;<br>    wait(plate);<br>    wait(mutex);<br>    produce an apple;<br>    signal(mutex);<br>    signal(apple);<br>&#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">mum</span><span class="hljs-params">()</span>&#123;<br>    wait(plate);<br>    wait(mutex);<br>    produce an orange;<br>    signal(mutex);<br>    signal(orange);<br>&#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">son</span><span class="hljs-params">()</span>&#123;<br>    wait(orange);<br>    wait(mutex);<br>    eat an orange;<br>    signal(mutex);<br>    signal(plate);<br>&#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">daughter</span><span class="hljs-params">()</span>&#123;<br>    wait(apple);<br>    wait(mutex);<br>    eat an apple;<br>    signal(mutex);<br>    signal(plate);<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="2-5-2-哲学家进餐问题"><a href="#2-5-2-哲学家进餐问题" class="headerlink" title="2.5.2 哲学家进餐问题"></a>2.5.2 哲学家进餐问题</h4><blockquote>
+<p>思路一：使用and信号量</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c">semaphore chop[<span class="hljs-number">5</span>] = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>&#125;;<br><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>    think;<br>    Swait(chop[i],chop[(i+<span class="hljs-number">1</span>)%<span class="hljs-number">5</span>]);<br>    eat;<br>    Ssignal(chop[i],chop[(i+<span class="hljs-number">1</span>)%<span class="hljs-number">5</span>])<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>思路二：最多允许有4个哲学家同时进餐</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c">semaphore chopstick[<span class="hljs-number">5</span>]=&#123;<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>&#125;<br>semaphore room = <span class="hljs-number">4</span>;<br><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>    think;<br>    wait(room);<br>    wait(chopstick[i]); <br>    wait(chopstick[(i+<span class="hljs-number">1</span>)%<span class="hljs-number">5</span>]);<br>    eat;<br>    signal(chopstick[i]); <br>    signal(chopstick[(i+<span class="hljs-number">1</span>)%<span class="hljs-number">5</span>]);<br>    signal(room);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>思路三：奇数号哲学家先拿左边的筷子，再拿右边的，偶数号哲学家相反。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c">semaphore chop[<span class="hljs-number">5</span>]=&#123;<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>&#125;<br><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br> think;<br> <span class="hljs-keyword">if</span> (i % <span class="hljs-number">2</span>) == <span class="hljs-number">0</span>&#123;<br>     wait(chop[i]);<br>     wait(chop((i+<span class="hljs-number">1</span>)%<span class="hljs-number">5</span>));<br>     eat;<br>     signal(chop[i]);<br>     signal(chop((i+<span class="hljs-number">1</span>)%<span class="hljs-number">5</span>));<br> &#125;<span class="hljs-keyword">else</span>&#123;<br>     wait(chop((i+<span class="hljs-number">1</span>)%<span class="hljs-number">5</span>));<br>		wait(chop[i]);<br>     eat;<br>     signal(chop((i+<span class="hljs-number">1</span>)%<span class="hljs-number">5</span>));<br>     signal(chop[i]);<br> &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="2-5-3-读者-写者问题"><a href="#2-5-3-读者-写者问题" class="headerlink" title="2.5.3 读者-写者问题"></a>2.5.3 读者-写者问题</h4><blockquote>
 <p>要求：</p>
 <ul>
 <li>读进程可以共享同一对象</li>
 <li>写进程无法共享同一对象</li>
+<li>任一写者在完成写操作之前不允许其他读者或写者工作</li>
+<li>写者在执行写操作钱需保证已有的读者和写者全部退出</li>
 </ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs c">semaphore wmutex = <span class="hljs-number">1</span>;<span class="hljs-comment">//实现互斥读写</span><br>semaphore rmutex = <span class="hljs-number">1</span>;<span class="hljs-comment">//实现一段原子操作</span><br><span class="hljs-type">int</span> readcount = <span class="hljs-number">0</span>; <span class="hljs-comment">//记录有几个进程在访问文件</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">writer</span><span class="hljs-params">()</span><br>    <span class="hljs-title function_">whilt</span><span class="hljs-params">(<span class="hljs-number">1</span>)</span>&#123;<br>        wait(wmutex);<br>        write file;<br>        signal(wmutex);<br>    &#125;<br>&#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">reader</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>        wait(rmutex);<br>        <span class="hljs-keyword">if</span> readcount==<span class="hljs-number">0</span>: wait(rmutex);<br>        readcount++;<br>        signal(rmutex);<br>        <br>        read file;<br>        <br>        wait(rmutex);<br>        readcount--;<br>        <span class="hljs-keyword">if</span> readcount==<span class="hljs-number">0</span>: signal(wmutex);<br>        signal(rmutex);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="2-6-进程通信"><a href="#2-6-进程通信" class="headerlink" title="2.6 进程通信"></a>2.6 进程通信</h3><blockquote>
 <p>为了保证安全，一个进程不能直接访问另一个进程的地址空间</p>
+<p>进程通信分为两类：</p>
+<ul>
+<li><p>低级通信：信号量机制</p>
+<p>缺点：</p>
+<ul>
+<li>效率低</li>
+<li>对用户不透明</li>
+</ul>
+</li>
+<li><p>高级通信：直接利用操作系统提供的一组通信命令</p>
+<p>特点：效率高，通信细节对用户透明</p>
+</li>
+</ul>
 </blockquote>
 <h4 id="2-6-1-共享存储"><a href="#2-6-1-共享存储" class="headerlink" title="2.6.1 共享存储"></a>2.6.1 共享存储</h4><blockquote>
 <p>两个进程对共享空间的访问必须是互斥的</p>
+<ul>
+<li>基于数据结构的共享：数据的形式是固定的，这种共享方式速度慢，限制多，是一种低级的通信方式</li>
+<li>基于存储区的共享：在内存中画出一块共享区，数据的形式、存放位置都由进程控制，而不是操作系统，这种共享方式速度更快，更加高级</li>
+</ul>
 </blockquote>
-<p>基于数据结构的共享</p>
-<blockquote>
-<p>数据的形式是固定的，这种共享方式速度慢，限制多，是一种低级的通信方式</p>
+<h4 id="2-6-2-消息传递"><a href="#2-6-2-消息传递" class="headerlink" title="2.6.2 消息传递"></a>2.6.2 消息传递</h4><blockquote>
+<ul>
+<li>直接通信方式：消息直接挂到接收进程的消息缓冲队列上</li>
+<li>间接通信方式：消息先发送到中间实体(信箱)</li>
+</ul>
 </blockquote>
-<p>基于存储区的共享</p>
-<blockquote>
-<p>在内存中画出一块共享区，数据的形式、存放位置都由进程控制，而不是操作系统，这种共享方式速度更快，更加高级</p>
-</blockquote>
-<h4 id="2-6-2-消息传递"><a href="#2-6-2-消息传递" class="headerlink" title="2.6.2 消息传递"></a>2.6.2 消息传递</h4><h4 id="2-6-3-管道通信"><a href="#2-6-3-管道通信" class="headerlink" title="2.6.3 管道通信"></a>2.6.3 管道通信</h4><blockquote>
+<h4 id="2-6-3-管道通信"><a href="#2-6-3-管道通信" class="headerlink" title="2.6.3 管道通信"></a>2.6.3 管道通信</h4><blockquote>
 <p>就是用于连接读写进程的共享文件，其实就是在内存中开辟一个大小固定的缓冲区</p>
 <p>管道只能采用半双工通信，某一个时间段只能实现单向的传输。</p>
+<p>功能：大量的数据发收。</p>
 </blockquote>
 <p>会考编程题15分</p>
-<p>线程</p>
-<blockquote>
+<h3 id="2-7-线程"><a href="#2-7-线程" class="headerlink" title="2.7 线程"></a>2.7 线程</h3><blockquote>
 <p>进程的概念体现了两个基本属性：</p>
-<p>资源所有权</p>
-<p>调度执行</p>
+<ul>
+<li><p>资源所有权</p>
+</li>
+<li><p>调度执行</p>
+</li>
+</ul>
 <p>为了区分这两种特点，调度并分配的部分通常成为线程或者轻便进程，而资源所有权的通常成为进程</p>
 <p>线程不进行资源管理</p>
 <p>线程的属性：</p>
@@ -638,7 +762,9 @@
 </ul>
 <p>线程控制块：TCB(Tack Control Block)</p>
 <p>多个线程先后运行是否有顺序？</p>
-<p>用户自己说了算！可玩性大大增加！</p>
+<ul>
+<li>用户自己说了算！可玩性大大增加！</li>
+</ul>
 <p>操作系统的权限分为内核态和用户态</p>
 <p>进程和线程的比较：</p>
 <ul>
@@ -700,10 +826,28 @@
 <li>不能有效利用多处理机</li>
 </ul>
 </li>
-<li><p>混合状态</p>
+<li><p>混合状态，也就是多线程模型</p>
+<ul>
+<li><p>一对一模型：一个用户级线程对应一个内核级线程</p>
+<p>优点：</p>
+<ul>
+<li><p>一个线程堵塞后，其他线程可以继续执行，并发能力强。</p>
+</li>
+<li><p>多个线程可以在多核处理机上并行运行</p>
 </li>
 </ul>
-<p>线程的实现：</p>
+<p>缺点：一个进程要占用多个内核级线程，系统开销大</p>
+</li>
+<li><p>多对一模型：多个用户级线程对应一个内核级线程，且一个进程只分配到一个内核级线程</p>
+<p>优点：线程切换在用户级空间完成，不需要切换到核心态，系统管理开销小，效率高</p>
+<p>缺点：一个用户级线程堵塞后整个进程都会被堵塞，并且不可以并行运行</p>
+</li>
+<li><p>多对多模型：n个用户级线程对应m个内核级线程，且n≥m</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>线程的实现：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1V84y1Y77s?t=415.6&amp;p=2">https://www.bilibili.com/video/BV1V84y1Y77s?t=415.6&amp;p=2</a></p>
 <ul>
 <li><p>内核支持线程的实现</p>
 <p>系统为每个进程创建任务数据区</p>
@@ -781,6 +925,29 @@
 <li>处理机利用率好</li>
 <li>各类资源的平衡利用</li>
 </ul>
+<p>批处理系统的目标：</p>
+<ul>
+<li>平均周转时间短</li>
+<li>系统吞吐量高</li>
+<li>处理机利用率高</li>
+</ul>
+<p>分时操作系统的目标：</p>
+<ul>
+<li>响应时间快</li>
+<li>均衡性</li>
+</ul>
+<p>实时操作系统的目标：</p>
+<ul>
+<li>截止时间的保证</li>
+<li>可预测性</li>
+</ul>
+<p>周转时间包括哪个四部分：</p>
+<ul>
+<li>作业在外存后备队列上等待调度的时间</li>
+<li>进程在就绪队列上等待进程调度的时间</li>
+<li>进程在CPU上执行的时间</li>
+<li>进程等待I&#x2F;O操作完成的时间</li>
+</ul>
 </blockquote>
 <h3 id="3-2-作业与作业调度"><a href="#3-2-作业与作业调度" class="headerlink" title="3.2 作业与作业调度"></a>3.2 作业与作业调度</h3><blockquote>
 <p>作业运行的三个阶段和三种状态</p>
@@ -796,7 +963,7 @@
 <li><p>&#x3D;&#x3D;先来先服务FCFS&#x3D;&#x3D;</p>
 <p>缺点：对短进程不公平，如果排在队列后面，等待时间远大于执行时间。</p>
 </li>
-<li><p>&#x3D;&#x3D;短进程优先SJF&#x3D;&#x3D;</p>
+<li><p>&#x3D;&#x3D;短作业优先SJF&#x3D;&#x3D;</p>
 <p>缺点：</p>
 <ul>
 <li>对长作业不利</li>
@@ -804,18 +971,12 @@
 <li>用户对执行时间估计的不准确，算法不一定能真正做到短作业优先调度</li>
 </ul>
 </li>
-<li><p>时间片轮转</p>
-</li>
 <li><p>优先级调度算法PSA</p>
-</li>
-<li><p>剩余时间最短者优先</p>
 </li>
 <li><p>&#x3D;&#x3D;高响应比优先调度&#x3D;&#x3D;</p>
 <p>$优先权&#x3D;\frac{等待时间+要求服务时间}{要求服务时间}&#x3D;\frac{响应时间}{要求服务时间}$</p>
-<p>优点：既照顾了短作业，有考虑了作业到达的先后次序，不会使厂作业长期得不到服务</p>
-<p>缺点：会增加系统开销</p>
-</li>
-<li><p>多级反馈队列调度法</p>
+<p>优点：既照顾了短作业，又考虑了作业到达的先后次序，不会使长作业长期得不到服务</p>
+<p>缺点：每次调度前，都会先做相应比的计算，会增加系统开销</p>
 </li>
 </ul>
 </blockquote>
@@ -827,12 +988,185 @@
 <li>把处理机分配给要执行的进程</li>
 </ul>
 <p>进程调度方式</p>
+<ul>
+<li><p>非抢占式</p>
+</li>
+<li><p>抢占方式</p>
+<p>抢占的主要原则是什么？</p>
+<ul>
+<li>优先权</li>
+<li>短进程优先</li>
+<li>时间片原则</li>
+</ul>
+<p>使用抢占式的原因：</p>
+<ul>
+<li>批处理：防止长进程长期占用CPU，不公平</li>
+<li>分时：人机交互</li>
+<li>实时：紧迫任务的执行</li>
+</ul>
+</li>
+</ul>
 </blockquote>
-<h3 id="3-5-进程死锁"><a href="#3-5-进程死锁" class="headerlink" title="3.5 进程死锁"></a>3.5 进程死锁</h3><blockquote>
+<p>进程调度算法</p>
+<blockquote>
+<ul>
+<li><p>轮转调度算法(抢占式)</p>
+<p>对于短的、计算型进程比较有利</p>
+</li>
+<li><p>优先级调度算法</p>
+</li>
+<li><p>多队列调度算法</p>
+</li>
+<li><p>多级反馈队列调度算法</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="3-4-实时调度"><a href="#3-4-实时调度" class="headerlink" title="3.4 实时调度"></a>3.4 实时调度</h3><blockquote>
+<p>实时调度算法的分类：</p>
+</blockquote>
+<h3 id="3-5-死锁概述"><a href="#3-5-死锁概述" class="headerlink" title="3.5 死锁概述"></a>3.5 死锁概述</h3><blockquote>
+<p>死锁：多个进程在运行过程中因争夺资源而造成的一种僵局。</p>
 <p>为什么死锁？</p>
 <ul>
 <li>竞争资源</li>
 <li>进程推进顺序非法</li>
+</ul>
+<p>死锁的发生必须具备下列四个必要条件：</p>
+<ul>
+<li>互斥条件</li>
+<li>请求和保持条件</li>
+<li>不剥夺条件</li>
+<li>循环等待条件</li>
+</ul>
+</blockquote>
+<h3 id="3-6-预防死锁"><a href="#3-6-预防死锁" class="headerlink" title="3.6 预防死锁"></a>3.6 预防死锁</h3><blockquote>
+<p>预防死锁：通过设置某些限制条件，破坏产生死锁的四个必要条件中的一个或几个。</p>
+<ul>
+<li><p>破坏“请求和保持”条件：</p>
+<p>所有进程在开始运行前，都必须一次性地申请整个运行过程所需的全部资源。</p>
+<ul>
+<li>优点：简单，易于实现且很安全</li>
+<li>缺点：资源被严重浪费，使进程延迟运行</li>
+</ul>
+</li>
+<li><p>摒弃“不剥夺”条件：</p>
+<p>当一个已经保持了某些资源的进程，再提出新的资源请求而不能立即得到满足时，必须释放所有正在保持的资源。</p>
+<p>缺点：</p>
+<ul>
+<li>实现起来比较复杂，且要付出很大的代价。</li>
+<li>一个资源在使用一段时间后，他的被迫释放可能会造成前段工作的失效。</li>
+<li>会使进程前后两次运行的信息不连续。</li>
+<li>因反复地申请和释放资源，致使进程被无限推迟，延长进程周转时间，增加系统开销，降低吞吐量。</li>
+</ul>
+</li>
+<li><p>摒弃“环路等待”条件：</p>
+<p>存在严重问题：</p>
+<ul>
+<li>为系统中各类资源分配的序号必须相对稳定，限制了新设备类型的增加。</li>
+<li>会经常发生作业使用的顺序与系统规定顺序不同的情况，造成资源浪费。</li>
+<li>增加了程序设计难度。</li>
+</ul>
+</li>
+</ul>
+<p>避免死锁：在资源的动态分配过程中，用某种方法去阻止系统进入不安全状态，从而避免发生死锁。</p>
+</blockquote>
+<h3 id="3-7-避免死锁"><a href="#3-7-避免死锁" class="headerlink" title="3.7 避免死锁"></a>3.7 避免死锁</h3><blockquote>
+<p>避免死锁：在资源的动态分配过程中，用某种方法去阻止系统进入不安全状态，从而避免发生死锁。</p>
+</blockquote>
+<h3 id="3-8-死锁的检测和解除"><a href="#3-8-死锁的检测和解除" class="headerlink" title="3.8 死锁的检测和解除"></a>3.8 死锁的检测和解除</h3><blockquote>
+<p>当发现发生死锁的时候，如何解除死锁？</p>
+<ul>
+<li>剥夺资源：也就是挂起一些死锁进程，将其资源分配给其他死锁进程</li>
+<li>撤销进程：强制撤销部分甚至全部死锁进程，并剥夺资源，实现简单，但是付出的代价可能很大</li>
+</ul>
+<p>最小代价原则：</p>
+<ul>
+<li>进程优先级最小的进程</li>
+<li>已经花费处理机时间最小的进程</li>
+<li>未执行部分最多的进程</li>
+<li>已获资源量最少的进程</li>
+<li>到目前为止，产生输出量最少的进程</li>
+</ul>
+</blockquote>
+<h3 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h3><blockquote>
+<p>8 在抢占调度方式中，抢占的原则是什么？</p>
+<ul>
+<li>优先权</li>
+<li>短进程优先</li>
+<li>时间片原则</li>
+</ul>
+<p>9 在选择调度原则和调度算法时，应遵循的准则是什么？</p>
+<ul>
+<li>面向用户的准则<ul>
+<li>周转时间短</li>
+<li>响应时间快</li>
+<li>截止时间的保证</li>
+<li>优先权准则</li>
+</ul>
+</li>
+<li>面向系统的准则<ul>
+<li>系统吞吐量高</li>
+<li>处理机利用率高</li>
+<li>各类资源的平衡利用</li>
+</ul>
+</li>
+</ul>
+<p>12 试比较FCFS和SJF两种进程调度算法</p>
+<ul>
+<li>相同点<ul>
+<li>都可用于作业调度</li>
+</ul>
+</li>
+<li>不同点<ul>
+<li>FCFS调度算法每次都从后备队列中选择一个或多个最先进入该队列的作业，将它们调入内存、分配资源、创建进程、插入到就绪队列。该算法有利于长作业进程，不利于短作业进程</li>
+<li>SJF算法每次调度都从后备队列中选择一个或若干个运行时间最短的作业，调入内存中运行。该算法有利于短作业进程，不利于长作业进程</li>
+</ul>
+</li>
+</ul>
+<p>13 在时间片轮转法中，应如何确定时间片的大小</p>
+<ul>
+<li>略大于一次典型的交互所需的时间</li>
+</ul>
+<p>15 为什么说多级反馈队列调度算法能较好的满足各方面用户的需要</p>
+<ul>
+<li>终端型作业用户：  能在第一队列所规定的时间片内完成，可使终端型作业用户都感到满意</li>
+<li>对短作业用户有利</li>
+<li>长批处理作业用户。对于长作业，它将依次在第1，2,…，n个队列中运行，然后再按轮转方式运行，用户不必担心其作业长期得不到处理</li>
+</ul>
+<p>20 按照调度方式可将实时调度算法分为哪几种？</p>
+<ul>
+<li>抢占式<ul>
+<li>立即抢占的优先权调度</li>
+<li>基于时钟中断抢占的优先权抢占调度</li>
+</ul>
+</li>
+<li>非抢占式<ul>
+<li>非抢占式轮调度</li>
+<li>非抢占优先权调度</li>
+</ul>
+</li>
+</ul>
+<p>27 何谓死锁？产生死锁的原因和必要条件是什么？</p>
+<ul>
+<li><p>死锁：多个进程在运行过程中因争夺资源而造成的一种僵局</p>
+</li>
+<li><p>产生死锁的原因：</p>
+<ul>
+<li>竞争资源</li>
+<li>进程间推进顺序非法</li>
+</ul>
+</li>
+<li><p>产生死锁的必要条件：</p>
+<ul>
+<li>互斥条件。指进程对所分配到的资源进行排它性使用 。</li>
+<li>请求和保持条件。指进程已经保持了至少一个资源，但又提出了新的资源请求 。</li>
+<li>不剥夺条件。指进程已获得的资源，在未使用完之前，不能被剥夺，只能在使用完时由自己释放。</li>
+<li>循环等待条件。指在发生死锁时，必然存在一个进程——资源的环形链 。</li>
+</ul>
+</li>
+<li><p>预防死锁的办法和必要条件之间的关系：</p>
+<p>预防死锁是通过设置某些限制条件，去破坏产生死锁的四个必要条件中的一个或几个条件，来预防发生死锁。</p>
+</li>
 </ul>
 </blockquote>
 <h2 id="四、存储器管理"><a href="#四、存储器管理" class="headerlink" title="四、存储器管理"></a>四、存储器管理</h2><blockquote>
@@ -899,6 +1233,11 @@
 </ul>
 </li>
 <li><p>动态重定位分区分配</p>
+<p>启动紧凑的时机：</p>
+<ul>
+<li>载入大程序，无可用存储空间</li>
+<li>发现碎片比较多，系统比较空闲</li>
+</ul>
 </li>
 </ul>
 <p>基于顺序搜索的动态分区分配算法：</p>
@@ -931,6 +1270,57 @@
 </li>
 <li><p>伙伴系统</p>
 <p>在伙伴系统中，可用内存块的大小为$2^k$,1≤k≤m，</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="4-4-对换"><a href="#4-4-对换" class="headerlink" title="4.4 对换"></a>4.4 对换</h3><blockquote>
+<p>为了能对对换区中的空闲盘块进行管理，还需要在系统中配置相应的数据结构</p>
+</blockquote>
+<h3 id="4-5-分页存储管理方式"><a href="#4-5-分页存储管理方式" class="headerlink" title="4.5 分页存储管理方式"></a>4.5 分页存储管理方式</h3><blockquote>
+<p>什么是离散分配</p>
+<ul>
+<li>程序在内存中不一定连续存放</li>
+</ul>
+<p>根据离散时的基本单位不同，可分为三种：</p>
+<ul>
+<li>分页存储管理</li>
+<li>分段存储管理</li>
+<li>段页式存储管理</li>
+</ul>
+<p>分页存储：</p>
+<ul>
+<li><p>分页：将程序地址空间分页</p>
+</li>
+<li><p>分块：将内存空间分块</p>
+</li>
+<li><p>内存一块可以装入程序一页</p>
+</li>
+<li><p>优点：</p>
+<ul>
+<li>没有外零头</li>
+<li>仅有小于一个页面大小的内零头</li>
+</ul>
+</li>
+<li><p>页面大小的选择</p>
+<ul>
+<li>影响页面与叶框大小的因素：叶内零头，地址转换速度，页面交换效率</li>
+<li>页面大小常是2的幂，通常在1KB~8KB之间</li>
+</ul>
+</li>
+<li><p>页表</p>
+<p>每个进程对应一个页表，描述该进程的各页面在内存中对应的物理编号</p>
+</li>
+<li><p>作业表</p>
+<p>整个系统1张，记录作业的作业表情况，包含进程号，页表长度，页表始址等信息</p>
+</li>
+<li><p>空闲块表</p>
+<p>整个系统一张，记录主存当前空闲块</p>
+</li>
+<li><p>地址变换机构</p>
+<ul>
+<li>页表寄存器PTR，存放当前进程的页表在内存中的起始地址</li>
+<li></li>
+</ul>
 </li>
 </ul>
 </blockquote>
