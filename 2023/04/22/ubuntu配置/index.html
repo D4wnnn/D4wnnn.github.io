@@ -16,16 +16,16 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="ECharts数据可视化">
+    <meta name="description" content="ubuntu配置ubuntu22.04允许root本地登录  设置root密码 1sudo passwd root  注释文件行 找到&#x2F;etc&#x2F;pam.d&#x2F;gdm-password和&#x2F;etc&#x2F;pam.d&#x2F;gdm-autologin 注释auth required pam_succeed_if.so user !&#x3D; root quiet_success  修改&#x2F;root&#x2F;.profile文件 注释m">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ECharts数据可视化">
-<meta property="og:url" content="https://d4wnnn.github.io/2023/04/16/ECharts%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/index.html">
+<meta property="og:title" content="ubuntu配置">
+<meta property="og:url" content="https://d4wnnn.github.io/2023/04/22/ubuntu%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="ECharts数据可视化">
+<meta property="og:description" content="ubuntu配置ubuntu22.04允许root本地登录  设置root密码 1sudo passwd root  注释文件行 找到&#x2F;etc&#x2F;pam.d&#x2F;gdm-password和&#x2F;etc&#x2F;pam.d&#x2F;gdm-autologin 注释auth required pam_succeed_if.so user !&#x3D; root quiet_success  修改&#x2F;root&#x2F;.profile文件 注释m">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
-<meta property="article:published_time" content="2023-04-15T17:02:48.000Z">
-<meta property="article:modified_time" content="2023-04-16T04:16:15.470Z">
+<meta property="article:published_time" content="2023-04-22T05:56:14.000Z">
+<meta property="article:modified_time" content="2023-04-23T11:06:57.229Z">
 <meta property="article:author" content="D4wn">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
@@ -34,7 +34,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>ECharts数据可视化 - D4wn</title>
+  <title>ubuntu配置 - D4wn</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -231,7 +231,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="ECharts数据可视化"></span>
+            <span id="subtitle" data-typed-text="ubuntu配置"></span>
           
         </div>
 
@@ -247,8 +247,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-04-16 01:02" pubdate>
-          2023年4月16日 凌晨
+        <time datetime="2023-04-22 13:56" pubdate>
+          2023年4月22日 下午
         </time>
       </span>
     
@@ -259,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          12 字
+          5.8k 字
         
       </span>
     
@@ -270,7 +270,7 @@
         
         
         
-          1 分钟
+          49 分钟
         
       </span>
     
@@ -308,18 +308,77 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">ECharts数据可视化</h1>
+            <h1 style="display: none">ubuntu配置</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="ECharts数据可视化"><a href="#ECharts数据可视化" class="headerlink" title="ECharts数据可视化"></a>ECharts数据可视化</h1>
+                <h1 id="ubuntu配置"><a href="#ubuntu配置" class="headerlink" title="ubuntu配置"></a>ubuntu配置</h1><h2 id="ubuntu22-04"><a href="#ubuntu22-04" class="headerlink" title="ubuntu22.04"></a>ubuntu22.04</h2><h3 id="允许root本地登录"><a href="#允许root本地登录" class="headerlink" title="允许root本地登录"></a>允许root本地登录</h3><blockquote>
+<ul>
+<li><p>设置root密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo passwd root<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>注释文件行</p>
+<p>找到<code>/etc/pam.d/gdm-password</code>和<code>/etc/pam.d/gdm-autologin</code></p>
+<p>注释<code>auth required pam_succeed_if.so user != root quiet_success</code></p>
+</li>
+<li><p>修改<code>/root/.profile</code>文件</p>
+<p>注释<code>mesg n 2＞ /dev/null || true</code></p>
+<p>插入如下行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">tty</span> -s &amp;&amp; mesg n || <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+<h3 id="允许root远程登录"><a href="#允许root远程登录" class="headerlink" title="允许root远程登录"></a>允许root远程登录</h3><blockquote>
+<p>安装ssh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">apt update<br>apt install openssh-server<br></code></pre></td></tr></table></figure>
+
+<p>修改ssh配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#PermitRootLogin prohibit-password</span><br>改为<br>PermitRootLogin <span class="hljs-built_in">yes</span><br></code></pre></td></tr></table></figure>
+
+<p>重启ssh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl restart ssh<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="安装设置proxychains代理"><a href="#安装设置proxychains代理" class="headerlink" title="安装设置proxychains代理"></a>安装设置proxychains代理</h3><blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install -y proxychains4<br>total_lines=$(<span class="hljs-built_in">wc</span> -l &lt; /etc/proxychains4.conf)<br>second_to_last_line=$((total_lines - <span class="hljs-number">1</span>))<br>sudo sed -i <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;second_to_last_line&#125;</span>s/.*/socks5 192.168.1.109 10810/&quot;</span> /etc/proxychains4.conf<br>sudo <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;alias p=&#x27;proxychains4&#x27;&quot;</span> | sudo <span class="hljs-built_in">tee</span> -a /root/.bashrc<br><br><span class="hljs-comment">### 安装miniconda</span><br><br>```bash<br>wget -P /root/ https://repo.anaconda.com/miniconda/Miniconda3-py38_23.1.0-1-Linux-x86_64.sh<br><span class="hljs-built_in">chmod</span> +x /root/Miniconda3-py38_23.1.0-1-Linux-x86_64.sh<br>bash /root/Miniconda3-py38_23.1.0-1-Linux-x86_64.sh -b -p /root/miniconda3<br>/root/miniconda3/bin/conda init $(<span class="hljs-built_in">echo</span> <span class="hljs-variable">$SHELL</span> | awk -F <span class="hljs-string">&#x27;/&#x27;</span> <span class="hljs-string">&#x27;&#123;print $NF&#125;&#x27;</span>)<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="开机自动登录root"><a href="#开机自动登录root" class="headerlink" title="开机自动登录root"></a>开机自动登录root</h3><blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">touch</span> /etc/gdm3/custom.conf<br><span class="hljs-built_in">echo</span> -e <span class="hljs-string">&quot;[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=root&quot;</span> | sudo <span class="hljs-built_in">tee</span> -a /etc/gdm3/custom.conf<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="jupyter-notebook配置允许远程登录同时关闭密码"><a href="#jupyter-notebook配置允许远程登录同时关闭密码" class="headerlink" title="jupyter notebook配置允许远程登录同时关闭密码"></a>jupyter notebook配置允许远程登录同时关闭密码</h3><blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">jupyter notebook --generate-config<br>找到生成的配置文件，配置如下<br>c.NotebookApp.ip = <span class="hljs-string">&#x27;*&#x27;</span><br>c.NotebookApp.token = <span class="hljs-string">&#x27;&#x27;</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="一键安装脚本"><a href="#一键安装脚本" class="headerlink" title="一键安装脚本"></a>一键安装脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-built_in">set</span> -e<br>proxy_ip=<span class="hljs-string">&quot;192.168.1.109&quot;</span><br>target_username=root<br>target_password=root<br><span class="hljs-comment">#1 允许root本地登录</span><br><span class="hljs-comment">#1.1 设置root密码</span><br><span class="hljs-built_in">echo</span> -e <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;target_password&#125;</span>\n<span class="hljs-variable">$&#123;target_password&#125;</span>&quot;</span> | sudo passwd <span class="hljs-variable">$&#123;target_username&#125;</span><br><span class="hljs-comment">#1.2 修改注释文件</span><br>sudo sed -i <span class="hljs-string">&quot;s/.*root quiet_success$/#&amp;/&quot;</span> /etc/pam.d/gdm-autologin<br>sudo sed -i <span class="hljs-string">&quot;s/.*root quiet_success$/#&amp;/&quot;</span> /etc/pam.d/gdm-password<br><span class="hljs-comment">#1.3 修改profile</span><br>sudo sed -i <span class="hljs-string">&#x27;s/^mesg.*/tty -s \&amp;\&amp; mesg n \|\| true/&#x27;</span> /root/.profile<br> <br><span class="hljs-comment">#2 允许root远程登录</span><br><span class="hljs-comment">#2.1 换源</span><br>sudo <span class="hljs-built_in">cp</span> /etc/apt/sources.list /etc/apt/sources.list.bak<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse&quot;</span> | sudo <span class="hljs-built_in">tee</span> /etc/apt/sources.list<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse&quot;</span> | sudo <span class="hljs-built_in">tee</span> -a /etc/apt/sources.list<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse&quot;</span> | sudo <span class="hljs-built_in">tee</span> -a /etc/apt/sources.list<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;deb http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse&quot;</span> | sudo <span class="hljs-built_in">tee</span> -a /etc/apt/sources.list<br>sudo apt update<br><span class="hljs-comment">#2.2 安装ssh server端</span><br>sudo apt install -y openssh-server<br><span class="hljs-comment">#2.3 修改sshd_config文件</span><br>sudo sed -i <span class="hljs-string">&#x27;s/^#PermitRootLogin.*/PermitRootLogin yes/&#x27;</span> /etc/ssh/sshd_config<br><span class="hljs-comment">#2.4 重启ssh服务</span><br>sudo systemctl restart ssh<br><br><span class="hljs-comment">#3 安装常用软件</span><br>sudo apt install -y vim<br>sudo apt install -y proxychains4<br><br><span class="hljs-comment">#4 设置代理</span><br>total_lines=$(<span class="hljs-built_in">wc</span> -l &lt; /etc/proxychains4.conf)<br>second_to_last_line=$((total_lines - <span class="hljs-number">1</span>))<br>sudo sed -i <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;second_to_last_line&#125;</span>s/.*/socks5 192.168.1.109 10810/&quot;</span> /etc/proxychains4.conf<br>sudo <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;alias p=&#x27;proxychains4&#x27;&quot;</span> | sudo <span class="hljs-built_in">tee</span> -a /root/.bashrc<br><br><span class="hljs-comment">#5 安装miniconda</span><br>sudo -s &lt;&lt;<span class="hljs-string">EOF</span><br><span class="hljs-string">wget -P /root/ https://repo.anaconda.com/miniconda/Miniconda3-py38_23.1.0-1-Linux-x86_64.sh</span><br><span class="hljs-string">chmod +x /root/Miniconda3-py38_23.1.0-1-Linux-x86_64.sh</span><br><span class="hljs-string">bash /root/Miniconda3-py38_23.1.0-1-Linux-x86_64.sh -b -p /root/miniconda3</span><br><span class="hljs-string">/root/miniconda3/bin/conda init $(echo $SHELL | awk -F &#x27;/&#x27; &#x27;&#123;print $NF&#125;&#x27;)</span><br><span class="hljs-string">/root/miniconda3/bin/conda create -n d2l python=3.8 -y</span><br><span class="hljs-string">source /root/miniconda3/bin/activate d2l</span><br><span class="hljs-string">/usr/bin/proxychains4 pip install d2l jupyter torch torchvision</span><br><span class="hljs-string">EOF</span><br><span class="hljs-comment">#6 开机自动登录root</span><br>sudo <span class="hljs-built_in">touch</span> /etc/gdm3/custom.conf<br><span class="hljs-built_in">echo</span> -e <span class="hljs-string">&quot;[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=root&quot;</span> | sudo <span class="hljs-built_in">tee</span> -a /etc/gdm3/custom.conf<br></code></pre></td></tr></table></figure>
+
+<h2 id="ubuntu20-04"><a href="#ubuntu20-04" class="headerlink" title="ubuntu20.04"></a>ubuntu20.04</h2><h3 id="一键安装脚本-1"><a href="#一键安装脚本-1" class="headerlink" title="一键安装脚本"></a>一键安装脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-built_in">set</span> -e<br>proxy_ip=<span class="hljs-string">&quot;192.168.1.109&quot;</span><br>target_username=root<br>target_password=root<br><span class="hljs-comment">#1 允许root本地登录</span><br><span class="hljs-comment">#1.1 设置root密码</span><br><span class="hljs-built_in">echo</span> -e <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;target_password&#125;</span>\n<span class="hljs-variable">$&#123;target_password&#125;</span>&quot;</span> | sudo passwd <span class="hljs-variable">$&#123;target_username&#125;</span><br><span class="hljs-comment">#1.2 修改注释文件</span><br>sudo sed -i <span class="hljs-string">&quot;s/.*root quiet_success$/#&amp;/&quot;</span> /etc/pam.d/gdm-autologin<br>sudo sed -i <span class="hljs-string">&quot;s/.*root quiet_success$/#&amp;/&quot;</span> /etc/pam.d/gdm-password<br><span class="hljs-comment">#1.3 修改profile</span><br>sudo sed -i <span class="hljs-string">&#x27;s/^mesg.*/tty -s \&amp;\&amp; mesg n \|\| true/&#x27;</span> /root/.profile<br> <br><span class="hljs-comment">#2 允许root远程登录</span><br><span class="hljs-comment">#2.1 换源</span><br>sudo <span class="hljs-built_in">cp</span> /etc/apt/sources.list /etc/apt/sources.list.bak<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse&quot;</span> | sudo <span class="hljs-built_in">tee</span> /etc/apt/sources.list<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse&quot;</span> | sudo <span class="hljs-built_in">tee</span> -a /etc/apt/sources.list<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse&quot;</span> | sudo <span class="hljs-built_in">tee</span> -a /etc/apt/sources.list<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;deb http://security.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse&quot;</span> | sudo <span class="hljs-built_in">tee</span> -a /etc/apt/sources.list<br>sudo apt update<br><span class="hljs-comment">#2.2 安装ssh server端</span><br>sudo apt install -y openssh-server<br><span class="hljs-comment">#2.3 修改sshd_config文件</span><br>sudo sed -i <span class="hljs-string">&#x27;s/^#PermitRootLogin.*/PermitRootLogin yes/&#x27;</span> /etc/ssh/sshd_config<br><span class="hljs-comment">#2.4 重启ssh服务</span><br>sudo systemctl restart ssh<br><br><span class="hljs-comment">#3 安装常用软件</span><br>sudo apt install -y vim<br>sudo apt install -y proxychains4<br><br><span class="hljs-comment">#4 设置代理</span><br>total_lines=$(<span class="hljs-built_in">wc</span> -l &lt; /etc/proxychains4.conf)<br>second_to_last_line=$((total_lines - <span class="hljs-number">1</span>))<br>sudo sed -i <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;second_to_last_line&#125;</span>s/.*/socks5 192.168.1.109 10810/&quot;</span> /etc/proxychains4.conf<br>sudo <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;alias p=&#x27;proxychains4&#x27;&quot;</span> | sudo <span class="hljs-built_in">tee</span> -a /root/.bashrc<br><br><span class="hljs-comment">#5 安装miniconda</span><br>sudo -s &lt;&lt;<span class="hljs-string">EOF</span><br><span class="hljs-string">wget -P /root/ https://repo.anaconda.com/miniconda/Miniconda3-py38_23.1.0-1-Linux-x86_64.sh</span><br><span class="hljs-string">chmod +x /root/Miniconda3-py38_23.1.0-1-Linux-x86_64.sh</span><br><span class="hljs-string">bash /root/Miniconda3-py38_23.1.0-1-Linux-x86_64.sh -b -p /root/miniconda3</span><br><span class="hljs-string">/root/miniconda3/bin/conda init $(echo $SHELL | awk -F &#x27;/&#x27; &#x27;&#123;print $NF&#125;&#x27;)</span><br><span class="hljs-string">EOF</span><br><span class="hljs-comment">#6 开机自动登录root</span><br>sudo <span class="hljs-built_in">touch</span> /etc/gdm3/custom.conf<br><span class="hljs-built_in">echo</span> -e <span class="hljs-string">&quot;[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=root&quot;</span> | sudo <span class="hljs-built_in">tee</span> -a /etc/gdm3/custom.conf<br></code></pre></td></tr></table></figure>
+
+
                 
               </div>
             
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%85%B6%E5%AE%83/" class="category-chain-item">其它</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
 </div>
@@ -330,8 +389,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>ECharts数据可视化</div>
-      <div>https://d4wnnn.github.io/2023/04/16/ECharts数据可视化/</div>
+      <div>ubuntu配置</div>
+      <div>https://d4wnnn.github.io/2023/04/22/ubuntu配置/</div>
     </div>
     <div class="license-meta">
       
@@ -343,7 +402,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年4月16日</div>
+          <div>2023年4月22日</div>
         </div>
       
       
