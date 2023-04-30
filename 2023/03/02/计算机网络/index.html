@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2023-03-02T06:37:56.000Z">
-<meta property="article:modified_time" content="2023-04-23T08:21:29.731Z">
+<meta property="article:modified_time" content="2023-04-30T10:21:53.620Z">
 <meta property="article:author" content="D4wn">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
@@ -259,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.5k 字
+          5.8k 字
         
       </span>
     
@@ -270,7 +270,7 @@
         
         
         
-          38 分钟
+          49 分钟
         
       </span>
     
@@ -420,14 +420,18 @@
 <p>吞吐量：表示在单位时间内通过某个网络（或信道、接口）的数据量</p>
 <p>吞吐量受网络的带宽或网络的额定速率的影响</p>
 </blockquote>
-<p>时延</p>
+<p>四种分组延时</p>
 <blockquote>
 <ul>
-<li>发送时延&#x2F;传输时延：$\frac {数据长度}{信道带宽}$</li>
-<li>传播时延：$\frac{信道长度}{电磁波在信道中的传播速度}$</li>
 <li>排队时延</li>
 <li>处理时延</li>
+<li>发送时延&#x2F;传输时延：$\frac {分组长度L}{信道带宽R}$</li>
+<li>传播时延：$\frac{物理链路长度}{电磁波在信道中的传播速度}$</li>
 </ul>
+</blockquote>
+<p>流量强度</p>
+<blockquote>
+<p>$I&#x3D;\frac{分组长度L\times单位时间的分组数目a}{带宽R}$</p>
 </blockquote>
 <p>时延带宽积</p>
 <blockquote>
@@ -556,6 +560,15 @@
 <p>URL格式：</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">协议:<span class="hljs-regexp">//</span>用户:口令@主机名<span class="hljs-regexp">/路径名/</span>端口<br></code></pre></td></tr></table></figure>
 
+<p>HTTP的连接方式：</p>
+<ul>
+<li>持久连接keep-alive<ul>
+<li>流水线</li>
+<li>非流水线</li>
+</ul>
+</li>
+<li>非持久连接close</li>
+</ul>
 </blockquote>
 <p>HTTP请求报文</p>
 <blockquote>
@@ -573,15 +586,17 @@
 <li>实体行</li>
 </ul>
 </blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JV411t7ow?t=3531.2&amp;p=13">https://www.bilibili.com/video/BV1JV411t7ow?t=3531.2&amp;p=13</a></p>
 <p>FTP(建立在TCP之上)</p>
 <blockquote>
 <p>端口21传送控制指令</p>
 <p>端口20传送文件</p>
 <p>21端口是全程打开的</p>
 <p>是否使用端口20是与传输模式有关的</p>
-<p>主动方式的话是20端口</p>
-<p>被动方式是服务器和客户端自行协商端口，但是端口要&gt;1024</p>
+<p>主动模式和被动模式是站在服务器的角度来说的</p>
+<ul>
+<li>主动模式：客户端通过21端口告诉服务器一个端口port，然后服务端用自己的20端口主动连接客户端的port</li>
+<li>被动模式：客户端通过21端口告诉服务器一个端口port，然后服务端开放自己的port，等待客户端连接</li>
+</ul>
 <p>FTP有两种传输模式：</p>
 <ul>
 <li>文本模式：ASCII模式</li>
@@ -622,7 +637,6 @@
 </li>
 <li><p>IMAP网际报文存取协议(143端口)</p>
 <p>比POP协议更加复杂，允许用户像对待本地邮箱那样操纵远程邮箱的邮件</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JV411t7ow?t=898.0&amp;p=16">https://www.bilibili.com/video/BV1JV411t7ow?t=898.0&amp;p=16</a></p>
 </li>
 </ul>
 </blockquote>
@@ -652,7 +666,6 @@
 <p>(name,value,type,ttl)</p>
 <p>DNS报文：</p>
 <p><img src="/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20230408173551875.png" srcset="/img/loading.gif" lazyload alt="image-20230408173551875"></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JV411t7ow?t=2608.3&amp;p=17">https://www.bilibili.com/video/BV1JV411t7ow?t=2608.3&amp;p=17</a></p>
 <p>DNS 重定向攻击：</p>
 <p>又称DNS污染，是指用户向递归服务器发动DNS查询请求时，攻击者发送伪造的响应报文，从而让用户访问错误的IP。</p>
 <p>DNS反弹式拒绝服务攻击：</p>
@@ -663,10 +676,16 @@
 <ul>
 <li>非结构化p2p<ul>
 <li>集中化目录</li>
+<li>完全分布式(Gnutella)</li>
+<li>混合体(KaZaA)：组间是完全分布式，组内是集中化目录</li>
 </ul>
 </li>
 <li>DHT(结构化)p2p</li>
 </ul>
+<p>采用cs模式将一个文件分发给n个客户端的时间：</p>
+<p>$D_{c-s} \geq max{\frac{F}{d_{min}},\frac{NF}{u_s}}$</p>
+<p>采用p2p模式将一个文件分发给n个客户端的时间：</p>
+<p>$D_{p2p} \geq max{\frac{F}{d_{min}},\frac{F}{u_s},\frac{NF}{U_s+\sum^N_{i&#x3D;1}u_i}}$</p>
 </blockquote>
 <h3 id="2-6-视频流和内容分发网"><a href="#2-6-视频流和内容分发网" class="headerlink" title="2.6 视频流和内容分发网"></a>2.6 视频流和内容分发网</h3><h3 id="2-7-套接字编程"><a href="#2-7-套接字编程" class="headerlink" title="2.7 套接字编程"></a>2.7 套接字编程</h3><h2 id="三、运输层"><a href="#三、运输层" class="headerlink" title="三、运输层"></a>三、运输层</h2><h3 id="3-1-概述和运输层服务"><a href="#3-1-概述和运输层服务" class="headerlink" title="3.1 概述和运输层服务"></a>3.1 概述和运输层服务</h3><blockquote>
 <p>在两个不同的主机上运行的应用程序之间提供逻辑通信</p>
@@ -707,8 +726,41 @@
 </ul>
 </li>
 </ul>
+<p>UDP只在ip的数据报服务之上增加了很少一点功能，即端口的功能和差错检测功能</p>
+<p>UDP对应用层下来的报文，既不合并，也不拆分，而是保留这些报文的边界，有多长就发多长</p>
 </blockquote>
 <h3 id="3-4-可靠数据传输原理"><a href="#3-4-可靠数据传输原理" class="headerlink" title="3.4 可靠数据传输原理"></a>3.4 可靠数据传输原理</h3><blockquote>
+<p>rdt在应用层，传输层和数据链路层都很重要</p>
+<ul>
+<li><p>rdt1.0 完全可靠信道上的可靠数据传输</p>
+<ul>
+<li>在完美可靠的信道上：没有bit错误，没有分组丢失</li>
+</ul>
+</li>
+<li><p>rdt2.0 具有bit错误的信道</p>
+<ul>
+<li>新机制：差错检测和接收方反馈(ACK和NAK)和重传机制</li>
+<li>rdt2.0 是一个停-等协议，也就是发送后等待响应</li>
+<li>在大量重传情况下，接收方不能区分新旧分组，只需要给分组加上01两个代表新旧的序号就行</li>
+</ul>
+</li>
+<li><p>rdt2.1 给分组加上01两个代表新旧的序号</p>
+</li>
+<li><p>rdt2.2 一个不要NAK的协议</p>
+</li>
+<li><p>rdt 3.0 具有出错和丢失的信道</p>
+<p>解决方法：发送者等待一个合理的确认时间，若超过一定时间就重发</p>
+<p>已经是最终版本，但是效率比较低，需要使用流水线技术</p>
+</li>
+</ul>
+<p>流水线协议主要有两种：</p>
+<ul>
+<li><p>回退N重传协议GBN(go-back-n)</p>
+<p>在分组的头部增加一个k位的序号</p>
+</li>
+<li><p>选择重传协议SR(selective-repeat)</p>
+</li>
+</ul>
 </blockquote>
 <h3 id="3-5-面向连接的运输：TCP"><a href="#3-5-面向连接的运输：TCP" class="headerlink" title="3.5 面向连接的运输：TCP"></a>3.5 面向连接的运输：TCP</h3><blockquote>
 <p>流量控制：就是让发送方的发送速率不要太快，要让接收方来得及接收，利用滑动窗口机制可以很方便的实现流量控制</p>
@@ -757,7 +809,12 @@
 <li>cwnd变为1，重新执行慢开始算法</li>
 </ul>
 </blockquote>
-<h3 id="3-7-TCP拥塞控制"><a href="#3-7-TCP拥塞控制" class="headerlink" title="3.7 TCP拥塞控制"></a>3.7 TCP拥塞控制</h3><h2 id="四、网络层"><a href="#四、网络层" class="headerlink" title="四、网络层"></a>四、网络层</h2><h3 id="4-1-网络层概述"><a href="#4-1-网络层概述" class="headerlink" title="4.1 网络层概述"></a>4.1 网络层概述</h3><h3 id="4-2-路由器工作原理"><a href="#4-2-路由器工作原理" class="headerlink" title="4.2 路由器工作原理"></a>4.2 路由器工作原理</h3><h3 id="4-3-网际协议：IPv4、寻址、IPv6"><a href="#4-3-网际协议：IPv4、寻址、IPv6" class="headerlink" title="4.3 网际协议：IPv4、寻址、IPv6"></a>4.3 网际协议：IPv4、寻址、IPv6</h3><blockquote>
+<h3 id="3-7-TCP拥塞控制"><a href="#3-7-TCP拥塞控制" class="headerlink" title="3.7 TCP拥塞控制"></a>3.7 TCP拥塞控制</h3><h2 id="四、网络层"><a href="#四、网络层" class="headerlink" title="四、网络层"></a>四、网络层</h2><h3 id="4-1-网络层概述"><a href="#4-1-网络层概述" class="headerlink" title="4.1 网络层概述"></a>4.1 网络层概述</h3><p>ICMP</p>
+<blockquote>
+<p><img src="/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20230430110807097.png" srcset="/img/loading.gif" lazyload alt="image-20230430110807097"></p>
+<p><img src="/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20230430110938275.png" srcset="/img/loading.gif" lazyload alt="image-20230430110938275"></p>
+</blockquote>
+<h3 id="4-2-路由器工作原理"><a href="#4-2-路由器工作原理" class="headerlink" title="4.2 路由器工作原理"></a>4.2 路由器工作原理</h3><h3 id="4-3-网际协议：IPv4、寻址、IPv6"><a href="#4-3-网际协议：IPv4、寻址、IPv6" class="headerlink" title="4.3 网际协议：IPv4、寻址、IPv6"></a>4.3 网际协议：IPv4、寻址、IPv6</h3><blockquote>
 <p>IP数据报格式：</p>
 <p><img src="/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20230423152737277.png" srcset="/img/loading.gif" lazyload alt=" "></p>
 <p>标识：同一数据包的分片使用同一标识</p>
@@ -765,6 +822,9 @@
 <p>片偏移：某片在原分片中的位置，8字节为1单位</p>
 <p>最大传送单元MTU：链路层数据帧可封装数据的上限</p>
 <p>以太网的MTU是1500字节</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">0                   1                   2                   3<br>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|Version|  IHL  |Type of Service|          Total Length         |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|         Identification        |Flags|      Fragment Offset    |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|  Time to Live |    Protocol   |         Header Checksum       |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|                       Source Address                          |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|                    Destination Address                        |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|                    Options                    |    Padding    |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br></code></pre></td></tr></table></figure>
+
+
 </blockquote>
 <h3 id="4-4-通用转发和SDN"><a href="#4-4-通用转发和SDN" class="headerlink" title="4.4 通用转发和SDN"></a>4.4 通用转发和SDN</h3><p>4.5</p>
 
