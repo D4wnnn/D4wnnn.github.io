@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2023-03-02T06:37:56.000Z">
-<meta property="article:modified_time" content="2023-04-30T10:21:53.620Z">
+<meta property="article:modified_time" content="2023-05-01T17:57:10.530Z">
 <meta property="article:author" content="D4wn">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
@@ -259,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.8k 字
+          8k 字
         
       </span>
     
@@ -270,7 +270,7 @@
         
         
         
-          49 分钟
+          67 分钟
         
       </span>
     
@@ -755,14 +755,21 @@
 </ul>
 <p>流水线协议主要有两种：</p>
 <ul>
-<li><p>回退N重传协议GBN(go-back-n)</p>
+<li><p>回退N重传协议GBN(go-back-n)，又称滑动窗口协议</p>
 <p>在分组的头部增加一个k位的序号</p>
 </li>
 <li><p>选择重传协议SR(selective-repeat)</p>
+<p>只重发出问题的报文</p>
+<p>SR协议中，发送者和接受者的窗口并不总是一致的</p>
+<p>&#x3D;&#x3D;窗口应该小于或等于序号空间大小的一半&#x3D;&#x3D;</p>
 </li>
 </ul>
+<p>参考资料：<a target="_blank" rel="noopener" href="https://blog.csdn.net/hjl_heart/article/details/88218012">https://blog.csdn.net/hjl_heart/article/details/88218012</a></p>
 </blockquote>
 <h3 id="3-5-面向连接的运输：TCP"><a href="#3-5-面向连接的运输：TCP" class="headerlink" title="3.5 面向连接的运输：TCP"></a>3.5 面向连接的运输：TCP</h3><blockquote>
+<p>TCP是全双工协议</p>
+<p>MSS(Maximum Transmission Size)：最大报文长度，只考虑了数据部分，不考虑头部</p>
+<p>MTU(Maximum Segment Size)：一般指特定通信线路上所能传输的最大数据包大小</p>
 <p>流量控制：就是让发送方的发送速率不要太快，要让接收方来得及接收，利用滑动窗口机制可以很方便的实现流量控制</p>
 <p><img src="/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20230413154549214.png" srcset="/img/loading.gif" lazyload alt="image-20230413154549214"></p>
 <ul>
@@ -774,7 +781,7 @@
 <li>确认位ACK：ACK为1时，确认号才有效</li>
 <li>推送为PSH：接收方尽快交付应用进程，不再等到缓存填满再向上交付</li>
 <li>复位RST：RST为1时，代表连接出现严重差错，必须释放连接，重新建立传输连接</li>
-<li>同步位SYN：SYN&#x3D;1时，代表是一个连接请求&#x2F;接受报文</li>
+<li>同步位SYN：SYN&#x3D;1时，代表是一个连接请求&#x2F;连接接受报文</li>
 <li>终止位FIN：FIN&#x3D;1代表数据传输完毕，要求释放连接</li>
 </ul>
 </li>
@@ -783,50 +790,328 @@
 <li>紧急指针：URG&#x3D;1才有效，指出本报文段中紧急数据的字节数</li>
 </ul>
 </blockquote>
+<p>TCP往返时延的估计和超时</p>
+<blockquote>
+<p>如何设置TCP超时值？</p>
+<p>比RTT长，但是RTT一直在变化，因此需要估计RTT</p>
+<p>如何估计RTT？</p>
+<p>指数加权移动平均法：$EstimateRTT &#x3D; (1-\alpha)<em>EstimateRTT+\alpha</em>SampleRTT$</p>
+<p>$\alpha 通常为0.125$</p>
+<p>安全余量：$DevRTT &#x3D; (1-\beta)<em>DevRTT+\beta</em>|SampleRTT-EstimatedRTT|$</p>
+<p>$\beta 通常为0.25$</p>
+<p>$TimeoutInterval &#x3D; EstimatedRTT + 4* DevRTT$</p>
+</blockquote>
+<p>可靠数据传输机制</p>
+<blockquote>
+<p>TCP的流水线技术可以看做是GBN和SR的综合</p>
+<p>TCP使用单个重发定时器</p>
+<p>触发重发：超时事件和重复确认</p>
+<p>重传方式：</p>
+<ul>
+<li>超时重传</li>
+<li>快速重传</li>
+</ul>
+</blockquote>
+<p>TCP流量控制</p>
+<blockquote>
+<p>限制的是发送方的速率</p>
+</blockquote>
 <p>TCP连接管理</p>
 <blockquote>
+<p>为什么三次握手：</p>
+<p>①三次握手的实质是检测客户端和服务端各自的发送和接收数据的能力是否都正常</p>
+<p>②为了防止非可靠信道上滞留的SYN包产生的错误连接问题</p>
+<p>③可以同步序号</p>
+<p>④次数过多效率很低</p>
+<p>为什么客户端要等待一段超时时间：</p>
+<p>因为在不可靠信道上，客户端发送的最后ACK包可能丢失，此时服务端未关闭连接，会再次发送FIN包</p>
 </blockquote>
-<h3 id="3-6-拥塞控制原理"><a href="#3-6-拥塞控制原理" class="headerlink" title="3.6 拥塞控制原理"></a>3.6 拥塞控制原理</h3><blockquote>
-<p>有四种方法实现拥塞控制</p>
+<h3 id="3-6-TCP拥塞控制"><a href="#3-6-TCP拥塞控制" class="headerlink" title="3.6 TCP拥塞控制"></a>3.6 TCP拥塞控制</h3><blockquote>
+<p>发送方如何感知拥塞？</p>
 <ul>
-<li>慢开始</li>
-<li>拥塞避免</li>
-<li>快重传</li>
-<li>快恢复</li>
+<li>丢失事件 &#x3D; 超时 或者 3个重复的ACKs</li>
 </ul>
-<p>判断出现网络拥塞的依据：超时重传</p>
-<p>拥塞窗口：cwnd</p>
-<p>发送窗口：swnd</p>
+<p>几个窗口：</p>
+<ul>
+<li><p>接收窗口：接收方根据接收缓存设置的值，反应接收方容量</p>
+</li>
+<li><p>拥塞窗口：发送方根据自己估算的网络拥塞程度而设置的窗口值，反应网络当前容量</p>
+</li>
+<li><p>发送窗口 &#x3D; Min{接收窗口rwnd，拥塞窗口cwnd}</p>
+</li>
+</ul>
+<p>什么是快重传？</p>
+<ul>
+<li>对于发送方，若收到3个重复的ACK就立即重传丢失的数据包，不用等待重传计时器</li>
+<li>对于接收方，若收到一个失序的数据包立即发送ACK告知发送方，不用等待发送数据时才捎带确认，可以让发送方更早的知道发生丢失</li>
+</ul>
+<p>什么是快恢复？</p>
+<ul>
+<li>发送方收到3个重复ACK时，ssthresh设置为一半</li>
+</ul>
+<p>参考资料：<a target="_blank" rel="noopener" href="https://kongkongk.github.io/2020/06/30/fast-retransmission-and-fast-recovery/">https://kongkongk.github.io/2020/06/30/fast-retransmission-and-fast-recovery/</a></p>
 <p>维护一个慢开始门限ssthresh的状态变量</p>
 <ul>
 <li>当cwnd&lt;ssthresh：使用慢开始</li>
 <li>当cwnd&gt;ssthresh：使用拥塞控制</li>
 <li>当swnd&#x3D;ssthresh：既可使用慢开始，也可使用拥塞控制</li>
 </ul>
-<p>当重传计时器超时，判断网络很可能发生了拥塞，接下来执行以下步骤：</p>
+<p>三个机制：</p>
 <ul>
-<li>ssthresh变为发生拥塞时的一半</li>
-<li>cwnd变为1，重新执行慢开始算法</li>
+<li><p>慢启动</p>
+<p>初始时设置一个最大报文段长度MSS，cwnd &#x3D; 1</p>
+<p>指数增长</p>
+</li>
+<li><p>拥塞避免</p>
+<p>ssthresh的值为发生拥塞时的一半</p>
+</li>
+<li><p>对拥塞事件的反应</p>
+<p>早期Tahoe版：</p>
+<ul>
+<li>ssthresh设置为原来的一半</li>
+<li>cwnd设置为1</li>
+</ul>
+<p>现在的Reno版：</p>
+<ul>
+<li><p>当发生超时的时候：</p>
+<p>同Tahoe版</p>
+</li>
+<li><p>当发生重复确认的时候：</p>
+<p>执行快重传和快恢复</p>
+<p>ssthresh更新为原来的一半</p>
+<p>cwnd设置为ssthresh+3</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20230501181652062.png" srcset="/img/loading.gif" lazyload alt="image-20230501181652062"></p>
+<p>参考资料：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1L4411a7RN?t=1308.8">https://www.bilibili.com/video/BV1L4411a7RN?t=1308.8</a></p>
+<p>AIMD(Additive-increase,multiplicative-decrease)</p>
+<ul>
+<li><p>乘性递减：发生丢包事件后将cwnd减半</p>
+</li>
+<li><p>加性递增：每个RTT内若没有丢包事件产生，cwnd+1</p>
+</li>
 </ul>
 </blockquote>
-<h3 id="3-7-TCP拥塞控制"><a href="#3-7-TCP拥塞控制" class="headerlink" title="3.7 TCP拥塞控制"></a>3.7 TCP拥塞控制</h3><h2 id="四、网络层"><a href="#四、网络层" class="headerlink" title="四、网络层"></a>四、网络层</h2><h3 id="4-1-网络层概述"><a href="#4-1-网络层概述" class="headerlink" title="4.1 网络层概述"></a>4.1 网络层概述</h3><p>ICMP</p>
+<h2 id="四、网络层"><a href="#四、网络层" class="headerlink" title="四、网络层"></a>四、网络层</h2><h3 id="4-1-网络层概述"><a href="#4-1-网络层概述" class="headerlink" title="4.1 网络层概述"></a>4.1 网络层概述</h3><blockquote>
+<p>网络层的功能：</p>
+<ul>
+<li><p>路由选择与分组转发</p>
+</li>
+<li><p>异构网络互联</p>
+</li>
+<li><p>拥塞控制</p>
+<p>解决方法：开环控制和闭环控制</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="4-2-IP数据报格式及分片"><a href="#4-2-IP数据报格式及分片" class="headerlink" title="4.2 IP数据报格式及分片"></a>4.2 IP数据报格式及分片</h3><blockquote>
+<p>IP数据报格式：</p>
+<p><img src="/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20230423152737277.png" srcset="/img/loading.gif" lazyload alt=" "></p>
+<p>最大传送单元MTU：链路层数据帧可封装数据的上限</p>
+<p>以太网的MTU是1500字节</p>
+<p>标识：同一数据包的分片使用同一标识</p>
+<p>标志：只有2位有意义：x__，中间位DF&#x3D;1为禁止分片，DF&#x3D;0为允许分片，最低位MF&#x3D;1代表后面还有分片，为0代表最后一片分片</p>
+<p>片偏移：某片在原分片中的位置，8字节为1单位</p>
+<p>协议：</p>
+<table>
+<thead>
+<tr>
+<th>协议名</th>
+<th>ICMP</th>
+<th>IGMP</th>
+<th>TCP</th>
+<th>EGP</th>
+<th>IGP</th>
+<th>UDP</th>
+<th>IPv6</th>
+<th>ESP</th>
+<th>OSPF</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字段值</td>
+<td>1</td>
+<td>2</td>
+<td>6</td>
+<td>8</td>
+<td>9</td>
+<td>17</td>
+<td>41</td>
+<td>50</td>
+<td>89</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">0                   1                   2                   3<br>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|Version|  IHL  |Type of Service|          Total Length         |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|         Identification        |Flags|      Fragment Offset    |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|  Time to Live |    Protocol   |         Header Checksum       |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|                       Source Address                          |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|                    Destination Address                        |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|                    Options                    |    Padding    |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="4-4-IPv4地址"><a href="#4-4-IPv4地址" class="headerlink" title="4.4 IPv4地址"></a>4.4 IPv4地址</h3><blockquote>
+<p>分类的IP地址</p>
+<p><img src="/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20230501212104624.png" srcset="/img/loading.gif" lazyload alt="image-20230501212104624"></p>
+<p>特殊IP地址</p>
+<table>
+<thead>
+<tr>
+<th>网络号</th>
+<th>主机号</th>
+<th>作为IP分组源地址</th>
+<th>作为IP分组目的地址</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>全0</td>
+<td>全0</td>
+<td>可以</td>
+<td>不可以</td>
+<td>本网范围内表示主机，路由表中用于表示默认路由</td>
+</tr>
+<tr>
+<td>全1</td>
+<td>全1</td>
+<td>不可以</td>
+<td>可以</td>
+<td>广播地址</td>
+</tr>
+<tr>
+<td>全0</td>
+<td>特定值</td>
+<td>可以</td>
+<td>不可以</td>
+<td>表示本网内某个特定主机</td>
+</tr>
+<tr>
+<td>特定值</td>
+<td>全0</td>
+<td>不可以</td>
+<td>不可以</td>
+<td>网络地址，表示一个网络</td>
+</tr>
+<tr>
+<td>特定值</td>
+<td>全1</td>
+<td>不可以</td>
+<td>可以</td>
+<td>直接广播地址，对特定网络上的所有主机进行广播</td>
+</tr>
+<tr>
+<td>127</td>
+<td>任何数(非全0&#x2F;1)</td>
+<td>可以</td>
+<td>可以</td>
+<td>环回地址</td>
+</tr>
+</tbody></table>
+<p>私有IP地址</p>
+<table>
+<thead>
+<tr>
+<th align="center">地址类别</th>
+<th align="center">地址范围</th>
+<th align="center">网段个数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A类</td>
+<td align="center">10.0.0.0~10.255.255.255</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">B类</td>
+<td align="center">172.16.0.0~172.31.255.255</td>
+<td align="center">16</td>
+</tr>
+<tr>
+<td align="center">C类</td>
+<td align="center">192.168.0.0~192.168.255.255</td>
+<td align="center">256</td>
+</tr>
+</tbody></table>
+</blockquote>
+<h3 id="4-5-网络地址转换NAT"><a href="#4-5-网络地址转换NAT" class="headerlink" title="4.5 网络地址转换NAT"></a>4.5 网络地址转换NAT</h3><blockquote>
+<p>安装了NAT软件的路由器叫NAT路由器，至少有一个有效的外部全球IP地址</p>
+<p>NAT转换需要使用到NAT转换表</p>
+<table>
+<thead>
+<tr>
+<th align="center">WAN端</th>
+<th align="center">LAN端</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">172.38.1.5:40001</td>
+<td align="center">192.168.1.2:30000</td>
+</tr>
+<tr>
+<td align="center">172.38.1.5:40002</td>
+<td align="center">192.168.1.3:30001</td>
+</tr>
+</tbody></table>
+</blockquote>
+<h3 id="4-6-子网划分与子网掩码"><a href="#4-6-子网划分与子网掩码" class="headerlink" title="4.6 子网划分与子网掩码"></a>4.6 子网划分与子网掩码</h3><blockquote>
+<p>子网号能否全0全1要看情况(CIDR广泛应用)</p>
+<p>主机号不能全0或者全1</p>
+<p>背诵：</p>
+<table>
+<thead>
+<tr>
+<th align="center">二进制</th>
+<th align="center">十进制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1000 0000</td>
+<td align="center">128</td>
+</tr>
+<tr>
+<td align="center">1100 0000</td>
+<td align="center">192</td>
+</tr>
+<tr>
+<td align="center">1110 0000</td>
+<td align="center">224</td>
+</tr>
+<tr>
+<td align="center">1111 0000</td>
+<td align="center">240</td>
+</tr>
+<tr>
+<td align="center">1111 1000</td>
+<td align="center">248</td>
+</tr>
+<tr>
+<td align="center">1111 1100</td>
+<td align="center">252</td>
+</tr>
+<tr>
+<td align="center">1111 1110</td>
+<td align="center">254</td>
+</tr>
+<tr>
+<td align="center">1111 1111</td>
+<td align="center">255</td>
+</tr>
+</tbody></table>
+<p>IP地址+子网掩码–&gt;网络地址</p>
+</blockquote>
+<h3 id="4-7-无分类编制CIDR"><a href="#4-7-无分类编制CIDR" class="headerlink" title="4.7 无分类编制CIDR"></a>4.7 无分类编制CIDR</h3><blockquote>
+<p>CIDR(Classless Inter-Domain Routing)无分类域间路由选择就是把网络号和子网号合并在一起成为网络前缀</p>
+<p>优势：</p>
+<ul>
+<li>消除了传统的ABC类地址以及划分子网的概念</li>
+<li>融合子网地址与子网掩码，方便子网划分(子网掩码变为地址掩码)</li>
+</ul>
+<p>构成超网(路由聚合)：将多个子网聚合成一个较大的子网，与划分子网相反，是一个由多变少的过程</p>
+<p>最长前缀匹配：若路由查表转发分组时发现由多条路由可选，则选择网络前缀最长的那条</p>
+</blockquote>
+<h3 id="4-8-ARP协议"><a href="#4-8-ARP协议" class="headerlink" title="4.8 ARP协议"></a>4.8 ARP协议</h3><blockquote>
+</blockquote>
+<p>ICMP</p>
 <blockquote>
 <p><img src="/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20230430110807097.png" srcset="/img/loading.gif" lazyload alt="image-20230430110807097"></p>
 <p><img src="/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20230430110938275.png" srcset="/img/loading.gif" lazyload alt="image-20230430110938275"></p>
 </blockquote>
-<h3 id="4-2-路由器工作原理"><a href="#4-2-路由器工作原理" class="headerlink" title="4.2 路由器工作原理"></a>4.2 路由器工作原理</h3><h3 id="4-3-网际协议：IPv4、寻址、IPv6"><a href="#4-3-网际协议：IPv4、寻址、IPv6" class="headerlink" title="4.3 网际协议：IPv4、寻址、IPv6"></a>4.3 网际协议：IPv4、寻址、IPv6</h3><blockquote>
-<p>IP数据报格式：</p>
-<p><img src="/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20230423152737277.png" srcset="/img/loading.gif" lazyload alt=" "></p>
-<p>标识：同一数据包的分片使用同一标识</p>
-<p>标志：只有2位有意义：x__，中间位DF&#x3D;1为禁止分片，DF&#x3D;0为允许分片，最低位MF&#x3D;1代表后面还有分片，为0代表最后一片分片</p>
-<p>片偏移：某片在原分片中的位置，8字节为1单位</p>
-<p>最大传送单元MTU：链路层数据帧可封装数据的上限</p>
-<p>以太网的MTU是1500字节</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">0                   1                   2                   3<br>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|Version|  IHL  |Type of Service|          Total Length         |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|         Identification        |Flags|      Fragment Offset    |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|  Time to Live |    Protocol   |         Header Checksum       |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|                       Source Address                          |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|                    Destination Address                        |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br>|                    Options                    |    Padding    |<br>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+<br></code></pre></td></tr></table></figure>
-
-
-</blockquote>
-<h3 id="4-4-通用转发和SDN"><a href="#4-4-通用转发和SDN" class="headerlink" title="4.4 通用转发和SDN"></a>4.4 通用转发和SDN</h3><p>4.5</p>
+<h3 id="4-2-路由器工作原理"><a href="#4-2-路由器工作原理" class="headerlink" title="4.2 路由器工作原理"></a>4.2 路由器工作原理</h3><h3 id="4-3-网际协议：IPv4、寻址、IPv6"><a href="#4-3-网际协议：IPv4、寻址、IPv6" class="headerlink" title="4.3 网际协议：IPv4、寻址、IPv6"></a>4.3 网际协议：IPv4、寻址、IPv6</h3><h3 id="4-4-通用转发和SDN"><a href="#4-4-通用转发和SDN" class="headerlink" title="4.4 通用转发和SDN"></a>4.4 通用转发和SDN</h3><p>4.5</p>
 
                 
               </div>
