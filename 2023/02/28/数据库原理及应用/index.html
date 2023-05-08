@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="数据库原理及应用MySQL数据库教程天花板，mysql安装到mysql高级，强！硬！_哔哩哔哩_bilibili 一、数据库系统概论1.1 数据库及其系统概念 数据模型： 是指描述事物对象的数据结构组成，数据语义关系，数据约束的抽象结构及其说明 组成：  数据结构：描述事物对象的静态特征，包括事物对象的数据组成，数据类型，数据性质 数据操作：用于描述事物对象的动态特征，比如增删改查 数据约束：描述">
+    <meta name="description" content="数据库原理及应用 MySQL数据库教程天花板，mysql安装到mysql高级，强！硬！_哔哩哔哩_bilibili 一、数据库系统概论 1.1 数据库及其系统概念  数据模型： 是指描述事物对象的数据结构组成，数据语义关系，数据约束的抽象结构及其说明 组成：  数据结构：描述事物对象的静态特征，包括事物对象的数据组成，数据类型，数据性质 数据操作：用于描述事物对象的动态特征，比">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库原理及应用">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/02/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="数据库原理及应用MySQL数据库教程天花板，mysql安装到mysql高级，强！硬！_哔哩哔哩_bilibili 一、数据库系统概论1.1 数据库及其系统概念 数据模型： 是指描述事物对象的数据结构组成，数据语义关系，数据约束的抽象结构及其说明 组成：  数据结构：描述事物对象的静态特征，包括事物对象的数据组成，数据类型，数据性质 数据操作：用于描述事物对象的动态特征，比如增删改查 数据约束：描述">
+<meta property="og:description" content="数据库原理及应用 MySQL数据库教程天花板，mysql安装到mysql高级，强！硬！_哔哩哔哩_bilibili 一、数据库系统概论 1.1 数据库及其系统概念  数据模型： 是指描述事物对象的数据结构组成，数据语义关系，数据约束的抽象结构及其说明 组成：  数据结构：描述事物对象的静态特征，包括事物对象的数据组成，数据类型，数据性质 数据操作：用于描述事物对象的动态特征，比">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2023-02-28T02:50:45.000Z">
@@ -117,7 +117,123 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -259,7 +375,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.1k 字
+          6.9k 字
         
       </span>
     
@@ -270,7 +386,7 @@
         
         
         
-          60 分钟
+          58 分钟
         
       </span>
     
@@ -313,8 +429,11 @@
             
               <div class="markdown-body">
                 
-                <h1 id="数据库原理及应用"><a href="#数据库原理及应用" class="headerlink" title="数据库原理及应用"></a>数据库原理及应用</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1iq4y1u7vj/?spm_id_from=333.337.search-card.all.click&vd_source=bf133d296119691c661008e881da330a">MySQL数据库教程天花板，mysql安装到mysql高级，强！硬！_哔哩哔哩_bilibili</a></p>
-<h2 id="一、数据库系统概论"><a href="#一、数据库系统概论" class="headerlink" title="一、数据库系统概论"></a>一、数据库系统概论</h2><h3 id="1-1-数据库及其系统概念"><a href="#1-1-数据库及其系统概念" class="headerlink" title="1.1 数据库及其系统概念"></a>1.1 数据库及其系统概念</h3><blockquote>
+                <h1 id="数据库原理及应用">数据库原理及应用</h1>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1iq4y1u7vj/?spm_id_from=333.337.search-card.all.click&amp;vd_source=bf133d296119691c661008e881da330a">MySQL数据库教程天花板，mysql安装到mysql高级，强！硬！_哔哩哔哩_bilibili</a></p>
+<h2 id="一数据库系统概论">一、数据库系统概论</h2>
+<h3 id="数据库及其系统概念">1.1 数据库及其系统概念</h3>
+<blockquote>
 <p>数据模型：</p>
 <p>是指描述事物对象的数据结构组成，数据语义关系，数据约束的抽象结构及其说明</p>
 <p>组成：</p>
@@ -325,10 +444,8 @@
 </ul>
 <p>数据库使用的数据模型：</p>
 <ul>
-<li><p>层次数据模型：最早使用，采用树存储管理数据</p>
-</li>
-<li><p>网状数据模型：采用网状图存储管理数据</p>
-</li>
+<li><p>层次数据模型：最早使用，采用树存储管理数据</p></li>
+<li><p>网状数据模型：采用网状图存储管理数据</p></li>
 <li><p>关系数据模型：采用二维表组织和管理数据</p>
 <p>优点：</p>
 <ul>
@@ -342,25 +459,26 @@
 <li>只用于结构化数据的组织与存储管理</li>
 <li>支持的数据类型较简单</li>
 <li>难以支持互联网广泛应用的非结构化数据和复杂数据管理</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 </blockquote>
-<h3 id="1-2-数据库技术发展"><a href="#1-2-数据库技术发展" class="headerlink" title="1.2 数据库技术发展"></a>1.2 数据库技术发展</h3><blockquote>
+<h3 id="数据库技术发展">1.2 数据库技术发展</h3>
+<blockquote>
 <p>数据管理技术发展阶段</p>
 <ul>
 <li>人工管理阶段</li>
 <li>文件系统管理阶段</li>
-<li>数据库系统管理阶段<ul>
+<li>数据库系统管理阶段
+<ul>
 <li>第一代数据库技术</li>
 <li>第二代数据库技术</li>
 <li>第三代数据库技术</li>
 <li>第四代数据库技术</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 </blockquote>
-<h3 id="1-3-数据库应用系统"><a href="#1-3-数据库应用系统" class="headerlink" title="1.3 数据库应用系统"></a>1.3 数据库应用系统</h3><blockquote>
+<h3 id="数据库应用系统">1.3 数据库应用系统</h3>
+<blockquote>
 <p>业务处理系统：比如航空机票订票系统</p>
 <p>管理信息系统：比如人力资源管理信息系统，办公管理信息系统</p>
 <p>决策支持系统：比如证券分析与辅助决策信息系统</p>
@@ -368,7 +486,7 @@
 <ul>
 <li>单机用户结构</li>
 <li>集中式结构</li>
-<li>客户&#x2F;服务器结构</li>
+<li>客户/服务器结构</li>
 <li>分布式结构</li>
 </ul>
 <p>数据库应用系统生命周期：</p>
@@ -380,21 +498,16 @@
 <li>系统运行与维护</li>
 </ul>
 </blockquote>
-<h3 id="1-4-典型数据库管理系统"><a href="#1-4-典型数据库管理系统" class="headerlink" title="1.4 典型数据库管理系统"></a>1.4 典型数据库管理系统</h3><blockquote>
+<h3 id="典型数据库管理系统">1.4 典型数据库管理系统</h3>
+<blockquote>
 <p>常见数据库</p>
 <ul>
-<li><p>Oracle </p>
-</li>
-<li><p>MySQL</p>
-</li>
-<li><p>SQLite：常用在小型数据库</p>
-</li>
-<li><p>DB2：常用在银行系统中</p>
-</li>
-<li><p>PostgreSQL：稳定性极强</p>
-</li>
-<li><p>MariaDB：因为MySQL有闭源的风险，所以有MariaDB分支项</p>
-</li>
+<li><p>Oracle</p></li>
+<li><p>MySQL</p></li>
+<li><p>SQLite：常用在小型数据库</p></li>
+<li><p>DB2：常用在银行系统中</p></li>
+<li><p>PostgreSQL：稳定性极强</p></li>
+<li><p>MariaDB：因为MySQL有闭源的风险，所以有MariaDB分支项</p></li>
 </ul>
 <p>按用途分类：</p>
 <ul>
@@ -422,7 +535,9 @@
 <li>开源DBMS：如MySQL，PostgreSQL</li>
 </ul>
 </blockquote>
-<h2 id="二、数据库关系模型"><a href="#二、数据库关系模型" class="headerlink" title="二、数据库关系模型"></a>二、数据库关系模型</h2><h3 id="2-1-关系及其相关概念"><a href="#2-1-关系及其相关概念" class="headerlink" title="2.1 关系及其相关概念"></a>2.1 关系及其相关概念</h3><blockquote>
+<h2 id="二数据库关系模型">二、数据库关系模型</h2>
+<h3 id="关系及其相关概念">2.1 关系及其相关概念</h3>
+<blockquote>
 <p>实体：是指包含有数据特征的事务对象在概念数据模型世界中的抽象名称</p>
 <p>关系：是指具有关系特征、用于存放实体数据的二维表</p>
 <p>关系的特征：</p>
@@ -439,19 +554,20 @@
 <p>主键：是关系表中最具代表性的一个候选键，每个关系表只能定义一个主键</p>
 <p>代理键：DBMS自动生成的数字序列作为关系表的主键，可替代复合主键，提高效率</p>
 </blockquote>
-<h3 id="2-2-关系模型原理"><a href="#2-2-关系模型原理" class="headerlink" title="2.2 关系模型原理"></a>2.2 关系模型原理</h3><blockquote>
+<h3 id="关系模型原理">2.2 关系模型原理</h3>
+<blockquote>
 <p>关系模型：是一种基于二维表结构存储数据实体及实体间联系的数据模型</p>
 <ul>
 <li>数据结构</li>
 <li>数据操作</li>
-<li>数据关系约束<ul>
+<li>数据关系约束
+<ul>
 <li>属性列取值类型</li>
 <li>属性列取值范围</li>
 <li>属性列是否唯一</li>
 <li>属性列是否允许空值</li>
 <li>关联表的参照完整性约束</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>关系模型完整性：</p>
 <ul>
@@ -460,26 +576,23 @@
 <li>消除关系表的元组重复存储</li>
 <li>保持关联表的数据一致性</li>
 <li>实现业务数据规则</li>
-</ul>
-</li>
+</ul></li>
 <li><p>关系模型完整性约束组成：</p>
 <ul>
 <li><p>实体完整性</p>
 <p>是指在关系表中实施的主键取值约束，保证关系表中的每个元组可被唯一标识</p>
-<p>实体完整性约束规则：非空，唯一</p>
-</li>
+<p>实体完整性约束规则：非空，唯一</p></li>
 <li><p>参照完整性</p>
 <p>是指在关系表之间需要遵守的数据约束，保证关系之间关联列的数据一致性</p>
-<p>参照完整性约束规则：若关系R中的外键F与关系S中的主键K相关联，则R中的外键F必须与S中主键K值一致。</p>
-</li>
+<p>参照完整性约束规则：若关系R中的外键F与关系S中的主键K相关联，则R中的外键F必须与S中主键K值一致。</p></li>
 <li><p>用户自定义完整性</p>
-<p>是指用户根据具体业务规则对数据处理规则要求所定义的数据约束，比如定义列的数据类型与取值范围，定义列的缺省值，定义列是否非空，是否唯一，列之间是否有数据依赖性</p>
-</li>
-</ul>
-</li>
+<p>是指用户根据具体业务规则对数据处理规则要求所定义的数据约束，比如定义列的数据类型与取值范围，定义列的缺省值，定义列是否非空，是否唯一，列之间是否有数据依赖性</p></li>
+</ul></li>
 </ul>
 </blockquote>
-<h2 id="三、数据库操作SQL语言"><a href="#三、数据库操作SQL语言" class="headerlink" title="三、数据库操作SQL语言"></a>三、数据库操作SQL语言</h2><h3 id="3-1-SQL语言概述"><a href="#3-1-SQL语言概述" class="headerlink" title="3.1 SQL语言概述"></a>3.1 SQL语言概述</h3><p>SQL语言特点</p>
+<h2 id="三数据库操作sql语言">三、数据库操作SQL语言</h2>
+<h3 id="sql语言概述">3.1 SQL语言概述</h3>
+<p>SQL语言特点</p>
 <blockquote>
 <ul>
 <li>一体化</li>
@@ -494,14 +607,11 @@
 <blockquote>
 <ul>
 <li><p>DDL：数据定义语言</p>
-<p>create alter drop rename truncate</p>
-</li>
+<p>create alter drop rename truncate</p></li>
 <li><p>DML：数据操作语言</p>
-<p>insert delete update select</p>
-</li>
+<p>insert delete update select</p></li>
 <li><p>DCL：数据控制语言</p>
-<p>commit rollback savement</p>
-</li>
+<p>commit rollback savement</p></li>
 </ul>
 </blockquote>
 <p>关系型数据库</p>
@@ -516,14 +626,14 @@
 <blockquote>
 <ul>
 <li>即NoSQL，基于键值对存储数据，不需要经过SQL层的解析，性能非常高</li>
-<li>分类<ul>
+<li>分类
+<ul>
 <li>键值型数据，如Redis</li>
 <li>文档型数据，如MongoDB</li>
 <li>搜索引擎数据库，Elasticsearch，Solr</li>
 <li>列式数据库，HBase</li>
 <li>图形数据库</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 </blockquote>
 <p>ER模型</p>
@@ -537,16 +647,12 @@
 <p>表的关联关系</p>
 <blockquote>
 <ul>
-<li><p>一对一</p>
-</li>
+<li><p>一对一</p></li>
 <li><p>一对多</p>
-<p>在从表创建一个字段，字段作为外键指向主表</p>
-</li>
+<p>在从表创建一个字段，字段作为外键指向主表</p></li>
 <li><p>多对多</p>
-<p>要表示多对多，必须创建第三个表：联结表</p>
-</li>
-<li><p>自我引用</p>
-</li>
+<p>要表示多对多，必须创建第三个表：联结表</p></li>
+<li><p>自我引用</p></li>
 </ul>
 </blockquote>
 <p>MySQL相关</p>
@@ -554,7 +660,7 @@
 <p>MySQL在WIndows环境下是大小写不敏感的,在Linux下是大小写敏感的</p>
 <p>注释:</p>
 <ul>
-<li>单行注释:<code>#</code>或者<code>-- </code></li>
+<li>单行注释:<code>#</code>或者<code>--</code></li>
 <li>多行注释:<code>/**/</code></li>
 </ul>
 <p>在规范方面,字符串和日期时间类型的变量需要使用单引号,列的别名需要使用双引号</p>
@@ -565,52 +671,46 @@
 </blockquote>
 <p>算数运算符</p>
 <blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">+ select 1+&#x27;1&#x27;返回为2,sql会把字符串转换为数字<br>-<br>*<br>/或者div<br>%或者mod<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">+ select 1+'1'返回为2,sql会把字符串转换为数字<br>-<br>*<br>/或者div<br>%或者mod<br></code></pre></td></tr></table></figure>
 </blockquote>
 <p>比较运算符</p>
 <blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs mysql">= 等于<br>&lt;=&gt; 安全等于,安全地判断两个值\字符串或表达式是否相等,和等于的唯一区别是可以对null进行判断,null&lt;=&gt;null返回1<br>&lt;&gt;或者!= 不等于<br>&lt;<br>&lt;=<br>&gt;<br>&gt;=<br>is null或者isnull<br>is not null<br>least(a,b) 在多个值中返回最小值<br>greatest(a,b)<br>in #elect name from employees where salary not in (6000,7000,8000)<br>not in<br>like # 模糊查询select * from employees where last_name like &#x27;%a%&#x27;,%代表0个或多个字符<br>	# _代表一个不确定的字符<br>regexp或者rlike<br>between and<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs mysql">= 等于<br>&lt;=&gt; 安全等于,安全地判断两个值\字符串或表达式是否相等,和等于的唯一区别是可以对null进行判断,null&lt;=&gt;null返回1<br>&lt;&gt;或者!= 不等于<br>&lt;<br>&lt;=<br>&gt;<br>&gt;=<br>is null或者isnull<br>is not null<br>least(a,b) 在多个值中返回最小值<br>greatest(a,b)<br>in #elect name from employees where salary not in (6000,7000,8000)<br>not in<br>like # 模糊查询select * from employees where last_name like '%a%',%代表0个或多个字符<br>	# _代表一个不确定的字符<br>regexp或者rlike<br>between and<br></code></pre></td></tr></table></figure>
 </blockquote>
 <p>逻辑运算符与位运算符</p>
 <blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs mysql">not或者!<br>and或者&amp;&amp; 优先级高于or<br>or或者||<br>xor<br>&amp;<br>|<br>^<br>~<br>&gt;&gt;<br>&lt;&lt;<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="3-2-数据定义SQL语句DDL"><a href="#3-2-数据定义SQL语句DDL" class="headerlink" title="3.2 数据定义SQL语句DDL"></a>3.2 数据定义SQL语句DDL</h3><blockquote>
+<h3 id="数据定义sql语句ddl">3.2 数据定义SQL语句DDL</h3>
+<blockquote>
 <p>数据库相关</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> database xxx;<br><span class="hljs-keyword">alter</span> database xxx rename <span class="hljs-keyword">to</span> yyy;<br><span class="hljs-keyword">drop</span> database yyy;<br></code></pre></td></tr></table></figure>
-
 <p>表相关</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> xxx (列名 数据类型 [类完整性约束],<br>                  列名 数据类型 [类完整性约束],<br>                  列名 数据类型 [类完整性约束]);<br><span class="hljs-keyword">primary</span> key,<span class="hljs-keyword">null</span>,<span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>,<span class="hljs-keyword">default</span>,<span class="hljs-keyword">unique</span>,<span class="hljs-keyword">check</span><br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> xxx rename <span class="hljs-keyword">to</span> yyy;<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> xxx rename 原列名 <span class="hljs-keyword">to</span> 新列名;<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">add</span> 新列名 数据类型 约束;<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> xxx <span class="hljs-keyword">alter</span> <span class="hljs-keyword">column</span> yyy type 新的数据类型;<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">drop</span> <span class="hljs-keyword">column</span> 列名;<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">drop</span> <span class="hljs-keyword">constraint</span> 约束名;<br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">table</span> yyy;<br></code></pre></td></tr></table></figure>
-
 <p>使用列约束关键词<code>primary key</code>只能定义单列主键。若要定义复合主键，只能使用表约束，比如</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> xxx (列名 数据类型 [类完整性约束],<br>                  列名 数据类型 [类完整性约束],<br>                  列名 数据类型 [类完整性约束]<br><span class="hljs-keyword">constraint</span> 约束名 <span class="hljs-keyword">primary</span> key(主键列));<br></code></pre></td></tr></table></figure>
-
 <p>如何设置代理键？</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> xxx (<br>    			  代理键列名 <span class="hljs-operator">&lt;</span>Serial 数据类型<span class="hljs-operator">&gt;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>,<br>    			  列名 数据类型 [类完整性约束],<br>                  列名 数据类型 [类完整性约束],<br>                  列名 数据类型 [类完整性约束]<br><span class="hljs-keyword">constraint</span> 约束名 <span class="hljs-keyword">primary</span> key(代理键列名);<br></code></pre></td></tr></table></figure>
-
 <p>定义外键</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> xxx (列名 数据类型 [类完整性约束],<br>                  列名 数据类型 [类完整性约束],<br>                  列名 数据类型 [类完整性约束]<br><span class="hljs-keyword">constraint</span> 约束名 <span class="hljs-keyword">foreign</span> key(外键列));<br></code></pre></td></tr></table></figure>
-
 <p>创建索引</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> index 索引名 <span class="hljs-keyword">on</span> 表名 (列名)<br></code></pre></td></tr></table></figure>
-
 <p>修改索引</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">alter</span> index 索引名 rename <span class="hljs-keyword">to</span> 新索引名;<br></code></pre></td></tr></table></figure>
-
 <p>删除索引</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">drop</span> index 索引名;<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="3-3-数据操纵SQL语句DML"><a href="#3-3-数据操纵SQL语句DML" class="headerlink" title="3.3 数据操纵SQL语句DML"></a>3.3 数据操纵SQL语句DML</h3><blockquote>
+<h3 id="数据操纵sql语句dml">3.3 数据操纵SQL语句DML</h3>
+<blockquote>
 <p>数据插入</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> 视图名<span class="hljs-operator">/</span>表名 [列名] <span class="hljs-keyword">values</span> (列值表)<br></code></pre></td></tr></table></figure>
-
 <p>数据更新</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">update</span> 视图名<span class="hljs-operator">/</span>表名 <span class="hljs-keyword">set</span> 列名<span class="hljs-operator">=</span>值 [<span class="hljs-keyword">where</span> ...]<br></code></pre></td></tr></table></figure>
-
 <p>数据删除</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> 视图名<span class="hljs-operator">/</span>表名 [<span class="hljs-keyword">where</span>]<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="3-4-数据查询SQL语句DQL"><a href="#3-4-数据查询SQL语句DQL" class="headerlink" title="3.4 数据查询SQL语句DQL"></a>3.4 数据查询SQL语句DQL</h3><blockquote>
+<h3 id="数据查询sql语句dql">3.4 数据查询SQL语句DQL</h3>
+<blockquote>
 <p>单表数据查询</p>
 <p>AES 升序</p>
 <p><code>select * from employees order by salary DESC</code></p>
@@ -619,51 +719,42 @@
 <p>二级排序</p>
 <p><code>select * from employees order by a,b</code></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> ... <span class="hljs-keyword">from</span> xxx;<br><span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> xxx <span class="hljs-keyword">from</span> yyy;<br><span class="hljs-keyword">select</span> xxx <span class="hljs-keyword">from</span> yyy <span class="hljs-keyword">where</span> xxx;<br><span class="hljs-operator">%</span> 代表一个或多个字符<br>_ 代表一个字符<br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> yyy <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> xxx <span class="hljs-keyword">DESC</span>,zzz <span class="hljs-keyword">ASC</span>;# 降序<br></code></pre></td></tr></table></figure>
-
 <p>内置函数与分组统计</p>
 <ul>
 <li><p>聚合函数</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-built_in">avg</span>();<br><span class="hljs-built_in">count</span>();#计算行数<br><span class="hljs-built_in">min</span>();<br><span class="hljs-built_in">max</span>();<br><span class="hljs-built_in">sum</span>();<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-built_in">avg</span>();<br><span class="hljs-built_in">count</span>();#计算行数<br><span class="hljs-built_in">min</span>();<br><span class="hljs-built_in">max</span>();<br><span class="hljs-built_in">sum</span>();<br></code></pre></td></tr></table></figure></li>
 <li><p>分组统计</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> Major <span class="hljs-keyword">as</span> 专业, <span class="hljs-built_in">count</span>(StudentID) <span class="hljs-keyword">as</span> 学生人数 <span class="hljs-keyword">from</span> Student <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> Major;<br><span class="hljs-keyword">select</span> Major <span class="hljs-keyword">as</span> 专业, <span class="hljs-built_in">count</span>(StudentID) <span class="hljs-keyword">as</span> 学生人数 <span class="hljs-keyword">from</span> Student <span class="hljs-keyword">where</span>  gender <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;男&#x27;</span> <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> Major <span class="hljs-keyword">having</span> <span class="hljs-built_in">count</span>(<span class="hljs-operator">*</span>) <span class="hljs-operator">&gt;</span> <span class="hljs-number">2</span>;<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> Major <span class="hljs-keyword">as</span> 专业, <span class="hljs-built_in">count</span>(StudentID) <span class="hljs-keyword">as</span> 学生人数 <span class="hljs-keyword">from</span> Student <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> Major;<br><span class="hljs-keyword">select</span> Major <span class="hljs-keyword">as</span> 专业, <span class="hljs-built_in">count</span>(StudentID) <span class="hljs-keyword">as</span> 学生人数 <span class="hljs-keyword">from</span> Student <span class="hljs-keyword">where</span>  gender <span class="hljs-operator">=</span> <span class="hljs-string">'男'</span> <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> Major <span class="hljs-keyword">having</span> <span class="hljs-built_in">count</span>(<span class="hljs-operator">*</span>) <span class="hljs-operator">&gt;</span> <span class="hljs-number">2</span>;<br></code></pre></td></tr></table></figure></li>
 </ul>
 <p>多表关联查询</p>
 <ul>
 <li><p>子查询(结果在一个表中)</p>
 <p>一般来说，子查询只适合结果数据均来自一个表，若大于等于2个表，则不能使用子查询</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> xxx <span class="hljs-keyword">from</span> yyy <span class="hljs-keyword">where</span> (含<span class="hljs-keyword">select</span>的另一结果集);<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>内连接：使用JOIN…ON连接查询语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> xxx <span class="hljs-keyword">from</span> yyy <span class="hljs-keyword">where</span> (含<span class="hljs-keyword">select</span>的另一结果集);<br></code></pre></td></tr></table></figure></li>
+<li><p>内连接：使用JOIN...ON连接查询语句</p>
 <p>从SQL优化的角度，建议每个字段前指明字段所在的表</p>
 <p>一旦给表起了别名，则在select和where中必须使用别名，不能使用原名</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> a.xxx, b.yyy <span class="hljs-keyword">from</span> zzz <span class="hljs-keyword">where</span> ...<br><span class="hljs-keyword">select</span> c1 <span class="hljs-keyword">from</span> t1 <span class="hljs-keyword">join</span> t2 <span class="hljs-keyword">on</span> xxx;<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> a.xxx, b.yyy <span class="hljs-keyword">from</span> zzz <span class="hljs-keyword">where</span> ...<br><span class="hljs-keyword">select</span> c1 <span class="hljs-keyword">from</span> t1 <span class="hljs-keyword">join</span> t2 <span class="hljs-keyword">on</span> xxx;<br></code></pre></td></tr></table></figure></li>
 <li><p>外连接</p>
 <ul>
 <li><p>左外连接</p>
 <p>结果中除了包含满足条件的，还包含左表中不满足条件的行</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> a,b <span class="hljs-keyword">from</span> xxx <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> yyy<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> a,b <span class="hljs-keyword">from</span> xxx <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> yyy<br></code></pre></td></tr></table></figure></li>
 <li><p>右外连接</p>
 <p>结果中除了包含满足条件的，还包含右表中不满足条件的行</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> a,b <span class="hljs-keyword">from</span> xxx <span class="hljs-keyword">right</span> <span class="hljs-keyword">join</span> yyy<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> a,b <span class="hljs-keyword">from</span> xxx <span class="hljs-keyword">right</span> <span class="hljs-keyword">join</span> yyy<br></code></pre></td></tr></table></figure></li>
 <li><p>满外连接</p>
 <p>结果中除了包含满足条件的，还包含左右表中不满足条件的行</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> a,b <span class="hljs-keyword">from</span> xxx <span class="hljs-keyword">full</span> <span class="hljs-keyword">join</span> yyy; #Mysql不支持<br></code></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>交叉连接&#x2F;笛卡尔积</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> last_name, department_name <span class="hljs-keyword">from</span> employees <span class="hljs-keyword">cross</span> <span class="hljs-keyword">join</span> deparments;<br></code></pre></td></tr></table></figure>
-</li>
+</ul></li>
+<li><p>交叉连接/笛卡尔积</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> last_name, department_name <span class="hljs-keyword">from</span> employees <span class="hljs-keyword">cross</span> <span class="hljs-keyword">join</span> deparments;<br></code></pre></td></tr></table></figure></li>
 <li><p>UNION</p>
 <p>既然mysql没办法解决慢外连接，可以使用UNION解决</p>
 <p>UNION可以返回两个查询的结果集的并集</p>
-<p>UNION会执行去重操作，UNION ALL不会去重</p>
-</li>
+<p>UNION会执行去重操作，UNION ALL不会去重</p></li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://www.xuetangx.com/learn/EST08091001150/EST08091001150/14767710/video/30164527?channel=i.area.learn_title">https://www.xuetangx.com/learn/EST08091001150/EST08091001150/14767710/video/30164527?channel=i.area.learn_title</a></p>
+<p>https://www.xuetangx.com/learn/EST08091001150/EST08091001150/14767710/video/30164527?channel=i.area.learn_title</p>
 </blockquote>
 <p>聚合函数</p>
 <blockquote>
@@ -682,12 +773,9 @@
 <p>HAVING</p>
 <blockquote>
 <ul>
-<li><p>如果过滤条件中使用了聚合函数，则必须使用HAVING替换where，否则报错</p>
-</li>
-<li><p>HAVING必须出现在group by的后面</p>
-</li>
-<li><p>HAVING的使用必须有group by</p>
-</li>
+<li><p>如果过滤条件中使用了聚合函数，则必须使用HAVING替换where，否则报错</p></li>
+<li><p>HAVING必须出现在group by的后面</p></li>
+<li><p>HAVING的使用必须有group by</p></li>
 </ul>
 <p>having的效率低于where</p>
 <p>在select中给列起别名后，不能再where中使用，可以在order by中使用</p>
@@ -700,35 +788,31 @@
 <p><code>select * from employees limit 3 offset 4</code></p>
 <p>注意:limit语句必须放在整个select语句的最后</p>
 </blockquote>
-<h3 id="3-5-数据控制SQL语句DCL"><a href="#3-5-数据控制SQL语句DCL" class="headerlink" title="3.5 数据控制SQL语句DCL"></a>3.5 数据控制SQL语句DCL</h3><blockquote>
+<h3 id="数据控制sql语句dcl">3.5 数据控制SQL语句DCL</h3>
+<blockquote>
 <p>数据控制语句是对用户数据访问权进行控制的操作语句</p>
 <p>创建用户</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> <span class="hljs-string">&#x27;q&#x27;</span> identified <span class="hljs-keyword">by</span> <span class="hljs-string">&#x27;y&#x27;</span>; <br></code></pre></td></tr></table></figure>
-
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> <span class="hljs-string">'q'</span> identified <span class="hljs-keyword">by</span> <span class="hljs-string">'y'</span>; <br></code></pre></td></tr></table></figure>
 <p>删除用户</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">drop</span> <span class="hljs-keyword">user</span> <span class="hljs-string">&#x27;q&#x27;</span>;<br></code></pre></td></tr></table></figure>
-
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">drop</span> <span class="hljs-keyword">user</span> <span class="hljs-string">'q'</span>;<br></code></pre></td></tr></table></figure>
 <p>设置当前用户密码</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">set</span> password <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;123&#x27;</span>;<br>或者<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">user</span>() identified <span class="hljs-keyword">by</span> <span class="hljs-string">&#x27;123&#x27;</span>;<br></code></pre></td></tr></table></figure>
-
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">set</span> password <span class="hljs-operator">=</span> <span class="hljs-string">'123'</span>;<br>或者<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">user</span>() identified <span class="hljs-keyword">by</span> <span class="hljs-string">'123'</span>;<br></code></pre></td></tr></table></figure>
 <p>设置其他用户密码</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> <span class="hljs-string">&#x27;q&#x27;</span> identified <span class="hljs-keyword">by</span> <span class="hljs-string">&#x27;456&#x27;</span>;<br></code></pre></td></tr></table></figure>
-
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> <span class="hljs-string">'q'</span> identified <span class="hljs-keyword">by</span> <span class="hljs-string">'456'</span>;<br></code></pre></td></tr></table></figure>
 <p>查看权限列表</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">show</span> grants;<br><span class="hljs-keyword">show</span> grants <span class="hljs-keyword">for</span> <span class="hljs-string">&#x27;q&#x27;</span>@<span class="hljs-string">&#x27;localhost&#x27;</span>;root用户可以查看其他用户的权限<br></code></pre></td></tr></table></figure>
-
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">show</span> grants;<br><span class="hljs-keyword">show</span> grants <span class="hljs-keyword">for</span> <span class="hljs-string">'q'</span>@<span class="hljs-string">'localhost'</span>;root用户可以查看其他用户的权限<br></code></pre></td></tr></table></figure>
 <p>grant授权</p>
 <p>把一个用户的某个数据库下的某个或者所有表授权给另一个用户</p>
-<p>with grant option表明在授权时授予被授权用户将自己获得的权限授予其他用户的能力</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">grant</span> <span class="hljs-keyword">select</span>, <span class="hljs-keyword">update</span> <span class="hljs-keyword">on</span> mydb.<span class="hljs-operator">*</span> <span class="hljs-keyword">to</span> <span class="hljs-string">&#x27;q&#x27;</span>@<span class="hljs-string">&#x27;%&#x27;</span> [<span class="hljs-keyword">with</span> <span class="hljs-keyword">grant</span> option];<br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> privileges <span class="hljs-keyword">on</span> <span class="hljs-operator">*</span>.<span class="hljs-operator">*</span> <span class="hljs-keyword">to</span> <span class="hljs-string">&#x27;q&#x27;</span>@<span class="hljs-string">&#x27;%&#x27;</span>; #所有表的所有权限都授权，此时和root用户的唯一区别就是不能给其他用户赋权<br></code></pre></td></tr></table></figure>
-
+<p>with grant
+option表明在授权时授予被授权用户将自己获得的权限授予其他用户的能力</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">grant</span> <span class="hljs-keyword">select</span>, <span class="hljs-keyword">update</span> <span class="hljs-keyword">on</span> mydb.<span class="hljs-operator">*</span> <span class="hljs-keyword">to</span> <span class="hljs-string">'q'</span>@<span class="hljs-string">'%'</span> [<span class="hljs-keyword">with</span> <span class="hljs-keyword">grant</span> option];<br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> privileges <span class="hljs-keyword">on</span> <span class="hljs-operator">*</span>.<span class="hljs-operator">*</span> <span class="hljs-keyword">to</span> <span class="hljs-string">'q'</span>@<span class="hljs-string">'%'</span>; #所有表的所有权限都授权，此时和root用户的唯一区别就是不能给其他用户赋权<br></code></pre></td></tr></table></figure>
 <p>revoke收权</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">revoke</span> <span class="hljs-keyword">update</span> <span class="hljs-keyword">on</span> <span class="hljs-operator">*</span>.<span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;q&#x27;</span>;<br></code></pre></td></tr></table></figure>
-
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">revoke</span> <span class="hljs-keyword">update</span> <span class="hljs-keyword">on</span> <span class="hljs-operator">*</span>.<span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'q'</span>;<br></code></pre></td></tr></table></figure>
 <p>deny权限拒绝</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">deny 权限列表 <span class="hljs-keyword">on</span> 数据库对象 <span class="hljs-keyword">to</span> 用户<span class="hljs-operator">/</span>角色<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="3-6-视图SQL语句"><a href="#3-6-视图SQL语句" class="headerlink" title="3.6 视图SQL语句"></a>3.6 视图SQL语句</h3><blockquote>
+<h3 id="视图sql语句">3.6 视图SQL语句</h3>
+<blockquote>
 <p>为什么使用视图？</p>
 <ul>
 <li>可以帮助我们使用表的一部分而不是所有的表，隐藏一些敏感数据</li>
@@ -739,25 +823,24 @@
 <p>创建视图</p>
 <p>查询语句中字段的别名会作为视图字段名</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">view</span> 视图名 <span class="hljs-keyword">as</span> 查询语句;<br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> 视图名;<br></code></pre></td></tr></table></figure>
-
 <p>也可以自己指定字段名</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">view</span> 视图名 (xxx, yyy, zzz)<span class="hljs-keyword">as</span> 查询语句;<br></code></pre></td></tr></table></figure>
-
 <p>查看视图</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">show</span> tables;查看表和视图<br><span class="hljs-keyword">desc</span> 视图名; 查看视图结构<br><span class="hljs-keyword">show</span> <span class="hljs-keyword">table</span> status <span class="hljs-keyword">like</span> <span class="hljs-string">&#x27;视图名&#x27;</span>\G; 查看视图的属性信息<br><span class="hljs-keyword">show</span> <span class="hljs-keyword">create</span> <span class="hljs-keyword">view</span> 视图名; 查看视图的详细定义信息<br></code></pre></td></tr></table></figure>
-
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">show</span> tables;查看表和视图<br><span class="hljs-keyword">desc</span> 视图名; 查看视图结构<br><span class="hljs-keyword">show</span> <span class="hljs-keyword">table</span> status <span class="hljs-keyword">like</span> <span class="hljs-string">'视图名'</span>\G; 查看视图的属性信息<br><span class="hljs-keyword">show</span> <span class="hljs-keyword">create</span> <span class="hljs-keyword">view</span> 视图名; 查看视图的详细定义信息<br></code></pre></td></tr></table></figure>
 <p>修改</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">or</span> replace <span class="hljs-keyword">view</span> xxx <span class="hljs-keyword">as</span> ...;<br>或者<br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">view</span> xxx <span class="hljs-keyword">as</span> ...;<br></code></pre></td></tr></table></figure>
-
 <p>删除视图</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">drop</span> <span class="hljs-keyword">view</span> xxx;<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="3-7-Postgresql数据库SQL实践"><a href="#3-7-Postgresql数据库SQL实践" class="headerlink" title="3.7 Postgresql数据库SQL实践"></a>3.7 Postgresql数据库SQL实践</h3><h2 id="四、数据库设计与实现"><a href="#四、数据库设计与实现" class="headerlink" title="四、数据库设计与实现"></a>四、数据库设计与实现</h2><h3 id="4-1-数据库设计概述"><a href="#4-1-数据库设计概述" class="headerlink" title="4.1 数据库设计概述"></a>4.1 数据库设计概述</h3><blockquote>
+<h3 id="postgresql数据库sql实践">3.7 Postgresql数据库SQL实践</h3>
+<h2 id="四数据库设计与实现">四、数据库设计与实现</h2>
+<h3 id="数据库设计概述">4.1 数据库设计概述</h3>
+<blockquote>
 <p>数据库应用架构可分为四种：</p>
 <ul>
 <li>单用户结构</li>
 <li>集中式结构</li>
-<li>客户端&#x2F;服务器结构</li>
+<li>客户端/服务器结构</li>
 <li>分布式结构</li>
 </ul>
 <p>数据库结构模型设计分为三种：</p>
@@ -773,12 +856,16 @@
 <li>基于数据访问层框架</li>
 </ul>
 </blockquote>
-<h3 id="4-2-E-R模型"><a href="#4-2-E-R模型" class="headerlink" title="4.2 E-R模型"></a>4.2 E-R模型</h3><blockquote>
+<h3 id="e-r模型">4.2 E-R模型</h3>
+<blockquote>
 <p>E-R模型：实体-联系模型</p>
 <p>标识符：表示不同实体实例的属性，标识符可以是一个或多个属性</p>
 <p>标识符和主键的区别是标识符是一个逻辑概念，主键是一个物理概念</p>
 <p>鸟足版本的实体-联系符号含义</p>
-<p><img src="/2023/02/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/image-20230406104149407.png" srcset="/img/loading.gif" lazyload alt="image-20230406104149407"></p>
+<figure>
+<img src="/2023/02/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/image-20230406104149407.png" srcset="/img/loading.gif" lazyload alt="image-20230406104149407">
+<figcaption aria-hidden="true">image-20230406104149407</figcaption>
+</figure>
 <p>在继承性联系中，可分为两种：</p>
 <ul>
 <li>互斥性继承联系</li>
@@ -790,20 +877,24 @@
 <li>非完整继承联系</li>
 </ul>
 <p>继承联系的图形符号：</p>
-<p><img src="/2023/02/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/image-20230406104714468.png" srcset="/img/loading.gif" lazyload alt="image-20230406104714468"></p>
+<figure>
+<img src="/2023/02/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/image-20230406104714468.png" srcset="/img/loading.gif" lazyload alt="image-20230406104714468">
+<figcaption aria-hidden="true">image-20230406104714468</figcaption>
+</figure>
 <p>按照语义联系可分为两种：</p>
 <ul>
 <li>强实体</li>
-<li>弱实体<ul>
+<li>弱实体
+<ul>
 <li>标识符依赖</li>
 <li>非标识符依赖</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>如果弱实体的标识符中含有所依赖实体的标识符，则称为标识符依赖弱实体</p>
 <p>如果弱实体的标识符中不含有所依赖实体的标识符，则称为非标识符依赖弱实体</p>
 </blockquote>
-<h3 id="4-3-数据库建模设计"><a href="#4-3-数据库建模设计" class="headerlink" title="4.3 数据库建模设计"></a>4.3 数据库建模设计</h3><blockquote>
+<h3 id="数据库建模设计">4.3 数据库建模设计</h3>
+<blockquote>
 <p>概念数据模型设计步骤：</p>
 <ul>
 <li>业务数据分析，抽取数据实体</li>
@@ -815,35 +906,38 @@
 <p>数据模型元素对应关系：</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>CDM</th>
 <th>LDM</th>
 <th>PDM</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>实体</td>
 <td>实体</td>
 <td>表</td>
 </tr>
-<tr>
+<tr class="even">
 <td>属性</td>
 <td>属性</td>
 <td>列</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>标识符</td>
 <td>标识符</td>
 <td>主键、外键</td>
 </tr>
-<tr>
+<tr class="even">
 <td>联系</td>
 <td>联系</td>
 <td>参照完整性约束</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </blockquote>
-<h3 id="4-4-数据库规范化设计"><a href="#4-4-数据库规范化设计" class="headerlink" title="4.4 数据库规范化设计"></a>4.4 数据库规范化设计</h3><blockquote>
+<h3 id="数据库规范化设计">4.4 数据库规范化设计</h3>
+<blockquote>
 <p>为什么需要规范化数据库设计？</p>
 <ul>
 <li>减少数据库中的冗余数据，尽量使同一数据在数据库中仅保存一份，有效降低维护数据一致性的工作量。</li>
@@ -1109,6 +1203,11 @@
   
   
   
+  <!-- 又拍云 -->
+  <div>
+    <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由
+        <img src="img/又拍云_logo5.png" srcset="/img/loading.gif" lazyload width="45px" /> 提供CDN加速/云存储服务</a>
+ </div>
 </div>
 
   </footer>

@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Java-数组 静态初始化:数组的初始化和数组元素的赋值操作同时进行 int[] ids &#x3D; new int[]&amp;#123;1001,1002,1003,1004&amp;#125;; int[] ids &#x3D; &amp;#123;1001,1002,1003,1004&amp;#125;; 动态初始化:数组的初始化和数组元素的赋值操作分开进行 String[] names &#x3D; new String[5];  数组元素具有">
+    <meta name="description" content="Java-数组  静态初始化:数组的初始化和数组元素的赋值操作同时进行 int[] ids &#x3D; new int[]{1001,1002,1003,1004}; int[] ids &#x3D; {1001,1002,1003,1004}; 动态初始化:数组的初始化和数组元素的赋值操作分开进行 String[] names &#x3D; new String[5]; 数组元素具有默认初始化值 其中boo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java-数组">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/10/17/Java-%E6%95%B0%E7%BB%84/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Java-数组 静态初始化:数组的初始化和数组元素的赋值操作同时进行 int[] ids &#x3D; new int[]&amp;#123;1001,1002,1003,1004&amp;#125;; int[] ids &#x3D; &amp;#123;1001,1002,1003,1004&amp;#125;; 动态初始化:数组的初始化和数组元素的赋值操作分开进行 String[] names &#x3D; new String[5];  数组元素具有">
+<meta property="og:description" content="Java-数组  静态初始化:数组的初始化和数组元素的赋值操作同时进行 int[] ids &#x3D; new int[]{1001,1002,1003,1004}; int[] ids &#x3D; {1001,1002,1003,1004}; 动态初始化:数组的初始化和数组元素的赋值操作分开进行 String[] names &#x3D; new String[5]; 数组元素具有默认初始化值 其中boo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-10-17T12:26:29.000Z">
@@ -117,7 +117,123 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -259,7 +375,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          1.1k 字
         
       </span>
     
@@ -270,7 +386,7 @@
         
         
         
-          11 分钟
+          10 分钟
         
       </span>
     
@@ -313,50 +429,42 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Java-数组"><a href="#Java-数组" class="headerlink" title="Java-数组"></a>Java-数组</h1><ol>
+                <h1 id="java-数组">Java-数组</h1>
+<ol type="1">
 <li><p>静态初始化:数组的初始化和数组元素的赋值操作同时进行</p>
-<p><code>int[] ids = new int[]&#123;1001,1002,1003,1004&#125;;</code></p>
-<p><code>int[] ids = &#123;1001,1002,1003,1004&#125;;</code></p>
+<p><code>int[] ids = new int[]{1001,1002,1003,1004};</code></p>
+<p><code>int[] ids = {1001,1002,1003,1004};</code></p>
 <p>动态初始化:数组的初始化和数组元素的赋值操作分开进行</p>
-<p><code>String[] names = new String[5];</code></p>
-</li>
+<p><code>String[] names = new String[5];</code></p></li>
 <li><p>数组元素具有默认初始化值</p>
 <p>其中<code>boolean</code>为<code>false</code>型</p>
-<p>若为<code>引用数据类型</code>则为<code>null</code></p>
-</li>
-<li><p>数组元素存放在堆里面,但是引用存放在栈里面</p>
-</li>
-<li><p>针对于初始化方式一：比如：int[][] arr &#x3D; new int[4][3];</p>
+<p>若为<code>引用数据类型</code>则为<code>null</code></p></li>
+<li><p>数组元素存放在堆里面,但是引用存放在栈里面</p></li>
+<li><p>针对于初始化方式一：比如：int[][] arr = new int[4][3];</p>
 <p>外层元素的初始化值为：地址值</p>
 <p>内层元素的初始化值为：与一维数组初始化情况相同</p>
-<p>针对于初始化方式而：比如：int[][] arr &#x3D; new int[4][];</p>
+<p>针对于初始化方式而：比如：int[][] arr = new int[4][];</p>
 <p>外层元素的初始化值为：null</p>
-<p>内层元素的初始化值为：不能调用，否则报错。</p>
-</li>
+<p>内层元素的初始化值为：不能调用，否则报错。</p></li>
 <li><p>二维数组的内存模型</p>
-<p><img src="/2022/10/17/Java-%E6%95%B0%E7%BB%84/d4a8ec46ba57eb97884d158f6ea2f53b.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-</li>
-<li><p>二维数组也可以这样声明<code>int[] y[]或者int y[][]</code></p>
-</li>
+<figure>
+<img src="/2022/10/17/Java-%E6%95%B0%E7%BB%84/d4a8ec46ba57eb97884d158f6ea2f53b.png" srcset="/img/loading.gif" lazyload alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure></li>
+<li><p>二维数组也可以这样声明<code>int[] y[]或者int y[][]</code></p></li>
 <li><p>Arrays工具类的使用</p>
 <ul>
-<li><p><code>System.out.println(Arrays.toString(i1));</code></p>
-</li>
+<li><p><code>System.out.println(Arrays.toString(i1));</code></p></li>
 <li><p>排序</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Arrays;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">USBTest</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">int</span>[] i = &#123;<span class="hljs-number">1001</span>, <span class="hljs-number">1002</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1004</span>&#125;;<br>        Arrays.sort(i);<br>        System.out.println(Arrays.toString(i));<br>    &#125;<br>&#125;<br>[<span class="hljs-number">1</span>, <span class="hljs-number">1001</span>, <span class="hljs-number">1002</span>, <span class="hljs-number">1004</span>]<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Arrays;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">USBTest</span> {<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {<br>        <span class="hljs-type">int</span>[] i = {<span class="hljs-number">1001</span>, <span class="hljs-number">1002</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1004</span>};<br>        Arrays.sort(i);<br>        System.out.println(Arrays.toString(i));<br>    }<br>}<br>[<span class="hljs-number">1</span>, <span class="hljs-number">1001</span>, <span class="hljs-number">1002</span>, <span class="hljs-number">1004</span>]<br></code></pre></td></tr></table></figure></li>
 <li><p>二分法查找获取索引</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Arrays;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">USBTest</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">int</span>[] i = &#123;<span class="hljs-number">1001</span>, <span class="hljs-number">1002</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1004</span>&#125;;<br>        Arrays.sort(i);<br>        System.out.println(Arrays.binarySearch(i, <span class="hljs-number">1</span>));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Arrays;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">USBTest</span> {<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {<br>        <span class="hljs-type">int</span>[] i = {<span class="hljs-number">1001</span>, <span class="hljs-number">1002</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1004</span>};<br>        Arrays.sort(i);<br>        System.out.println(Arrays.binarySearch(i, <span class="hljs-number">1</span>));<br>    }<br>}<br></code></pre></td></tr></table></figure></li>
 <li><p>填充<code>fill</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Arrays;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">USBTest</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">int</span>[] i = &#123;<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>&#125;;<br>        Arrays.fill(i,<span class="hljs-number">777</span>);<br>        System.out.println(Arrays.toString(i));<br><br>    &#125;<br>&#125;<br>[<span class="hljs-number">777</span>, <span class="hljs-number">777</span>, <span class="hljs-number">777</span>, <span class="hljs-number">777</span>]<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>比较<code>equals()</code></p>
-</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Arrays;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">USBTest</span> {<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {<br>        <span class="hljs-type">int</span>[] i = {<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>};<br>        Arrays.fill(i,<span class="hljs-number">777</span>);<br>        System.out.println(Arrays.toString(i));<br><br>    }<br>}<br>[<span class="hljs-number">777</span>, <span class="hljs-number">777</span>, <span class="hljs-number">777</span>, <span class="hljs-number">777</span>]<br></code></pre></td></tr></table></figure></li>
+<li><p>比较<code>equals()</code></p></li>
 <li><p>数组复制</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[] i1 = &#123;<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>&#125;;<br><span class="hljs-type">int</span>[] i2 = Arrays.copyOf(i1, i1.length);<br></code></pre></td></tr></table></figure></li>
-</ul>
-</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[] i1 = {<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>};<br><span class="hljs-type">int</span>[] i2 = Arrays.copyOf(i1, i1.length);<br></code></pre></td></tr></table></figure></li>
+</ul></li>
 </ol>
 
                 
@@ -616,6 +724,11 @@
   
   
   
+  <!-- 又拍云 -->
+  <div>
+    <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由
+        <img src="img/又拍云_logo5.png" srcset="/img/loading.gif" lazyload width="45px" /> 提供CDN加速/云存储服务</a>
+ </div>
 </div>
 
   </footer>

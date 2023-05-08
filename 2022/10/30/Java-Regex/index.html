@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Java-Regex元字符在Java中,两个\\代表其他语言的一个\  限定符 1234*	至少0次+	至少1次?	0或1次&amp;#123;n&amp;#125;  选择匹配符 1|  分组组合和反向引用符 12(pattern)非命名捕获(?&lt;name&gt;pattern)命名捕获    特殊字符  字符匹配符 123456789[]可接受的字符列表[^]不可接受的字符列表-连字符.除了\n以外的任">
+    <meta name="description" content="Java-Regex 元字符 在Java中,两个\\代表其他语言的一个\  限定符 1234*	至少0次+	至少1次?	0或1次{n} 选择匹配符 1| 分组组合和反向引用符 12(pattern)非命名捕获(?&lt;name&gt;pattern)命名捕获 特殊字符 字符匹配符 123456789[]可接受的字符列表[^]不可接受的字符列表-连字符.除了\n以外的任何字">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java-Regex">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/10/30/Java-Regex/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Java-Regex元字符在Java中,两个\\代表其他语言的一个\  限定符 1234*	至少0次+	至少1次?	0或1次&amp;#123;n&amp;#125;  选择匹配符 1|  分组组合和反向引用符 12(pattern)非命名捕获(?&lt;name&gt;pattern)命名捕获    特殊字符  字符匹配符 123456789[]可接受的字符列表[^]不可接受的字符列表-连字符.除了\n以外的任">
+<meta property="og:description" content="Java-Regex 元字符 在Java中,两个\\代表其他语言的一个\  限定符 1234*	至少0次+	至少1次?	0或1次{n} 选择匹配符 1| 分组组合和反向引用符 12(pattern)非命名捕获(?&lt;name&gt;pattern)命名捕获 特殊字符 字符匹配符 123456789[]可接受的字符列表[^]不可接受的字符列表-连字符.除了\n以外的任何字">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-10-30T06:22:17.000Z">
@@ -117,7 +117,123 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -259,7 +375,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          643 字
+          613 字
         
       </span>
     
@@ -313,40 +429,37 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Java-Regex"><a href="#Java-Regex" class="headerlink" title="Java-Regex"></a>Java-Regex</h1><h2 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h2><p>在Java中,两个<code>\\</code>代表其他语言的一个<code>\</code></p>
+                <h1 id="java-regex">Java-Regex</h1>
+<h2 id="元字符">元字符</h2>
+<p>在Java中,两个<code>\\</code>代表其他语言的一个<code>\</code></p>
 <ul>
 <li><p>限定符</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">*</span>	至少0次<br><span class="hljs-bullet">+</span>	至少1次<br>?	0或1次<br>&#123;n&#125;<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">*</span>	至少0次<br><span class="hljs-bullet">+</span>	至少1次<br>?	0或1次<br>{n}<br></code></pre></td></tr></table></figure></li>
 <li><p>选择匹配符</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">|</span><br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">|</span><br></code></pre></td></tr></table></figure></li>
 <li><p>分组组合和反向引用符</p>
-<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs coq">(<span class="hljs-built_in">pattern</span>)非命名捕获<br>(?&lt;name&gt;<span class="hljs-built_in">pattern</span>)命名捕获<br></code></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>特殊字符</p>
-</li>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs coq">(<span class="hljs-built_in">pattern</span>)非命名捕获<br>(?&lt;name&gt;<span class="hljs-built_in">pattern</span>)命名捕获<br></code></pre></td></tr></table></figure></li>
+<li><p>特殊字符</p></li>
 <li><p>字符匹配符</p>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs livescript">[]可接受的字符列表<br>[^]不可接受的字符列表<br>-连字符<br>.除了<span class="hljs-string">\n以外的任何字符</span><br><span class="hljs-string">\\d数字</span><br><span class="hljs-string">\\D非数字</span><br><span class="hljs-string">\\w相当于[0-9a-zA-Z_]</span><br><span class="hljs-string">\\s任意空白字符</span><br><br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs livescript">[]可接受的字符列表<br>[^]不可接受的字符列表<br>-连字符<br>.除了<span class="hljs-string">\n以外的任何字符</span><br><span class="hljs-string">\\d数字</span><br><span class="hljs-string">\\D非数字</span><br><span class="hljs-string">\\w相当于[0-9a-zA-Z_]</span><br><span class="hljs-string">\\s任意空白字符</span><br><br></code></pre></td></tr></table></figure></li>
 <li><p>定位符</p>
 <figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs livescript">^<br>$<br><span class="hljs-string">\\b匹配处于边界的目标字符串</span><br><span class="hljs-string">\\B匹配处于非边界的目标字符串</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <p><strong>注意!</strong></p>
 <p>java正则默认区分大小写,那么如何不区分呢?</p>
-<p><code>Pattern a = Pattern.compile(&quot;a&quot;, Pattern.CASE_INSENSITIVE);</code></p>
+<p><code>Pattern a = Pattern.compile("a", Pattern.CASE_INSENSITIVE);</code></p>
 <p>或者<code>a((?i)b)c</code></p>
 <p><strong>注意!!!</strong></p>
 <p>java匹配默认贪婪匹配,即尽可能匹配多的</p>
-<h2 id="Pattern类"><a href="#Pattern类" class="headerlink" title="Pattern类"></a>Pattern类</h2><p>pattern对象是正则表达式对象</p>
-<p><code>Pattern.matches(&quot;\d&quot;,content);</code>整体匹配</p>
-<h2 id="Matcher类"><a href="#Matcher类" class="headerlink" title="Matcher类"></a>Matcher类</h2><p>对输入的字符串进行解析</p>
+<h2 id="pattern类">Pattern类</h2>
+<p>pattern对象是正则表达式对象</p>
+<p><code>Pattern.matches("\d",content);</code>整体匹配</p>
+<h2 id="matcher类">Matcher类</h2>
+<p>对输入的字符串进行解析</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">start() 初始索引<br>end()   结束索引<br>matches() 整体匹配<br>replaceAll() 全部替换,注意返回结果才是想要的,不会修改原来的内容<br></code></pre></td></tr></table></figure>
-
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Eq4y1E79W/?spm_id_from=333.337.search-card.all.click">https://www.bilibili.com/video/BV1Eq4y1E79W/?spm_id_from=333.337.search-card.all.click</a></p>
+<h2 id="参考链接">参考链接</h2>
+<blockquote>
+<p>https://www.bilibili.com/video/BV1Eq4y1E79W/?spm_id_from=333.337.search-card.all.click</p>
 </blockquote>
 
                 
@@ -606,6 +719,11 @@
   
   
   
+  <!-- 又拍云 -->
+  <div>
+    <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由
+        <img src="img/又拍云_logo5.png" srcset="/img/loading.gif" lazyload width="45px" /> 提供CDN加速/云存储服务</a>
+ </div>
 </div>
 
   </footer>
