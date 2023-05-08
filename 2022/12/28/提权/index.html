@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="提权在Linux中 管理员UID&#x3D;0 系统用户UID：1~999 普通用户UID从1000开始 第三方应用或者插件都可以作为一个权限提升的途径 Web权限以Redis为例 1234config set dir &#x2F;home&#x2F;wwwroot&#x2F;default # 设置web写入目录config set dbfilename test.php # 设置写入文件名set test &quot;&lt;?php php">
+    <meta name="description" content="提权 在Linux中 管理员UID&#x3D;0 系统用户UID：1~999 普通用户UID从1000开始 第三方应用或者插件都可以作为一个权限提升的途径 Web权限 以Redis为例 1234config set dir &#x2F;home&#x2F;wwwroot&#x2F;default # 设置web写入目录config set dbfilename test.php # 设置写入文件名set test &quot;&amp;l">
 <meta property="og:type" content="article">
 <meta property="og:title" content="提权">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/12/28/%E6%8F%90%E6%9D%83/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="提权在Linux中 管理员UID&#x3D;0 系统用户UID：1~999 普通用户UID从1000开始 第三方应用或者插件都可以作为一个权限提升的途径 Web权限以Redis为例 1234config set dir &#x2F;home&#x2F;wwwroot&#x2F;default # 设置web写入目录config set dbfilename test.php # 设置写入文件名set test &quot;&lt;?php php">
+<meta property="og:description" content="提权 在Linux中 管理员UID&#x3D;0 系统用户UID：1~999 普通用户UID从1000开始 第三方应用或者插件都可以作为一个权限提升的途径 Web权限 以Redis为例 1234config set dir &#x2F;home&#x2F;wwwroot&#x2F;default # 设置web写入目录config set dbfilename test.php # 设置写入文件名set test &quot;&amp;l">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-12-28T14:36:42.000Z">
@@ -429,17 +429,20 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h1><p>在Linux中</p>
+                <h1 id="提权">提权</h1>
+<p>在Linux中</p>
 <p>管理员UID=0</p>
 <p>系统用户UID：1~999</p>
 <p>普通用户UID从1000开始</p>
 <p>第三方应用或者插件都可以作为一个权限提升的途径</p>
-<h2 id="Web权限"><a href="#Web权限" class="headerlink" title="Web权限"></a>Web权限</h2><p>以Redis为例</p>
+<h2 id="web权限">Web权限</h2>
+<p>以Redis为例</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">config set dir /home/wwwroot/default # 设置web写入目录<br>config set dbfilename test.php # 设置写入文件名<br>set test "&lt;?php phpinfo(); ?&gt;" # 设置写入文件代码<br>bgsave #保存执行<br></code></pre></td></tr></table></figure>
-
 <p>java jsp类的统一是root权限</p>
-<h2 id="系统权限"><a href="#系统权限" class="headerlink" title="系统权限"></a>系统权限</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>默认情况下，系统为用户分了7个组</p>
-<ol>
+<h2 id="系统权限">系统权限</h2>
+<h3 id="windows">Windows</h3>
+<p>默认情况下，系统为用户分了7个组</p>
+<ol type="1">
 <li>管理员组Administrators</li>
 <li>高权限用户组Power Users</li>
 <li>普通用户组Users</li>
@@ -450,25 +453,20 @@ mjx-container[display="true"] + br {
 </ol>
 <p>其中文件复制组和备份文件组为维护系统而设置，平时很少使用</p>
 <p>除了上面七个默认权限分组，系统还存在一些特殊权限成员</p>
-<ol>
-<li><p>系统System</p>
-</li>
-<li><p>信任程序模块Trustedinstaller</p>
-</li>
+<ol type="1">
+<li><p>系统System</p></li>
+<li><p>信任程序模块Trustedinstaller</p></li>
 <li><p>所有人Everyone</p>
-<p>任何人都能访问被赋予Everyone权限的文件</p>
-</li>
+<p>任何人都能访问被赋予Everyone权限的文件</p></li>
 <li><p>创建者Creator Owner</p>
 <p>被标记创建者权限的文件只有创建文件的用户才可访问</p>
-<p>但是一切文件访问权限可被System用户和管理员组成员忽略</p>
-</li>
+<p>但是一切文件访问权限可被System用户和管理员组成员忽略</p></li>
 </ol>
 <p>这些特殊成员不被任何内置用户组吸纳，完全独立</p>
 <p>常见命令</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs powershell">systeminfo 打印系统信息<br>whoami/priv 当前用户权限<br>ipconfig/displaydns 当前dns缓存<br>net user 列出用户<br>net localgroup 列出用户组<br>net user UserName 列出用户信息<br>net localgroup <span class="hljs-built_in">Group</span> 列出用户组信息<br>ver 查看系统版本<br>tasklist /svc 查看进程信息和服务信息<br></code></pre></td></tr></table></figure>
-
 <p>提权步骤</p>
-<ol>
+<ol type="1">
 <li>信息搜集 版本 漏洞补丁 杀软 位数 网络 权限</li>
 <li>基于信息筛选漏洞</li>
 </ol>
@@ -477,7 +475,8 @@ mjx-container[display="true"] + br {
 <li>数据库提权</li>
 <li>第三方软件</li>
 </ul>
-<h2 id="域控权限"><a href="#域控权限" class="headerlink" title="域控权限"></a>域控权限</h2>
+<h2 id="域控权限">域控权限</h2>
+
                 
               </div>
             

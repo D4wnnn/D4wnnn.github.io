@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="计算机组成原理5-中央处理器5.0_前置知识 控制器的组成    5.1_CPU的基本功能和结构 运算器:对数据进行加工  控制器:取指令 分析指令 指令指令 中断处理  操作系统会给每个运行的程序提供一个堆栈  堆栈指针SP指明了栈顶    三态门!!! 正常情况下 三态门是不导电的 即不接通   运算器的基本结构 右面第七条:计数器:控制乘除运算的操作步骤   控制器基本结构">
+    <meta name="description" content="计算机组成原理5-中央处理器 5.0_前置知识  控制器的组成   image-20221014144746659   5.1_CPU的基本功能和结构  运算器:对数据进行加工 控制器:取指令 分析指令 指令指令 中断处理 操作系统会给每个运行的程序提供一个堆栈 堆栈指针SP指明了栈顶   image-20221014150158138  三态门!!! 正常">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机组成原理5-中央处理器">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="计算机组成原理5-中央处理器5.0_前置知识 控制器的组成    5.1_CPU的基本功能和结构 运算器:对数据进行加工  控制器:取指令 分析指令 指令指令 中断处理  操作系统会给每个运行的程序提供一个堆栈  堆栈指针SP指明了栈顶    三态门!!! 正常情况下 三态门是不导电的 即不接通   运算器的基本结构 右面第七条:计数器:控制乘除运算的操作步骤   控制器基本结构">
+<meta property="og:description" content="计算机组成原理5-中央处理器 5.0_前置知识  控制器的组成   image-20221014144746659   5.1_CPU的基本功能和结构  运算器:对数据进行加工 控制器:取指令 分析指令 指令指令 中断处理 操作系统会给每个运行的程序提供一个堆栈 堆栈指针SP指明了栈顶   image-20221014150158138  三态门!!! 正常">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-10-14T06:45:54.000Z">
@@ -375,7 +375,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          360 字
+          1.5k 字
         
       </span>
     
@@ -386,7 +386,7 @@ mjx-container[display="true"] + br {
         
         
         
-          4 分钟
+          13 分钟
         
       </span>
     
@@ -429,130 +429,244 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h2 id="计算机组成原理5-中央处理器"><a href="#计算机组成原理5-中央处理器" class="headerlink" title="计算机组成原理5-中央处理器"></a>计算机组成原理5-中央处理器</h2><h2 id="5-0-前置知识"><a href="#5-0-前置知识" class="headerlink" title="5.0_前置知识"></a>5.0_前置知识</h2><ol>
+                <h2 id="计算机组成原理5-中央处理器">计算机组成原理5-中央处理器</h2>
+<h2 id="前置知识">5.0_前置知识</h2>
+<ol type="1">
 <li><p>控制器的组成</p>
-<p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221014144746659.png" srcset="/img/loading.gif" lazyload alt="image-20221014144746659"></p>
-</li>
+<figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221014144746659.png" srcset="/img/loading.gif" lazyload alt="image-20221014144746659">
+<figcaption aria-hidden="true">image-20221014144746659</figcaption>
+</figure></li>
 </ol>
-<h2 id="5-1-CPU的基本功能和结构"><a href="#5-1-CPU的基本功能和结构" class="headerlink" title="5.1_CPU的基本功能和结构"></a>5.1_CPU的基本功能和结构</h2><ol>
-<li><p>运算器:对数据进行加工</p>
-</li>
-<li><p>控制器:取指令 分析指令 指令指令 中断处理</p>
-</li>
-<li><p>操作系统会给每个运行的程序提供一个堆栈</p>
-</li>
-<li><p>堆栈指针<code>SP</code>指明了栈顶</p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221014150158138.png" srcset="/img/loading.gif" lazyload alt="image-20221014150158138"></p>
-</li>
+<h2 id="cpu的基本功能和结构">5.1_CPU的基本功能和结构</h2>
+<ol type="1">
+<li><p>运算器:对数据进行加工</p></li>
+<li><p>控制器:取指令 分析指令 指令指令 中断处理</p></li>
+<li><p>操作系统会给每个运行的程序提供一个堆栈</p></li>
+<li><p>堆栈指针<code>SP</code>指明了栈顶</p></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221014150158138.png" srcset="/img/loading.gif" lazyload alt="image-20221014150158138">
+<figcaption aria-hidden="true">image-20221014150158138</figcaption>
+</figure></li>
 <li><p>三态门!!!</p>
 <p>正常情况下 三态门是不导电的 即不接通</p>
-<p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221014150409685.png" srcset="/img/loading.gif" lazyload alt="image-20221014150409685"></p>
-</li>
+<figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221014150409685.png" srcset="/img/loading.gif" lazyload alt="image-20221014150409685">
+<figcaption aria-hidden="true">image-20221014150409685</figcaption>
+</figure></li>
 <li><p>运算器的基本结构</p>
 <p>右面第七条:计数器:控制乘除运算的操作步骤</p>
-<p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221014151437948.png" srcset="/img/loading.gif" lazyload alt="image-20221014151437948"></p>
-</li>
+<figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221014151437948.png" srcset="/img/loading.gif" lazyload alt="image-20221014151437948">
+<figcaption aria-hidden="true">image-20221014151437948</figcaption>
+</figure></li>
 <li><p>控制器基本结构</p>
-<p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019195219709.png" srcset="/img/loading.gif" lazyload alt="image-20221019195219709"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019195400332.png" srcset="/img/loading.gif" lazyload alt="image-20221019195400332"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019195410356.png" srcset="/img/loading.gif" lazyload alt="image-20221019195410356"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019195452349.png" srcset="/img/loading.gif" lazyload alt="image-20221019195452349"></p>
-</li>
+<figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019195219709.png" srcset="/img/loading.gif" lazyload alt="image-20221019195219709">
+<figcaption aria-hidden="true">image-20221019195219709</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019195400332.png" srcset="/img/loading.gif" lazyload alt="image-20221019195400332">
+<figcaption aria-hidden="true">image-20221019195400332</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019195410356.png" srcset="/img/loading.gif" lazyload alt="image-20221019195410356">
+<figcaption aria-hidden="true">image-20221019195410356</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019195452349.png" srcset="/img/loading.gif" lazyload alt="image-20221019195452349">
+<figcaption aria-hidden="true">image-20221019195452349</figcaption>
+</figure></li>
 </ol>
-<h2 id="5-2-指令周期的数据流"><a href="#5-2-指令周期的数据流" class="headerlink" title="5.2_指令周期的数据流"></a>5.2_指令周期的数据流</h2><ol>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019195734699.png" srcset="/img/loading.gif" lazyload alt="image-20221019195734699"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019195954062.png" srcset="/img/loading.gif" lazyload alt="image-20221019195954062"></p>
-</li>
-<li><p>cpu中最小的计时单位为节拍或者时钟周期</p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019200334136.png" srcset="/img/loading.gif" lazyload alt="image-20221019200334136"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019200759594.png" srcset="/img/loading.gif" lazyload alt="image-20221019200759594"></p>
-</li>
+<h2 id="指令周期的数据流">5.2_指令周期的数据流</h2>
+<ol type="1">
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019195734699.png" srcset="/img/loading.gif" lazyload alt="image-20221019195734699">
+<figcaption aria-hidden="true">image-20221019195734699</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019195954062.png" srcset="/img/loading.gif" lazyload alt="image-20221019195954062">
+<figcaption aria-hidden="true">image-20221019195954062</figcaption>
+</figure></li>
+<li><p>cpu中最小的计时单位为节拍或者时钟周期</p></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019200334136.png" srcset="/img/loading.gif" lazyload alt="image-20221019200334136">
+<figcaption aria-hidden="true">image-20221019200334136</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019200759594.png" srcset="/img/loading.gif" lazyload alt="image-20221019200759594">
+<figcaption aria-hidden="true">image-20221019200759594</figcaption>
+</figure></li>
 <li><p>取值周期</p>
-<p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019200957452.png" srcset="/img/loading.gif" lazyload alt="image-20221019200957452"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019201254371.png" srcset="/img/loading.gif" lazyload alt="image-20221019201254371"></p>
-<p>有的计算机里面是把MDR中的有效地址EA替换到原来IR中的形式地址</p>
-</li>
-<li><p>执行周期没有统一的数据流向</p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019203043579.png" srcset="/img/loading.gif" lazyload alt="image-20221019203043579"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019203332614.png" srcset="/img/loading.gif" lazyload alt="image-20221019203332614"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019203337454.png" srcset="/img/loading.gif" lazyload alt="image-20221019203337454"></p>
-</li>
+<figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019200957452.png" srcset="/img/loading.gif" lazyload alt="image-20221019200957452">
+<figcaption aria-hidden="true">image-20221019200957452</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019201254371.png" srcset="/img/loading.gif" lazyload alt="image-20221019201254371">
+<figcaption aria-hidden="true">image-20221019201254371</figcaption>
+</figure>
+<p>有的计算机里面是把MDR中的有效地址EA替换到原来IR中的形式地址</p></li>
+<li><p>执行周期没有统一的数据流向</p></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019203043579.png" srcset="/img/loading.gif" lazyload alt="image-20221019203043579">
+<figcaption aria-hidden="true">image-20221019203043579</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019203332614.png" srcset="/img/loading.gif" lazyload alt="image-20221019203332614">
+<figcaption aria-hidden="true">image-20221019203332614</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019203337454.png" srcset="/img/loading.gif" lazyload alt="image-20221019203337454">
+<figcaption aria-hidden="true">image-20221019203337454</figcaption>
+</figure></li>
 </ol>
-<h2 id="5-3-1-数据通路-单总线结构"><a href="#5-3-1-数据通路-单总线结构" class="headerlink" title="5.3.1_数据通路-单总线结构"></a>5.3.1_数据通路-单总线结构</h2><ol>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019203725218.png" srcset="/img/loading.gif" lazyload alt="image-20221019203725218"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019204306832.png" srcset="/img/loading.gif" lazyload alt="image-20221019204306832"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019204716702.png" srcset="/img/loading.gif" lazyload alt="image-20221019204716702"></p>
-</li>
+<h2 id="数据通路-单总线结构">5.3.1_数据通路-单总线结构</h2>
+<ol type="1">
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019203725218.png" srcset="/img/loading.gif" lazyload alt="image-20221019203725218">
+<figcaption aria-hidden="true">image-20221019203725218</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019204306832.png" srcset="/img/loading.gif" lazyload alt="image-20221019204306832">
+<figcaption aria-hidden="true">image-20221019204306832</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019204716702.png" srcset="/img/loading.gif" lazyload alt="image-20221019204716702">
+<figcaption aria-hidden="true">image-20221019204716702</figcaption>
+</figure></li>
 <li><p>例题:</p>
 <p>取指周期:</p>
-<p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019211310900.png" srcset="/img/loading.gif" lazyload alt="image-20221019211310900"></p>
+<figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019211310900.png" srcset="/img/loading.gif" lazyload alt="image-20221019211310900">
+<figcaption aria-hidden="true">image-20221019211310900</figcaption>
+</figure>
 <p>间址周期:</p>
-<p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019211339900.png" srcset="/img/loading.gif" lazyload alt="image-20221019211339900"></p>
+<figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019211339900.png" srcset="/img/loading.gif" lazyload alt="image-20221019211339900">
+<figcaption aria-hidden="true">image-20221019211339900</figcaption>
+</figure>
 <p>执行周期:</p>
-<p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019211354957.png" srcset="/img/loading.gif" lazyload alt="image-20221019211354957"></p>
-</li>
+<figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019211354957.png" srcset="/img/loading.gif" lazyload alt="image-20221019211354957">
+<figcaption aria-hidden="true">image-20221019211354957</figcaption>
+</figure></li>
 </ol>
-<h2 id="5-3-2-数据通路-专用通路结构"><a href="#5-3-2-数据通路-专用通路结构" class="headerlink" title="5.3.2_数据通路-专用通路结构"></a>5.3.2_数据通路-专用通路结构</h2><p>与5.3.1类似</p>
-<h2 id="5-4-1-硬布线控制器的设计"><a href="#5-4-1-硬布线控制器的设计" class="headerlink" title="5.4.1_硬布线控制器的设计"></a>5.4.1_硬布线控制器的设计</h2><ol>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019214157391.png" srcset="/img/loading.gif" lazyload alt="image-20221019214157391"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019215132485.png" srcset="/img/loading.gif" lazyload alt="image-20221019215132485"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019215137148.png" srcset="/img/loading.gif" lazyload alt="image-20221019215137148"></p>
-<p>注意:这么复杂的电路不会考</p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020012634260.png" srcset="/img/loading.gif" lazyload alt="image-20221020012634260"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020013054670.png" srcset="/img/loading.gif" lazyload alt="image-20221020013054670"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020013119103.png" srcset="/img/loading.gif" lazyload alt="image-20221020013119103"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020013207109.png" srcset="/img/loading.gif" lazyload alt="image-20221020013207109"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020013418540.png" srcset="/img/loading.gif" lazyload alt="image-20221020013418540"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020013506978.png" srcset="/img/loading.gif" lazyload alt="image-20221020013506978"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020013859295.png" srcset="/img/loading.gif" lazyload alt="image-20221020013859295"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020014025625.png" srcset="/img/loading.gif" lazyload alt="image-20221020014025625"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020014144739.png" srcset="/img/loading.gif" lazyload alt="image-20221020014144739"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020014157657.png" srcset="/img/loading.gif" lazyload alt="image-20221020014157657"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020014343261.png" srcset="/img/loading.gif" lazyload alt="image-20221020014343261"></p>
-</li>
-<li><p><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020014402725.png" srcset="/img/loading.gif" lazyload alt="image-20221020014402725"></p>
-</li>
+<h2 id="数据通路-专用通路结构">5.3.2_数据通路-专用通路结构</h2>
+<p>与5.3.1类似</p>
+<h2 id="硬布线控制器的设计">5.4.1_硬布线控制器的设计</h2>
+<ol type="1">
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019214157391.png" srcset="/img/loading.gif" lazyload alt="image-20221019214157391">
+<figcaption aria-hidden="true">image-20221019214157391</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019215132485.png" srcset="/img/loading.gif" lazyload alt="image-20221019215132485">
+<figcaption aria-hidden="true">image-20221019215132485</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221019215137148.png" srcset="/img/loading.gif" lazyload alt="image-20221019215137148">
+<figcaption aria-hidden="true">image-20221019215137148</figcaption>
+</figure>
+<p>注意:这么复杂的电路不会考</p></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020012634260.png" srcset="/img/loading.gif" lazyload alt="image-20221020012634260">
+<figcaption aria-hidden="true">image-20221020012634260</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020013054670.png" srcset="/img/loading.gif" lazyload alt="image-20221020013054670">
+<figcaption aria-hidden="true">image-20221020013054670</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020013119103.png" srcset="/img/loading.gif" lazyload alt="image-20221020013119103">
+<figcaption aria-hidden="true">image-20221020013119103</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020013207109.png" srcset="/img/loading.gif" lazyload alt="image-20221020013207109">
+<figcaption aria-hidden="true">image-20221020013207109</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020013418540.png" srcset="/img/loading.gif" lazyload alt="image-20221020013418540">
+<figcaption aria-hidden="true">image-20221020013418540</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020013506978.png" srcset="/img/loading.gif" lazyload alt="image-20221020013506978">
+<figcaption aria-hidden="true">image-20221020013506978</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020013859295.png" srcset="/img/loading.gif" lazyload alt="image-20221020013859295">
+<figcaption aria-hidden="true">image-20221020013859295</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020014025625.png" srcset="/img/loading.gif" lazyload alt="image-20221020014025625">
+<figcaption aria-hidden="true">image-20221020014025625</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020014144739.png" srcset="/img/loading.gif" lazyload alt="image-20221020014144739">
+<figcaption aria-hidden="true">image-20221020014144739</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020014157657.png" srcset="/img/loading.gif" lazyload alt="image-20221020014157657">
+<figcaption aria-hidden="true">image-20221020014157657</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020014343261.png" srcset="/img/loading.gif" lazyload alt="image-20221020014343261">
+<figcaption aria-hidden="true">image-20221020014343261</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020014402725.png" srcset="/img/loading.gif" lazyload alt="image-20221020014402725">
+<figcaption aria-hidden="true">image-20221020014402725</figcaption>
+</figure></li>
 </ol>
-<h2 id="5-4-2-微程序控制器的基本原理"><a href="#5-4-2-微程序控制器的基本原理" class="headerlink" title="5.4.2_微程序控制器的基本原理"></a>5.4.2_微程序控制器的基本原理</h2><ol>
-<li><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020165138553.png" srcset="/img/loading.gif" lazyload alt="image-20221020165138553"></li>
-<li><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020165639202.png" srcset="/img/loading.gif" lazyload alt="image-20221020165639202"></li>
-<li><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020170534108.png" srcset="/img/loading.gif" lazyload alt="image-20221020170534108"></li>
-<li><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020171456010.png" srcset="/img/loading.gif" lazyload alt="image-20221020171456010"></li>
-<li><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020171652628.png" srcset="/img/loading.gif" lazyload alt="image-20221020171652628"></li>
-<li><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020171656609.png" srcset="/img/loading.gif" lazyload alt="image-20221020171656609"></li>
+<h2 id="微程序控制器的基本原理">5.4.2_微程序控制器的基本原理</h2>
+<ol type="1">
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020165138553.png" srcset="/img/loading.gif" lazyload alt="image-20221020165138553">
+<figcaption aria-hidden="true">image-20221020165138553</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020165639202.png" srcset="/img/loading.gif" lazyload alt="image-20221020165639202">
+<figcaption aria-hidden="true">image-20221020165639202</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020170534108.png" srcset="/img/loading.gif" lazyload alt="image-20221020170534108">
+<figcaption aria-hidden="true">image-20221020170534108</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020171456010.png" srcset="/img/loading.gif" lazyload alt="image-20221020171456010">
+<figcaption aria-hidden="true">image-20221020171456010</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020171652628.png" srcset="/img/loading.gif" lazyload alt="image-20221020171652628">
+<figcaption aria-hidden="true">image-20221020171652628</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221020171656609.png" srcset="/img/loading.gif" lazyload alt="image-20221020171656609">
+<figcaption aria-hidden="true">image-20221020171656609</figcaption>
+</figure></li>
 </ol>
-<h2 id="5-4-3-微指令的设计"><a href="#5-4-3-微指令的设计" class="headerlink" title="5.4.3_微指令的设计"></a>5.4.3_微指令的设计</h2><ol>
-<li><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221021143706985.png" srcset="/img/loading.gif" lazyload alt="image-20221021143706985"></li>
-<li><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221021143959430.png" srcset="/img/loading.gif" lazyload alt="image-20221021143959430"></li>
-<li><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221021144228923.png" srcset="/img/loading.gif" lazyload alt="image-20221021144228923"></li>
-<li><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221021144359761.png" srcset="/img/loading.gif" lazyload alt="image-20221021144359761"></li>
-<li><img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221021144527652.png" srcset="/img/loading.gif" lazyload alt="image-20221021144527652"></li>
+<h2 id="微指令的设计">5.4.3_微指令的设计</h2>
+<ol type="1">
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221021143706985.png" srcset="/img/loading.gif" lazyload alt="image-20221021143706985">
+<figcaption aria-hidden="true">image-20221021143706985</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221021143959430.png" srcset="/img/loading.gif" lazyload alt="image-20221021143959430">
+<figcaption aria-hidden="true">image-20221021143959430</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221021144228923.png" srcset="/img/loading.gif" lazyload alt="image-20221021144228923">
+<figcaption aria-hidden="true">image-20221021144228923</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221021144359761.png" srcset="/img/loading.gif" lazyload alt="image-20221021144359761">
+<figcaption aria-hidden="true">image-20221021144359761</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%865-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/image-20221021144527652.png" srcset="/img/loading.gif" lazyload alt="image-20221021144527652">
+<figcaption aria-hidden="true">image-20221021144527652</figcaption>
+</figure></li>
 <li></li>
 </ol>
 

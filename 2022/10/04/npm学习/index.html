@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="npm">
   
-    <meta name="description" content="npm学习前置知识npm是(Node Package Manager)的简称 在Node.js中的第三方模块叫包 模块分为三种:  内置模块 用户自定义模块 第三方模块&#x2F;包  Node.js中的包都是免费且开源的,不需要付费 npm官网可以查看相关包:https:&#x2F;&#x2F;www.npmjs.com&#x2F;,可以从里面看到相关文档 也可以从https:&#x2F;&#x2F;registry.npmjs.org下载包 相关概念">
+    <meta name="description" content="npm学习 前置知识 npm是(Node Package Manager)的简称 在Node.js中的第三方模块叫包 模块分为三种:  内置模块 用户自定义模块 第三方模块&#x2F;包  Node.js中的包都是免费且开源的,不需要付费 npm官网可以查看相关包:https:&#x2F;&#x2F;www.npmjs.com&#x2F;,可以从里面看到相关文档 也可以从https:&#x2F;&#x2F;registry.npmj">
 <meta property="og:type" content="article">
 <meta property="og:title" content="npm学习">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/10/04/npm%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="npm学习前置知识npm是(Node Package Manager)的简称 在Node.js中的第三方模块叫包 模块分为三种:  内置模块 用户自定义模块 第三方模块&#x2F;包  Node.js中的包都是免费且开源的,不需要付费 npm官网可以查看相关包:https:&#x2F;&#x2F;www.npmjs.com&#x2F;,可以从里面看到相关文档 也可以从https:&#x2F;&#x2F;registry.npmjs.org下载包 相关概念">
+<meta property="og:description" content="npm学习 前置知识 npm是(Node Package Manager)的简称 在Node.js中的第三方模块叫包 模块分为三种:  内置模块 用户自定义模块 第三方模块&#x2F;包  Node.js中的包都是免费且开源的,不需要付费 npm官网可以查看相关包:https:&#x2F;&#x2F;www.npmjs.com&#x2F;,可以从里面看到相关文档 也可以从https:&#x2F;&#x2F;registry.npmj">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-10-03T16:51:59.000Z">
@@ -430,10 +430,12 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="npm学习"><a href="#npm学习" class="headerlink" title="npm学习"></a>npm学习</h1><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><p>npm是(Node Package Manager)的简称</p>
+                <h1 id="npm学习">npm学习</h1>
+<h2 id="前置知识">前置知识</h2>
+<p>npm是(Node Package Manager)的简称</p>
 <p>在Node.js中的第三方模块叫包</p>
 <p>模块分为三种:</p>
-<ol>
+<ol type="1">
 <li>内置模块</li>
 <li>用户自定义模块</li>
 <li>第三方模块/包</li>
@@ -441,22 +443,20 @@ mjx-container[display="true"] + br {
 <p>Node.js中的包都是免费且开源的,不需要付费</p>
 <p>npm官网可以查看相关包:<code>https://www.npmjs.com/</code>,可以从里面看到相关文档</p>
 <p>也可以从<code>https://registry.npmjs.org</code>下载包</p>
-<h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><ul>
-<li><p>npm随着Node.js的安装被一起安装了</p>
-</li>
+<h2 id="相关概念">相关概念</h2>
+<ul>
+<li><p>npm随着Node.js的安装被一起安装了</p></li>
 <li><p>初次装包后多了哪些文件:</p>
-<ol>
+<ol type="1">
 <li><p>node_modules文件夹 存放所有已经安装到项目中的包</p>
-<p>require()导入第三方包时,就是从这个目录查找并加载包</p>
-</li>
-<li><p>package.json配置文件记录node_modules目录下每一个包的下载信息 比如包的下载地址 名字 版本号</p>
-<p>注意，当执行npm install的时候，会生成package-lock.json，这个文件把每个依赖以及依赖的依赖版本号确定，因为package.json中的版本号类似正则匹配，比如<code>^1.2.3</code>代表匹配<code>1.*.*</code>,<code>~1.2.3</code>代表匹配<code>1.2.*</code></p>
-</li>
-</ol>
-</li>
+<p>require()导入第三方包时,就是从这个目录查找并加载包</p></li>
+<li><p>package.json配置文件记录node_modules目录下每一个包的下载信息
+比如包的下载地址 名字 版本号</p>
+<p>注意，当执行npm
+install的时候，会生成package-lock.json，这个文件把每个依赖以及依赖的依赖版本号确定，因为package.json中的版本号类似正则匹配，比如<code>^1.2.3</code>代表匹配<code>1.*.*</code>,<code>~1.2.3</code>代表匹配<code>1.2.*</code></p></li>
+</ol></li>
 <li><p>包的语义化版本规范:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">总共有三位数字:比如<span class="hljs-number">2.24</span><span class="hljs-number">.0</span><br>第一位为大版本(从底层重构)<br>第二位为功能版本:<br>第三位为Bug修复版本<br>只要前面的版本号增长了,后面的版本号归零<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">总共有三位数字:比如<span class="hljs-number">2.24</span><span class="hljs-number">.0</span><br>第一位为大版本(从底层重构)<br>第二位为功能版本:<br>第三位为Bug修复版本<br>只要前面的版本号增长了,后面的版本号归零<br></code></pre></td></tr></table></figure></li>
 <li><p>包管理配置文件</p>
 <p>npm规定,在项目根目录中,必须提供一个叫做<code>package.json</code>的包管理配置文件,用来记录与项目有关的一些配置信息.</p>
 <ul>
@@ -464,21 +464,22 @@ mjx-container[display="true"] + br {
 <li>项目中用到了哪些包</li>
 <li>哪些包只在开发期间用到</li>
 <li>哪些包在开发和部署时都需要用到</li>
+</ul></li>
+<li><p><code>npm init -y</code>命令只能在英文文件夹下成功运行
+不能有汉字或者空格</p></li>
+<li><p>在<code>package.json</code>文件中
+有一个<code>dependencies</code>节点 记录npm install
+命令装了哪些包</p></li>
 </ul>
-</li>
-<li><p><code>npm init -y</code>命令只能在英文文件夹下成功运行 不能有汉字或者空格</p>
-</li>
-<li><p>在<code>package.json</code>文件中 有一个<code>dependencies</code>节点 记录npm install 命令装了哪些包</p>
-</li>
-</ul>
-<h2 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm intall 包的完整名称(默认下载最新的)<br>注意：如果没有npm init，有可能不会安装到当前文件夹<br><span class="hljs-comment"># 简写:</span><br>npm i 包的完整名称<br>npm i 包名@版本<br>npm init -y 快速创建package.json文件<br>npm i //执行此命令时 npm会先读取package.json中的dependencies节点 然后下载<br>npm unintall 卸载包<br>npm update 包名 更新包<br>npm update gulp 可以把当前目录下node_modules子目录里边的对应模块更新至最新版本      <br>npm update gulp -g 可以把全局安装的对应命令行程序更新至最新版 <br>npm config list 查看npm配置<br>npm info hexo-cli 查看hexo-cli信息<br>npm <span class="hljs-built_in">ls</span> 查看所有版本<br>npm <span class="hljs-built_in">ls</span> -g 查看全局安装的版本<br>npm <span class="hljs-built_in">ls</span> jquery 查看本地安装的jquery版本<br>npm <span class="hljs-built_in">ls</span> jquery -g //查看全局安装的jquery版本<br>npm root -g 查看全局安装的依赖所在目录<br>npm root 查看当前依赖所在目录<br></code></pre></td></tr></table></figure>
-
-<h2 id="解决下载慢的问题"><a href="#解决下载慢的问题" class="headerlink" title="解决下载慢的问题"></a>解决下载慢的问题</h2><ol>
+<h2 id="相关命令">相关命令</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm intall 包的完整名称(默认下载最新的)<br>注意：如果没有npm init，有可能不会安装到当前文件夹<br><span class="hljs-comment"># 简写:</span><br>npm i 包的完整名称<br>npm i 包名@版本<br>npm init -y 快速创建package.json文件<br>npm i //执行此命令时 npm会先读取package.json中的dependencies节点 然后下载<br>npm unintall 卸载包<br>npm update 包名 更新包<br>npm update gulp 可以把当前目录下node_modules子目录里边的对应模块更新至最新版本      <br>npm update gulp -g 可以把全局安装的对应命令行程序更新至最新版 <br>npm config list 查看npm配置<br>npm info hexo-cli 查看hexo-cli信息<br>npm <span class="hljs-built_in">ls</span> 查看所有版本<br>npm <span class="hljs-built_in">ls</span> -g 查看全局安装的版本<br>npm <span class="hljs-built_in">ls</span> jquery 查看本地安装的jquery版本<br>npm <span class="hljs-built_in">ls</span> jquery -g //查看全局安装的jquery版本<br>npm root -g 查看全局安装的依赖所在目录<br>npm root 查看当前依赖所在目录<br></code></pre></td></tr></table></figure>
+<h2 id="解决下载慢的问题">解决下载慢的问题</h2>
+<ol type="1">
 <li><p>nrm</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm i nrm -g<br>nrm <span class="hljs-built_in">ls</span> <span class="hljs-comment"># 查看所用可用镜像源</span><br>nrm use taobao<br></code></pre></td></tr></table></figure></li>
 </ol>
-<p>开始:<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1a34y167AZ?p=26&amp;vd_source=bf133d296119691c661008e881da330a&amp;t=45.1">https://www.bilibili.com/video/BV1a34y167AZ?p=26&amp;vd_source=bf133d296119691c661008e881da330a&amp;t=45.1</a></p>
-<p>结束:<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1a34y167AZ/?p=31&amp;spm_id_from=pageDriver&amp;vd_source=bf133d296119691c661008e881da330a&amp;t=0.6">https://www.bilibili.com/video/BV1a34y167AZ/?p=31&amp;spm_id_from=pageDriver&amp;vd_source=bf133d296119691c661008e881da330a&amp;t=0.6</a></p>
+<p>开始:https://www.bilibili.com/video/BV1a34y167AZ?p=26&amp;vd_source=bf133d296119691c661008e881da330a&amp;t=45.1</p>
+<p>结束:https://www.bilibili.com/video/BV1a34y167AZ/?p=31&amp;spm_id_from=pageDriver&amp;vd_source=bf133d296119691c661008e881da330a&amp;t=0.6</p>
 
                 
               </div>

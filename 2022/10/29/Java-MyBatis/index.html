@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Java-MyBatis搭建Mybatis核心配置文件习惯上称为mybatis-config.xml 如何加载外部的配置呢? &lt;properties resource&#x3D;&quot;xxx&quot; &#x2F;&gt; 12345678910111213141516171819202122232425&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot; ?&gt;&lt;!DOCTYPE co">
+    <meta name="description" content="Java-MyBatis 搭建Mybatis 核心配置文件 习惯上称为mybatis-config.xml 如何加载外部的配置呢? &lt;properties resource&#x3D;&quot;xxx&quot; &#x2F;&gt; 12345678910111213141516171819202122232425&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot; ?&gt;&lt;!D">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java-MyBatis">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/10/29/Java-MyBatis/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Java-MyBatis搭建Mybatis核心配置文件习惯上称为mybatis-config.xml 如何加载外部的配置呢? &lt;properties resource&#x3D;&quot;xxx&quot; &#x2F;&gt; 12345678910111213141516171819202122232425&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot; ?&gt;&lt;!DOCTYPE co">
+<meta property="og:description" content="Java-MyBatis 搭建Mybatis 核心配置文件 习惯上称为mybatis-config.xml 如何加载外部的配置呢? &lt;properties resource&#x3D;&quot;xxx&quot; &#x2F;&gt; 12345678910111213141516171819202122232425&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot; ?&gt;&lt;!D">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-10-29T08:10:01.000Z">
@@ -429,47 +429,49 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="Java-MyBatis"><a href="#Java-MyBatis" class="headerlink" title="Java-MyBatis"></a>Java-MyBatis</h1><h2 id="搭建Mybatis"><a href="#搭建Mybatis" class="headerlink" title="搭建Mybatis"></a>搭建Mybatis</h2><h3 id="核心配置文件"><a href="#核心配置文件" class="headerlink" title="核心配置文件"></a>核心配置文件</h3><p>习惯上称为mybatis-config.xml</p>
+                <h1 id="java-mybatis">Java-MyBatis</h1>
+<h2 id="搭建mybatis">搭建Mybatis</h2>
+<h3 id="核心配置文件">核心配置文件</h3>
+<p>习惯上称为mybatis-config.xml</p>
 <p>如何加载外部的配置呢?</p>
 <p><code>&lt;properties resource="xxx" /&gt;</code></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> ?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">configuration</span></span><br><span class="hljs-meta">        <span class="hljs-keyword">PUBLIC</span> <span class="hljs-string">"-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="hljs-meta">        <span class="hljs-string">"https://mybatis.org/dtd/mybatis-3-config.dtd"</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--    配置连接数据库的环境--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">environments</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"development"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">environment</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"development"</span>&gt;</span><br><span class="hljs-comment">&lt;!--            这里为JDBC代表是原生的事务管理方式--&gt;</span><br><span class="hljs-comment">&lt;!--            若为MANAGED则为被管理--&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">transactionManager</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"JDBC"</span>/&gt;</span><br><span class="hljs-comment">&lt;!--            POOLED代表使用数据库连接池--&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">dataSource</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"POOLED"</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"driver"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"com.mysql.jdbc.Driver"</span>/&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"url"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"jdbc:mysql://localhost:3306/security"</span>/&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"username"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"root"</span>/&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"root"</span>/&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">dataSource</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">environment</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">environments</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--    引入映射文件--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">mappers</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">resource</span>=<span class="hljs-string">"mappers/UserMapper.xml"</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">mappers</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
 <p>注意:可以以包为单位引入映射文件</p>
 <p>要求:mapper接口所在的包要和映射文件所在的包一致</p>
 <p>mapper接口要和映射文件的名字一致</p>
-<h3 id="创建Mapper接口"><a href="#创建Mapper接口" class="headerlink" title="创建Mapper接口"></a>创建Mapper接口</h3><p>相当于以前的dao,但是mapper仅仅是接口,我们不需要提供实现类</p>
+<h3 id="创建mapper接口">创建Mapper接口</h3>
+<p>相当于以前的dao,但是mapper仅仅是接口,我们不需要提供实现类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">UserMapper</span>{<br>    <span class="hljs-type">int</span> <span class="hljs-title function_">insertUser</span><span class="hljs-params">()</span>;<br>}<br></code></pre></td></tr></table></figure>
-
-<h3 id="创建MyBatis映射文件"><a href="#创建MyBatis映射文件" class="headerlink" title="创建MyBatis映射文件"></a>创建MyBatis映射文件</h3><p>两个一致:</p>
+<h3 id="创建mybatis映射文件">创建MyBatis映射文件</h3>
+<p>两个一致:</p>
 <ul>
 <li>映射文件中的namespace和mapper接口的全类名一致</li>
 <li>映射文件中的SQL语句id要和mapper接口中的方法名一致</li>
 </ul>
 <p>那么如何引入配置文件呢?</p>
 <p>在核心配置文件中的mapper标签中设置</p>
-<p>MyBatis中的pojo就是orm中的映射的实体类，UserMapper这个接口就是原来的UserDao接口，但是原来的UserDaoImpl不再存在，而是通过UserMapper.xml实现，在这个 xml文件中，通过映射配置，id为接口中的方法名，里面的内容就是SQL语句。</p>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>如何加载核心配置文件呢？？？</p>
+<p>MyBatis中的pojo就是orm中的映射的实体类，UserMapper这个接口就是原来的UserDao接口，但是原来的UserDaoImpl不再存在，而是通过UserMapper.xml实现，在这个
+xml文件中，通过映射配置，id为接口中的方法名，里面的内容就是SQL语句。</p>
+<h3 id="测试">测试</h3>
+<p>如何加载核心配置文件呢？？？</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> {<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException {<br>        <span class="hljs-comment">//引入配置文件</span><br>        <span class="hljs-type">InputStream</span> <span class="hljs-variable">is</span> <span class="hljs-operator">=</span> Resources.getResourceAsStream(<span class="hljs-string">"mybatis-config.xml"</span>);<br>        <span class="hljs-type">SqlSessionFactoryBuilder</span> <span class="hljs-variable">sfb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SqlSessionFactoryBuilder</span>();<br>        <span class="hljs-type">SqlSessionFactory</span> <span class="hljs-variable">build</span> <span class="hljs-operator">=</span> sfb.build(is);<br>        <span class="hljs-comment">//获得sqlSession</span><br>        <span class="hljs-comment">//这里设置为true是可以auto commit</span><br>        <span class="hljs-type">SqlSession</span> <span class="hljs-variable">sess</span> <span class="hljs-operator">=</span> build.openSession(<span class="hljs-literal">true</span>);<br>        <span class="hljs-type">UserMapper</span> <span class="hljs-variable">mapper</span> <span class="hljs-operator">=</span> sess.getMapper(UserMapper.class);<br>        List&lt;User&gt; all = mapper.getAll();<br>        <span class="hljs-keyword">for</span> (User user : all) {<br>            System.out.println(user);<br>        }<br>    }<br>}<br></code></pre></td></tr></table></figure>
-
-
-
 <p>SqlSession:代表Java程序和数据库之间的对话,HttpSession代表Java程序和浏览器之间的会话</p>
-<h2 id="获取参数值"><a href="#获取参数值" class="headerlink" title="获取参数值"></a>获取参数值</h2><p><code>${}</code> 本质是字符串拼接</p>
+<h2 id="获取参数值">获取参数值</h2>
+<p><code>${}</code> 本质是字符串拼接</p>
 <p><code>#{}</code>本质是占位符赋值</p>
 <p>如果参数只有一个怎么办呢?</p>
 <p><code>select * from users where username = '#{username}'</code></p>
-<p> 若有多个参数呢?</p>
+<p>若有多个参数呢?</p>
 <p><code>select * from users where username = '#{arh0}' and sex = '#{arg1}'</code></p>
 <p>最终版本如何?</p>
 <p>使用注解<code>@Param</code></p>
 <p><code>User getOne(@Param("username") String username, @Param("password") String password);</code></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"getOne"</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">"cn.d4wn.pojo.User"</span>&gt;</span><br>    select * from users where username= #{username} and password = #{password};<br><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p>@Param(“username”)就是说select语句中的占位符号username对应形参的username</p>
+<p><span class="citation" data-cites="Param">@Param</span>("username")就是说select语句中的占位符号username对应形参的username</p>
 <p>MyBatis中设置了默认的类型别名</p>
 <p>比如Integer就是int</p>
 <p>MyBatis可以实现将所查询的记录保存为:以字段名为key,字段值为value的Map集合</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1VP4y1c7j7?t=165.8">https://www.bilibili.com/video/BV1VP4y1c7j7?t=165.8</a></p>
+<p>https://www.bilibili.com/video/BV1VP4y1c7j7?t=165.8</p>
 
                 
               </div>
