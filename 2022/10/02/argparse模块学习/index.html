@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="argparse">
   
-    <meta name="description" content="argparse模块学习   img  argparse模块帮助编写命令行接口 默认值参数 1234567891011121314# coding:utf-8import argparseparser &#x3D; argparse.ArgumentParser(description&#x3D;&#39;命令行中传入一些数字&#39;) # 参数解析器parser.add_argument(&#39;-a&#39;, type&#x3D;in">
+    <meta name="description" content="argparse模块学习 argparse模块帮助编写命令行接口 默认值参数1234567891011121314# coding:utf-8import argparseparser &#x3D; argparse.ArgumentParser(description&#x3D;&#39;命令行中传入一些数字&#39;) # 参数解析器parser.add_argument(&#39;-a&#39;, type&#x3D;int, nargs&#x3D;&#39;+&#39;, d">
 <meta property="og:type" content="article">
 <meta property="og:title" content="argparse模块学习">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/10/02/argparse%E6%A8%A1%E5%9D%97%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="argparse模块学习   img  argparse模块帮助编写命令行接口 默认值参数 1234567891011121314# coding:utf-8import argparseparser &#x3D; argparse.ArgumentParser(description&#x3D;&#39;命令行中传入一些数字&#39;) # 参数解析器parser.add_argument(&#39;-a&#39;, type&#x3D;in">
+<meta property="og:description" content="argparse模块学习 argparse模块帮助编写命令行接口 默认值参数1234567891011121314# coding:utf-8import argparseparser &#x3D; argparse.ArgumentParser(description&#x3D;&#39;命令行中传入一些数字&#39;) # 参数解析器parser.add_argument(&#39;-a&#39;, type&#x3D;int, nargs&#x3D;&#39;+&#39;, d">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-10-02T07:35:30.000Z">
@@ -376,7 +376,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          604 字
+          600 字
         
       </span>
     
@@ -430,23 +430,19 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="argparse模块学习">argparse模块学习</h1>
-<figure>
-<img src="/2022/10/02/argparse%E6%A8%A1%E5%9D%97%E5%AD%A6%E4%B9%A0/241f95cad1c8a786f9cffe60e4724f3471cf507f.jpeg" srcset="/img/loading.gif" lazyload alt="img">
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
+                <h1 id="argparse模块学习"><a href="#argparse模块学习" class="headerlink" title="argparse模块学习"></a>argparse模块学习</h1><p><img src="/2022/10/02/argparse%E6%A8%A1%E5%9D%97%E5%AD%A6%E4%B9%A0/241f95cad1c8a786f9cffe60e4724f3471cf507f.jpeg" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>argparse模块帮助编写命令行接口</p>
-<h2 id="默认值参数">默认值参数</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># coding:utf-8</span><br><span class="hljs-keyword">import</span> argparse<br><br>parser = argparse.ArgumentParser(description=<span class="hljs-string">'命令行中传入一些数字'</span>) <span class="hljs-comment"># 参数解析器</span><br>parser.add_argument(<span class="hljs-string">'-a'</span>, <span class="hljs-built_in">type</span>=<span class="hljs-built_in">int</span>, nargs=<span class="hljs-string">'+'</span>, default=<span class="hljs-number">123</span>, <span class="hljs-built_in">help</span>=<span class="hljs-string">'加数a'</span>)<br>parser.add_argument(<span class="hljs-string">'-b'</span>, <span class="hljs-built_in">type</span>=<span class="hljs-built_in">int</span>, nargs=<span class="hljs-string">'+'</span>, default=<span class="hljs-number">456</span>, <span class="hljs-built_in">help</span>=<span class="hljs-string">'加数a'</span>)<br><br>args = parser.parse_args()<br><span class="hljs-built_in">print</span>(args.a[<span class="hljs-number">0</span>]+args.b[<span class="hljs-number">0</span>])<br><span class="hljs-built_in">print</span>(args.a)<br><span class="hljs-string">"""</span><br><span class="hljs-string">567</span><br><span class="hljs-string">[123, 222, 22]</span><br><span class="hljs-string">"""</span><br></code></pre></td></tr></table></figure>
-<h2 id="必须参数">必须参数</h2>
-<p><code>required=True</code></p>
-<h2 id="补充说明">补充说明</h2>
-<p>当-和--同时出现的时候 python默认后者为参数名</p>
+<h2 id="默认值参数"><a href="#默认值参数" class="headerlink" title="默认值参数"></a>默认值参数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># coding:utf-8</span><br><span class="hljs-keyword">import</span> argparse<br><br>parser = argparse.ArgumentParser(description=<span class="hljs-string">'命令行中传入一些数字'</span>) <span class="hljs-comment"># 参数解析器</span><br>parser.add_argument(<span class="hljs-string">'-a'</span>, <span class="hljs-built_in">type</span>=<span class="hljs-built_in">int</span>, nargs=<span class="hljs-string">'+'</span>, default=<span class="hljs-number">123</span>, <span class="hljs-built_in">help</span>=<span class="hljs-string">'加数a'</span>)<br>parser.add_argument(<span class="hljs-string">'-b'</span>, <span class="hljs-built_in">type</span>=<span class="hljs-built_in">int</span>, nargs=<span class="hljs-string">'+'</span>, default=<span class="hljs-number">456</span>, <span class="hljs-built_in">help</span>=<span class="hljs-string">'加数a'</span>)<br><br>args = parser.parse_args()<br><span class="hljs-built_in">print</span>(args.a[<span class="hljs-number">0</span>]+args.b[<span class="hljs-number">0</span>])<br><span class="hljs-built_in">print</span>(args.a)<br><span class="hljs-string">"""</span><br><span class="hljs-string">567</span><br><span class="hljs-string">[123, 222, 22]</span><br><span class="hljs-string">"""</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="必须参数"><a href="#必须参数" class="headerlink" title="必须参数"></a>必须参数</h2><p><code>required=True</code></p>
+<h2 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h2><p>当-和–同时出现的时候 python默认后者为参数名</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">参数nargs：<br>nargs=<span class="hljs-string">'*'</span> 　表示参数可设置零个或多个<br>nargs=<span class="hljs-string">'+'</span> 表示参数可设置一个或多个<br>nargs=<span class="hljs-string">'?'</span>　表示参数可设置零个或一个<br></code></pre></td></tr></table></figure>
-<h2 id="参考">参考</h2>
-<blockquote>
-<p>https://zhuanlan.zhihu.com/p/56922793</p>
-<p>https://baijiahao.baidu.com/s?id=1718013777590980266&amp;wfr=spider&amp;for=pc</p>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/56922793">https://zhuanlan.zhihu.com/p/56922793</a></p>
+<p><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1718013777590980266&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1718013777590980266&amp;wfr=spider&amp;for=pc</a></p>
 </blockquote>
 
                 

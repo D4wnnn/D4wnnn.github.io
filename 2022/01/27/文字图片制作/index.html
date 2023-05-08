@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="文字图片">
   
-    <meta name="description" content="文字图片制作 现在是2021年12月30日23:37,线代啥的真的是🐶都不学...于是突然想到这个点子，希望借此放松一下。 首先我们需要掌握以下知识： 123456#PIL(Python Image Library)为python的第三方图像库#ImageFont可存储bitmap字体#拓展：字体#	分为OpenType和TrueType两种#	OpenType:后缀名OTF，由微软和Ad">
+    <meta name="description" content="文字图片制作现在是2021年12月30日23:37,线代啥的真的是🐶都不学…于是突然想到这个点子，希望借此放松一下。 首先我们需要掌握以下知识： 123456#PIL(Python Image Library)为python的第三方图像库#ImageFont可存储bitmap字体#拓展：字体#	分为OpenType和TrueType两种#	OpenType:后缀名OTF，由微软和Adobe公司开">
 <meta property="og:type" content="article">
 <meta property="og:title" content="文字图片制作">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/01/27/%E6%96%87%E5%AD%97%E5%9B%BE%E7%89%87%E5%88%B6%E4%BD%9C/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="文字图片制作 现在是2021年12月30日23:37,线代啥的真的是🐶都不学...于是突然想到这个点子，希望借此放松一下。 首先我们需要掌握以下知识： 123456#PIL(Python Image Library)为python的第三方图像库#ImageFont可存储bitmap字体#拓展：字体#	分为OpenType和TrueType两种#	OpenType:后缀名OTF，由微软和Ad">
+<meta property="og:description" content="文字图片制作现在是2021年12月30日23:37,线代啥的真的是🐶都不学…于是突然想到这个点子，希望借此放松一下。 首先我们需要掌握以下知识： 123456#PIL(Python Image Library)为python的第三方图像库#ImageFont可存储bitmap字体#拓展：字体#	分为OpenType和TrueType两种#	OpenType:后缀名OTF，由微软和Adobe公司开">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-01-27T10:04:06.000Z">
@@ -376,7 +376,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4k 字
+          3.9k 字
         
       </span>
     
@@ -387,7 +387,7 @@ mjx-container[display="true"] + br {
         
         
         
-          34 分钟
+          33 分钟
         
       </span>
     
@@ -430,67 +430,45 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="文字图片制作">文字图片制作</h1>
-<p>现在是2021年12月30日23:37,线代啥的真的是🐶都不学...于是突然想到这个点子，希望借此放松一下。</p>
+                <h1 id="文字图片制作"><a href="#文字图片制作" class="headerlink" title="文字图片制作"></a>文字图片制作</h1><p>现在是2021年12月30日23:37,线代啥的真的是🐶都不学…于是突然想到这个点子，希望借此放松一下。</p>
 <p>首先我们需要掌握以下知识：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#PIL(Python Image Library)为python的第三方图像库</span><br><span class="hljs-comment">#ImageFont可存储bitmap字体</span><br><span class="hljs-comment">#拓展：字体</span><br><span class="hljs-comment">#	分为OpenType和TrueType两种</span><br><span class="hljs-comment">#	OpenType:后缀名OTF，由微软和Adobe公司开发</span><br><span class="hljs-comment">#	TrueType:后缀名TTF，由微软和苹果公司开发</span><br></code></pre></td></tr></table></figure>
+
 <p>我们知道，图片是由一个一个像素组成的,那么这一个一个像素也可以由文字图片构成，因此，只要文字足够小，从远处看，也可以看做成普通图片的效果。为此，我们引入python的第三方PIL库</p>
-<h2 id="实现过程">实现过程</h2>
-<p>首先我们设定子图和新图的大小</p>
+<h2 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h2><p>首先我们设定子图和新图的大小</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">img_chile_size = <span class="hljs-number">15</span>  <span class="hljs-comment"># 子图的大小(新像素点)</span><br>x, y = image.size  <span class="hljs-comment"># 旧图的长和宽</span><br><span class="hljs-comment"># 有了旧图的长和宽,我们就可以得到新图的大小</span><br>canvas = Image.new(<span class="hljs-string">'RGB'</span>, (x * img_chile_size, y * img_chile_size))  <span class="hljs-comment"># 创# 建新画布，后来的子图都要按顺序放在上面</span><br>canvas_child = Image.new(<span class="hljs-string">'RGB'</span>, (img_chile_size, img_chile_size)) <br><span class="hljs-comment"># 当然也要创建小画布，让文字画在上面，然后再把小画布贴#在新的大画布上</span><br></code></pre></td></tr></table></figure>
+
 <p>然后我们创建好画布之后，要开始考虑字体怎么画在小画布上，以及画的位置</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">font_img = ImageFont.truetype(<span class="hljs-string">"_font.ttf"</span>, img_chile_size)<br><span class="hljs-comment"># 这里_font.ttf是我从字体网站上下载下来的,img_chile_size是我们设置的字体大小，也就# 是小画布的大小嘛</span><br><span class="hljs-comment"># truetype是在文章开头提到的一种字体类型</span><br>x_font, y_font = font_img.getsize(<span class="hljs-string">"嗨"</span>)<br><span class="hljs-comment"># 这里是x_font,y_font是字体的大小</span><br>offset_x = (img_chile_size - x_font) / <span class="hljs-number">2</span><br>offset_y = (img_chile_size - y_font) / <span class="hljs-number">2</span><br><span class="hljs-comment"># 这里就是定义字体开始画的位置，方便居中显示</span><br>draw = ImageDraw.Draw(canvas_child)<br><span class="hljs-comment"># 当然，这里需要定义在哪画</span><br></code></pre></td></tr></table></figure>
+
 <p>接下来就到了最核心的步骤，利用两层循环画出文字图片，PIL中坐标系与我们普通的坐标系不同，x轴朝右，y轴朝下</p>
-<figure>
-<img src="/2022/01/27/%E6%96%87%E5%AD%97%E5%9B%BE%E7%89%87%E5%88%B6%E4%BD%9C/image-20211231125844972.png" srcset="/img/loading.gif" lazyload alt="image-20211231125844972">
-<figcaption aria-hidden="true">image-20211231125844972</figcaption>
-</figure>
+<p><img src="/2022/01/27/%E6%96%87%E5%AD%97%E5%9B%BE%E7%89%87%E5%88%B6%E4%BD%9C/image-20211231125844972.png" srcset="/img/loading.gif" lazyload alt="image-20211231125844972"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(y):<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(x):<br>        draw.rectangle((<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, img_chile_size, img_chile_size), fill=<span class="hljs-string">'lightgray'</span>) <span class="hljs-comment"># 画一个淡灰色的长方形作为背景</span><br>        draw.text((offset_x, offset_y), text[char_index], font=font_img, fill=image.getpixel((j, i))) <span class="hljs-comment"># 画文字</span><br>        canvas.paste(canvas_child, (j * img_chile_size, i * img_chile_size)) <span class="hljs-comment"># 把小画布粘贴到大画布上</span><br>        char_index = (char_index + <span class="hljs-number">1</span>) % <span class="hljs-built_in">len</span>(text) <span class="hljs-comment"># 更改文字索引</span><br>canvas.save(<span class="hljs-string">"finished.jpg"</span>) <span class="hljs-comment"># 最后要保存</span><br></code></pre></td></tr></table></figure>
-<p>运行起来内存直接爆满...</p>
-<figure>
-<img src="/2022/01/27/%E6%96%87%E5%AD%97%E5%9B%BE%E7%89%87%E5%88%B6%E4%BD%9C/image-20211231133216489.png" srcset="/img/loading.gif" lazyload alt="image-20211231133216489">
-<figcaption aria-hidden="true">image-20211231133216489</figcaption>
-</figure>
+
+<p>运行起来内存直接爆满…</p>
+<p><img src="/2022/01/27/%E6%96%87%E5%AD%97%E5%9B%BE%E7%89%87%E5%88%B6%E4%BD%9C/image-20211231133216489.png" srcset="/img/loading.gif" lazyload alt="image-20211231133216489"></p>
 <p>当我们打开图片，效果是这样的</p>
-<figure>
-<img src="/2022/01/27/%E6%96%87%E5%AD%97%E5%9B%BE%E7%89%87%E5%88%B6%E4%BD%9C/image-20211231140326240.png" srcset="/img/loading.gif" lazyload alt="image-20211231140326240">
-<figcaption aria-hidden="true">image-20211231140326240</figcaption>
-</figure>
-<p>但是图片和原来的图片相比，美观性降低了很多，首先那个白茫茫的效果就很不好，作为一个完美主义者，我们当然不能止步于此。我们发现，之所以出现白茫茫的效果，是因为我们在画小画布时填充的时lightgray,所有的图片效果都是由文字实现的，而要解决这个问题，我们首先要把填充背景改为彩色(随位置变换)，并且与文字颜色相比，只能是亮度变暗或者变亮。而我们默认使用的颜色模型是RGB模式，不能改变亮度，而另一种颜色模型HSV(Hue色调,
-Saturation饱和度,
-Value明度)就可以改变亮度(哈哈哈哈说实话咱也只知道改亮度可以，不知道改饱和度和色调的效果怎么样，时间太紧，就不试了)</p>
+<p><img src="/2022/01/27/%E6%96%87%E5%AD%97%E5%9B%BE%E7%89%87%E5%88%B6%E4%BD%9C/image-20211231140326240.png" srcset="/img/loading.gif" lazyload alt="image-20211231140326240"></p>
+<p>但是图片和原来的图片相比，美观性降低了很多，首先那个白茫茫的效果就很不好，作为一个完美主义者，我们当然不能止步于此。我们发现，之所以出现白茫茫的效果，是因为我们在画小画布时填充的时lightgray,所有的图片效果都是由文字实现的，而要解决这个问题，我们首先要把填充背景改为彩色(随位置变换)，并且与文字颜色相比，只能是亮度变暗或者变亮。而我们默认使用的颜色模型是RGB模式，不能改变亮度，而另一种颜色模型HSV(Hue色调, Saturation饱和度, Value明度)就可以改变亮度(哈哈哈哈说实话咱也只知道改亮度可以，不知道改饱和度和色调的效果怎么样，时间太紧，就不试了)</p>
 <blockquote>
 <p>colorsys模块是python的一个库，支持进行颜色转换</p>
 </blockquote>
 <p>在转换过后，程序出现了报错，提示下面的fill接受的存放rgb参数的元组只能是整形，于是我们进行了修改，自定义函数</p>
 <blockquote>
-<p>draw.rectangle((0, 0, img_chile_size, img_chile_size),
-fill=temp_color2)</p>
+<p>draw.rectangle((0, 0, img_chile_size, img_chile_size), fill=temp_color2)</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">color_change</span>(<span class="hljs-params">temp, rate</span>):<br>    _rgb_temp = <span class="hljs-built_in">list</span>(temp)  <span class="hljs-comment"># temp是临时的元组类型的rgb,把旧的RGB转为列表</span><br>    _hsv = colorsys.rgb_to_hsv(_rgb_temp[<span class="hljs-number">0</span>], _rgb_temp[<span class="hljs-number">1</span>], _rgb_temp[<span class="hljs-number">2</span>])  <span class="hljs-comment"># 把RGB转为HSV</span><br>    _hsv_temp = <span class="hljs-built_in">list</span>(_hsv)  <span class="hljs-comment"># 把hsv转为列表</span><br>    _hsv_temp[<span class="hljs-number">2</span>] *= rate  <span class="hljs-comment"># 修改hsv</span><br>    _rgb_new = colorsys.hsv_to_rgb(_hsv_temp[<span class="hljs-number">0</span>], _hsv_temp[<span class="hljs-number">1</span>], _hsv_temp[<span class="hljs-number">2</span>]) <span class="hljs-comment"># 将修改的hsv再转换为rgb</span><br>    _rgb_new_int = <span class="hljs-built_in">list</span>(_rgb_new)<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>):<br>        _rgb_new_int[i] = <span class="hljs-built_in">int</span>(_rgb_new[i]) <span class="hljs-comment"># 这里强制把float类型转换为int型</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">tuple</span>(_rgb_new_int)<br></code></pre></td></tr></table></figure>
-<h2 id="运行效果">运行效果</h2>
-<p>最终运行效果是这样的：</p>
-<figure>
-<img src="/2022/01/27/%E6%96%87%E5%AD%97%E5%9B%BE%E7%89%87%E5%88%B6%E4%BD%9C/image-20211231135539580.png" srcset="/img/loading.gif" lazyload alt="image-20211231135539580">
-<figcaption aria-hidden="true">image-20211231135539580</figcaption>
-</figure>
+
+<h2 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h2><p>最终运行效果是这样的：</p>
+<p><img src="/2022/01/27/%E6%96%87%E5%AD%97%E5%9B%BE%E7%89%87%E5%88%B6%E4%BD%9C/image-20211231135539580.png" srcset="/img/loading.gif" lazyload alt="image-20211231135539580"></p>
 <p>放大</p>
-<figure>
-<img src="/2022/01/27/%E6%96%87%E5%AD%97%E5%9B%BE%E7%89%87%E5%88%B6%E4%BD%9C/image-20211231135600656.png" srcset="/img/loading.gif" lazyload alt="image-20211231135600656">
-<figcaption aria-hidden="true">image-20211231135600656</figcaption>
-</figure>
-<h2 id="需要注意的问题">需要注意的问题</h2>
-<blockquote>
+<p><img src="/2022/01/27/%E6%96%87%E5%AD%97%E5%9B%BE%E7%89%87%E5%88%B6%E4%BD%9C/image-20211231135600656.png" srcset="/img/loading.gif" lazyload alt="image-20211231135600656"></p>
+<h2 id="需要注意的问题"><a href="#需要注意的问题" class="headerlink" title="需要注意的问题"></a>需要注意的问题</h2><blockquote>
 <p>首先那个小画布不能太大或太小，稍微增加或者减小都会导致图片效果和大小发生很大的变化</p>
-<p>另外要注意区分PIL和pillow的区别，下面代码不能直接运行，可能需要安装PIL，运行pip
-install
-PIL(好像是安装PIL，也可能是pillow，哎呀，自己百度一下，我是很久之前安装的，早就忘记了，不想百度，我已经懒到了一种境界you
-know ⸜(๑'ᵕ'๑)⸝⋆*</p>
+<p>另外要注意区分PIL和pillow的区别，下面代码不能直接运行，可能需要安装PIL，运行pip install PIL(好像是安装PIL，也可能是pillow，哎呀，自己百度一下，我是很久之前安装的，早就忘记了，不想百度，我已经懒到了一种境界you know ⸜(๑’ᵕ’๑)⸝⋆*</p>
 <p>最后，这个由于这个程序只是临时使用，可能有许多不完善是地方，日后有空的时候可能会加入一些GUI界面以及个性化设置，还有解决最大的img_chile_size更改问题</p>
 </blockquote>
-<h2 id="代码展示">代码展示</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> ImageFont, Image, ImageDraw<br><span class="hljs-keyword">import</span> colorsys<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">color_change</span>(<span class="hljs-params">temp, rate</span>):<br>    _rgb_temp = <span class="hljs-built_in">list</span>(temp)  <span class="hljs-comment"># ,temp是临时的元组类型的rgb,把旧的RGB转为列表</span><br>    _hsv = colorsys.rgb_to_hsv(_rgb_temp[<span class="hljs-number">0</span>], _rgb_temp[<span class="hljs-number">1</span>], _rgb_temp[<span class="hljs-number">2</span>])  <span class="hljs-comment"># 把RGB转为HSV</span><br>    _hsv_temp = <span class="hljs-built_in">list</span>(_hsv)  <span class="hljs-comment"># 把hsv转为列表</span><br>    _hsv_temp[<span class="hljs-number">2</span>] *= rate  <span class="hljs-comment"># 修改hsv</span><br>    _rgb_new = colorsys.hsv_to_rgb(_hsv_temp[<span class="hljs-number">0</span>], _hsv_temp[<span class="hljs-number">1</span>], _hsv_temp[<span class="hljs-number">2</span>])<span class="hljs-comment">#将修改的hsv再转换为rgb</span><br>    _rgb_new_int = <span class="hljs-built_in">list</span>(_rgb_new)<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>):<br>        _rgb_new_int[i] = <span class="hljs-built_in">int</span>(_rgb_new[i])<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">tuple</span>(_rgb_new_int)<br><br><br><span class="hljs-keyword">with</span> Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">"img.jpg"</span>) <span class="hljs-keyword">as</span> image:<br>    text = <span class="hljs-string">"happy new year"</span><br>    img_chile_size = <span class="hljs-number">15</span>  <span class="hljs-comment"># 子图的大小(新像素)</span><br>    x, y = image.size  <span class="hljs-comment"># 旧图的长和宽</span><br>    canvas = Image.new(<span class="hljs-string">'RGB'</span>, (x * img_chile_size, y * img_chile_size))  <span class="hljs-comment"># 创建新画布</span><br>    canvas_child = Image.new(<span class="hljs-string">'RGB'</span>, (img_chile_size, img_chile_size)) <span class="hljs-comment"># 创建小画布</span><br>    font_img = ImageFont.truetype(<span class="hljs-string">"_font.ttf"</span>, img_chile_size) <span class="hljs-comment"># 字体初始化</span><br>    x_font, y_font = font_img.getsize(<span class="hljs-string">"A"</span>)<br>    offset_x = (img_chile_size - x_font) / <span class="hljs-number">2</span><br>    offset_y = (img_chile_size - y_font) / <span class="hljs-number">2</span><br>    draw = ImageDraw.Draw(canvas_child)<br>    char_index = <span class="hljs-number">0</span><br><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(y):<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(x):<br>            temp_color = image.getpixel((j, i))<br>            temp_color2 = color_change(temp_color,<span class="hljs-number">0.5</span>)<br>            draw.rectangle((<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, img_chile_size, img_chile_size), fill=temp_color2)<br>            draw.text((offset_x, offset_y), text[char_index], font=font_img, fill=image.getpixel((j, i)))<br>            canvas.paste(canvas_child, (j * img_chile_size, i * img_chile_size))<br>            char_index = (char_index + <span class="hljs-number">1</span>) % <span class="hljs-built_in">len</span>(text)<br>    canvas.save(<span class="hljs-string">"gift.jpg"</span>)<br></code></pre></td></tr></table></figure>
-
+<h2 id="代码展示"><a href="#代码展示" class="headerlink" title="代码展示"></a>代码展示</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> ImageFont, Image, ImageDraw<br><span class="hljs-keyword">import</span> colorsys<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">color_change</span>(<span class="hljs-params">temp, rate</span>):<br>    _rgb_temp = <span class="hljs-built_in">list</span>(temp)  <span class="hljs-comment"># ,temp是临时的元组类型的rgb,把旧的RGB转为列表</span><br>    _hsv = colorsys.rgb_to_hsv(_rgb_temp[<span class="hljs-number">0</span>], _rgb_temp[<span class="hljs-number">1</span>], _rgb_temp[<span class="hljs-number">2</span>])  <span class="hljs-comment"># 把RGB转为HSV</span><br>    _hsv_temp = <span class="hljs-built_in">list</span>(_hsv)  <span class="hljs-comment"># 把hsv转为列表</span><br>    _hsv_temp[<span class="hljs-number">2</span>] *= rate  <span class="hljs-comment"># 修改hsv</span><br>    _rgb_new = colorsys.hsv_to_rgb(_hsv_temp[<span class="hljs-number">0</span>], _hsv_temp[<span class="hljs-number">1</span>], _hsv_temp[<span class="hljs-number">2</span>])<span class="hljs-comment">#将修改的hsv再转换为rgb</span><br>    _rgb_new_int = <span class="hljs-built_in">list</span>(_rgb_new)<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>):<br>        _rgb_new_int[i] = <span class="hljs-built_in">int</span>(_rgb_new[i])<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">tuple</span>(_rgb_new_int)<br><br><br><span class="hljs-keyword">with</span> Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">"img.jpg"</span>) <span class="hljs-keyword">as</span> image:<br>    text = <span class="hljs-string">"happy new year"</span><br>    img_chile_size = <span class="hljs-number">15</span>  <span class="hljs-comment"># 子图的大小(新像素)</span><br>    x, y = image.size  <span class="hljs-comment"># 旧图的长和宽</span><br>    canvas = Image.new(<span class="hljs-string">'RGB'</span>, (x * img_chile_size, y * img_chile_size))  <span class="hljs-comment"># 创建新画布</span><br>    canvas_child = Image.new(<span class="hljs-string">'RGB'</span>, (img_chile_size, img_chile_size)) <span class="hljs-comment"># 创建小画布</span><br>    font_img = ImageFont.truetype(<span class="hljs-string">"_font.ttf"</span>, img_chile_size) <span class="hljs-comment"># 字体初始化</span><br>    x_font, y_font = font_img.getsize(<span class="hljs-string">"A"</span>)<br>    offset_x = (img_chile_size - x_font) / <span class="hljs-number">2</span><br>    offset_y = (img_chile_size - y_font) / <span class="hljs-number">2</span><br>    draw = ImageDraw.Draw(canvas_child)<br>    char_index = <span class="hljs-number">0</span><br><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(y):<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(x):<br>            temp_color = image.getpixel((j, i))<br>            temp_color2 = color_change(temp_color,<span class="hljs-number">0.5</span>)<br>            draw.rectangle((<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, img_chile_size, img_chile_size), fill=temp_color2)<br>            draw.text((offset_x, offset_y), text[char_index], font=font_img, fill=image.getpixel((j, i)))<br>            canvas.paste(canvas_child, (j * img_chile_size, i * img_chile_size))<br>            char_index = (char_index + <span class="hljs-number">1</span>) % <span class="hljs-built_in">len</span>(text)<br>    canvas.save(<span class="hljs-string">"gift.jpg"</span>)<br></code></pre></td></tr></table></figure>
                 
               </div>
             

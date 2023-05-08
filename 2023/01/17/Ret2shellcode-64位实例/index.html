@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Ret2shellcode-64位实例 源码 1234567891011121314#include&lt;stdio.h&gt;char buf2[200];int main(){	setvbuf(stdout,0,2,0);	char buf[20];	printf(&quot;what&#39;s your name: &quot;);	gets(buf);	printf(&quot;leave message: &quot;);	g">
+    <meta name="description" content="Ret2shellcode-64位实例源码1234567891011121314#include&lt;stdio.h&gt;char buf2[200];int main(){	setvbuf(stdout,0,2,0);	char buf[20];	printf(&quot;what&#39;s your name: &quot;);	gets(buf);	printf(&quot;leave message: &quot;);	gets(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ret2shellcode-64位实例">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/01/17/Ret2shellcode-64%E4%BD%8D%E5%AE%9E%E4%BE%8B/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Ret2shellcode-64位实例 源码 1234567891011121314#include&lt;stdio.h&gt;char buf2[200];int main(){	setvbuf(stdout,0,2,0);	char buf[20];	printf(&quot;what&#39;s your name: &quot;);	gets(buf);	printf(&quot;leave message: &quot;);	g">
+<meta property="og:description" content="Ret2shellcode-64位实例源码1234567891011121314#include&lt;stdio.h&gt;char buf2[200];int main(){	setvbuf(stdout,0,2,0);	char buf[20];	printf(&quot;what&#39;s your name: &quot;);	gets(buf);	printf(&quot;leave message: &quot;);	gets(">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2023-01-17T08:28:52.000Z">
@@ -375,7 +375,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          329 字
+          306 字
         
       </span>
     
@@ -429,17 +429,12 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="ret2shellcode-64位实例">Ret2shellcode-64位实例</h1>
-<h2 id="源码">源码</h2>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">char</span> buf2[<span class="hljs-number">200</span>];<br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>{<br>	setvbuf(<span class="hljs-built_in">stdout</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">0</span>);<br>	<span class="hljs-type">char</span> buf[<span class="hljs-number">20</span>];<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"what's your name: "</span>);<br>	gets(buf);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"leave message: "</span>);<br>	gets(buf2);<br>	<span class="hljs-built_in">puts</span>(buf2); <br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>}<br><span class="hljs-comment">//gcc -no-pie -fno-stack-protector -zexecstack -o ret2shellcode1 ret2shellcode1.c</span><br></code></pre></td></tr></table></figure>
-<h2 id="分析过程">分析过程</h2>
-<ul>
+                <h1 id="Ret2shellcode-64位实例"><a href="#Ret2shellcode-64位实例" class="headerlink" title="Ret2shellcode-64位实例"></a>Ret2shellcode-64位实例</h1><h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">char</span> buf2[<span class="hljs-number">200</span>];<br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>{<br>	setvbuf(<span class="hljs-built_in">stdout</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">0</span>);<br>	<span class="hljs-type">char</span> buf[<span class="hljs-number">20</span>];<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"what's your name: "</span>);<br>	gets(buf);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"leave message: "</span>);<br>	gets(buf2);<br>	<span class="hljs-built_in">puts</span>(buf2); <br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>}<br><span class="hljs-comment">//gcc -no-pie -fno-stack-protector -zexecstack -o ret2shellcode1 ret2shellcode1.c</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="分析过程"><a href="#分析过程" class="headerlink" title="分析过程"></a>分析过程</h2><ul>
 <li>首先检查程序保护性</li>
 </ul>
-<figure>
-<img src="/2023/01/17/Ret2shellcode-64%E4%BD%8D%E5%AE%9E%E4%BE%8B/image-20230117163440579.png" srcset="/img/loading.gif" lazyload alt="image-20230117163440579">
-<figcaption aria-hidden="true">image-20230117163440579</figcaption>
-</figure>
+<p><img src="/2023/01/17/Ret2shellcode-64%E4%BD%8D%E5%AE%9E%E4%BE%8B/image-20230117163440579.png" srcset="/img/loading.gif" lazyload alt="image-20230117163440579"></p>
 <p>分析一下思路</p>
 
                 

@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Java-反射与动态代理 前置知识  加载完类之后,在堆内存的方法区中就产生了一个Class类型的对象,这个对象包含完整的类的结构信息. Java不是动态语言,但是可以称之为准动态语言. &#96;&#96;&#96;java package com; import java.lang.reflect.Constructor; public class Main { public static void m">
+    <meta name="description" content="Java-反射与动态代理前置知识 加载完类之后,在堆内存的方法区中就产生了一个Class类型的对象,这个对象包含完整的类的结构信息.  Java不是动态语言,但是可以称之为准动态语言.  &#96;&#96;&#96;javapackage com; import java.lang.reflect.Constructor; public class Main {public static void main(Strin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java-反射与动态代理">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/10/18/Java-%E5%8F%8D%E5%B0%84%E4%B8%8E%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Java-反射与动态代理 前置知识  加载完类之后,在堆内存的方法区中就产生了一个Class类型的对象,这个对象包含完整的类的结构信息. Java不是动态语言,但是可以称之为准动态语言. &#96;&#96;&#96;java package com; import java.lang.reflect.Constructor; public class Main { public static void m">
+<meta property="og:description" content="Java-反射与动态代理前置知识 加载完类之后,在堆内存的方法区中就产生了一个Class类型的对象,这个对象包含完整的类的结构信息.  Java不是动态语言,但是可以称之为准动态语言.  &#96;&#96;&#96;javapackage com; import java.lang.reflect.Constructor; public class Main {public static void main(Strin">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-10-18T15:33:58.000Z">
@@ -375,7 +375,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k 字
+          2.1k 字
         
       </span>
     
@@ -386,7 +386,7 @@ mjx-container[display="true"] + br {
         
         
         
-          19 分钟
+          18 分钟
         
       </span>
     
@@ -429,78 +429,40 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="java-反射与动态代理">Java-反射与动态代理</h1>
-<h2 id="前置知识">前置知识</h2>
-<ol type="1">
-<li><p>加载完类之后,在堆内存的方法区中就产生了一个Class类型的对象,这个对象包含完整的类的结构信息.</p></li>
-<li><p>Java不是动态语言,但是可以称之为准动态语言.</p></li>
-<li><p>```java package com;</p>
+                <h1 id="Java-反射与动态代理"><a href="#Java-反射与动态代理" class="headerlink" title="Java-反射与动态代理"></a>Java-反射与动态代理</h1><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
+<li><p>加载完类之后,在堆内存的方法区中就产生了一个Class类型的对象,这个对象包含完整的类的结构信息.</p>
+</li>
+<li><p>Java不是动态语言,但是可以称之为准动态语言.</p>
+</li>
+<li><p>```java<br>package com;</p>
 <p>import java.lang.reflect.Constructor;</p>
-<p>public class Main { public static void main(String[] args) throws
-Exception { Class clazz = enf5.class; Constructor cons =
-clazz.getConstructor(String.class); Object obj =
-cons.newInstance("d4wn"); enf5 e = (enf5) obj; System.out.println(e); }
-}</p>
-<p>class enf5 { String name; Integer age;</p>
-<pre><code class="hljs">public enf5(String name) {
-    this.name = name;
-
-}
-
-@Override
-public String toString() {
-    return "enf5{" + "name='" + name + '\'' + ", age=" + age + '}';
-}
-
-public String getName() {
-    return name;
-}
-
-public void setName(String name) {
-    this.name = name;
-}
-
-public Integer getAge() {
-    return age;
-}
-
-public void setAge(Integer age) {
-    this.age = age;
-}</code></pre>
-<p>} <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><br>## <span class="hljs-keyword">Class</span>类的理解<br><br><span class="hljs-number">1</span>. 类的加载:将字节码文件加载到内存<br><br><span class="hljs-number">2</span>. <span class="hljs-keyword">Class</span>类常用方法<br><br>   ![img](Java-反射与动态代理/<span class="hljs-number">941872063</span>b3bec2022dbd43330c8bf27.png)<br><br><span class="hljs-number">3</span>. 获取运行时类的四种方法:<br><br>   ```java<br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Main {<br>       <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) <span class="hljs-keyword">throws</span> Exception {<br>           <span class="hljs-comment">//方法1</span><br>           <span class="hljs-keyword">Class</span> clazz1 = Person.<span class="hljs-keyword">class</span>;<br>           <span class="hljs-comment">//方法2</span><br>           Person person = <span class="hljs-keyword">new</span> Person();<br>           <span class="hljs-keyword">Class</span> clazz2 = person.getClass();<br>           <span class="hljs-comment">//方法3</span><br>           <span class="hljs-keyword">Class</span> clazz3 = <span class="hljs-keyword">Class</span>.forName(<span class="hljs-string">"com.Person"</span>);<br>           <span class="hljs-comment">//方法4</span><br>           ClassLoader cl = Person.<span class="hljs-keyword">class</span>.getClassLoader();<br>           <span class="hljs-keyword">Class</span>&lt;?&gt; clazz4 = cl.loadClass(<span class="hljs-string">"com.Person"</span>);<br>       }<br>   }<br></code></pre></td></tr></table></figure></p></li>
+<p>public class Main {<br>public static void main(String[] args) throws Exception {<br>    Class clazz = enf5.class;<br>    Constructor cons = clazz.getConstructor(String.class);<br>    Object obj = cons.newInstance(“d4wn”);<br>    enf5 e = (enf5) obj;<br>    System.out.println(e);<br>}<br>}</p>
+<p>class enf5 {<br>String name;<br>Integer age;<br><br>public enf5(String name) {<br>    this.name = name;<br><br>}<br><br>@Override<br>public String toString() {<br>    return “enf5{“ + “name=’” + name + ‘'‘ + “, age=” + age + ‘}’;<br>}<br><br>public String getName() {<br>    return name;<br>}<br><br>public void setName(String name) {<br>    this.name = name;<br>}<br><br>public Integer getAge() {<br>    return age;<br>}<br><br>public void setAge(Integer age) {<br>    this.age = age;<br>}<br>}</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><br>## <span class="hljs-keyword">Class</span>类的理解<br><br><span class="hljs-number">1</span>. 类的加载:将字节码文件加载到内存<br><br><span class="hljs-number">2</span>. <span class="hljs-keyword">Class</span>类常用方法<br><br>   ![img](Java-反射与动态代理/<span class="hljs-number">941872063</span>b3bec2022dbd43330c8bf27.png)<br><br><span class="hljs-number">3</span>. 获取运行时类的四种方法:<br><br>   ```java<br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Main {<br>       <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) <span class="hljs-keyword">throws</span> Exception {<br>           <span class="hljs-comment">//方法1</span><br>           <span class="hljs-keyword">Class</span> clazz1 = Person.<span class="hljs-keyword">class</span>;<br>           <span class="hljs-comment">//方法2</span><br>           Person person = <span class="hljs-keyword">new</span> Person();<br>           <span class="hljs-keyword">Class</span> clazz2 = person.getClass();<br>           <span class="hljs-comment">//方法3</span><br>           <span class="hljs-keyword">Class</span> clazz3 = <span class="hljs-keyword">Class</span>.forName(<span class="hljs-string">"com.Person"</span>);<br>           <span class="hljs-comment">//方法4</span><br>           ClassLoader cl = Person.<span class="hljs-keyword">class</span>.getClassLoader();<br>           <span class="hljs-keyword">Class</span>&lt;?&gt; clazz4 = cl.loadClass(<span class="hljs-string">"com.Person"</span>);<br>       }<br>   }<br></code></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="类加载器">类加载器</h2>
-<ol type="1">
-<li><figure>
-<img src="/2022/10/18/Java-%E5%8F%8D%E5%B0%84%E4%B8%8E%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/0f45e6c982ae6c53515790215cfec860.png" srcset="/img/loading.gif" lazyload alt="img">
-<figcaption aria-hidden="true">img</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/18/Java-%E5%8F%8D%E5%B0%84%E4%B8%8E%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/image-20221019114126902.png" srcset="/img/loading.gif" lazyload alt="image-20221019114126902">
-<figcaption aria-hidden="true">image-20221019114126902</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/18/Java-%E5%8F%8D%E5%B0%84%E4%B8%8E%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/84f83993bd4897effb32bdd0435505e3.png" srcset="/img/loading.gif" lazyload alt="img">
-<figcaption aria-hidden="true">img</figcaption>
-</figure></li>
+<h2 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h2><ol>
+<li><p><img src="/2022/10/18/Java-%E5%8F%8D%E5%B0%84%E4%B8%8E%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/0f45e6c982ae6c53515790215cfec860.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+</li>
+<li><p><img src="/2022/10/18/Java-%E5%8F%8D%E5%B0%84%E4%B8%8E%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/image-20221019114126902.png" srcset="/img/loading.gif" lazyload alt="image-20221019114126902"></p>
+</li>
+<li><p><img src="/2022/10/18/Java-%E5%8F%8D%E5%B0%84%E4%B8%8E%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/84f83993bd4897effb32bdd0435505e3.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+</li>
 <li><p>使用ClassLoader加载配置文件</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Properties</span> <span class="hljs-variable">pros</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Properties</span>();<br><span class="hljs-comment">//读取配置文件的方式二：使用ClassLoader</span><br><span class="hljs-comment">//配置文件默认识别为：当前module的src下</span><br><span class="hljs-type">ClassLoader</span> <span class="hljs-variable">classLoader</span> <span class="hljs-operator">=</span> ClassLoaderTest.class.getClassLoader();<br><span class="hljs-type">InputStream</span> <span class="hljs-variable">is</span> <span class="hljs-operator">=</span> classLoader.getResourceAsStream(<span class="hljs-string">"jdbc1.properties"</span>);<br>pros.load(is);<br></code></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="通过反射创建运行时类的对象">通过反射,创建运行时类的对象</h2>
-<ol type="1">
-<li>为什么在JavaBean中要求提供一个public的空参构造器?
-<ol type="1">
+<h2 id="通过反射-创建运行时类的对象"><a href="#通过反射-创建运行时类的对象" class="headerlink" title="通过反射,创建运行时类的对象"></a>通过反射,创建运行时类的对象</h2><ol>
+<li>为什么在JavaBean中要求提供一个public的空参构造器?<ol>
 <li>便于通过反射,创建运行时类的对象</li>
 <li>便于子类继承此运行时类时,默认调用super()时,保证父类有此构造器.</li>
-</ol></li>
 </ol>
-<h2 id="获取运行时类的完整结构">获取运行时类的完整结构</h2>
-<h3 id="获取运行时类的父类以及父类的泛型">获取运行时类的父类以及父类的泛型</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.lang.reflect.ParameterizedType;<br><span class="hljs-keyword">import</span> java.lang.reflect.Type;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> {<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception {<br>        <span class="hljs-type">Class</span> <span class="hljs-variable">clazz</span> <span class="hljs-operator">=</span> Class.forName(<span class="hljs-string">"Son"</span>);<br>        <span class="hljs-comment">//只是获取父类</span><br><span class="hljs-comment">//        System.out.println(clazz.getSuperclass());</span><br>        <span class="hljs-comment">//获取父类及其泛型</span><br><span class="hljs-comment">//        Type genericSuperclass = clazz.getGenericSuperclass();</span><br><span class="hljs-comment">//        System.out.println(genericSuperclass);</span><br><br>        <span class="hljs-comment">//获取父类的泛型</span><br>        <span class="hljs-type">Type</span> <span class="hljs-variable">genericSuperclass</span> <span class="hljs-operator">=</span> clazz.getGenericSuperclass();<br>        <span class="hljs-type">ParameterizedType</span> <span class="hljs-variable">paramType</span> <span class="hljs-operator">=</span> (ParameterizedType) genericSuperclass;<br>        <span class="hljs-comment">//获取泛型类型</span><br>        Type[] actualTypeArguments = paramType.getActualTypeArguments();<br>        System.out.println(actualTypeArguments[<span class="hljs-number">0</span>].getTypeName());<br><br>    }<br>}<br></code></pre></td></tr></table></figure>
-<h2 id="调用运行时类的指定结构">调用运行时类的指定结构</h2>
-<p>待补充</p>
-<h2 id="反射的应用-动态代理">反射的应用-动态代理</h2>
+</li>
+</ol>
+<h2 id="获取运行时类的完整结构"><a href="#获取运行时类的完整结构" class="headerlink" title="获取运行时类的完整结构"></a>获取运行时类的完整结构</h2><h3 id="获取运行时类的父类以及父类的泛型"><a href="#获取运行时类的父类以及父类的泛型" class="headerlink" title="获取运行时类的父类以及父类的泛型"></a>获取运行时类的父类以及父类的泛型</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.lang.reflect.ParameterizedType;<br><span class="hljs-keyword">import</span> java.lang.reflect.Type;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> {<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception {<br>        <span class="hljs-type">Class</span> <span class="hljs-variable">clazz</span> <span class="hljs-operator">=</span> Class.forName(<span class="hljs-string">"Son"</span>);<br>        <span class="hljs-comment">//只是获取父类</span><br><span class="hljs-comment">//        System.out.println(clazz.getSuperclass());</span><br>        <span class="hljs-comment">//获取父类及其泛型</span><br><span class="hljs-comment">//        Type genericSuperclass = clazz.getGenericSuperclass();</span><br><span class="hljs-comment">//        System.out.println(genericSuperclass);</span><br><br>        <span class="hljs-comment">//获取父类的泛型</span><br>        <span class="hljs-type">Type</span> <span class="hljs-variable">genericSuperclass</span> <span class="hljs-operator">=</span> clazz.getGenericSuperclass();<br>        <span class="hljs-type">ParameterizedType</span> <span class="hljs-variable">paramType</span> <span class="hljs-operator">=</span> (ParameterizedType) genericSuperclass;<br>        <span class="hljs-comment">//获取泛型类型</span><br>        Type[] actualTypeArguments = paramType.getActualTypeArguments();<br>        System.out.println(actualTypeArguments[<span class="hljs-number">0</span>].getTypeName());<br><br>    }<br>}<br></code></pre></td></tr></table></figure>
 
+
+
+<h2 id="调用运行时类的指定结构"><a href="#调用运行时类的指定结构" class="headerlink" title="调用运行时类的指定结构"></a>调用运行时类的指定结构</h2><p>待补充</p>
+<h2 id="反射的应用-动态代理"><a href="#反射的应用-动态代理" class="headerlink" title="反射的应用-动态代理"></a>反射的应用-动态代理</h2>
                 
               </div>
             

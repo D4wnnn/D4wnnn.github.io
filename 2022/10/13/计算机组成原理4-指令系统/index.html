@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="计算机组成原理4-指令系统 4.1.1指令格式  零地址指令  不需要操作数 如停机 堆栈计算机，两个操作数隐含再栈顶和次栈顶，计算结果压回栈顶  一地址指令  只需要单操作数 如加1 求补 需要两个操作数，但其中一个操作数隐含在某个寄存器  二地址指令  常用于需要两个操作数的算术运算 逻辑运算  三地址指令  常用于需要两个操作数的算术运算 逻辑运算 完">
+    <meta name="description" content="计算机组成原理4-指令系统4.1.1指令格式 零地址指令  不需要操作数 如停机 堆栈计算机，两个操作数隐含再栈顶和次栈顶，计算结果压回栈顶   一地址指令  只需要单操作数 如加1 求补 需要两个操作数，但其中一个操作数隐含在某个寄存器   二地址指令  常用于需要两个操作数的算术运算 逻辑运算   三地址指令  常用于需要两个操作数的算术运算 逻辑运算 完成一次指令需要访存4次    四地址指">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机组成原理4-指令系统">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="计算机组成原理4-指令系统 4.1.1指令格式  零地址指令  不需要操作数 如停机 堆栈计算机，两个操作数隐含再栈顶和次栈顶，计算结果压回栈顶  一地址指令  只需要单操作数 如加1 求补 需要两个操作数，但其中一个操作数隐含在某个寄存器  二地址指令  常用于需要两个操作数的算术运算 逻辑运算  三地址指令  常用于需要两个操作数的算术运算 逻辑运算 完">
+<meta property="og:description" content="计算机组成原理4-指令系统4.1.1指令格式 零地址指令  不需要操作数 如停机 堆栈计算机，两个操作数隐含再栈顶和次栈顶，计算结果压回栈顶   一地址指令  只需要单操作数 如加1 求补 需要两个操作数，但其中一个操作数隐含在某个寄存器   二地址指令  常用于需要两个操作数的算术运算 逻辑运算   三地址指令  常用于需要两个操作数的算术运算 逻辑运算 完成一次指令需要访存4次    四地址指">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-10-13T11:31:43.000Z">
@@ -375,7 +375,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          538 字
         
       </span>
     
@@ -386,7 +386,7 @@ mjx-container[display="true"] + br {
         
         
         
-          9 分钟
+          5 分钟
         
       </span>
     
@@ -429,159 +429,110 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="计算机组成原理4-指令系统">计算机组成原理4-指令系统</h1>
-<h2 id="指令格式">4.1.1指令格式</h2>
-<ol type="1">
+                <h1 id="计算机组成原理4-指令系统"><a href="#计算机组成原理4-指令系统" class="headerlink" title="计算机组成原理4-指令系统"></a>计算机组成原理4-指令系统</h1><h2 id="4-1-1指令格式"><a href="#4-1-1指令格式" class="headerlink" title="4.1.1指令格式"></a>4.1.1指令格式</h2><ol>
 <li><p>零地址指令</p>
-<ol type="1">
+<ol>
 <li>不需要操作数 如停机</li>
 <li>堆栈计算机，两个操作数隐含再栈顶和次栈顶，计算结果压回栈顶</li>
-</ol></li>
+</ol>
+</li>
 <li><p>一地址指令</p>
-<ol type="1">
+<ol>
 <li>只需要单操作数 如加1 求补</li>
 <li>需要两个操作数，但其中一个操作数隐含在某个寄存器</li>
-</ol></li>
+</ol>
+</li>
 <li><p>二地址指令</p>
-<ol type="1">
+<ol>
 <li>常用于需要两个操作数的算术运算 逻辑运算</li>
-</ol></li>
+</ol>
+</li>
 <li><p>三地址指令</p>
-<ol type="1">
+<ol>
 <li><p>常用于需要两个操作数的算术运算 逻辑运算</p>
-<p>完成一次指令需要访存4次</p></li>
-</ol></li>
+<p>完成一次指令需要访存4次</p>
+</li>
+</ol>
+</li>
 <li><p>四地址指令</p>
-<figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013194442726.png" srcset="/img/loading.gif" lazyload alt="image-20221013194442726">
-<figcaption aria-hidden="true">image-20221013194442726</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013195130170.png" srcset="/img/loading.gif" lazyload alt="image-20221013195130170">
-<figcaption aria-hidden="true">image-20221013195130170</figcaption>
-</figure></li>
+<p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013194442726.png" srcset="/img/loading.gif" lazyload alt="image-20221013194442726"></p>
+</li>
+<li><p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013195130170.png" srcset="/img/loading.gif" lazyload alt="image-20221013195130170"></p>
+</li>
 <li><p>指令按操作码分类</p>
-<figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013195325734.png" srcset="/img/loading.gif" lazyload alt="image-20221013195325734">
-<figcaption aria-hidden="true">image-20221013195325734</figcaption>
-</figure></li>
+<p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013195325734.png" srcset="/img/loading.gif" lazyload alt="image-20221013195325734"></p>
+</li>
 <li><p>指令按操作类型分类</p>
-<figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013195607056.png" srcset="/img/loading.gif" lazyload alt="image-20221013195607056">
-<figcaption aria-hidden="true">image-20221013195607056</figcaption>
-</figure></li>
+<p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013195607056.png" srcset="/img/loading.gif" lazyload alt="image-20221013195607056"></p>
+</li>
 <li><p>总结</p>
-<figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013195624079.png" srcset="/img/loading.gif" lazyload alt="image-20221013195624079">
-<figcaption aria-hidden="true">image-20221013195624079</figcaption>
-</figure></li>
+<p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013195624079.png" srcset="/img/loading.gif" lazyload alt="image-20221013195624079"></p>
+</li>
 </ol>
-<h2 id="拓展操作码指令格式">4.1.2_拓展操作码指令格式</h2>
-<ol type="1">
-<li><p>定义：拓展操作码就是<code>定长指令字结构+可变长操作码</code></p></li>
-<li><figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013200134398.png" srcset="/img/loading.gif" lazyload alt="image-20221013200134398">
-<figcaption aria-hidden="true">image-20221013200134398</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013200908997.png" srcset="/img/loading.gif" lazyload alt="image-20221013200908997">
-<figcaption aria-hidden="true">image-20221013200908997</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013201056540.png" srcset="/img/loading.gif" lazyload alt="image-20221013201056540">
-<figcaption aria-hidden="true">image-20221013201056540</figcaption>
-</figure></li>
+<h2 id="4-1-2-拓展操作码指令格式"><a href="#4-1-2-拓展操作码指令格式" class="headerlink" title="4.1.2_拓展操作码指令格式"></a>4.1.2_拓展操作码指令格式</h2><ol>
+<li>定义：拓展操作码就是<code>定长指令字结构+可变长操作码</code></li>
+<li><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013200134398.png" srcset="/img/loading.gif" lazyload alt="image-20221013200134398"></li>
+<li><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013200908997.png" srcset="/img/loading.gif" lazyload alt="image-20221013200908997"></li>
+<li><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013201056540.png" srcset="/img/loading.gif" lazyload alt="image-20221013201056540"></li>
 </ol>
-<h2 id="指令寻址">4.2.1_指令寻址</h2>
-<ol type="1">
-<li><figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013201809251.png" srcset="/img/loading.gif" lazyload alt="image-20221013201809251">
-<figcaption aria-hidden="true">image-20221013201809251</figcaption>
-</figure></li>
+<h2 id="4-2-1-指令寻址"><a href="#4-2-1-指令寻址" class="headerlink" title="4.2.1_指令寻址"></a>4.2.1_指令寻址</h2><ol>
+<li><p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013201809251.png" srcset="/img/loading.gif" lazyload alt="image-20221013201809251"></p>
+</li>
 <li><p>跳跃寻址</p>
-<p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013202002242.png" srcset="/img/loading.gif" lazyload></p></li>
+<p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221013202002242.png" srcset="/img/loading.gif" lazyload alt=" "></p>
+</li>
 </ol>
-<h2 id="数据寻址">4.2.2_数据寻址</h2>
-<ol type="1">
-<li><figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014132046686.png" srcset="/img/loading.gif" lazyload alt="image-20221014132046686">
-<figcaption aria-hidden="true">image-20221014132046686</figcaption>
-</figure></li>
-<li><p><code>操作码|寻址特征|形式地址</code></p></li>
-<li><figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014132205980.png" srcset="/img/loading.gif" lazyload alt="image-20221014132205980">
-<figcaption aria-hidden="true">image-20221014132205980</figcaption>
-</figure></li>
+<h2 id="4-2-2-数据寻址"><a href="#4-2-2-数据寻址" class="headerlink" title="4.2.2_数据寻址"></a>4.2.2_数据寻址</h2><ol>
+<li><p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014132046686.png" srcset="/img/loading.gif" lazyload alt="image-20221014132046686"></p>
+</li>
+<li><p><code>操作码|寻址特征|形式地址</code></p>
+</li>
+<li><p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014132205980.png" srcset="/img/loading.gif" lazyload alt="image-20221014132205980"></p>
+</li>
 <li><p>直接寻址</p>
-<figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014132433073.png" srcset="/img/loading.gif" lazyload alt="image-20221014132433073">
-<figcaption aria-hidden="true">image-20221014132433073</figcaption>
-</figure></li>
+<p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014132433073.png" srcset="/img/loading.gif" lazyload alt="image-20221014132433073"></p>
+</li>
 <li><p>间接寻址</p>
 <p>优点:可扩大寻址范围;便于编制程序(用间接寻址可以方便地完成子程序返回)</p>
 <p>缺点:需要多次访存,降低效率</p>
-<figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014132615273.png" srcset="/img/loading.gif" lazyload alt="image-20221014132615273">
-<figcaption aria-hidden="true">image-20221014132615273</figcaption>
-</figure></li>
+<p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014132615273.png" srcset="/img/loading.gif" lazyload alt="image-20221014132615273"></p>
+</li>
 <li><p>寄存器寻址</p>
-<figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014132959148.png" srcset="/img/loading.gif" lazyload alt="image-20221014132959148">
-<figcaption aria-hidden="true">image-20221014132959148</figcaption>
-</figure></li>
+<p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014132959148.png" srcset="/img/loading.gif" lazyload alt="image-20221014132959148"></p>
+</li>
 <li><p>寄存器间接寻址</p>
-<figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014133107708.png" srcset="/img/loading.gif" lazyload alt="image-20221014133107708">
-<figcaption aria-hidden="true">image-20221014133107708</figcaption>
-</figure></li>
+<p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014133107708.png" srcset="/img/loading.gif" lazyload alt="image-20221014133107708"></p>
+</li>
 <li><p>隐含寻址</p>
-<figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014133149240.png" srcset="/img/loading.gif" lazyload alt="image-20221014133149240">
-<figcaption aria-hidden="true">image-20221014133149240</figcaption>
-</figure></li>
+<p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014133149240.png" srcset="/img/loading.gif" lazyload alt="image-20221014133149240"></p>
+</li>
 <li><p>立即寻址访存1次,速度最快</p>
 <p>形式地址就是操作数本身</p>
-<p>在汇编里面<code>#</code>后面的就是立即数</p></li>
+<p>在汇编里面<code>#</code>后面的就是立即数</p>
+</li>
 </ol>
-<h2 id="数据寻址2-偏移地址">4.2.3_数据寻址2-偏移地址</h2>
-<ol type="1">
-<li><figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014133641924.png" srcset="/img/loading.gif" lazyload alt="image-20221014133641924">
-<figcaption aria-hidden="true">image-20221014133641924</figcaption>
-</figure></li>
-<li><p>基址寻址的优点:便于程序"浮动",方便多道程序并发运行</p>
+<h2 id="4-2-3-数据寻址2-偏移地址"><a href="#4-2-3-数据寻址2-偏移地址" class="headerlink" title="4.2.3_数据寻址2-偏移地址"></a>4.2.3_数据寻址2-偏移地址</h2><ol>
+<li><p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014133641924.png" srcset="/img/loading.gif" lazyload alt="image-20221014133641924"></p>
+</li>
+<li><p>基址寻址的优点:便于程序”浮动”,方便多道程序并发运行</p>
 <p>注意;基址寄存器<code>BR</code>是面向操作系统的,其内容由操作系统或者管理程序决定.</p>
 <p>当采用通用寄存器作为基址寄存器时,可由用户决定采用哪个寄存器作为基址寄存器,但其内容仍由操作系统决定.</p>
-<figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014133855953.png" srcset="/img/loading.gif" lazyload alt="image-20221014133855953">
-<figcaption aria-hidden="true">image-20221014133855953</figcaption>
-</figure></li>
+<p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014133855953.png" srcset="/img/loading.gif" lazyload alt="image-20221014133855953"></p>
+</li>
 <li><p>变址寻址</p>
-<figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014134739747.png" srcset="/img/loading.gif" lazyload alt="image-20221014134739747">
-<figcaption aria-hidden="true">image-20221014134739747</figcaption>
-</figure></li>
+<p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014134739747.png" srcset="/img/loading.gif" lazyload alt="image-20221014134739747"></p>
+</li>
 <li><p>基址&amp;变址寻址</p>
-<figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014143142125.png" srcset="/img/loading.gif" lazyload alt="image-20221014143142125">
-<figcaption aria-hidden="true">image-20221014143142125</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014143528557.png" srcset="/img/loading.gif" lazyload alt="image-20221014143528557">
-<figcaption aria-hidden="true">image-20221014143528557</figcaption>
-</figure></li>
-<li><p>暂定</p></li>
+<p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014143142125.png" srcset="/img/loading.gif" lazyload alt="image-20221014143142125"></p>
+</li>
+<li><p><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014143528557.png" srcset="/img/loading.gif" lazyload alt="image-20221014143528557"></p>
+</li>
+<li><p>暂定</p>
+</li>
 </ol>
-<h2 id="cisc和risc">4.3_CISC和RISC</h2>
-<ol type="1">
-<li><figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014144040866.png" srcset="/img/loading.gif" lazyload alt="image-20221014144040866">
-<figcaption aria-hidden="true">image-20221014144040866</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014144445657.png" srcset="/img/loading.gif" lazyload alt="image-20221014144445657">
-<figcaption aria-hidden="true">image-20221014144445657</figcaption>
-</figure></li>
+<h2 id="4-3-CISC和RISC"><a href="#4-3-CISC和RISC" class="headerlink" title="4.3_CISC和RISC"></a>4.3_CISC和RISC</h2><ol>
+<li><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014144040866.png" srcset="/img/loading.gif" lazyload alt="image-20221014144040866"></li>
+<li><img src="/2022/10/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%864-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/image-20221014144445657.png" srcset="/img/loading.gif" lazyload alt="image-20221014144445657"></li>
 </ol>
 
                 

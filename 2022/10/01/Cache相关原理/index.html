@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="Cache">
   
-    <meta name="description" content="Cache 程序访问的局部性原理：  时间局限性 最近的未来要用到的信息 很可能是正在使用的信息 空间局限性 最近的未来要用到的信息 很可能是和正在使用的信息在存储空间上是临近的  高速缓冲技术： 利用局部性原理 把正在使用的数据放在高速 容量小的Cache中 提高速度 SRAM&#x2F;DRAM SRAM:静态随机存取存储器 断电后数据存在 DRAM：里面存储的数据需要周期性的">
+    <meta name="description" content="Cache程序访问的局部性原理： 时间局限性 最近的未来要用到的信息 很可能是正在使用的信息  空间局限性 最近的未来要用到的信息 很可能是和正在使用的信息在存储空间上是临近的   高速缓冲技术： 利用局部性原理 把正在使用的数据放在高速 容量小的Cache中 提高速度 SRAM&#x2F;DRAMSRAM:静态随机存取存储器 断电后数据存在 DRAM：里面存储的数据需要周期性的更新 断电后数据消失 DRA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cache相关原理">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/10/01/Cache%E7%9B%B8%E5%85%B3%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Cache 程序访问的局部性原理：  时间局限性 最近的未来要用到的信息 很可能是正在使用的信息 空间局限性 最近的未来要用到的信息 很可能是和正在使用的信息在存储空间上是临近的  高速缓冲技术： 利用局部性原理 把正在使用的数据放在高速 容量小的Cache中 提高速度 SRAM&#x2F;DRAM SRAM:静态随机存取存储器 断电后数据存在 DRAM：里面存储的数据需要周期性的">
+<meta property="og:description" content="Cache程序访问的局部性原理： 时间局限性 最近的未来要用到的信息 很可能是正在使用的信息  空间局限性 最近的未来要用到的信息 很可能是和正在使用的信息在存储空间上是临近的   高速缓冲技术： 利用局部性原理 把正在使用的数据放在高速 容量小的Cache中 提高速度 SRAM&#x2F;DRAMSRAM:静态随机存取存储器 断电后数据存在 DRAM：里面存储的数据需要周期性的更新 断电后数据消失 DRA">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-10-01T15:32:15.000Z">
@@ -430,54 +430,54 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="cache">Cache</h1>
-<h3 id="程序访问的局部性原理">程序访问的局部性原理：</h3>
-<ol type="1">
+                <h1 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h1><h3 id="程序访问的局部性原理："><a href="#程序访问的局部性原理：" class="headerlink" title="程序访问的局部性原理："></a>程序访问的局部性原理：</h3><ol>
 <li><p>时间局限性</p>
-<p>最近的未来要用到的信息 很可能是正在使用的信息</p></li>
+<p>最近的未来要用到的信息 很可能是正在使用的信息</p>
+</li>
 <li><p>空间局限性</p>
-<p>最近的未来要用到的信息
-很可能是和正在使用的信息在存储空间上是临近的</p></li>
+<p>最近的未来要用到的信息 很可能是和正在使用的信息在存储空间上是临近的</p>
+</li>
 </ol>
 <p>高速缓冲技术：</p>
 <p>利用局部性原理 把正在使用的数据放在高速 容量小的Cache中 提高速度</p>
-<h3 id="sramdram">SRAM/DRAM</h3>
-<p>SRAM:静态随机存取存储器 断电后数据存在</p>
+<h3 id="SRAM-x2F-DRAM"><a href="#SRAM-x2F-DRAM" class="headerlink" title="SRAM/DRAM"></a>SRAM/DRAM</h3><p>SRAM:静态随机存取存储器 断电后数据存在</p>
 <p>DRAM：里面存储的数据需要周期性的更新 断电后数据消失</p>
 <p>DRAM如果不定期充电 里面的数据就会消失 因此SRAM性能较高。</p>
 <p>但是SRAM的集成度低 功耗更大 体积更大</p>
-<h3 id="cache的基本工作原理">Cache的基本工作原理</h3>
-<p>Cache通常由SRAM构成。若CPU发送请求 访存地址在Cache中 则命中
-否则仍访问主存 并把此字所在块一次性从主存调入Cache。若Cache已满
-则根据某种算法 替换原来的块。</p>
-<h3 id="cache和主存的映射方式">Cache和主存的映射方式</h3>
-<p>地址映射的方法有三种：</p>
-<ol type="1">
+<h3 id="Cache的基本工作原理"><a href="#Cache的基本工作原理" class="headerlink" title="Cache的基本工作原理"></a>Cache的基本工作原理</h3><p>Cache通常由SRAM构成。若CPU发送请求 访存地址在Cache中 则命中 否则仍访问主存 并把此字所在块一次性从主存调入Cache。若Cache已满 则根据某种算法 替换原来的块。</p>
+<h3 id="Cache和主存的映射方式"><a href="#Cache和主存的映射方式" class="headerlink" title="Cache和主存的映射方式"></a>Cache和主存的映射方式</h3><p>地址映射的方法有三种：</p>
+<ol>
 <li><p>直接映射</p>
 <p>空间利用率最低 块冲突概率最高 无需使用替换算法</p>
-<p>Cache行号 = 主存块号 mod Cahce总行数</p></li>
+<p>Cache行号 = 主存块号 mod Cahce总行数</p>
+</li>
 <li><p>全相连映射</p>
-<p>比较灵活 块冲突概率低 空间利用率高 命中率也高 缺点是标记的比较速度慢
-实现成本较高</p></li>
+<p>比较灵活 块冲突概率低 空间利用率高 命中率也高 缺点是标记的比较速度慢 实现成本较高</p>
+</li>
 <li><p>组相连映射</p>
-<p>组件采用直接映射 组内采用全相连映射</p></li>
+<p>组件采用直接映射 组内采用全相连映射</p>
+</li>
 </ol>
-<h3 id="cache中主存块的替换算法">Cache中主存块的替换算法</h3>
-<p>常见的替换算法：</p>
-<ol type="1">
-<li><p>随机算法(RAND)</p></li>
+<h3 id="Cache中主存块的替换算法"><a href="#Cache中主存块的替换算法" class="headerlink" title="Cache中主存块的替换算法"></a>Cache中主存块的替换算法</h3><p>常见的替换算法：</p>
+<ol>
+<li><p>随机算法(RAND)</p>
+</li>
 <li><p>先进先出算法(FIFO)</p>
-<p>比较容易实现</p></li>
+<p>比较容易实现</p>
+</li>
 <li><p>近期最少使用算法(LRU)(最常考察)</p>
-<p>命中率较高</p></li>
-<li><p>最不经常用算法(LFU)</p></li>
+<p>命中率较高</p>
+</li>
+<li><p>最不经常用算法(LFU)</p>
+</li>
 </ol>
-<h3 id="cache写策略">Cache写策略</h3>
-<ol type="1">
+<h3 id="Cache写策略"><a href="#Cache写策略" class="headerlink" title="Cache写策略"></a>Cache写策略</h3><ol>
 <li><p>全写法</p>
-<p>实现简单 但是访存次数多 降低了Cache的效率</p></li>
+<p>实现简单 但是访存次数多 降低了Cache的效率</p>
+</li>
 <li><p>回写法</p>
-<p>减少了访存次数 但存在不一致的隐患</p></li>
+<p>减少了访存次数 但存在不一致的隐患</p>
+</li>
 </ol>
 
                 

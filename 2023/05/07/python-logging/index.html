@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="">
   
-    <meta name="description" content="python-logging  1234567891011121314151617import loggingif __name__ &#x3D;&#x3D; &#39;__main__&#39;:    format &#x3D; &quot;%(asctime)s-%(levelname)s-%(message)s&quot;  # asctime为生成时间    date_format &#x3D; &quot;%Y&#x2F;%m&#x2F;%d %H:%M:%S&quot;  # 日期时间">
+    <meta name="description" content="python-logging 1234567891011121314151617import loggingif __name__ &#x3D;&#x3D; &#39;__main__&#39;:    format &#x3D; &quot;%(asctime)s-%(levelname)s-%(message)s&quot;  # asctime为生成时间    date_format &#x3D; &quot;%Y&#x2F;%m&#x2F;%d %H:%M:%S&quot;  # 日期时间    log">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python-logging">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/05/07/python-logging/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="python-logging  1234567891011121314151617import loggingif __name__ &#x3D;&#x3D; &#39;__main__&#39;:    format &#x3D; &quot;%(asctime)s-%(levelname)s-%(message)s&quot;  # asctime为生成时间    date_format &#x3D; &quot;%Y&#x2F;%m&#x2F;%d %H:%M:%S&quot;  # 日期时间">
+<meta property="og:description" content="python-logging 1234567891011121314151617import loggingif __name__ &#x3D;&#x3D; &#39;__main__&#39;:    format &#x3D; &quot;%(asctime)s-%(levelname)s-%(message)s&quot;  # asctime为生成时间    date_format &#x3D; &quot;%Y&#x2F;%m&#x2F;%d %H:%M:%S&quot;  # 日期时间    log">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2023-05-07T05:58:18.000Z">
@@ -429,8 +429,7 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="python-logging">python-logging</h1>
-<blockquote>
+                <h1 id="python-logging"><a href="#python-logging" class="headerlink" title="python-logging"></a>python-logging</h1><blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> logging<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    <span class="hljs-built_in">format</span> = <span class="hljs-string">"%(asctime)s-%(levelname)s-%(message)s"</span>  <span class="hljs-comment"># asctime为生成时间</span><br>    date_format = <span class="hljs-string">"%Y/%m/%d %H:%M:%S"</span>  <span class="hljs-comment"># 日期时间</span><br>    logging.basicConfig(<br>        filename=<span class="hljs-string">"qy.log"</span>,  <span class="hljs-comment"># 输出到文件,此时不会输出到控制台</span><br>        filemode=<span class="hljs-string">'a'</span>,  <span class="hljs-comment"># 默认为追加模式</span><br>        <span class="hljs-built_in">format</span>=<span class="hljs-built_in">format</span>,<br>        datefmt=date_format,<br>        level=logging.DEBUG  <span class="hljs-comment"># 日志级别</span><br>    )<br>    logging.debug(<span class="hljs-string">"debug"</span>)<br>    logging.info(<span class="hljs-string">"info"</span>)<br>    logging.warning(<span class="hljs-string">"warning"</span>)<br>    logging.error(<span class="hljs-string">"error"</span>)<br>    logging.critical(<span class="hljs-string">"critical"</span>)<br></code></pre></td></tr></table></figure>
 </blockquote>
 
