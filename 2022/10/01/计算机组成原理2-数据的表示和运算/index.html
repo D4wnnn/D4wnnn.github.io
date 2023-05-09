@@ -1,4 +1,128 @@
-<!DOCTYPE html><html lang="zh-CN" data-default-color-scheme="dark"><head><meta charset="UTF-8"><link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg"><link rel="icon" href="/img/avatar.jpg"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="theme-color" content="#2f4154"><meta name="author" content="D4wn"><meta name="keywords" content="计算机组成原理"><meta name="description" content="计算机组成原理2-数据的表示和运算 第二章数据的表示和运算 2.1.1_进位计数制 基数:每个数码所用到的不同符号的个数,r进制的基数为r   image-20221003153945914  2.1.2_BCD码 BCD: Binary-Coded Decimal, 用二进制编码的十进制   image-20221003154136668  8421码 8421码的"><meta property="og:type" content="article"><meta property="og:title" content="计算机组成原理2-数据的表示和运算"><meta property="og:url" content="https://d4wnnn.github.io/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/index.html"><meta property="og:site_name" content="D4wn"><meta property="og:description" content="计算机组成原理2-数据的表示和运算 第二章数据的表示和运算 2.1.1_进位计数制 基数:每个数码所用到的不同符号的个数,r进制的基数为r   image-20221003153945914  2.1.2_BCD码 BCD: Binary-Coded Decimal, 用二进制编码的十进制   image-20221003154136668  8421码 8421码的"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://d4wnnn.github.io/img/article_img_5.jpg"><meta property="article:published_time" content="2022-10-01T13:09:08.000Z"><meta property="article:modified_time" content="2023-05-09T13:30:11.392Z"><meta property="article:author" content="D4wn"><meta property="article:tag" content="计算机组成原理"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://d4wnnn.github.io/img/article_img_5.jpg"><meta name="referrer" content="no-referrer-when-downgrade"><title>计算机组成原理2-数据的表示和运算 - D4wn</title><link rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css"><link rel="stylesheet" href="/css/main.css"><link id="highlight-css" rel="stylesheet" href="/css/highlight.css"><link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css"><script id="fluid-configs">var Fluid=window.Fluid||{};Fluid.ctx=Object.assign({},Fluid.ctx);var CONFIG={hostname:"d4wnnn.github.io",root:"/",version:"1.9.3",typing:{enable:!0,typeSpeed:70,cursorChar:"_",loop:!1,scope:[]},anchorjs:{enable:!0,element:"h1,h2,h3,h4,h5,h6",placement:"left",visible:"hover",icon:""},progressbar:{enable:!0,height_px:3,color:"#29d",options:{showSpinner:!1,trickleSpeed:100}},code_language:{enable:!0,default:"TEXT"},copy_btn:!0,image_caption:{enable:!0},image_zoom:{enable:!0,img_url_replace:["",""]},toc:{enable:!0,placement:"right",headingSelector:"h1,h2,h3,h4,h5,h6",collapseDepth:0},lazyload:{enable:!0,loading_img:"/img/loading.gif",onlypost:!1,offset_factor:2},web_analytics:{enable:!0,follow_dnt:!1,baidu:"104d1c240fe4777ab966bd68252f7714",google:null,gtag:null,tencent:{sid:null,cid:null},woyaola:null,cnzz:null,leancloud:{app_id:null,app_key:null,server_url:null,path:"window.location.pathname",ignore_local:!1}},search_path:"/local-search.xml"};if(CONFIG.web_analytics.follow_dnt){var dntVal=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack;Fluid.ctx.dnt=dntVal&&(dntVal.startsWith("1")||dntVal.startsWith("yes")||dntVal.startsWith("on"))}</script><script src="/js/utils.js"></script><script src="/js/color-schema.js"></script><script async>if(!Fluid.ctx.dnt){var _hmt=_hmt||[];!function(){var t=document.createElement("script");t.src="https://hm.baidu.com/hm.js?104d1c240fe4777ab966bd68252f7714";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}()}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css"><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="D4wn">
+  <meta name="keywords" content="计算机组成原理">
+  
+    <meta name="description" content="计算机组成原理2-数据的表示和运算 第二章数据的表示和运算 2.1.1_进位计数制 基数:每个数码所用到的不同符号的个数,r进制的基数为r   image-20221003153945914  2.1.2_BCD码 BCD: Binary-Coded Decimal, 用二进制编码的十进制   image-20221003154136668  8421码 8421码的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机组成原理2-数据的表示和运算">
+<meta property="og:url" content="https://d4wnnn.github.io/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/index.html">
+<meta property="og:site_name" content="D4wn">
+<meta property="og:description" content="计算机组成原理2-数据的表示和运算 第二章数据的表示和运算 2.1.1_进位计数制 基数:每个数码所用到的不同符号的个数,r进制的基数为r   image-20221003153945914  2.1.2_BCD码 BCD: Binary-Coded Decimal, 用二进制编码的十进制   image-20221003154136668  8421码 8421码的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://d4wnnn.github.io/img/article_img_5.jpg">
+<meta property="article:published_time" content="2022-10-01T13:09:08.000Z">
+<meta property="article:modified_time" content="2023-05-09T13:30:11.392Z">
+<meta property="article:author" content="D4wn">
+<meta property="article:tag" content="计算机组成原理">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://d4wnnn.github.io/img/article_img_5.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>计算机组成原理2-数据的表示和运算 - D4wn</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"d4wnnn.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"104d1c240fe4777ab966bd68252f7714","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?104d1c240fe4777ab966bd68252f7714";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
 
@@ -110,4 +234,1010 @@ mjx-container[display="true"] {
 mjx-container[display="true"] + br {
   display: none;
 }
-</style></head><body><header><div class="header-inner" style="height:70vh"><nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class="container"><a class="navbar-brand" href="/"><strong>D4wn</strong> </a><button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><div class="animated-icon"><span></span><span></span><span></span></div></button><div class="collapse navbar-collapse" id="navbarSupportedContent"><ul class="navbar-nav ml-auto text-center"><li class="nav-item"><a class="nav-link" href="/"><i class="iconfont icon-home-fill"></i> 首页</a></li><li class="nav-item"><a class="nav-link" href="/archives/"><i class="iconfont icon-archive-fill"></i> 归档</a></li><li class="nav-item"><a class="nav-link" href="/categories/"><i class="iconfont icon-category-fill"></i> 分类</a></li><li class="nav-item"><a class="nav-link" href="/tags/"><i class="iconfont icon-tags-fill"></i> 标签</a></li><li class="nav-item"><a class="nav-link" href="/about/"><i class="iconfont icon-user-fill"></i> 关于</a></li><li class="nav-item" id="search-btn"><a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">&nbsp;<i class="iconfont icon-search"></i>&nbsp;</a></li><li class="nav-item" id="color-toggle-btn"><a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a></li></ul></div></div></nav><div id="banner" class="banner" parallax="true" style="background:url(/img/total.jpg) no-repeat center center;background-size:cover"><div class="full-bg-img"><div class="mask flex-center" style="background-color:rgba(0,0,0,.3)"><div class="banner-text text-center fade-in-up"><div class="h2"><span id="subtitle" data-typed-text="计算机组成原理2-数据的表示和运算"></span></div><div class="mt-3"><span class="post-meta mr-2"><i class="iconfont icon-author" aria-hidden="true"></i> D4wn </span><span class="post-meta"><i class="iconfont icon-date-fill" aria-hidden="true"></i> <time datetime="2022-10-01 21:09" pubdate>2022年10月1日 晚上</time></span></div><div class="mt-1"><span class="post-meta mr-2"><i class="iconfont icon-chart"></i> 3.1k 字 </span><span class="post-meta mr-2"><i class="iconfont icon-clock-fill"></i> 26 分钟</span></div></div></div></div></div></div></header><main><div class="container-fluid nopadding-x"><div class="row nomargin-x"><div class="side-col d-none d-lg-block col-lg-2"></div><div class="col-lg-8 nopadding-x-md"><div class="container nopadding-x-md" id="board-ctn"><div id="board"><article class="post-content mx-auto"><h1 style="display:none">计算机组成原理2-数据的表示和运算</h1><div class="markdown-body"><h1 id="计算机组成原理2-数据的表示和运算">计算机组成原理2-数据的表示和运算</h1><h2 id="第二章数据的表示和运算">第二章数据的表示和运算</h2><h3 id="进位计数制">2.1.1_进位计数制</h3><p>基数:每个数码所用到的不同符号的个数,r进制的基数为r</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003153945914.png" srcset="/img/loading.gif" lazyload alt="image-20221003153945914"><figcaption aria-hidden="true">image-20221003153945914</figcaption></figure><h3 id="bcd码">2.1.2_BCD码</h3><p>BCD: Binary-Coded Decimal, 用二进制编码的十进制</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003154136668.png" srcset="/img/loading.gif" lazyload alt="image-20221003154136668"><figcaption aria-hidden="true">image-20221003154136668</figcaption></figure><h4 id="码">8421码</h4><p>8421码的映射关系:</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003154434258.png" srcset="/img/loading.gif" lazyload alt="image-20221003154434258"><figcaption aria-hidden="true">image-20221003154434258</figcaption></figure><p>若两数相加落在非法区间内 则需要加6进行修正;若在合法区间内 则无需修正</p><h4 id="余三码">余三码</h4><p>余三码=8421码+(0011)<sub>2</sub></p><p>注意:在余3码中 每一个位并没有一个固定的权值 所以叫无权码</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003155152535.png" srcset="/img/loading.gif" lazyload alt="image-20221003155152535"><figcaption aria-hidden="true">image-20221003155152535</figcaption></figure><h4 id="码-1">2421码</h4><p>0-4 最高位一定是0</p><p>5-9 最高位一定是1(为了避免歧义)</p><p>2 4 2 1 分别对应每一位的权值</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003155627912.png" srcset="/img/loading.gif" lazyload alt="image-20221003155627912"><figcaption aria-hidden="true">image-20221003155627912</figcaption></figure><h3 id="字符与字符串">2.1.3_字符与字符串</h3><h4 id="字符">字符</h4><p>ASCII中32-126为可印刷字符,其余为控制、通信字符</p><p>数字:48(0011 0000)~57(0011 1001) 后四位对应8421码</p><p>汉字: GB 2312-80 汉字+各种符号共7445个(1980年)</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003160845489.png" srcset="/img/loading.gif" lazyload alt="image-20221003160845489"><figcaption aria-hidden="true">image-20221003160845489</figcaption></figure><p>输入:输入编码</p><p>输出:汉字字形码</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003161242441.png" srcset="/img/loading.gif" lazyload alt="image-20221003161242441"><figcaption aria-hidden="true">image-20221003161242441</figcaption></figure><h4 id="字符串">字符串</h4><p>在很多语言中 <code>\0</code>作为字符串结尾方式</p><p>在所有计算机中,多字节数据都被存放在连续的字节序列中.根据数据中各字节的排列顺序不同,有大端模式 小端模式</p><p>大端模式:将数据的最高有效字节存在地地址单元中</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003161802938.png" srcset="/img/loading.gif" lazyload alt="image-20221003161802938"><figcaption aria-hidden="true">image-20221003161802938</figcaption></figure><h3 id="奇偶校验码">2.1.4_奇偶校验码</h3><p>码字:由若干代码组成的一个字</p><p>具有不同位的个数成为两个码字的距离</p><p>一种编码方案可能有若干个合法码字,各合法码字间的最小距离成为码距</p><p>奇校验码:整个校验码中1的个数为奇数</p><p>偶校验码:整个校验码中1的个数为偶数</p><p>偶校验的硬件实现:异或(模2加 )</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003164329250.png" srcset="/img/loading.gif" lazyload alt="image-20221003164329250"><figcaption aria-hidden="true">image-20221003164329250</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003164358346.png" srcset="/img/loading.gif" lazyload alt="image-20221003164358346"><figcaption aria-hidden="true">image-20221003164358346</figcaption></figure><h3 id="海明校验码">2.1.5_海明校验码</h3><h3 id="循环冗余校验码">2.1.6_循环冗余校验码</h3><h3 id="定点数的表示">2.2.1_定点数的表示</h3><p>定点数:小数点的位置固定</p><p>浮点数:小数点的位置不固定</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003165511979.png" srcset="/img/loading.gif" lazyload alt="image-20221003165511979"><figcaption aria-hidden="true">image-20221003165511979</figcaption></figure><h4 id="无符号数">无符号数</h4><p>8位二进制数:0-255</p><p><strong>通常只有无符号整数 没有无符号小数</strong></p><h4 id="有符号数">有符号数</h4><p>原码整数的表示范围:</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003170613292.png" srcset="/img/loading.gif" lazyload alt="image-20221003170613292"><figcaption aria-hidden="true">image-20221003170613292</figcaption></figure><p>原码小数的表示范围:</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003170711667.png" srcset="/img/loading.gif" lazyload alt="image-20221003170711667"><figcaption aria-hidden="true">image-20221003170711667</figcaption></figure><p>补码整数的表示范围:</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003170858156.png" srcset="/img/loading.gif" lazyload alt="image-20221003170858156"><figcaption aria-hidden="true">image-20221003170858156</figcaption></figure><p>补码小数的表示范围:</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003171006622.png" srcset="/img/loading.gif" lazyload alt="image-20221003171006622"><figcaption aria-hidden="true">image-20221003171006622</figcaption></figure><p>定点小数的补码1.0000000表示-1</p><p>移码:补码的基础上将符号位取反</p><p>注意:移码只能表示整数!</p><p>移码整数的表示范围</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003171211546.png" srcset="/img/loading.gif" lazyload alt="image-20221003171211546"><figcaption aria-hidden="true">image-20221003171211546</figcaption></figure><p>移码的作用:比较大小 从左到右 看哪个先出现1</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003171534208.png" srcset="/img/loading.gif" lazyload alt="image-20221003171534208"><figcaption aria-hidden="true">image-20221003171534208</figcaption></figure><h4 id="总结">总结</h4><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003171637882.png" srcset="/img/loading.gif" lazyload alt="image-20221003171637882"><figcaption aria-hidden="true">image-20221003171637882</figcaption></figure><h3 id="原码补码移码的作用">2.2.2_原码补码移码的作用</h3><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003172346751.png" srcset="/img/loading.gif" lazyload alt="image-20221003172346751"><figcaption aria-hidden="true">image-20221003172346751</figcaption></figure><p>补码:让减法操作转变为加法操作 节省硬件成本</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003173000358.png" srcset="/img/loading.gif" lazyload alt="image-20221003173000358"><figcaption aria-hidden="true">image-20221003173000358</figcaption></figure><p>执行加法操作时 符号位也一起参与运算</p><h3 id="移位运算">2.2.3_移位运算</h3><h4 id="算术移位">算术移位</h4><h5 id="原码">原码</h5><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003173219795.png" srcset="/img/loading.gif" lazyload alt="image-20221003173219795"><figcaption aria-hidden="true">image-20221003173219795</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003173452785.png" srcset="/img/loading.gif" lazyload alt="image-20221003173452785"><figcaption aria-hidden="true">image-20221003173452785</figcaption></figure><p>原码的定点小数移位同上</p><h5 id="反码">反码</h5><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003173622754.png" srcset="/img/loading.gif" lazyload alt="image-20221003173622754"><figcaption aria-hidden="true">image-20221003173622754</figcaption></figure><h5 id="补码">补码</h5><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003173941758.png" srcset="/img/loading.gif" lazyload alt="image-20221003173941758"><figcaption aria-hidden="true">image-20221003173941758</figcaption></figure><p>总结:</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003174029379.png" srcset="/img/loading.gif" lazyload alt="image-20221003174029379"><figcaption aria-hidden="true">image-20221003174029379</figcaption></figure><p>算数移位的应用:乘法</p><h4 id="逻辑移位">逻辑移位</h4><p>可以看做对无符号数的算术移位</p><h4 id="循环移位">循环移位</h4><p>没啥可说的</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003174556502.png" srcset="/img/loading.gif" lazyload alt="image-20221003174556502"><figcaption aria-hidden="true">image-20221003174556502</figcaption></figure><h3 id="加减运算和溢出判断">2.2.4_加减运算和溢出判断</h3><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221004211606160.png" srcset="/img/loading.gif" lazyload alt="image-20221004211606160"><figcaption aria-hidden="true">image-20221004211606160</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221004212012337.png" srcset="/img/loading.gif" lazyload alt="image-20221004212012337"><figcaption aria-hidden="true">image-20221004212012337</figcaption></figure><p>只有同号的两个数相加才会发生溢出</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221004212500995.png" srcset="/img/loading.gif" lazyload alt="image-20221004212500995"><figcaption aria-hidden="true">image-20221004212500995</figcaption></figure><h4 id="如何判断溢出">如何判断溢出?</h4><h5 id="方法一">方法一:</h5><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221004212900539.png" srcset="/img/loading.gif" lazyload alt="image-20221004212900539"><figcaption aria-hidden="true">image-20221004212900539</figcaption></figure><h5 id="方法二">方法二:</h5><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221004213046043.png" srcset="/img/loading.gif" lazyload alt="image-20221004213046043"><figcaption aria-hidden="true">image-20221004213046043</figcaption></figure><h5 id="方法三">方法三:</h5><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221004213221980.png" srcset="/img/loading.gif" lazyload alt="image-20221004213221980"><figcaption aria-hidden="true">image-20221004213221980</figcaption></figure><p>补充:</p><p>双符号位补码又称:模四补码</p><p>单符号位补码又称:模二补码</p><p>实际存储时只存储一个符号位,运算时会复制一个符号位</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005013213148.png" srcset="/img/loading.gif" lazyload alt="image-20221005013213148"><figcaption aria-hidden="true">image-20221005013213148</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005013249425.png" srcset="/img/loading.gif" lazyload alt="image-20221005013249425"><figcaption aria-hidden="true">image-20221005013249425</figcaption></figure><h3 id="原码的乘法运算">2.2.5_原码的乘法运算</h3><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005104205572.png" srcset="/img/loading.gif" lazyload alt="image-20221005104205572"><figcaption aria-hidden="true">image-20221005104205572</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005104628590.png" srcset="/img/loading.gif" lazyload alt="image-20221005104628590"><figcaption aria-hidden="true">image-20221005104628590</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005104911626.png" srcset="/img/loading.gif" lazyload alt="image-20221005104911626"><figcaption aria-hidden="true">image-20221005104911626</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005105123249.png" srcset="/img/loading.gif" lazyload alt="image-20221005105123249"><figcaption aria-hidden="true">image-20221005105123249</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005105257428.png" srcset="/img/loading.gif" lazyload alt="image-20221005105257428"><figcaption aria-hidden="true">image-20221005105257428</figcaption></figure><p>补码的乘法一定要是双符号位 故有的书里原码的乘法也是双符号位</p><p>原码的乘数中符号位是不参与运算的 故在摸你手算时只给出数值为即可</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005105915887.png" srcset="/img/loading.gif" lazyload alt="image-20221005105915887"><figcaption aria-hidden="true">image-20221005105915887</figcaption></figure><h3 id="补码的乘法运算">2.2.5_补码的乘法运算</h3><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005101411105.png" srcset="/img/loading.gif" lazyload alt="image-20221005101411105"><figcaption aria-hidden="true">image-20221005101411105</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005101316782.png" srcset="/img/loading.gif" lazyload alt="image-20221005101316782"><figcaption aria-hidden="true">image-20221005101316782</figcaption></figure><p>被乘数采用双符号位的补码 乘数采用单符号位的补码</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005110801250.png" srcset="/img/loading.gif" lazyload alt="image-20221005110801250"><figcaption aria-hidden="true">image-20221005110801250</figcaption></figure><p>总结:</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005110922842.png" srcset="/img/loading.gif" lazyload alt="image-20221005110922842"><figcaption aria-hidden="true">image-20221005110922842</figcaption></figure><h3 id="原码的除法运算">2.2.6_原码的除法运算</h3><p>恢复余数法:</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006204113486.png" srcset="/img/loading.gif" lazyload alt="image-20221006204113486"><figcaption aria-hidden="true">image-20221006204113486</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006204350212.png" srcset="/img/loading.gif" lazyload alt="image-20221006204350212"><figcaption aria-hidden="true">image-20221006204350212</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006204442212.png" srcset="/img/loading.gif" lazyload alt="image-20221006204442212"><figcaption aria-hidden="true">image-20221006204442212</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006204530088.png" srcset="/img/loading.gif" lazyload alt="image-20221006204530088"><figcaption aria-hidden="true">image-20221006204530088</figcaption></figure><p>左移n次,上商n+1次,最后一次上商余数不左移</p><p>如何优化?加减交替法(不恢复余数法)</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006205024322.png" srcset="/img/loading.gif" lazyload alt="image-20221006205024322"><figcaption aria-hidden="true">image-20221006205024322</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006205229567.png" srcset="/img/loading.gif" lazyload alt="image-20221006205229567"><figcaption aria-hidden="true">image-20221006205229567</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006205400693.png" srcset="/img/loading.gif" lazyload alt="image-20221006205400693"><figcaption aria-hidden="true">image-20221006205400693</figcaption></figure><p>注意:家教交替法可能加减<code>n+1</code>次,也有可能是<code>n+2</code>次 但是左移是只有<code>n</code>次</p><h3 id="补码的除法运算">2.2.6_补码的除法运算</h3><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006205937430.png" srcset="/img/loading.gif" lazyload alt="image-20221006205937430"><figcaption aria-hidden="true">image-20221006205937430</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006210022700.png" srcset="/img/loading.gif" lazyload alt="image-20221006210022700"><figcaption aria-hidden="true">image-20221006210022700</figcaption></figure><h3 id="强制类型转换">2.2.7_强制类型转换</h3><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006211315838.png" srcset="/img/loading.gif" lazyload alt="image-20221006211315838"><figcaption aria-hidden="true">image-20221006211315838</figcaption></figure><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> {<br>    <span class="hljs-type">short</span> x = <span class="hljs-number">-4321</span>;<br>    <span class="hljs-type">unsigned</span> <span class="hljs-type">short</span> y = (<span class="hljs-type">unsigned</span> <span class="hljs-type">short</span>) x;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>, y);<br>}<br>输出:<span class="hljs-number">61215</span><br></code></pre></td></tr></table></figure><h3 id="数据的存储和排列">2.2.8_数据的存储和排列</h3><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005111405536.png" srcset="/img/loading.gif" lazyload alt="image-20221005111405536"><figcaption aria-hidden="true">image-20221005111405536</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006212042384.png" srcset="/img/loading.gif" lazyload alt="image-20221006212042384"><figcaption aria-hidden="true">image-20221006212042384</figcaption></figure><h3 id="浮点数的表示">2.3.1_浮点数的表示</h3><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006212436836.png" srcset="/img/loading.gif" lazyload alt="image-20221006212436836"><figcaption aria-hidden="true">image-20221006212436836</figcaption></figure><p>阶码:常用补码或者移码表示的定点整数</p><p>尾数:常用原码或者补码表示的定点小数</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006213808071.png" srcset="/img/loading.gif" lazyload alt="image-20221006213808071"><figcaption aria-hidden="true">image-20221006213808071</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006214701727.png" srcset="/img/loading.gif" lazyload alt="image-20221006214701727"><figcaption aria-hidden="true">image-20221006214701727</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006214711112.png" srcset="/img/loading.gif" lazyload alt="image-20221006214711112"><figcaption aria-hidden="true">image-20221006214711112</figcaption></figure><h3 id="ieee754">2.3.2_IEEE754</h3><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006215430901.png" srcset="/img/loading.gif" lazyload alt="image-20221006215430901"><figcaption aria-hidden="true">image-20221006215430901</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006220249568.png" srcset="/img/loading.gif" lazyload alt="image-20221006220249568"><figcaption aria-hidden="true">image-20221006220249568</figcaption></figure><p>例子:</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006220507474.png" srcset="/img/loading.gif" lazyload alt="image-20221006220507474"><figcaption aria-hidden="true">image-20221006220507474</figcaption></figure><p>例子:</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006220647789.png" srcset="/img/loading.gif" lazyload alt="image-20221006220647789"><figcaption aria-hidden="true">image-20221006220647789</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006220850119.png" srcset="/img/loading.gif" lazyload alt="image-20221006220850119"><figcaption aria-hidden="true">image-20221006220850119</figcaption></figure><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006222255604.png" srcset="/img/loading.gif" lazyload alt="image-20221006222255604"><figcaption aria-hidden="true">image-20221006222255604</figcaption></figure><h3 id="浮点数的运算">2.3.3_浮点数的运算</h3><h3 id="电路的基本原理加法器设计">2.4.1_电路的基本原理、加法器设计</h3><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221010112437551.png" srcset="/img/loading.gif" lazyload alt="image-20221010112437551"><figcaption aria-hidden="true">image-20221010112437551</figcaption></figure><p>优先级与&gt;或</p><figure><img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221010113446941.png" srcset="/img/loading.gif" lazyload alt="image-20221010113446941"><figcaption aria-hidden="true">image-20221010113446941</figcaption></figure><p>串行进位又称行波进位</p><h3 id="加法器alu的改进">2.4.2_加法器、ALU的改进</h3></div><hr><div><div class="post-metas my-3"><div class="post-meta mr-3 d-flex align-items-center"><i class="iconfont icon-category"></i> <span class="category-chains"><span class="category-chain"><a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" class="category-chain-item">计算机组成原理</a></span></span></div><div class="post-meta"><i class="iconfont icon-tags"></i> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">#计算机组成原理</a></div></div><div class="license-box my-3"><div class="license-title"><div>计算机组成原理2-数据的表示和运算</div><div>https://d4wnnn.github.io/2022/10/01/计算机组成原理2-数据的表示和运算/</div></div><div class="license-meta"><div class="license-meta-item"><div>作者</div><div>D4wn</div></div><div class="license-meta-item license-meta-date"><div>发布于</div><div>2022年10月1日</div></div><div class="license-meta-item"><div>许可协议</div><div><a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/"><span class="hint--top hint--rounded" aria-label="BY - 署名"><i class="iconfont icon-by"></i> </span></a><a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/"><span class="hint--top hint--rounded" aria-label="SA - 相同方式共享"><i class="iconfont icon-sa"></i></span></a></div></div></div><div class="license-icon iconfont"></div></div><div class="post-prevnext my-3"><article class="post-prev col-6"><a href="/2022/10/01/Cache%E7%9B%B8%E5%85%B3%E5%8E%9F%E7%90%86/" title="Cache相关原理"><i class="iconfont icon-arrowleft"></i> <span class="hidden-mobile">Cache相关原理</span> <span class="visible-mobile">上一篇</span></a></article><article class="post-next col-6"><a href="/2022/10/01/Python%E9%9B%86%E8%AE%AD/" title="Python集训"><span class="hidden-mobile">Python集训</span> <span class="visible-mobile">下一篇</span> <i class="iconfont icon-arrowright"></i></a></article></div></div><article id="comments" lazyload><div id="valine"></div><script type="text/javascript">Fluid.utils.loadComments("#valine",(function(){Fluid.utils.createScript("https://lib.baomitu.com/valine/1.5.1/Valine.min.js",(function(){var Q=Object.assign({appId:"iQzcdzgtk7S3lKyzUoT3segU-gzGzoHsz",appKey:"mL1QjUEvvzJ9E2xIVz0OuJuj",path:"window.location.pathname",placeholder:"Hello",avatar:"retro",meta:["nick","mail","link"],requiredFields:[],pageSize:10,lang:"zh-CN",highlight:!0,recordIP:!0,serverURLs:"https://iqzcdzgt.lc-cn-n1-shared.com",emojiCDN:"https://valinecdn.bili33.top/",emojiMaps:{QQ1:"QQ/aini.gif",QQ2:"QQ/aixin.gif",QQ3:"QQ/aoman.gif",QQ4:"QQ/baiyan.gif",QQ5:"QQ/bangbangtang.gif",QQ6:"QQ/baojin.gif",QQ7:"QQ/baoquan.gif",QQ8:"QQ/bishi.gif",QQ9:"QQ/bizui.gif",QQ11:"QQ/cahan.gif",QQ12:"QQ/caidao.gif",QQ13:"QQ/chi.gif",QQ14:"QQ/ciya.gif",QQ15:"QQ/dabing.gif",QQ16:"QQ/daku.gif",QQ17:"QQ/dan.gif",QQ18:"QQ/deyi.gif",QQ19:"QQ/doge.gif",QQ20:"QQ/fadai.gif",QQ21:"QQ/fanu.gif",QQ22:"QQ/fendou.gif",QQ23:"QQ/ganga.gif",QQ24:"QQ/gouyin.gif",QQ25:"QQ/guzhang.gif",QQ26:"QQ/haixiu.gif",QQ27:"QQ/hanxiao.gif",QQ28:"QQ/haobang.gif",QQ29:"QQ/haqian.gif",QQ30:"QQ/hecai.gif",QQ31:"QQ/hexie.gif",QQ32:"QQ/huaixiao.gif",QQ33:"QQ/jie.gif",QQ34:"QQ/jingkong.gif",QQ35:"QQ/jingxi.gif",QQ36:"QQ/jingya.gif",QQ37:"QQ/juhua.gif",QQ38:"QQ/keai.gif",QQ39:"QQ/kelian.gif",QQ40:"QQ/koubi.gif",QQ41:"QQ/ku.gif",QQ42:"QQ/kuaikule.gif",QQ43:"QQ/kulou.gif",QQ44:"QQ/kun.gif",QQ45:"QQ/lanqiu.gif",QQ46:"QQ/leiben.gif",QQ47:"QQ/lenghan.gif",QQ48:"QQ/liuhan.gif",QQ49:"QQ/liulei.gif",QQ50:"QQ/nanguo.gif",QQ51:"QQ/OK.gif",QQ52:"QQ/penxue.gif",QQ53:"QQ/piezui.gif",QQ54:"QQ/pijiu.gif",QQ55:"QQ/qiang.gif",QQ56:"QQ/qiaoda.gif",QQ57:"QQ/qinqin.gif",QQ58:"QQ/qiudale.gif",QQ59:"QQ/quantou.gif",QQ60:"QQ/saorao.gif",QQ61:"QQ/se.gif",QQ62:"QQ/shengli.gif",QQ63:"QQ/shouqiang.gif",QQ64:"QQ/shuai.gif",QQ65:"QQ/shui.gif",QQ66:"QQ/tiaopi.gif",QQ67:"QQ/touxiao.gif",QQ68:"QQ/tu.gif",QQ69:"QQ/tuosai.gif",QQ70:"QQ/weiqu.gif",QQ71:"QQ/weixiao.gif",QQ72:"QQ/woshou.gif",QQ73:"QQ/wozuimei.gif",QQ74:"QQ/wunai.gif",QQ75:"QQ/xia.gif",QQ76:"QQ/xiaojiujie.gif",QQ77:"QQ/xiaoku.gif",QQ78:"QQ/xiaoyanger.gif",QQ79:"QQ/xieyanxiao.gif",QQ80:"QQ/xigua.gif",QQ81:"QQ/xu.gif",QQ82:"QQ/yangtuo.gif",QQ83:"QQ/yinxian.gif",QQ84:"QQ/yiwen.gif",QQ85:"QQ/youhengheng.gif",QQ86:"QQ/youling.gif",QQ87:"QQ/yun.gif",QQ88:"QQ/zaijian.gif",QQ89:"QQ/zhayanjian.gif",QQ90:"QQ/zhemo.gif",QQ91:"QQ/zhouma.gif",QQ92:"QQ/zhuakuang.gif",QQ93:"QQ/zuohengheng.gif"},enableQQ:!0},{el:"#valine",path:window.location.pathname});new Valine(Q),Fluid.utils.waitElementVisible("#valine .vcontent",()=>{var Q="#valine .vcontent img:not(.vemoji)";Fluid.plugins.imageCaption(Q),Fluid.plugins.fancyBox(Q)})}))}))</script><noscript>Please enable JavaScript to view the comments</noscript></article></article></div></div></div><div class="side-col d-none d-lg-block col-lg-2"><aside class="sidebar" style="margin-left:-1rem"><div id="toc"><p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p><div class="toc-body" id="toc-body"></div></div></aside></div></div></div><a id="scroll-top-button" aria-label="TOP" href="#" role="button"><i class="iconfont icon-arrowup" aria-hidden="true"></i></a><div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable modal-lg" role="document"><div class="modal-content"><div class="modal-header text-center"><h4 class="modal-title w-100 font-weight-bold">搜索</h4><button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body mx-3"><div class="md-form mb-5"><input type="text" id="local-search-input" class="form-control validate"> <label data-error="x" data-success="v" for="local-search-input">关键词</label></div><div class="list-group" id="local-search-result"></div></div></div></div></div></main><footer><div class="footer-inner"><div class="footer-content"><a href="https://github.com/d4wnnn" target="_blank" rel="nofollow noopener"><span>Github</span></a> <i class="iconfont icon-love"></i> <a href="tencent://message/?uin=2638177031" target="_blank" rel="nofollow noopener"><span>联系我</span></a><div><span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span><script src="/js/duration.js"></script></div></div><div class="statistics"><span id="busuanzi_container_site_pv" style="display:none">总访问量 <span id="busuanzi_value_site_pv"></span> 次 </span><span id="busuanzi_container_site_uv" style="display:none">总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></div><div><a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由 <img src="img/又拍云_logo5.png" srcset="/img/loading.gif" lazyload width="45px"> 提供CDN加速/云存储服务</a></div></div></footer><script src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js"></script><link rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css"><script>NProgress.configure({showSpinner:!1,trickleSpeed:100}),NProgress.start(),window.addEventListener("load",(function(){NProgress.done()}))</script><script src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js"></script><script src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js"></script><script src="/js/events.js"></script><script src="/js/plugins.js"></script><script src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js"></script><script>!function(t,e){var i=Fluid.plugins.typing,n=e.getElementById("subtitle");n&&i&&i(n.getAttribute("data-typed-text"))}(window,document)</script><script src="/js/img-lazyload.js"></script><script>Fluid.utils.createScript("https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js",(function(){var t=jQuery("#toc");if(0!==t.length&&window.tocbot){var i=jQuery("#board-ctn").offset().top;window.tocbot.init(Object.assign({tocSelector:"#toc-body",contentSelector:".markdown-body",linkClass:"tocbot-link",activeLinkClass:"tocbot-active-link",listClass:"tocbot-list",isCollapsedClass:"tocbot-is-collapsed",collapsibleClass:"tocbot-is-collapsible",scrollSmooth:!0,includeTitleTags:!0,headingsOffset:-i},CONFIG.toc)),t.find(".toc-list-item").length>0&&t.css("visibility","visible"),Fluid.events.registerRefreshCallback((function(){if("tocbot"in window){tocbot.refresh();var t=jQuery("#toc");if(0===t.length||!tocbot)return;t.find(".toc-list-item").length>0&&t.css("visibility","visible")}}))}}))</script><script src="https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js"></script><script>Fluid.plugins.codeWidget()</script><script>Fluid.utils.createScript("https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js",(function(){window.anchors.options={placement:CONFIG.anchorjs.placement,visible:CONFIG.anchorjs.visible},CONFIG.anchorjs.icon&&(window.anchors.options.icon=CONFIG.anchorjs.icon);var n=(CONFIG.anchorjs.element||"h1,h2,h3,h4,h5,h6").split(","),o=[];for(var s of n)o.push(".markdown-body > "+s.trim());"left"===CONFIG.anchorjs.placement&&(window.anchors.options.class="anchorjs-link-left"),window.anchors.add(o.join(", ")),Fluid.events.registerRefreshCallback((function(){if("anchors"in window){anchors.removeAll();var n=(CONFIG.anchorjs.element||"h1,h2,h3,h4,h5,h6").split(","),o=[];for(var s of n)o.push(".markdown-body > "+s.trim());"left"===CONFIG.anchorjs.placement&&(anchors.options.class="anchorjs-link-left"),anchors.add(o.join(", "))}}))}))</script><script>Fluid.utils.createScript("https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js",(function(){Fluid.plugins.fancyBox()}))</script><script>Fluid.plugins.imageCaption()</script><script src="/js/local-search.js"></script><script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/boot.js"></script><noscript><div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div></noscript><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>
+</style></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>D4wn</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/total.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="计算机组成原理2-数据的表示和运算"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        D4wn
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-01 21:09" pubdate>
+          2022年10月1日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          26 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">计算机组成原理2-数据的表示和运算</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="计算机组成原理2-数据的表示和运算">计算机组成原理2-数据的表示和运算</h1>
+<h2 id="第二章数据的表示和运算">第二章数据的表示和运算</h2>
+<h3 id="进位计数制">2.1.1_进位计数制</h3>
+<p>基数:每个数码所用到的不同符号的个数,r进制的基数为r</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003153945914.png" srcset="/img/loading.gif" lazyload alt="image-20221003153945914">
+<figcaption aria-hidden="true">image-20221003153945914</figcaption>
+</figure>
+<h3 id="bcd码">2.1.2_BCD码</h3>
+<p>BCD: Binary-Coded Decimal, 用二进制编码的十进制</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003154136668.png" srcset="/img/loading.gif" lazyload alt="image-20221003154136668">
+<figcaption aria-hidden="true">image-20221003154136668</figcaption>
+</figure>
+<h4 id="码">8421码</h4>
+<p>8421码的映射关系:</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003154434258.png" srcset="/img/loading.gif" lazyload alt="image-20221003154434258">
+<figcaption aria-hidden="true">image-20221003154434258</figcaption>
+</figure>
+<p>若两数相加落在非法区间内 则需要加6进行修正;若在合法区间内
+则无需修正</p>
+<h4 id="余三码">余三码</h4>
+<p>余三码=8421码+(0011)<sub>2</sub></p>
+<p>注意:在余3码中 每一个位并没有一个固定的权值 所以叫无权码</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003155152535.png" srcset="/img/loading.gif" lazyload alt="image-20221003155152535">
+<figcaption aria-hidden="true">image-20221003155152535</figcaption>
+</figure>
+<h4 id="码-1">2421码</h4>
+<p>0-4 最高位一定是0</p>
+<p>5-9 最高位一定是1(为了避免歧义)</p>
+<p>2 4 2 1 分别对应每一位的权值</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003155627912.png" srcset="/img/loading.gif" lazyload alt="image-20221003155627912">
+<figcaption aria-hidden="true">image-20221003155627912</figcaption>
+</figure>
+<h3 id="字符与字符串">2.1.3_字符与字符串</h3>
+<h4 id="字符">字符</h4>
+<p>ASCII中32-126为可印刷字符,其余为控制、通信字符</p>
+<p>数字:48(0011 0000)~57(0011 1001) 后四位对应8421码</p>
+<p>汉字: GB 2312-80 汉字+各种符号共7445个(1980年)</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003160845489.png" srcset="/img/loading.gif" lazyload alt="image-20221003160845489">
+<figcaption aria-hidden="true">image-20221003160845489</figcaption>
+</figure>
+<p>输入:输入编码</p>
+<p>输出:汉字字形码</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003161242441.png" srcset="/img/loading.gif" lazyload alt="image-20221003161242441">
+<figcaption aria-hidden="true">image-20221003161242441</figcaption>
+</figure>
+<h4 id="字符串">字符串</h4>
+<p>在很多语言中 <code>\0</code>作为字符串结尾方式</p>
+<p>在所有计算机中,多字节数据都被存放在连续的字节序列中.根据数据中各字节的排列顺序不同,有大端模式
+小端模式</p>
+<p>大端模式:将数据的最高有效字节存在地地址单元中</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003161802938.png" srcset="/img/loading.gif" lazyload alt="image-20221003161802938">
+<figcaption aria-hidden="true">image-20221003161802938</figcaption>
+</figure>
+<h3 id="奇偶校验码">2.1.4_奇偶校验码</h3>
+<p>码字:由若干代码组成的一个字</p>
+<p>具有不同位的个数成为两个码字的距离</p>
+<p>一种编码方案可能有若干个合法码字,各合法码字间的最小距离成为码距</p>
+<p>奇校验码:整个校验码中1的个数为奇数</p>
+<p>偶校验码:整个校验码中1的个数为偶数</p>
+<p>偶校验的硬件实现:异或(模2加 )</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003164329250.png" srcset="/img/loading.gif" lazyload alt="image-20221003164329250">
+<figcaption aria-hidden="true">image-20221003164329250</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003164358346.png" srcset="/img/loading.gif" lazyload alt="image-20221003164358346">
+<figcaption aria-hidden="true">image-20221003164358346</figcaption>
+</figure>
+<h3 id="海明校验码">2.1.5_海明校验码</h3>
+<h3 id="循环冗余校验码">2.1.6_循环冗余校验码</h3>
+<h3 id="定点数的表示">2.2.1_定点数的表示</h3>
+<p>定点数:小数点的位置固定</p>
+<p>浮点数:小数点的位置不固定</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003165511979.png" srcset="/img/loading.gif" lazyload alt="image-20221003165511979">
+<figcaption aria-hidden="true">image-20221003165511979</figcaption>
+</figure>
+<h4 id="无符号数">无符号数</h4>
+<p>8位二进制数:0-255</p>
+<p><strong>通常只有无符号整数 没有无符号小数</strong></p>
+<h4 id="有符号数">有符号数</h4>
+<p>原码整数的表示范围:</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003170613292.png" srcset="/img/loading.gif" lazyload alt="image-20221003170613292">
+<figcaption aria-hidden="true">image-20221003170613292</figcaption>
+</figure>
+<p>原码小数的表示范围:</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003170711667.png" srcset="/img/loading.gif" lazyload alt="image-20221003170711667">
+<figcaption aria-hidden="true">image-20221003170711667</figcaption>
+</figure>
+<p>补码整数的表示范围:</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003170858156.png" srcset="/img/loading.gif" lazyload alt="image-20221003170858156">
+<figcaption aria-hidden="true">image-20221003170858156</figcaption>
+</figure>
+<p>补码小数的表示范围:</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003171006622.png" srcset="/img/loading.gif" lazyload alt="image-20221003171006622">
+<figcaption aria-hidden="true">image-20221003171006622</figcaption>
+</figure>
+<p>定点小数的补码1.0000000表示-1</p>
+<p>移码:补码的基础上将符号位取反</p>
+<p>注意:移码只能表示整数!</p>
+<p>移码整数的表示范围</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003171211546.png" srcset="/img/loading.gif" lazyload alt="image-20221003171211546">
+<figcaption aria-hidden="true">image-20221003171211546</figcaption>
+</figure>
+<p>移码的作用:比较大小 从左到右 看哪个先出现1</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003171534208.png" srcset="/img/loading.gif" lazyload alt="image-20221003171534208">
+<figcaption aria-hidden="true">image-20221003171534208</figcaption>
+</figure>
+<h4 id="总结">总结</h4>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003171637882.png" srcset="/img/loading.gif" lazyload alt="image-20221003171637882">
+<figcaption aria-hidden="true">image-20221003171637882</figcaption>
+</figure>
+<h3 id="原码补码移码的作用">2.2.2_原码补码移码的作用</h3>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003172346751.png" srcset="/img/loading.gif" lazyload alt="image-20221003172346751">
+<figcaption aria-hidden="true">image-20221003172346751</figcaption>
+</figure>
+<p>补码:让减法操作转变为加法操作 节省硬件成本</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003173000358.png" srcset="/img/loading.gif" lazyload alt="image-20221003173000358">
+<figcaption aria-hidden="true">image-20221003173000358</figcaption>
+</figure>
+<p>执行加法操作时 符号位也一起参与运算</p>
+<h3 id="移位运算">2.2.3_移位运算</h3>
+<h4 id="算术移位">算术移位</h4>
+<h5 id="原码">原码</h5>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003173219795.png" srcset="/img/loading.gif" lazyload alt="image-20221003173219795">
+<figcaption aria-hidden="true">image-20221003173219795</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003173452785.png" srcset="/img/loading.gif" lazyload alt="image-20221003173452785">
+<figcaption aria-hidden="true">image-20221003173452785</figcaption>
+</figure>
+<p>原码的定点小数移位同上</p>
+<h5 id="反码">反码</h5>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003173622754.png" srcset="/img/loading.gif" lazyload alt="image-20221003173622754">
+<figcaption aria-hidden="true">image-20221003173622754</figcaption>
+</figure>
+<h5 id="补码">补码</h5>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003173941758.png" srcset="/img/loading.gif" lazyload alt="image-20221003173941758">
+<figcaption aria-hidden="true">image-20221003173941758</figcaption>
+</figure>
+<p>总结:</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003174029379.png" srcset="/img/loading.gif" lazyload alt="image-20221003174029379">
+<figcaption aria-hidden="true">image-20221003174029379</figcaption>
+</figure>
+<p>算数移位的应用:乘法</p>
+<h4 id="逻辑移位">逻辑移位</h4>
+<p>可以看做对无符号数的算术移位</p>
+<h4 id="循环移位">循环移位</h4>
+<p>没啥可说的</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221003174556502.png" srcset="/img/loading.gif" lazyload alt="image-20221003174556502">
+<figcaption aria-hidden="true">image-20221003174556502</figcaption>
+</figure>
+<h3 id="加减运算和溢出判断">2.2.4_加减运算和溢出判断</h3>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221004211606160.png" srcset="/img/loading.gif" lazyload alt="image-20221004211606160">
+<figcaption aria-hidden="true">image-20221004211606160</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221004212012337.png" srcset="/img/loading.gif" lazyload alt="image-20221004212012337">
+<figcaption aria-hidden="true">image-20221004212012337</figcaption>
+</figure>
+<p>只有同号的两个数相加才会发生溢出</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221004212500995.png" srcset="/img/loading.gif" lazyload alt="image-20221004212500995">
+<figcaption aria-hidden="true">image-20221004212500995</figcaption>
+</figure>
+<h4 id="如何判断溢出">如何判断溢出?</h4>
+<h5 id="方法一">方法一:</h5>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221004212900539.png" srcset="/img/loading.gif" lazyload alt="image-20221004212900539">
+<figcaption aria-hidden="true">image-20221004212900539</figcaption>
+</figure>
+<h5 id="方法二">方法二:</h5>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221004213046043.png" srcset="/img/loading.gif" lazyload alt="image-20221004213046043">
+<figcaption aria-hidden="true">image-20221004213046043</figcaption>
+</figure>
+<h5 id="方法三">方法三:</h5>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221004213221980.png" srcset="/img/loading.gif" lazyload alt="image-20221004213221980">
+<figcaption aria-hidden="true">image-20221004213221980</figcaption>
+</figure>
+<p>补充:</p>
+<p>双符号位补码又称:模四补码</p>
+<p>单符号位补码又称:模二补码</p>
+<p>实际存储时只存储一个符号位,运算时会复制一个符号位</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005013213148.png" srcset="/img/loading.gif" lazyload alt="image-20221005013213148">
+<figcaption aria-hidden="true">image-20221005013213148</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005013249425.png" srcset="/img/loading.gif" lazyload alt="image-20221005013249425">
+<figcaption aria-hidden="true">image-20221005013249425</figcaption>
+</figure>
+<h3 id="原码的乘法运算">2.2.5_原码的乘法运算</h3>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005104205572.png" srcset="/img/loading.gif" lazyload alt="image-20221005104205572">
+<figcaption aria-hidden="true">image-20221005104205572</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005104628590.png" srcset="/img/loading.gif" lazyload alt="image-20221005104628590">
+<figcaption aria-hidden="true">image-20221005104628590</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005104911626.png" srcset="/img/loading.gif" lazyload alt="image-20221005104911626">
+<figcaption aria-hidden="true">image-20221005104911626</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005105123249.png" srcset="/img/loading.gif" lazyload alt="image-20221005105123249">
+<figcaption aria-hidden="true">image-20221005105123249</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005105257428.png" srcset="/img/loading.gif" lazyload alt="image-20221005105257428">
+<figcaption aria-hidden="true">image-20221005105257428</figcaption>
+</figure>
+<p>补码的乘法一定要是双符号位 故有的书里原码的乘法也是双符号位</p>
+<p>原码的乘数中符号位是不参与运算的 故在摸你手算时只给出数值为即可</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005105915887.png" srcset="/img/loading.gif" lazyload alt="image-20221005105915887">
+<figcaption aria-hidden="true">image-20221005105915887</figcaption>
+</figure>
+<h3 id="补码的乘法运算">2.2.5_补码的乘法运算</h3>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005101411105.png" srcset="/img/loading.gif" lazyload alt="image-20221005101411105">
+<figcaption aria-hidden="true">image-20221005101411105</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005101316782.png" srcset="/img/loading.gif" lazyload alt="image-20221005101316782">
+<figcaption aria-hidden="true">image-20221005101316782</figcaption>
+</figure>
+<p>被乘数采用双符号位的补码 乘数采用单符号位的补码</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005110801250.png" srcset="/img/loading.gif" lazyload alt="image-20221005110801250">
+<figcaption aria-hidden="true">image-20221005110801250</figcaption>
+</figure>
+<p>总结:</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005110922842.png" srcset="/img/loading.gif" lazyload alt="image-20221005110922842">
+<figcaption aria-hidden="true">image-20221005110922842</figcaption>
+</figure>
+<h3 id="原码的除法运算">2.2.6_原码的除法运算</h3>
+<p>恢复余数法:</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006204113486.png" srcset="/img/loading.gif" lazyload alt="image-20221006204113486">
+<figcaption aria-hidden="true">image-20221006204113486</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006204350212.png" srcset="/img/loading.gif" lazyload alt="image-20221006204350212">
+<figcaption aria-hidden="true">image-20221006204350212</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006204442212.png" srcset="/img/loading.gif" lazyload alt="image-20221006204442212">
+<figcaption aria-hidden="true">image-20221006204442212</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006204530088.png" srcset="/img/loading.gif" lazyload alt="image-20221006204530088">
+<figcaption aria-hidden="true">image-20221006204530088</figcaption>
+</figure>
+<p>左移n次,上商n+1次,最后一次上商余数不左移</p>
+<p>如何优化?加减交替法(不恢复余数法)</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006205024322.png" srcset="/img/loading.gif" lazyload alt="image-20221006205024322">
+<figcaption aria-hidden="true">image-20221006205024322</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006205229567.png" srcset="/img/loading.gif" lazyload alt="image-20221006205229567">
+<figcaption aria-hidden="true">image-20221006205229567</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006205400693.png" srcset="/img/loading.gif" lazyload alt="image-20221006205400693">
+<figcaption aria-hidden="true">image-20221006205400693</figcaption>
+</figure>
+<p>注意:家教交替法可能加减<code>n+1</code>次,也有可能是<code>n+2</code>次
+但是左移是只有<code>n</code>次</p>
+<h3 id="补码的除法运算">2.2.6_补码的除法运算</h3>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006205937430.png" srcset="/img/loading.gif" lazyload alt="image-20221006205937430">
+<figcaption aria-hidden="true">image-20221006205937430</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006210022700.png" srcset="/img/loading.gif" lazyload alt="image-20221006210022700">
+<figcaption aria-hidden="true">image-20221006210022700</figcaption>
+</figure>
+<h3 id="强制类型转换">2.2.7_强制类型转换</h3>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006211315838.png" srcset="/img/loading.gif" lazyload alt="image-20221006211315838">
+<figcaption aria-hidden="true">image-20221006211315838</figcaption>
+</figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> {<br>    <span class="hljs-type">short</span> x = <span class="hljs-number">-4321</span>;<br>    <span class="hljs-type">unsigned</span> <span class="hljs-type">short</span> y = (<span class="hljs-type">unsigned</span> <span class="hljs-type">short</span>) x;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>, y);<br>}<br>输出:<span class="hljs-number">61215</span><br></code></pre></td></tr></table></figure>
+<h3 id="数据的存储和排列">2.2.8_数据的存储和排列</h3>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221005111405536.png" srcset="/img/loading.gif" lazyload alt="image-20221005111405536">
+<figcaption aria-hidden="true">image-20221005111405536</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006212042384.png" srcset="/img/loading.gif" lazyload alt="image-20221006212042384">
+<figcaption aria-hidden="true">image-20221006212042384</figcaption>
+</figure>
+<h3 id="浮点数的表示">2.3.1_浮点数的表示</h3>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006212436836.png" srcset="/img/loading.gif" lazyload alt="image-20221006212436836">
+<figcaption aria-hidden="true">image-20221006212436836</figcaption>
+</figure>
+<p>阶码:常用补码或者移码表示的定点整数</p>
+<p>尾数:常用原码或者补码表示的定点小数</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006213808071.png" srcset="/img/loading.gif" lazyload alt="image-20221006213808071">
+<figcaption aria-hidden="true">image-20221006213808071</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006214701727.png" srcset="/img/loading.gif" lazyload alt="image-20221006214701727">
+<figcaption aria-hidden="true">image-20221006214701727</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006214711112.png" srcset="/img/loading.gif" lazyload alt="image-20221006214711112">
+<figcaption aria-hidden="true">image-20221006214711112</figcaption>
+</figure>
+<h3 id="ieee754">2.3.2_IEEE754</h3>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006215430901.png" srcset="/img/loading.gif" lazyload alt="image-20221006215430901">
+<figcaption aria-hidden="true">image-20221006215430901</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006220249568.png" srcset="/img/loading.gif" lazyload alt="image-20221006220249568">
+<figcaption aria-hidden="true">image-20221006220249568</figcaption>
+</figure>
+<p>例子:</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006220507474.png" srcset="/img/loading.gif" lazyload alt="image-20221006220507474">
+<figcaption aria-hidden="true">image-20221006220507474</figcaption>
+</figure>
+<p>例子:</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006220647789.png" srcset="/img/loading.gif" lazyload alt="image-20221006220647789">
+<figcaption aria-hidden="true">image-20221006220647789</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006220850119.png" srcset="/img/loading.gif" lazyload alt="image-20221006220850119">
+<figcaption aria-hidden="true">image-20221006220850119</figcaption>
+</figure>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221006222255604.png" srcset="/img/loading.gif" lazyload alt="image-20221006222255604">
+<figcaption aria-hidden="true">image-20221006222255604</figcaption>
+</figure>
+<h3 id="浮点数的运算">2.3.3_浮点数的运算</h3>
+<h3 id="电路的基本原理加法器设计">2.4.1_电路的基本原理、加法器设计</h3>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221010112437551.png" srcset="/img/loading.gif" lazyload alt="image-20221010112437551">
+<figcaption aria-hidden="true">image-20221010112437551</figcaption>
+</figure>
+<p>优先级与&gt;或</p>
+<figure>
+<img src="/2022/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/image-20221010113446941.png" srcset="/img/loading.gif" lazyload alt="image-20221010113446941">
+<figcaption aria-hidden="true">image-20221010113446941</figcaption>
+</figure>
+<p>串行进位又称行波进位</p>
+<h3 id="加法器alu的改进">2.4.2_加法器、ALU的改进</h3>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" class="category-chain-item">计算机组成原理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">#计算机组成原理</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>计算机组成原理2-数据的表示和运算</div>
+      <div>https://d4wnnn.github.io/2022/10/01/计算机组成原理2-数据的表示和运算/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>D4wn</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月1日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/01/Cache%E7%9B%B8%E5%85%B3%E5%8E%9F%E7%90%86/" title="Cache相关原理">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Cache相关原理</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/01/Python%E9%9B%86%E8%AE%AD/" title="Python集训">
+                        <span class="hidden-mobile">Python集训</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"iQzcdzgtk7S3lKyzUoT3segU-gzGzoHsz","appKey":"mL1QjUEvvzJ9E2xIVz0OuJuj","path":"window.location.pathname","placeholder":"Hello","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://iqzcdzgt.lc-cn-n1-shared.com","emojiCDN":"https://valinecdn.bili33.top/","emojiMaps":{"QQ1":"QQ/aini.gif","QQ2":"QQ/aixin.gif","QQ3":"QQ/aoman.gif","QQ4":"QQ/baiyan.gif","QQ5":"QQ/bangbangtang.gif","QQ6":"QQ/baojin.gif","QQ7":"QQ/baoquan.gif","QQ8":"QQ/bishi.gif","QQ9":"QQ/bizui.gif","QQ11":"QQ/cahan.gif","QQ12":"QQ/caidao.gif","QQ13":"QQ/chi.gif","QQ14":"QQ/ciya.gif","QQ15":"QQ/dabing.gif","QQ16":"QQ/daku.gif","QQ17":"QQ/dan.gif","QQ18":"QQ/deyi.gif","QQ19":"QQ/doge.gif","QQ20":"QQ/fadai.gif","QQ21":"QQ/fanu.gif","QQ22":"QQ/fendou.gif","QQ23":"QQ/ganga.gif","QQ24":"QQ/gouyin.gif","QQ25":"QQ/guzhang.gif","QQ26":"QQ/haixiu.gif","QQ27":"QQ/hanxiao.gif","QQ28":"QQ/haobang.gif","QQ29":"QQ/haqian.gif","QQ30":"QQ/hecai.gif","QQ31":"QQ/hexie.gif","QQ32":"QQ/huaixiao.gif","QQ33":"QQ/jie.gif","QQ34":"QQ/jingkong.gif","QQ35":"QQ/jingxi.gif","QQ36":"QQ/jingya.gif","QQ37":"QQ/juhua.gif","QQ38":"QQ/keai.gif","QQ39":"QQ/kelian.gif","QQ40":"QQ/koubi.gif","QQ41":"QQ/ku.gif","QQ42":"QQ/kuaikule.gif","QQ43":"QQ/kulou.gif","QQ44":"QQ/kun.gif","QQ45":"QQ/lanqiu.gif","QQ46":"QQ/leiben.gif","QQ47":"QQ/lenghan.gif","QQ48":"QQ/liuhan.gif","QQ49":"QQ/liulei.gif","QQ50":"QQ/nanguo.gif","QQ51":"QQ/OK.gif","QQ52":"QQ/penxue.gif","QQ53":"QQ/piezui.gif","QQ54":"QQ/pijiu.gif","QQ55":"QQ/qiang.gif","QQ56":"QQ/qiaoda.gif","QQ57":"QQ/qinqin.gif","QQ58":"QQ/qiudale.gif","QQ59":"QQ/quantou.gif","QQ60":"QQ/saorao.gif","QQ61":"QQ/se.gif","QQ62":"QQ/shengli.gif","QQ63":"QQ/shouqiang.gif","QQ64":"QQ/shuai.gif","QQ65":"QQ/shui.gif","QQ66":"QQ/tiaopi.gif","QQ67":"QQ/touxiao.gif","QQ68":"QQ/tu.gif","QQ69":"QQ/tuosai.gif","QQ70":"QQ/weiqu.gif","QQ71":"QQ/weixiao.gif","QQ72":"QQ/woshou.gif","QQ73":"QQ/wozuimei.gif","QQ74":"QQ/wunai.gif","QQ75":"QQ/xia.gif","QQ76":"QQ/xiaojiujie.gif","QQ77":"QQ/xiaoku.gif","QQ78":"QQ/xiaoyanger.gif","QQ79":"QQ/xieyanxiao.gif","QQ80":"QQ/xigua.gif","QQ81":"QQ/xu.gif","QQ82":"QQ/yangtuo.gif","QQ83":"QQ/yinxian.gif","QQ84":"QQ/yiwen.gif","QQ85":"QQ/youhengheng.gif","QQ86":"QQ/youling.gif","QQ87":"QQ/yun.gif","QQ88":"QQ/zaijian.gif","QQ89":"QQ/zhayanjian.gif","QQ90":"QQ/zhemo.gif","QQ91":"QQ/zhouma.gif","QQ92":"QQ/zhuakuang.gif","QQ93":"QQ/zuohengheng.gif"},"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://github.com/d4wnnn" target="_blank" rel="nofollow noopener"><span>Github</span></a> <i class="iconfont icon-love"></i> <a href="tencent://message/?uin=2638177031" target="_blank" rel="nofollow noopener"><span>联系我</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+  <!-- 又拍云 -->
+  <div>
+    <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由
+        <img src="img/又拍云_logo5.png" srcset="/img/loading.gif" lazyload width="45px" /> 提供CDN加速/云存储服务</a>
+ </div>
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

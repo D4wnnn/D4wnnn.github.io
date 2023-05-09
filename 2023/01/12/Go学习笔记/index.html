@@ -1,4 +1,128 @@
-<!DOCTYPE html><html lang="zh-CN" data-default-color-scheme="dark"><head><meta charset="UTF-8"><link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg"><link rel="icon" href="/img/avatar.jpg"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="theme-color" content="#2f4154"><meta name="author" content="D4wn"><meta name="keywords" content=""><meta name="description" content="Go学习笔记 简介 go无类和继承的概念 通过接口实现多态性 Docker是根据go开发的 go是编译型语言 自带编译器  在 Windows 下，标准库的位置在Go语言根目录下的子目录 pkg_amd64 中；在 Linux 下，标准库在Go语言根目录下的子目录 pkgamd64 中（如果是安装的是 32 位，则在 linux_386 目录中）。一般情况下，标准包会存放在 GOO"><meta property="og:type" content="article"><meta property="og:title" content="Go学习笔记"><meta property="og:url" content="https://d4wnnn.github.io/2023/01/12/Go%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html"><meta property="og:site_name" content="D4wn"><meta property="og:description" content="Go学习笔记 简介 go无类和继承的概念 通过接口实现多态性 Docker是根据go开发的 go是编译型语言 自带编译器  在 Windows 下，标准库的位置在Go语言根目录下的子目录 pkg_amd64 中；在 Linux 下，标准库在Go语言根目录下的子目录 pkgamd64 中（如果是安装的是 32 位，则在 linux_386 目录中）。一般情况下，标准包会存放在 GOO"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://d4wnnn.github.io/img/article_img_3.jpg"><meta property="article:published_time" content="2023-01-12T12:32:39.000Z"><meta property="article:modified_time" content="2023-05-09T13:30:11.437Z"><meta property="article:author" content="D4wn"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://d4wnnn.github.io/img/article_img_3.jpg"><meta name="referrer" content="no-referrer-when-downgrade"><title>Go学习笔记 - D4wn</title><link rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css"><link rel="stylesheet" href="/css/main.css"><link id="highlight-css" rel="stylesheet" href="/css/highlight.css"><link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css"><script id="fluid-configs">var Fluid=window.Fluid||{};Fluid.ctx=Object.assign({},Fluid.ctx);var CONFIG={hostname:"d4wnnn.github.io",root:"/",version:"1.9.3",typing:{enable:!0,typeSpeed:70,cursorChar:"_",loop:!1,scope:[]},anchorjs:{enable:!0,element:"h1,h2,h3,h4,h5,h6",placement:"left",visible:"hover",icon:""},progressbar:{enable:!0,height_px:3,color:"#29d",options:{showSpinner:!1,trickleSpeed:100}},code_language:{enable:!0,default:"TEXT"},copy_btn:!0,image_caption:{enable:!0},image_zoom:{enable:!0,img_url_replace:["",""]},toc:{enable:!0,placement:"right",headingSelector:"h1,h2,h3,h4,h5,h6",collapseDepth:0},lazyload:{enable:!0,loading_img:"/img/loading.gif",onlypost:!1,offset_factor:2},web_analytics:{enable:!0,follow_dnt:!1,baidu:"104d1c240fe4777ab966bd68252f7714",google:null,gtag:null,tencent:{sid:null,cid:null},woyaola:null,cnzz:null,leancloud:{app_id:null,app_key:null,server_url:null,path:"window.location.pathname",ignore_local:!1}},search_path:"/local-search.xml"};if(CONFIG.web_analytics.follow_dnt){var dntVal=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack;Fluid.ctx.dnt=dntVal&&(dntVal.startsWith("1")||dntVal.startsWith("yes")||dntVal.startsWith("on"))}</script><script src="/js/utils.js"></script><script src="/js/color-schema.js"></script><script async>if(!Fluid.ctx.dnt){var _hmt=_hmt||[];!function(){var t=document.createElement("script");t.src="https://hm.baidu.com/hm.js?104d1c240fe4777ab966bd68252f7714";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}()}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css"><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="D4wn">
+  <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
+  
+    <meta name="description" content="Go学习笔记 简介 go无类和继承的概念 通过接口实现多态性 Docker是根据go开发的 go是编译型语言 自带编译器  在 Windows 下，标准库的位置在Go语言根目录下的子目录 pkg_amd64 中；在 Linux 下，标准库在Go语言根目录下的子目录 pkgamd64 中（如果是安装的是 32 位，则在 linux_386 目录中）。一般情况下，标准包会存放在 GOO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go学习笔记">
+<meta property="og:url" content="https://d4wnnn.github.io/2023/01/12/Go%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="D4wn">
+<meta property="og:description" content="Go学习笔记 简介 go无类和继承的概念 通过接口实现多态性 Docker是根据go开发的 go是编译型语言 自带编译器  在 Windows 下，标准库的位置在Go语言根目录下的子目录 pkg_amd64 中；在 Linux 下，标准库在Go语言根目录下的子目录 pkgamd64 中（如果是安装的是 32 位，则在 linux_386 目录中）。一般情况下，标准包会存放在 GOO">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://d4wnnn.github.io/img/article_img_3.jpg">
+<meta property="article:published_time" content="2023-01-12T12:32:39.000Z">
+<meta property="article:modified_time" content="2023-05-09T13:30:11.437Z">
+<meta property="article:author" content="D4wn">
+<meta property="article:tag" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://d4wnnn.github.io/img/article_img_3.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Go学习笔记 - D4wn</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"d4wnnn.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"104d1c240fe4777ab966bd68252f7714","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?104d1c240fe4777ab966bd68252f7714";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
 
@@ -110,4 +234,815 @@ mjx-container[display="true"] {
 mjx-container[display="true"] + br {
   display: none;
 }
-</style></head><body><header><div class="header-inner" style="height:70vh"><nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class="container"><a class="navbar-brand" href="/"><strong>D4wn</strong> </a><button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><div class="animated-icon"><span></span><span></span><span></span></div></button><div class="collapse navbar-collapse" id="navbarSupportedContent"><ul class="navbar-nav ml-auto text-center"><li class="nav-item"><a class="nav-link" href="/"><i class="iconfont icon-home-fill"></i> 首页</a></li><li class="nav-item"><a class="nav-link" href="/archives/"><i class="iconfont icon-archive-fill"></i> 归档</a></li><li class="nav-item"><a class="nav-link" href="/categories/"><i class="iconfont icon-category-fill"></i> 分类</a></li><li class="nav-item"><a class="nav-link" href="/tags/"><i class="iconfont icon-tags-fill"></i> 标签</a></li><li class="nav-item"><a class="nav-link" href="/about/"><i class="iconfont icon-user-fill"></i> 关于</a></li><li class="nav-item" id="search-btn"><a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">&nbsp;<i class="iconfont icon-search"></i>&nbsp;</a></li><li class="nav-item" id="color-toggle-btn"><a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a></li></ul></div></div></nav><div id="banner" class="banner" parallax="true" style="background:url(/img/total.jpg) no-repeat center center;background-size:cover"><div class="full-bg-img"><div class="mask flex-center" style="background-color:rgba(0,0,0,.3)"><div class="banner-text text-center fade-in-up"><div class="h2"><span id="subtitle" data-typed-text="Go学习笔记"></span></div><div class="mt-3"><span class="post-meta mr-2"><i class="iconfont icon-author" aria-hidden="true"></i> D4wn </span><span class="post-meta"><i class="iconfont icon-date-fill" aria-hidden="true"></i> <time datetime="2023-01-12 20:32" pubdate>2023年1月12日 晚上</time></span></div><div class="mt-1"><span class="post-meta mr-2"><i class="iconfont icon-chart"></i> 1.7k 字 </span><span class="post-meta mr-2"><i class="iconfont icon-clock-fill"></i> 15 分钟</span></div></div></div></div></div></div></header><main><div class="container-fluid nopadding-x"><div class="row nomargin-x"><div class="side-col d-none d-lg-block col-lg-2"></div><div class="col-lg-8 nopadding-x-md"><div class="container nopadding-x-md" id="board-ctn"><div id="board"><article class="post-content mx-auto"><h1 style="display:none">Go学习笔记</h1><div class="markdown-body"><h1 id="go学习笔记">Go学习笔记</h1><h2 id="简介">简介</h2><p>go无类和继承的概念 通过接口实现多态性</p><p>Docker是根据go开发的</p><p>go是编译型语言 自带编译器</p><blockquote><p>在 Windows 下，标准库的位置在Go语言根目录下的子目录 pkg_amd64 中；在 Linux 下，标准库在Go语言根目录下的子目录 pkg<em>amd64 中（如果是安装的是 32 位，则在 linux_386 目录中）。一般情况下，标准包会存放在 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align:-.566ex" xmlns="http://www.w3.org/2000/svg" width="15.925ex" height="2.262ex" role="img" focusable="false" viewbox="0 -750 7039 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D43A" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q492 659 471 656T418 643T357 615T294 567T236 496T189 394T158 260Q156 242 156 221Q156 173 170 136T206 79T256 45T308 28T353 24Q407 24 452 47T514 106Q517 114 529 161T541 214Q541 222 528 224T468 227H431Q425 233 425 235T427 254Q431 267 437 273H454Q494 271 594 271Q634 271 659 271T695 272T707 272Q721 272 721 263Q721 261 719 249Q714 230 709 228Q706 227 694 227Q674 227 653 224Q646 221 643 215T629 164Q620 131 614 108Q589 6 586 3Q584 1 581 1Q571 1 553 21T530 52Q530 53 528 52T522 47Q448 -22 322 -22Q201 -22 126 55T50 252Z"/></g><g data-mml-node="mi" transform="translate(786,0)"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"/></g><g data-mml-node="mi" transform="translate(1549,0)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"/></g><g data-mml-node="mi" transform="translate(2308,0)"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"/></g><g data-mml-node="mi" transform="translate(3071,0)"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"/></g><g data-mml-node="mi" transform="translate(3834,0)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"/></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(4538,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"/></g></g><g data-mml-node="mi" transform="translate(5038,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"/></g><g data-mml-node="mi" transform="translate(5541,0)"><path data-c="1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"/></g><g data-mml-node="mi" transform="translate(6062,0)"><path data-c="1D454" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z"/></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(6539,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"/></g></g></g></g></svg></mjx-container></span>GOOS</em>$GOARCH/ 目录下。</p></blockquote><table><thead><tr class="header"><th>Go语言标准库包名</th><th>功 能</th></tr></thead><tbody><tr class="odd"><td>bufio</td><td>带缓冲的 I/O 操作</td></tr><tr class="even"><td>bytes</td><td>实现字节操作</td></tr><tr class="odd"><td>container</td><td>封装堆、列表和环形列表等容器</td></tr><tr class="even"><td>crypto</td><td>加密算法</td></tr><tr class="odd"><td>database</td><td>数据库驱动和接口</td></tr><tr class="even"><td>debug</td><td>各种调试文件格式访问及调试功能</td></tr><tr class="odd"><td>encoding</td><td>常见算法如 JSON、XML、Base64 等</td></tr><tr class="even"><td>flag</td><td>命令行解析</td></tr><tr class="odd"><td>fmt</td><td>格式化操作</td></tr><tr class="even"><td>go</td><td>Go语言的词法、语法树、类型等。可通过这个包进行代码信息提取和修改</td></tr><tr class="odd"><td>html</td><td>HTML 转义及模板系统</td></tr><tr class="even"><td>image</td><td>常见图形格式的访问及生成</td></tr><tr class="odd"><td>io</td><td>实现 I/O 原始访问接口及访问封装</td></tr><tr class="even"><td>math</td><td>数学库</td></tr><tr class="odd"><td>net</td><td>网络库，支持 Socket、HTTP、邮件、RPC、SMTP 等</td></tr><tr class="even"><td>os</td><td>操作系统平台不依赖平台操作封装</td></tr><tr class="odd"><td>path</td><td>兼容各操作系统的路径操作实用函数</td></tr><tr class="even"><td>plugin</td><td>Go 1.7 加入的插件系统。支持将代码编译为插件，按需加载</td></tr><tr class="odd"><td>reflect</td><td>语言反射支持。可以动态获得代码中的类型信息，获取和修改变量的值</td></tr><tr class="even"><td>regexp</td><td>正则表达式封装</td></tr><tr class="odd"><td>runtime</td><td>运行时接口</td></tr><tr class="even"><td>sort</td><td>排序接口</td></tr><tr class="odd"><td>strings</td><td>字符串转换、解析及实用函数</td></tr><tr class="even"><td>time</td><td>时间接口</td></tr><tr class="odd"><td>text</td><td>文本模板及 Token 词法器</td></tr></tbody></table><p>go语言自带垃圾回收</p><p>第一个程序</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main <span class="hljs-comment">// main包是程序的入口包</span><br><br><span class="hljs-keyword">import</span> <span class="hljs-string">"net/http"</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> { <span class="hljs-comment">//入口函数</span><br><br>	http.Handle(<span class="hljs-string">"/"</span>, http.FileServer(http.Dir(<span class="hljs-string">"."</span>)))<br>	http.ListenAndServe(<span class="hljs-string">":8080"</span>, <span class="hljs-literal">nil</span>)<br>}<br></code></pre></td></tr></table></figure><p>包名可以与目录名不同</p><p>一个go程序必须有且仅有一个main包</p><p>导入的包不能含有代码中没有用到的包</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> 函数名<span class="hljs-params">(参数列表)</span></span>(返回值列表){<br>函数体<br>}<br></code></pre></td></tr></table></figure><p>go build编译</p><p>go run在编译后直接运行程序 不会生成可执行文件</p><h2 id="基本语法">基本语法</h2><ul><li><p>基本类型有哪些？</p><ul><li><p>bool</p></li><li><p>string</p></li><li><p>int int8 int16、int32、int64</p></li><li><p>uint、uint8、uint16、uint32、uint64、uintptr</p></li><li><p>byte // uint8 的别名</p></li><li><p>rune // int32 的别名 代表一个 Unicode 码</p></li><li><p>float32、float64</p></li><li><p>complex64、complex128</p><p>上述变量一旦声明就会全部自动初始化</p></li></ul></li><li><p>如何声明？</p><p>var 变量名 变量类型</p></li><li><p>如何批量定义变量？</p></li></ul><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> (<br>		a <span class="hljs-type">int</span><br>		b <span class="hljs-type">string</span><br>	)<br></code></pre></td></tr></table></figure><ul><li><p>简短模式是什么？</p><p>就是定义变量的同时必须显式初始化</p><p>不能提供数据类型</p><p>只能用在函数内部</p><p><code>i,j := 1,2</code></p></li><li><p>什么是“烫烫烫”和“屯屯屯”的梗？</p><p>微软的 VC 编译器会将未初始化的栈空间以 16 进制的 0xCC 填充，而未初始化的堆空间使用 0xCD 填充，而 0xCCCC 和 0xCDCD 在中文的 GB2312 编码中刚好对应“烫”和“屯”字。</p></li><li><p>注意：在多个短变量声明和赋值中，至少有一个新声明的变量出现在左值中，即便其他变量名可能是重复声明的，编译器也不会报错</p></li><li><p>如何变量交换？</p><p><code>a,b = b,a</code></p></li><li><p>什么是匿名变量？</p><p>就是一个下划线</p><p>在Lua等编程语言中，匿名变量又称为哑元变量</p></li><li><p>在go中变量的作用域是怎样的？</p><ul><li><p>局部变量</p><p>函数内的局部变量可以和全局变量名称相同，但是会优先考虑局部变量</p></li><li><p>全局变量</p><p>全局变量必须以var关键词开头 如果想在外部包中使用，则首字母必须大写</p></li><li><p>形式参数</p><p>就是定义函数时函数名后面括号中的变量，形式参数会作为函数的局部变量来使用</p></li></ul></li><li><p>在go中很小或者很大的数最好用科学计数法书写</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">const</span> A = <span class="hljs-number">6.0222e23</span><br></code></pre></td></tr></table></figure></li><li><p>在go中打印小数可以用"%.nf"控制有几位小数</p></li><li><p>在go中布尔值不会隐式转换为数字0或者1</p></li><li><p>在go中如何输入多行字符串？</p><p>使用反引号</p><p>在反引号中间的一切均不会被编译器识别 都是字符串的一部分</p></li><li><p>go的字符类型有两种：rune和uint8类型</p><ul><li>uint8代表ascii的一个字符</li><li>rune代表一个utf-8字符</li></ul></li></ul><h2 id="参考链接">参考链接</h2><p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/20.html">Go语言数据类型转换 (biancheng.net)</a></p></div><hr><div><div class="post-metas my-3"><div class="post-meta mr-3 d-flex align-items-center"><i class="iconfont icon-category"></i> <span class="category-chains"><span class="category-chain"><a href="/categories/Go/" class="category-chain-item">Go</a></span></span></div></div><div class="license-box my-3"><div class="license-title"><div>Go学习笔记</div><div>https://d4wnnn.github.io/2023/01/12/Go学习笔记/</div></div><div class="license-meta"><div class="license-meta-item"><div>作者</div><div>D4wn</div></div><div class="license-meta-item license-meta-date"><div>发布于</div><div>2023年1月12日</div></div><div class="license-meta-item"><div>许可协议</div><div><a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/"><span class="hint--top hint--rounded" aria-label="BY - 署名"><i class="iconfont icon-by"></i> </span></a><a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/"><span class="hint--top hint--rounded" aria-label="SA - 相同方式共享"><i class="iconfont icon-sa"></i></span></a></div></div></div><div class="license-icon iconfont"></div></div><div class="post-prevnext my-3"><article class="post-prev col-6"><a href="/2023/01/17/Ret2shellcode-64%E4%BD%8D%E5%AE%9E%E4%BE%8B/" title="Ret2shellcode-64位实例"><i class="iconfont icon-arrowleft"></i> <span class="hidden-mobile">Ret2shellcode-64位实例</span> <span class="visible-mobile">上一篇</span></a></article><article class="post-next col-6"><a href="/2022/12/29/msf%E6%95%99%E7%A8%8B/" title="msf教程"><span class="hidden-mobile">msf教程</span> <span class="visible-mobile">下一篇</span> <i class="iconfont icon-arrowright"></i></a></article></div></div><article id="comments" lazyload><div id="valine"></div><script type="text/javascript">Fluid.utils.loadComments("#valine",(function(){Fluid.utils.createScript("https://lib.baomitu.com/valine/1.5.1/Valine.min.js",(function(){var Q=Object.assign({appId:"iQzcdzgtk7S3lKyzUoT3segU-gzGzoHsz",appKey:"mL1QjUEvvzJ9E2xIVz0OuJuj",path:"window.location.pathname",placeholder:"Hello",avatar:"retro",meta:["nick","mail","link"],requiredFields:[],pageSize:10,lang:"zh-CN",highlight:!0,recordIP:!0,serverURLs:"https://iqzcdzgt.lc-cn-n1-shared.com",emojiCDN:"https://valinecdn.bili33.top/",emojiMaps:{QQ1:"QQ/aini.gif",QQ2:"QQ/aixin.gif",QQ3:"QQ/aoman.gif",QQ4:"QQ/baiyan.gif",QQ5:"QQ/bangbangtang.gif",QQ6:"QQ/baojin.gif",QQ7:"QQ/baoquan.gif",QQ8:"QQ/bishi.gif",QQ9:"QQ/bizui.gif",QQ11:"QQ/cahan.gif",QQ12:"QQ/caidao.gif",QQ13:"QQ/chi.gif",QQ14:"QQ/ciya.gif",QQ15:"QQ/dabing.gif",QQ16:"QQ/daku.gif",QQ17:"QQ/dan.gif",QQ18:"QQ/deyi.gif",QQ19:"QQ/doge.gif",QQ20:"QQ/fadai.gif",QQ21:"QQ/fanu.gif",QQ22:"QQ/fendou.gif",QQ23:"QQ/ganga.gif",QQ24:"QQ/gouyin.gif",QQ25:"QQ/guzhang.gif",QQ26:"QQ/haixiu.gif",QQ27:"QQ/hanxiao.gif",QQ28:"QQ/haobang.gif",QQ29:"QQ/haqian.gif",QQ30:"QQ/hecai.gif",QQ31:"QQ/hexie.gif",QQ32:"QQ/huaixiao.gif",QQ33:"QQ/jie.gif",QQ34:"QQ/jingkong.gif",QQ35:"QQ/jingxi.gif",QQ36:"QQ/jingya.gif",QQ37:"QQ/juhua.gif",QQ38:"QQ/keai.gif",QQ39:"QQ/kelian.gif",QQ40:"QQ/koubi.gif",QQ41:"QQ/ku.gif",QQ42:"QQ/kuaikule.gif",QQ43:"QQ/kulou.gif",QQ44:"QQ/kun.gif",QQ45:"QQ/lanqiu.gif",QQ46:"QQ/leiben.gif",QQ47:"QQ/lenghan.gif",QQ48:"QQ/liuhan.gif",QQ49:"QQ/liulei.gif",QQ50:"QQ/nanguo.gif",QQ51:"QQ/OK.gif",QQ52:"QQ/penxue.gif",QQ53:"QQ/piezui.gif",QQ54:"QQ/pijiu.gif",QQ55:"QQ/qiang.gif",QQ56:"QQ/qiaoda.gif",QQ57:"QQ/qinqin.gif",QQ58:"QQ/qiudale.gif",QQ59:"QQ/quantou.gif",QQ60:"QQ/saorao.gif",QQ61:"QQ/se.gif",QQ62:"QQ/shengli.gif",QQ63:"QQ/shouqiang.gif",QQ64:"QQ/shuai.gif",QQ65:"QQ/shui.gif",QQ66:"QQ/tiaopi.gif",QQ67:"QQ/touxiao.gif",QQ68:"QQ/tu.gif",QQ69:"QQ/tuosai.gif",QQ70:"QQ/weiqu.gif",QQ71:"QQ/weixiao.gif",QQ72:"QQ/woshou.gif",QQ73:"QQ/wozuimei.gif",QQ74:"QQ/wunai.gif",QQ75:"QQ/xia.gif",QQ76:"QQ/xiaojiujie.gif",QQ77:"QQ/xiaoku.gif",QQ78:"QQ/xiaoyanger.gif",QQ79:"QQ/xieyanxiao.gif",QQ80:"QQ/xigua.gif",QQ81:"QQ/xu.gif",QQ82:"QQ/yangtuo.gif",QQ83:"QQ/yinxian.gif",QQ84:"QQ/yiwen.gif",QQ85:"QQ/youhengheng.gif",QQ86:"QQ/youling.gif",QQ87:"QQ/yun.gif",QQ88:"QQ/zaijian.gif",QQ89:"QQ/zhayanjian.gif",QQ90:"QQ/zhemo.gif",QQ91:"QQ/zhouma.gif",QQ92:"QQ/zhuakuang.gif",QQ93:"QQ/zuohengheng.gif"},enableQQ:!0},{el:"#valine",path:window.location.pathname});new Valine(Q),Fluid.utils.waitElementVisible("#valine .vcontent",()=>{var Q="#valine .vcontent img:not(.vemoji)";Fluid.plugins.imageCaption(Q),Fluid.plugins.fancyBox(Q)})}))}))</script><noscript>Please enable JavaScript to view the comments</noscript></article></article></div></div></div><div class="side-col d-none d-lg-block col-lg-2"><aside class="sidebar" style="margin-left:-1rem"><div id="toc"><p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p><div class="toc-body" id="toc-body"></div></div></aside></div></div></div><a id="scroll-top-button" aria-label="TOP" href="#" role="button"><i class="iconfont icon-arrowup" aria-hidden="true"></i></a><div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable modal-lg" role="document"><div class="modal-content"><div class="modal-header text-center"><h4 class="modal-title w-100 font-weight-bold">搜索</h4><button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body mx-3"><div class="md-form mb-5"><input type="text" id="local-search-input" class="form-control validate"> <label data-error="x" data-success="v" for="local-search-input">关键词</label></div><div class="list-group" id="local-search-result"></div></div></div></div></div></main><footer><div class="footer-inner"><div class="footer-content"><a href="https://github.com/d4wnnn" target="_blank" rel="nofollow noopener"><span>Github</span></a> <i class="iconfont icon-love"></i> <a href="tencent://message/?uin=2638177031" target="_blank" rel="nofollow noopener"><span>联系我</span></a><div><span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span><script src="/js/duration.js"></script></div></div><div class="statistics"><span id="busuanzi_container_site_pv" style="display:none">总访问量 <span id="busuanzi_value_site_pv"></span> 次 </span><span id="busuanzi_container_site_uv" style="display:none">总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></div><div><a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由 <img src="img/又拍云_logo5.png" srcset="/img/loading.gif" lazyload width="45px"> 提供CDN加速/云存储服务</a></div></div></footer><script src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js"></script><link rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css"><script>NProgress.configure({showSpinner:!1,trickleSpeed:100}),NProgress.start(),window.addEventListener("load",(function(){NProgress.done()}))</script><script src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js"></script><script src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js"></script><script src="/js/events.js"></script><script src="/js/plugins.js"></script><script src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js"></script><script>!function(t,e){var i=Fluid.plugins.typing,n=e.getElementById("subtitle");n&&i&&i(n.getAttribute("data-typed-text"))}(window,document)</script><script src="/js/img-lazyload.js"></script><script>Fluid.utils.createScript("https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js",(function(){var t=jQuery("#toc");if(0!==t.length&&window.tocbot){var i=jQuery("#board-ctn").offset().top;window.tocbot.init(Object.assign({tocSelector:"#toc-body",contentSelector:".markdown-body",linkClass:"tocbot-link",activeLinkClass:"tocbot-active-link",listClass:"tocbot-list",isCollapsedClass:"tocbot-is-collapsed",collapsibleClass:"tocbot-is-collapsible",scrollSmooth:!0,includeTitleTags:!0,headingsOffset:-i},CONFIG.toc)),t.find(".toc-list-item").length>0&&t.css("visibility","visible"),Fluid.events.registerRefreshCallback((function(){if("tocbot"in window){tocbot.refresh();var t=jQuery("#toc");if(0===t.length||!tocbot)return;t.find(".toc-list-item").length>0&&t.css("visibility","visible")}}))}}))</script><script src="https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js"></script><script>Fluid.plugins.codeWidget()</script><script>Fluid.utils.createScript("https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js",(function(){window.anchors.options={placement:CONFIG.anchorjs.placement,visible:CONFIG.anchorjs.visible},CONFIG.anchorjs.icon&&(window.anchors.options.icon=CONFIG.anchorjs.icon);var n=(CONFIG.anchorjs.element||"h1,h2,h3,h4,h5,h6").split(","),o=[];for(var s of n)o.push(".markdown-body > "+s.trim());"left"===CONFIG.anchorjs.placement&&(window.anchors.options.class="anchorjs-link-left"),window.anchors.add(o.join(", ")),Fluid.events.registerRefreshCallback((function(){if("anchors"in window){anchors.removeAll();var n=(CONFIG.anchorjs.element||"h1,h2,h3,h4,h5,h6").split(","),o=[];for(var s of n)o.push(".markdown-body > "+s.trim());"left"===CONFIG.anchorjs.placement&&(anchors.options.class="anchorjs-link-left"),anchors.add(o.join(", "))}}))}))</script><script>Fluid.utils.createScript("https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js",(function(){Fluid.plugins.fancyBox()}))</script><script>Fluid.plugins.imageCaption()</script><script src="/js/local-search.js"></script><script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/boot.js"></script><noscript><div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div></noscript><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>
+</style></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>D4wn</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/total.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Go学习笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        D4wn
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-01-12 20:32" pubdate>
+          2023年1月12日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          15 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Go学习笔记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="go学习笔记">Go学习笔记</h1>
+<h2 id="简介">简介</h2>
+<p>go无类和继承的概念 通过接口实现多态性</p>
+<p>Docker是根据go开发的</p>
+<p>go是编译型语言 自带编译器</p>
+<blockquote>
+<p>在 Windows 下，标准库的位置在Go语言根目录下的子目录 pkg_amd64 中；在
+Linux 下，标准库在Go语言根目录下的子目录 pkg<em>amd64 中（如果是安装的是
+32 位，则在 linux_386 目录中）。一般情况下，标准包会存放在 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="15.925ex" height="2.262ex" role="img" focusable="false" viewbox="0 -750 7039 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D43A" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q492 659 471 656T418 643T357 615T294 567T236 496T189 394T158 260Q156 242 156 221Q156 173 170 136T206 79T256 45T308 28T353 24Q407 24 452 47T514 106Q517 114 529 161T541 214Q541 222 528 224T468 227H431Q425 233 425 235T427 254Q431 267 437 273H454Q494 271 594 271Q634 271 659 271T695 272T707 272Q721 272 721 263Q721 261 719 249Q714 230 709 228Q706 227 694 227Q674 227 653 224Q646 221 643 215T629 164Q620 131 614 108Q589 6 586 3Q584 1 581 1Q571 1 553 21T530 52Q530 53 528 52T522 47Q448 -22 322 -22Q201 -22 126 55T50 252Z"/></g><g data-mml-node="mi" transform="translate(786,0)"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"/></g><g data-mml-node="mi" transform="translate(1549,0)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"/></g><g data-mml-node="mi" transform="translate(2308,0)"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"/></g><g data-mml-node="mi" transform="translate(3071,0)"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"/></g><g data-mml-node="mi" transform="translate(3834,0)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"/></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(4538,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"/></g></g><g data-mml-node="mi" transform="translate(5038,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"/></g><g data-mml-node="mi" transform="translate(5541,0)"><path data-c="1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"/></g><g data-mml-node="mi" transform="translate(6062,0)"><path data-c="1D454" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z"/></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(6539,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"/></g></g></g></g></svg></mjx-container></span>GOOS</em>$GOARCH/ 目录下。</p>
+</blockquote>
+<table>
+
+<thead>
+<tr class="header">
+<th>Go语言标准库包名</th>
+<th>功 能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>bufio</td>
+<td>带缓冲的 I/O 操作</td>
+</tr>
+<tr class="even">
+<td>bytes</td>
+<td>实现字节操作</td>
+</tr>
+<tr class="odd">
+<td>container</td>
+<td>封装堆、列表和环形列表等容器</td>
+</tr>
+<tr class="even">
+<td>crypto</td>
+<td>加密算法</td>
+</tr>
+<tr class="odd">
+<td>database</td>
+<td>数据库驱动和接口</td>
+</tr>
+<tr class="even">
+<td>debug</td>
+<td>各种调试文件格式访问及调试功能</td>
+</tr>
+<tr class="odd">
+<td>encoding</td>
+<td>常见算法如 JSON、XML、Base64 等</td>
+</tr>
+<tr class="even">
+<td>flag</td>
+<td>命令行解析</td>
+</tr>
+<tr class="odd">
+<td>fmt</td>
+<td>格式化操作</td>
+</tr>
+<tr class="even">
+<td>go</td>
+<td>Go语言的词法、语法树、类型等。可通过这个包进行代码信息提取和修改</td>
+</tr>
+<tr class="odd">
+<td>html</td>
+<td>HTML 转义及模板系统</td>
+</tr>
+<tr class="even">
+<td>image</td>
+<td>常见图形格式的访问及生成</td>
+</tr>
+<tr class="odd">
+<td>io</td>
+<td>实现 I/O 原始访问接口及访问封装</td>
+</tr>
+<tr class="even">
+<td>math</td>
+<td>数学库</td>
+</tr>
+<tr class="odd">
+<td>net</td>
+<td>网络库，支持 Socket、HTTP、邮件、RPC、SMTP 等</td>
+</tr>
+<tr class="even">
+<td>os</td>
+<td>操作系统平台不依赖平台操作封装</td>
+</tr>
+<tr class="odd">
+<td>path</td>
+<td>兼容各操作系统的路径操作实用函数</td>
+</tr>
+<tr class="even">
+<td>plugin</td>
+<td>Go 1.7 加入的插件系统。支持将代码编译为插件，按需加载</td>
+</tr>
+<tr class="odd">
+<td>reflect</td>
+<td>语言反射支持。可以动态获得代码中的类型信息，获取和修改变量的值</td>
+</tr>
+<tr class="even">
+<td>regexp</td>
+<td>正则表达式封装</td>
+</tr>
+<tr class="odd">
+<td>runtime</td>
+<td>运行时接口</td>
+</tr>
+<tr class="even">
+<td>sort</td>
+<td>排序接口</td>
+</tr>
+<tr class="odd">
+<td>strings</td>
+<td>字符串转换、解析及实用函数</td>
+</tr>
+<tr class="even">
+<td>time</td>
+<td>时间接口</td>
+</tr>
+<tr class="odd">
+<td>text</td>
+<td>文本模板及 Token 词法器</td>
+</tr>
+</tbody>
+</table>
+<p>go语言自带垃圾回收</p>
+<p>第一个程序</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main <span class="hljs-comment">// main包是程序的入口包</span><br><br><span class="hljs-keyword">import</span> <span class="hljs-string">"net/http"</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> { <span class="hljs-comment">//入口函数</span><br><br>	http.Handle(<span class="hljs-string">"/"</span>, http.FileServer(http.Dir(<span class="hljs-string">"."</span>)))<br>	http.ListenAndServe(<span class="hljs-string">":8080"</span>, <span class="hljs-literal">nil</span>)<br>}<br></code></pre></td></tr></table></figure>
+<p>包名可以与目录名不同</p>
+<p>一个go程序必须有且仅有一个main包</p>
+<p>导入的包不能含有代码中没有用到的包</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> 函数名<span class="hljs-params">(参数列表)</span></span>(返回值列表){<br>函数体<br>}<br></code></pre></td></tr></table></figure>
+<p>go build编译</p>
+<p>go run在编译后直接运行程序 不会生成可执行文件</p>
+<h2 id="基本语法">基本语法</h2>
+<ul>
+<li><p>基本类型有哪些？</p>
+<ul>
+<li><p>bool</p></li>
+<li><p>string</p></li>
+<li><p>int int8 int16、int32、int64</p></li>
+<li><p>uint、uint8、uint16、uint32、uint64、uintptr</p></li>
+<li><p>byte // uint8 的别名</p></li>
+<li><p>rune // int32 的别名 代表一个 Unicode 码</p></li>
+<li><p>float32、float64</p></li>
+<li><p>complex64、complex128</p>
+<p>上述变量一旦声明就会全部自动初始化</p></li>
+</ul></li>
+<li><p>如何声明？</p>
+<p>var 变量名 变量类型</p></li>
+<li><p>如何批量定义变量？</p></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> (<br>		a <span class="hljs-type">int</span><br>		b <span class="hljs-type">string</span><br>	)<br></code></pre></td></tr></table></figure>
+<ul>
+<li><p>简短模式是什么？</p>
+<p>就是定义变量的同时必须显式初始化</p>
+<p>不能提供数据类型</p>
+<p>只能用在函数内部</p>
+<p><code>i,j := 1,2</code></p></li>
+<li><p>什么是“烫烫烫”和“屯屯屯”的梗？</p>
+<p>微软的 VC 编译器会将未初始化的栈空间以 16 进制的 0xCC
+填充，而未初始化的堆空间使用 0xCD 填充，而 0xCCCC 和 0xCDCD 在中文的
+GB2312 编码中刚好对应“烫”和“屯”字。</p></li>
+<li><p>注意：在多个短变量声明和赋值中，至少有一个新声明的变量出现在左值中，即便其他变量名可能是重复声明的，编译器也不会报错</p></li>
+<li><p>如何变量交换？</p>
+<p><code>a,b = b,a</code></p></li>
+<li><p>什么是匿名变量？</p>
+<p>就是一个下划线</p>
+<p>在Lua等编程语言中，匿名变量又称为哑元变量</p></li>
+<li><p>在go中变量的作用域是怎样的？</p>
+<ul>
+<li><p>局部变量</p>
+<p>函数内的局部变量可以和全局变量名称相同，但是会优先考虑局部变量</p></li>
+<li><p>全局变量</p>
+<p>全局变量必须以var关键词开头
+如果想在外部包中使用，则首字母必须大写</p></li>
+<li><p>形式参数</p>
+<p>就是定义函数时函数名后面括号中的变量，形式参数会作为函数的局部变量来使用</p></li>
+</ul></li>
+<li><p>在go中很小或者很大的数最好用科学计数法书写</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">const</span> A = <span class="hljs-number">6.0222e23</span><br></code></pre></td></tr></table></figure></li>
+<li><p>在go中打印小数可以用"%.nf"控制有几位小数</p></li>
+<li><p>在go中布尔值不会隐式转换为数字0或者1</p></li>
+<li><p>在go中如何输入多行字符串？</p>
+<p>使用反引号</p>
+<p>在反引号中间的一切均不会被编译器识别 都是字符串的一部分</p></li>
+<li><p>go的字符类型有两种：rune和uint8类型</p>
+<ul>
+<li>uint8代表ascii的一个字符</li>
+<li>rune代表一个utf-8字符</li>
+</ul></li>
+</ul>
+<h2 id="参考链接">参考链接</h2>
+<p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/20.html">Go语言数据类型转换
+(biancheng.net)</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Go/" class="category-chain-item">Go</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Go学习笔记</div>
+      <div>https://d4wnnn.github.io/2023/01/12/Go学习笔记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>D4wn</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年1月12日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/01/17/Ret2shellcode-64%E4%BD%8D%E5%AE%9E%E4%BE%8B/" title="Ret2shellcode-64位实例">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Ret2shellcode-64位实例</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/12/29/msf%E6%95%99%E7%A8%8B/" title="msf教程">
+                        <span class="hidden-mobile">msf教程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"iQzcdzgtk7S3lKyzUoT3segU-gzGzoHsz","appKey":"mL1QjUEvvzJ9E2xIVz0OuJuj","path":"window.location.pathname","placeholder":"Hello","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://iqzcdzgt.lc-cn-n1-shared.com","emojiCDN":"https://valinecdn.bili33.top/","emojiMaps":{"QQ1":"QQ/aini.gif","QQ2":"QQ/aixin.gif","QQ3":"QQ/aoman.gif","QQ4":"QQ/baiyan.gif","QQ5":"QQ/bangbangtang.gif","QQ6":"QQ/baojin.gif","QQ7":"QQ/baoquan.gif","QQ8":"QQ/bishi.gif","QQ9":"QQ/bizui.gif","QQ11":"QQ/cahan.gif","QQ12":"QQ/caidao.gif","QQ13":"QQ/chi.gif","QQ14":"QQ/ciya.gif","QQ15":"QQ/dabing.gif","QQ16":"QQ/daku.gif","QQ17":"QQ/dan.gif","QQ18":"QQ/deyi.gif","QQ19":"QQ/doge.gif","QQ20":"QQ/fadai.gif","QQ21":"QQ/fanu.gif","QQ22":"QQ/fendou.gif","QQ23":"QQ/ganga.gif","QQ24":"QQ/gouyin.gif","QQ25":"QQ/guzhang.gif","QQ26":"QQ/haixiu.gif","QQ27":"QQ/hanxiao.gif","QQ28":"QQ/haobang.gif","QQ29":"QQ/haqian.gif","QQ30":"QQ/hecai.gif","QQ31":"QQ/hexie.gif","QQ32":"QQ/huaixiao.gif","QQ33":"QQ/jie.gif","QQ34":"QQ/jingkong.gif","QQ35":"QQ/jingxi.gif","QQ36":"QQ/jingya.gif","QQ37":"QQ/juhua.gif","QQ38":"QQ/keai.gif","QQ39":"QQ/kelian.gif","QQ40":"QQ/koubi.gif","QQ41":"QQ/ku.gif","QQ42":"QQ/kuaikule.gif","QQ43":"QQ/kulou.gif","QQ44":"QQ/kun.gif","QQ45":"QQ/lanqiu.gif","QQ46":"QQ/leiben.gif","QQ47":"QQ/lenghan.gif","QQ48":"QQ/liuhan.gif","QQ49":"QQ/liulei.gif","QQ50":"QQ/nanguo.gif","QQ51":"QQ/OK.gif","QQ52":"QQ/penxue.gif","QQ53":"QQ/piezui.gif","QQ54":"QQ/pijiu.gif","QQ55":"QQ/qiang.gif","QQ56":"QQ/qiaoda.gif","QQ57":"QQ/qinqin.gif","QQ58":"QQ/qiudale.gif","QQ59":"QQ/quantou.gif","QQ60":"QQ/saorao.gif","QQ61":"QQ/se.gif","QQ62":"QQ/shengli.gif","QQ63":"QQ/shouqiang.gif","QQ64":"QQ/shuai.gif","QQ65":"QQ/shui.gif","QQ66":"QQ/tiaopi.gif","QQ67":"QQ/touxiao.gif","QQ68":"QQ/tu.gif","QQ69":"QQ/tuosai.gif","QQ70":"QQ/weiqu.gif","QQ71":"QQ/weixiao.gif","QQ72":"QQ/woshou.gif","QQ73":"QQ/wozuimei.gif","QQ74":"QQ/wunai.gif","QQ75":"QQ/xia.gif","QQ76":"QQ/xiaojiujie.gif","QQ77":"QQ/xiaoku.gif","QQ78":"QQ/xiaoyanger.gif","QQ79":"QQ/xieyanxiao.gif","QQ80":"QQ/xigua.gif","QQ81":"QQ/xu.gif","QQ82":"QQ/yangtuo.gif","QQ83":"QQ/yinxian.gif","QQ84":"QQ/yiwen.gif","QQ85":"QQ/youhengheng.gif","QQ86":"QQ/youling.gif","QQ87":"QQ/yun.gif","QQ88":"QQ/zaijian.gif","QQ89":"QQ/zhayanjian.gif","QQ90":"QQ/zhemo.gif","QQ91":"QQ/zhouma.gif","QQ92":"QQ/zhuakuang.gif","QQ93":"QQ/zuohengheng.gif"},"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://github.com/d4wnnn" target="_blank" rel="nofollow noopener"><span>Github</span></a> <i class="iconfont icon-love"></i> <a href="tencent://message/?uin=2638177031" target="_blank" rel="nofollow noopener"><span>联系我</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+  <!-- 又拍云 -->
+  <div>
+    <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由
+        <img src="img/又拍云_logo5.png" srcset="/img/loading.gif" lazyload width="45px" /> 提供CDN加速/云存储服务</a>
+ </div>
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

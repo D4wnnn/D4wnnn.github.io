@@ -1,4 +1,128 @@
-<!DOCTYPE html><html lang="zh-CN" data-default-color-scheme="dark"><head><meta charset="UTF-8"><link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg"><link rel="icon" href="/img/avatar.jpg"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="theme-color" content="#2f4154"><meta name="author" content="D4wn"><meta name="keywords" content="Node.js"><meta name="description" content="初识Node.js https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1a34y167AZ?p&#x3D;6&amp;spm_id_from&#x3D;pageDriver&amp;vd_source&#x3D;bf133d296119691c661008e881da330a&amp;t&#x3D;681.2 一、前置知识   image-20221004010324506  待执行的JS代码通过JS解析引"><meta property="og:type" content="article"><meta property="og:title" content="初识Node.js"><meta property="og:url" content="https://d4wnnn.github.io/2022/10/04/%E5%88%9D%E8%AF%86Node-js/index.html"><meta property="og:site_name" content="D4wn"><meta property="og:description" content="初识Node.js https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1a34y167AZ?p&#x3D;6&amp;spm_id_from&#x3D;pageDriver&amp;vd_source&#x3D;bf133d296119691c661008e881da330a&amp;t&#x3D;681.2 一、前置知识   image-20221004010324506  待执行的JS代码通过JS解析引"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://d4wnnn.github.io/img/article_img_6.jpg"><meta property="article:published_time" content="2022-10-03T17:01:05.000Z"><meta property="article:modified_time" content="2023-05-09T13:30:11.400Z"><meta property="article:author" content="D4wn"><meta property="article:tag" content="Node.js"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://d4wnnn.github.io/img/article_img_6.jpg"><meta name="referrer" content="no-referrer-when-downgrade"><title>初识Node.js - D4wn</title><link rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css"><link rel="stylesheet" href="/css/main.css"><link id="highlight-css" rel="stylesheet" href="/css/highlight.css"><link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css"><script id="fluid-configs">var Fluid=window.Fluid||{};Fluid.ctx=Object.assign({},Fluid.ctx);var CONFIG={hostname:"d4wnnn.github.io",root:"/",version:"1.9.3",typing:{enable:!0,typeSpeed:70,cursorChar:"_",loop:!1,scope:[]},anchorjs:{enable:!0,element:"h1,h2,h3,h4,h5,h6",placement:"left",visible:"hover",icon:""},progressbar:{enable:!0,height_px:3,color:"#29d",options:{showSpinner:!1,trickleSpeed:100}},code_language:{enable:!0,default:"TEXT"},copy_btn:!0,image_caption:{enable:!0},image_zoom:{enable:!0,img_url_replace:["",""]},toc:{enable:!0,placement:"right",headingSelector:"h1,h2,h3,h4,h5,h6",collapseDepth:0},lazyload:{enable:!0,loading_img:"/img/loading.gif",onlypost:!1,offset_factor:2},web_analytics:{enable:!0,follow_dnt:!1,baidu:"104d1c240fe4777ab966bd68252f7714",google:null,gtag:null,tencent:{sid:null,cid:null},woyaola:null,cnzz:null,leancloud:{app_id:null,app_key:null,server_url:null,path:"window.location.pathname",ignore_local:!1}},search_path:"/local-search.xml"};if(CONFIG.web_analytics.follow_dnt){var dntVal=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack;Fluid.ctx.dnt=dntVal&&(dntVal.startsWith("1")||dntVal.startsWith("yes")||dntVal.startsWith("on"))}</script><script src="/js/utils.js"></script><script src="/js/color-schema.js"></script><script async>if(!Fluid.ctx.dnt){var _hmt=_hmt||[];!function(){var t=document.createElement("script");t.src="https://hm.baidu.com/hm.js?104d1c240fe4777ab966bd68252f7714";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}()}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css"><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="D4wn">
+  <meta name="keywords" content="Node.js">
+  
+    <meta name="description" content="初识Node.js https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1a34y167AZ?p&#x3D;6&amp;spm_id_from&#x3D;pageDriver&amp;vd_source&#x3D;bf133d296119691c661008e881da330a&amp;t&#x3D;681.2 一、前置知识   image-20221004010324506  待执行的JS代码通过JS解析引">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识Node.js">
+<meta property="og:url" content="https://d4wnnn.github.io/2022/10/04/%E5%88%9D%E8%AF%86Node-js/index.html">
+<meta property="og:site_name" content="D4wn">
+<meta property="og:description" content="初识Node.js https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1a34y167AZ?p&#x3D;6&amp;spm_id_from&#x3D;pageDriver&amp;vd_source&#x3D;bf133d296119691c661008e881da330a&amp;t&#x3D;681.2 一、前置知识   image-20221004010324506  待执行的JS代码通过JS解析引">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://d4wnnn.github.io/img/article_img_6.jpg">
+<meta property="article:published_time" content="2022-10-03T17:01:05.000Z">
+<meta property="article:modified_time" content="2023-05-09T13:30:11.400Z">
+<meta property="article:author" content="D4wn">
+<meta property="article:tag" content="Node.js">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://d4wnnn.github.io/img/article_img_6.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>初识Node.js - D4wn</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"d4wnnn.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"104d1c240fe4777ab966bd68252f7714","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?104d1c240fe4777ab966bd68252f7714";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
 
@@ -110,4 +234,679 @@ mjx-container[display="true"] {
 mjx-container[display="true"] + br {
   display: none;
 }
-</style></head><body><header><div class="header-inner" style="height:70vh"><nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class="container"><a class="navbar-brand" href="/"><strong>D4wn</strong> </a><button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><div class="animated-icon"><span></span><span></span><span></span></div></button><div class="collapse navbar-collapse" id="navbarSupportedContent"><ul class="navbar-nav ml-auto text-center"><li class="nav-item"><a class="nav-link" href="/"><i class="iconfont icon-home-fill"></i> 首页</a></li><li class="nav-item"><a class="nav-link" href="/archives/"><i class="iconfont icon-archive-fill"></i> 归档</a></li><li class="nav-item"><a class="nav-link" href="/categories/"><i class="iconfont icon-category-fill"></i> 分类</a></li><li class="nav-item"><a class="nav-link" href="/tags/"><i class="iconfont icon-tags-fill"></i> 标签</a></li><li class="nav-item"><a class="nav-link" href="/about/"><i class="iconfont icon-user-fill"></i> 关于</a></li><li class="nav-item" id="search-btn"><a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">&nbsp;<i class="iconfont icon-search"></i>&nbsp;</a></li><li class="nav-item" id="color-toggle-btn"><a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a></li></ul></div></div></nav><div id="banner" class="banner" parallax="true" style="background:url(/img/total.jpg) no-repeat center center;background-size:cover"><div class="full-bg-img"><div class="mask flex-center" style="background-color:rgba(0,0,0,.3)"><div class="banner-text text-center fade-in-up"><div class="h2"><span id="subtitle" data-typed-text="初识Node.js"></span></div><div class="mt-3"><span class="post-meta mr-2"><i class="iconfont icon-author" aria-hidden="true"></i> D4wn </span><span class="post-meta"><i class="iconfont icon-date-fill" aria-hidden="true"></i> <time datetime="2022-10-04 01:01" pubdate>2022年10月4日 凌晨</time></span></div><div class="mt-1"><span class="post-meta mr-2"><i class="iconfont icon-chart"></i> 1.3k 字 </span><span class="post-meta mr-2"><i class="iconfont icon-clock-fill"></i> 11 分钟</span></div></div></div></div></div></div></header><main><div class="container-fluid nopadding-x"><div class="row nomargin-x"><div class="side-col d-none d-lg-block col-lg-2"></div><div class="col-lg-8 nopadding-x-md"><div class="container nopadding-x-md" id="board-ctn"><div id="board"><article class="post-content mx-auto"><h1 style="display:none">初识Node.js</h1><div class="markdown-body"><h1 id="初识node.js">初识Node.js</h1><p>https://www.bilibili.com/video/BV1a34y167AZ?p=6&amp;spm_id_from=pageDriver&amp;vd_source=bf133d296119691c661008e881da330a&amp;t=681.2</p><h2 id="一前置知识">一、前置知识</h2><figure><img src="/2022/10/04/%E5%88%9D%E8%AF%86Node-js/image-20221004010324506.png" srcset="/img/loading.gif" lazyload alt="image-20221004010324506"><figcaption aria-hidden="true">image-20221004010324506</figcaption></figure><p>待执行的JS代码通过JS解析引擎被浏览器执行</p><ul><li><p>不同的浏览器JS解析引擎不同</p><ul><li><p>Chrome的为V8(性能最好)</p></li><li><p>Firefox的为OdinMonkey(奥丁猴)</p></li></ul></li><li><p>为什么JS可以执行DOM和BOM</p><p>每个浏览器内置了DOM API,BOM API,Ajax API,JS可以调用他们</p></li><li><p>什么是Node.js</p><p>Node.js是一个基于Chrome的V8引擎的JS运行环境</p><figure><img src="/2022/10/04/%E5%88%9D%E8%AF%86Node-js/image-20221004011954943.png" srcset="/img/loading.gif" lazyload alt="image-20221004011954943"><figcaption aria-hidden="true">image-20221004011954943</figcaption></figure></li></ul><p>浏览器是JS的前端运行环境</p><p>Node.js是JS后端运行环境 但是Node.js无法调用DOM和BOM等浏览器内置API</p><figure><img src="/2022/10/04/%E5%88%9D%E8%AF%86Node-js/image-20221004012615415.png" srcset="/img/loading.gif" lazyload alt="image-20221004012615415"><figcaption aria-hidden="true">image-20221004012615415</figcaption></figure><h2 id="使用node.js执行js代码">使用Node.js执行JS代码</h2><p><code>node js文件</code></p><p>使用<code>esc</code> 能快速清楚当前输入的命令</p><h2 id="二fs系统模块">二、fs系统模块</h2><blockquote><p>fs模块是Node.js官方提供的用来操作文件的模块</p><p>但是要提前导入:<code>const fs = require('fs')</code></p></blockquote><p>Demo：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js">读取文件<br><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br>fs.<span class="hljs-title function_">readFile</span>(__dirname + <span class="hljs-string">'/a.txt'</span>, <span class="hljs-string">'utf-8'</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">err, dataStr</span>) {<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err);<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(dataStr);<br>})<br>写入文件<br><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br>fs.<span class="hljs-title function_">writeFile</span>(__dirname + <span class="hljs-string">'/a.txt'</span>, <span class="hljs-string">'newData'</span>,<span class="hljs-string">'utf-8'</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) {<br>    <span class="hljs-comment">//只能用来创建文件，不能用来创建目录</span><br>    <span class="hljs-keyword">if</span>(err){<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">message</span>);<br>    }<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'success'</span>);<br>})<br><span class="hljs-comment">//__dirname代表当前文件的路径</span><br></code></pre></td></tr></table></figure><h2 id="三path路径模块">三、path路径模块</h2><blockquote><p>path是NodeJS官方提供的用来处理路径的模块，满足用户对路径的需求</p></blockquote><p>Demo：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>)<br><span class="hljs-keyword">const</span> fPath = path.<span class="hljs-title function_">join</span>(__dirname, <span class="hljs-string">'/a.txt'</span>)<br>fs.<span class="hljs-title function_">writeFile</span>(fPath, <span class="hljs-string">'newData'</span>, <span class="hljs-string">'utf-8'</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) {<br>    <span class="hljs-comment">//合并路径</span><br>    <span class="hljs-keyword">if</span> (err) {<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">message</span>);<br>    }<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-title function_">basename</span>(fPath) + <span class="hljs-string">'写入成功'</span>);<span class="hljs-comment">//获取文件名</span><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-title function_">basename</span>(fPath, path.<span class="hljs-title function_">extname</span>(fPath)) + <span class="hljs-string">'写入成功'</span>);<br>    <span class="hljs-comment">//获取无后缀的拓展名</span><br>})<br><span class="hljs-comment">//a.txt写入成功</span><br><span class="hljs-comment">//a写入成功</span><br></code></pre></td></tr></table></figure><h2 id="四http模块">四、http模块</h2><h2 id="五模块化">五、模块化</h2></div><hr><div><div class="post-metas my-3"><div class="post-meta mr-3 d-flex align-items-center"><i class="iconfont icon-category"></i> <span class="category-chains"><span class="category-chain"><a href="/categories/%E5%85%B6%E5%AE%83/" class="category-chain-item">其它</a></span></span></div><div class="post-meta"><i class="iconfont icon-tags"></i> <a href="/tags/Node-js/">#Node.js</a></div></div><div class="license-box my-3"><div class="license-title"><div>初识Node.js</div><div>https://d4wnnn.github.io/2022/10/04/初识Node-js/</div></div><div class="license-meta"><div class="license-meta-item"><div>作者</div><div>D4wn</div></div><div class="license-meta-item license-meta-date"><div>发布于</div><div>2022年10月4日</div></div><div class="license-meta-item"><div>许可协议</div><div><a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/"><span class="hint--top hint--rounded" aria-label="BY - 署名"><i class="iconfont icon-by"></i> </span></a><a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/"><span class="hint--top hint--rounded" aria-label="SA - 相同方式共享"><i class="iconfont icon-sa"></i></span></a></div></div></div><div class="license-icon iconfont"></div></div><div class="post-prevnext my-3"><article class="post-prev col-6"><a href="/2022/10/04/JavaScript%E7%AC%94%E8%AE%B0/" title="JavaScript笔记"><i class="iconfont icon-arrowleft"></i> <span class="hidden-mobile">JavaScript笔记</span> <span class="visible-mobile">上一篇</span></a></article><article class="post-next col-6"><a href="/2022/10/04/npm%E5%AD%A6%E4%B9%A0/" title="npm学习"><span class="hidden-mobile">npm学习</span> <span class="visible-mobile">下一篇</span> <i class="iconfont icon-arrowright"></i></a></article></div></div><article id="comments" lazyload><div id="valine"></div><script type="text/javascript">Fluid.utils.loadComments("#valine",(function(){Fluid.utils.createScript("https://lib.baomitu.com/valine/1.5.1/Valine.min.js",(function(){var Q=Object.assign({appId:"iQzcdzgtk7S3lKyzUoT3segU-gzGzoHsz",appKey:"mL1QjUEvvzJ9E2xIVz0OuJuj",path:"window.location.pathname",placeholder:"Hello",avatar:"retro",meta:["nick","mail","link"],requiredFields:[],pageSize:10,lang:"zh-CN",highlight:!0,recordIP:!0,serverURLs:"https://iqzcdzgt.lc-cn-n1-shared.com",emojiCDN:"https://valinecdn.bili33.top/",emojiMaps:{QQ1:"QQ/aini.gif",QQ2:"QQ/aixin.gif",QQ3:"QQ/aoman.gif",QQ4:"QQ/baiyan.gif",QQ5:"QQ/bangbangtang.gif",QQ6:"QQ/baojin.gif",QQ7:"QQ/baoquan.gif",QQ8:"QQ/bishi.gif",QQ9:"QQ/bizui.gif",QQ11:"QQ/cahan.gif",QQ12:"QQ/caidao.gif",QQ13:"QQ/chi.gif",QQ14:"QQ/ciya.gif",QQ15:"QQ/dabing.gif",QQ16:"QQ/daku.gif",QQ17:"QQ/dan.gif",QQ18:"QQ/deyi.gif",QQ19:"QQ/doge.gif",QQ20:"QQ/fadai.gif",QQ21:"QQ/fanu.gif",QQ22:"QQ/fendou.gif",QQ23:"QQ/ganga.gif",QQ24:"QQ/gouyin.gif",QQ25:"QQ/guzhang.gif",QQ26:"QQ/haixiu.gif",QQ27:"QQ/hanxiao.gif",QQ28:"QQ/haobang.gif",QQ29:"QQ/haqian.gif",QQ30:"QQ/hecai.gif",QQ31:"QQ/hexie.gif",QQ32:"QQ/huaixiao.gif",QQ33:"QQ/jie.gif",QQ34:"QQ/jingkong.gif",QQ35:"QQ/jingxi.gif",QQ36:"QQ/jingya.gif",QQ37:"QQ/juhua.gif",QQ38:"QQ/keai.gif",QQ39:"QQ/kelian.gif",QQ40:"QQ/koubi.gif",QQ41:"QQ/ku.gif",QQ42:"QQ/kuaikule.gif",QQ43:"QQ/kulou.gif",QQ44:"QQ/kun.gif",QQ45:"QQ/lanqiu.gif",QQ46:"QQ/leiben.gif",QQ47:"QQ/lenghan.gif",QQ48:"QQ/liuhan.gif",QQ49:"QQ/liulei.gif",QQ50:"QQ/nanguo.gif",QQ51:"QQ/OK.gif",QQ52:"QQ/penxue.gif",QQ53:"QQ/piezui.gif",QQ54:"QQ/pijiu.gif",QQ55:"QQ/qiang.gif",QQ56:"QQ/qiaoda.gif",QQ57:"QQ/qinqin.gif",QQ58:"QQ/qiudale.gif",QQ59:"QQ/quantou.gif",QQ60:"QQ/saorao.gif",QQ61:"QQ/se.gif",QQ62:"QQ/shengli.gif",QQ63:"QQ/shouqiang.gif",QQ64:"QQ/shuai.gif",QQ65:"QQ/shui.gif",QQ66:"QQ/tiaopi.gif",QQ67:"QQ/touxiao.gif",QQ68:"QQ/tu.gif",QQ69:"QQ/tuosai.gif",QQ70:"QQ/weiqu.gif",QQ71:"QQ/weixiao.gif",QQ72:"QQ/woshou.gif",QQ73:"QQ/wozuimei.gif",QQ74:"QQ/wunai.gif",QQ75:"QQ/xia.gif",QQ76:"QQ/xiaojiujie.gif",QQ77:"QQ/xiaoku.gif",QQ78:"QQ/xiaoyanger.gif",QQ79:"QQ/xieyanxiao.gif",QQ80:"QQ/xigua.gif",QQ81:"QQ/xu.gif",QQ82:"QQ/yangtuo.gif",QQ83:"QQ/yinxian.gif",QQ84:"QQ/yiwen.gif",QQ85:"QQ/youhengheng.gif",QQ86:"QQ/youling.gif",QQ87:"QQ/yun.gif",QQ88:"QQ/zaijian.gif",QQ89:"QQ/zhayanjian.gif",QQ90:"QQ/zhemo.gif",QQ91:"QQ/zhouma.gif",QQ92:"QQ/zhuakuang.gif",QQ93:"QQ/zuohengheng.gif"},enableQQ:!0},{el:"#valine",path:window.location.pathname});new Valine(Q),Fluid.utils.waitElementVisible("#valine .vcontent",()=>{var Q="#valine .vcontent img:not(.vemoji)";Fluid.plugins.imageCaption(Q),Fluid.plugins.fancyBox(Q)})}))}))</script><noscript>Please enable JavaScript to view the comments</noscript></article></article></div></div></div><div class="side-col d-none d-lg-block col-lg-2"><aside class="sidebar" style="margin-left:-1rem"><div id="toc"><p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p><div class="toc-body" id="toc-body"></div></div></aside></div></div></div><a id="scroll-top-button" aria-label="TOP" href="#" role="button"><i class="iconfont icon-arrowup" aria-hidden="true"></i></a><div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable modal-lg" role="document"><div class="modal-content"><div class="modal-header text-center"><h4 class="modal-title w-100 font-weight-bold">搜索</h4><button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body mx-3"><div class="md-form mb-5"><input type="text" id="local-search-input" class="form-control validate"> <label data-error="x" data-success="v" for="local-search-input">关键词</label></div><div class="list-group" id="local-search-result"></div></div></div></div></div></main><footer><div class="footer-inner"><div class="footer-content"><a href="https://github.com/d4wnnn" target="_blank" rel="nofollow noopener"><span>Github</span></a> <i class="iconfont icon-love"></i> <a href="tencent://message/?uin=2638177031" target="_blank" rel="nofollow noopener"><span>联系我</span></a><div><span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span><script src="/js/duration.js"></script></div></div><div class="statistics"><span id="busuanzi_container_site_pv" style="display:none">总访问量 <span id="busuanzi_value_site_pv"></span> 次 </span><span id="busuanzi_container_site_uv" style="display:none">总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></div><div><a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由 <img src="img/又拍云_logo5.png" srcset="/img/loading.gif" lazyload width="45px"> 提供CDN加速/云存储服务</a></div></div></footer><script src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js"></script><link rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css"><script>NProgress.configure({showSpinner:!1,trickleSpeed:100}),NProgress.start(),window.addEventListener("load",(function(){NProgress.done()}))</script><script src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js"></script><script src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js"></script><script src="/js/events.js"></script><script src="/js/plugins.js"></script><script src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js"></script><script>!function(t,e){var i=Fluid.plugins.typing,n=e.getElementById("subtitle");n&&i&&i(n.getAttribute("data-typed-text"))}(window,document)</script><script src="/js/img-lazyload.js"></script><script>Fluid.utils.createScript("https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js",(function(){var t=jQuery("#toc");if(0!==t.length&&window.tocbot){var i=jQuery("#board-ctn").offset().top;window.tocbot.init(Object.assign({tocSelector:"#toc-body",contentSelector:".markdown-body",linkClass:"tocbot-link",activeLinkClass:"tocbot-active-link",listClass:"tocbot-list",isCollapsedClass:"tocbot-is-collapsed",collapsibleClass:"tocbot-is-collapsible",scrollSmooth:!0,includeTitleTags:!0,headingsOffset:-i},CONFIG.toc)),t.find(".toc-list-item").length>0&&t.css("visibility","visible"),Fluid.events.registerRefreshCallback((function(){if("tocbot"in window){tocbot.refresh();var t=jQuery("#toc");if(0===t.length||!tocbot)return;t.find(".toc-list-item").length>0&&t.css("visibility","visible")}}))}}))</script><script src="https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js"></script><script>Fluid.plugins.codeWidget()</script><script>Fluid.utils.createScript("https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js",(function(){window.anchors.options={placement:CONFIG.anchorjs.placement,visible:CONFIG.anchorjs.visible},CONFIG.anchorjs.icon&&(window.anchors.options.icon=CONFIG.anchorjs.icon);var n=(CONFIG.anchorjs.element||"h1,h2,h3,h4,h5,h6").split(","),o=[];for(var s of n)o.push(".markdown-body > "+s.trim());"left"===CONFIG.anchorjs.placement&&(window.anchors.options.class="anchorjs-link-left"),window.anchors.add(o.join(", ")),Fluid.events.registerRefreshCallback((function(){if("anchors"in window){anchors.removeAll();var n=(CONFIG.anchorjs.element||"h1,h2,h3,h4,h5,h6").split(","),o=[];for(var s of n)o.push(".markdown-body > "+s.trim());"left"===CONFIG.anchorjs.placement&&(anchors.options.class="anchorjs-link-left"),anchors.add(o.join(", "))}}))}))</script><script>Fluid.utils.createScript("https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js",(function(){Fluid.plugins.fancyBox()}))</script><script>Fluid.plugins.imageCaption()</script><script src="/js/local-search.js"></script><script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/boot.js"></script><noscript><div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div></noscript><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>
+</style></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>D4wn</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/total.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="初识Node.js"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        D4wn
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-04 01:01" pubdate>
+          2022年10月4日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">初识Node.js</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="初识node.js">初识Node.js</h1>
+<p>https://www.bilibili.com/video/BV1a34y167AZ?p=6&amp;spm_id_from=pageDriver&amp;vd_source=bf133d296119691c661008e881da330a&amp;t=681.2</p>
+<h2 id="一前置知识">一、前置知识</h2>
+<figure>
+<img src="/2022/10/04/%E5%88%9D%E8%AF%86Node-js/image-20221004010324506.png" srcset="/img/loading.gif" lazyload alt="image-20221004010324506">
+<figcaption aria-hidden="true">image-20221004010324506</figcaption>
+</figure>
+<p>待执行的JS代码通过JS解析引擎被浏览器执行</p>
+<ul>
+<li><p>不同的浏览器JS解析引擎不同</p>
+<ul>
+<li><p>Chrome的为V8(性能最好)</p></li>
+<li><p>Firefox的为OdinMonkey(奥丁猴)</p></li>
+</ul></li>
+<li><p>为什么JS可以执行DOM和BOM</p>
+<p>每个浏览器内置了DOM API,BOM API,Ajax API,JS可以调用他们</p></li>
+<li><p>什么是Node.js</p>
+<p>Node.js是一个基于Chrome的V8引擎的JS运行环境</p>
+<figure>
+<img src="/2022/10/04/%E5%88%9D%E8%AF%86Node-js/image-20221004011954943.png" srcset="/img/loading.gif" lazyload alt="image-20221004011954943">
+<figcaption aria-hidden="true">image-20221004011954943</figcaption>
+</figure></li>
+</ul>
+<p>浏览器是JS的前端运行环境</p>
+<p>Node.js是JS后端运行环境
+但是Node.js无法调用DOM和BOM等浏览器内置API</p>
+<figure>
+<img src="/2022/10/04/%E5%88%9D%E8%AF%86Node-js/image-20221004012615415.png" srcset="/img/loading.gif" lazyload alt="image-20221004012615415">
+<figcaption aria-hidden="true">image-20221004012615415</figcaption>
+</figure>
+<h2 id="使用node.js执行js代码">使用Node.js执行JS代码</h2>
+<p><code>node js文件</code></p>
+<p>使用<code>esc</code> 能快速清楚当前输入的命令</p>
+<h2 id="二fs系统模块">二、fs系统模块</h2>
+<blockquote>
+<p>fs模块是Node.js官方提供的用来操作文件的模块</p>
+<p>但是要提前导入:<code>const fs = require('fs')</code></p>
+</blockquote>
+<p>Demo：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js">读取文件<br><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br>fs.<span class="hljs-title function_">readFile</span>(__dirname + <span class="hljs-string">'/a.txt'</span>, <span class="hljs-string">'utf-8'</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">err, dataStr</span>) {<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err);<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(dataStr);<br>})<br>写入文件<br><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br>fs.<span class="hljs-title function_">writeFile</span>(__dirname + <span class="hljs-string">'/a.txt'</span>, <span class="hljs-string">'newData'</span>,<span class="hljs-string">'utf-8'</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) {<br>    <span class="hljs-comment">//只能用来创建文件，不能用来创建目录</span><br>    <span class="hljs-keyword">if</span>(err){<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">message</span>);<br>    }<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'success'</span>);<br>})<br><span class="hljs-comment">//__dirname代表当前文件的路径</span><br></code></pre></td></tr></table></figure>
+<h2 id="三path路径模块">三、path路径模块</h2>
+<blockquote>
+<p>path是NodeJS官方提供的用来处理路径的模块，满足用户对路径的需求</p>
+</blockquote>
+<p>Demo：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>)<br><span class="hljs-keyword">const</span> fPath = path.<span class="hljs-title function_">join</span>(__dirname, <span class="hljs-string">'/a.txt'</span>)<br>fs.<span class="hljs-title function_">writeFile</span>(fPath, <span class="hljs-string">'newData'</span>, <span class="hljs-string">'utf-8'</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) {<br>    <span class="hljs-comment">//合并路径</span><br>    <span class="hljs-keyword">if</span> (err) {<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">message</span>);<br>    }<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-title function_">basename</span>(fPath) + <span class="hljs-string">'写入成功'</span>);<span class="hljs-comment">//获取文件名</span><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-title function_">basename</span>(fPath, path.<span class="hljs-title function_">extname</span>(fPath)) + <span class="hljs-string">'写入成功'</span>);<br>    <span class="hljs-comment">//获取无后缀的拓展名</span><br>})<br><span class="hljs-comment">//a.txt写入成功</span><br><span class="hljs-comment">//a写入成功</span><br></code></pre></td></tr></table></figure>
+<h2 id="四http模块">四、http模块</h2>
+<h2 id="五模块化">五、模块化</h2>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%85%B6%E5%AE%83/" class="category-chain-item">其它</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Node-js/">#Node.js</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>初识Node.js</div>
+      <div>https://d4wnnn.github.io/2022/10/04/初识Node-js/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>D4wn</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月4日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/04/JavaScript%E7%AC%94%E8%AE%B0/" title="JavaScript笔记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JavaScript笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/04/npm%E5%AD%A6%E4%B9%A0/" title="npm学习">
+                        <span class="hidden-mobile">npm学习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"iQzcdzgtk7S3lKyzUoT3segU-gzGzoHsz","appKey":"mL1QjUEvvzJ9E2xIVz0OuJuj","path":"window.location.pathname","placeholder":"Hello","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://iqzcdzgt.lc-cn-n1-shared.com","emojiCDN":"https://valinecdn.bili33.top/","emojiMaps":{"QQ1":"QQ/aini.gif","QQ2":"QQ/aixin.gif","QQ3":"QQ/aoman.gif","QQ4":"QQ/baiyan.gif","QQ5":"QQ/bangbangtang.gif","QQ6":"QQ/baojin.gif","QQ7":"QQ/baoquan.gif","QQ8":"QQ/bishi.gif","QQ9":"QQ/bizui.gif","QQ11":"QQ/cahan.gif","QQ12":"QQ/caidao.gif","QQ13":"QQ/chi.gif","QQ14":"QQ/ciya.gif","QQ15":"QQ/dabing.gif","QQ16":"QQ/daku.gif","QQ17":"QQ/dan.gif","QQ18":"QQ/deyi.gif","QQ19":"QQ/doge.gif","QQ20":"QQ/fadai.gif","QQ21":"QQ/fanu.gif","QQ22":"QQ/fendou.gif","QQ23":"QQ/ganga.gif","QQ24":"QQ/gouyin.gif","QQ25":"QQ/guzhang.gif","QQ26":"QQ/haixiu.gif","QQ27":"QQ/hanxiao.gif","QQ28":"QQ/haobang.gif","QQ29":"QQ/haqian.gif","QQ30":"QQ/hecai.gif","QQ31":"QQ/hexie.gif","QQ32":"QQ/huaixiao.gif","QQ33":"QQ/jie.gif","QQ34":"QQ/jingkong.gif","QQ35":"QQ/jingxi.gif","QQ36":"QQ/jingya.gif","QQ37":"QQ/juhua.gif","QQ38":"QQ/keai.gif","QQ39":"QQ/kelian.gif","QQ40":"QQ/koubi.gif","QQ41":"QQ/ku.gif","QQ42":"QQ/kuaikule.gif","QQ43":"QQ/kulou.gif","QQ44":"QQ/kun.gif","QQ45":"QQ/lanqiu.gif","QQ46":"QQ/leiben.gif","QQ47":"QQ/lenghan.gif","QQ48":"QQ/liuhan.gif","QQ49":"QQ/liulei.gif","QQ50":"QQ/nanguo.gif","QQ51":"QQ/OK.gif","QQ52":"QQ/penxue.gif","QQ53":"QQ/piezui.gif","QQ54":"QQ/pijiu.gif","QQ55":"QQ/qiang.gif","QQ56":"QQ/qiaoda.gif","QQ57":"QQ/qinqin.gif","QQ58":"QQ/qiudale.gif","QQ59":"QQ/quantou.gif","QQ60":"QQ/saorao.gif","QQ61":"QQ/se.gif","QQ62":"QQ/shengli.gif","QQ63":"QQ/shouqiang.gif","QQ64":"QQ/shuai.gif","QQ65":"QQ/shui.gif","QQ66":"QQ/tiaopi.gif","QQ67":"QQ/touxiao.gif","QQ68":"QQ/tu.gif","QQ69":"QQ/tuosai.gif","QQ70":"QQ/weiqu.gif","QQ71":"QQ/weixiao.gif","QQ72":"QQ/woshou.gif","QQ73":"QQ/wozuimei.gif","QQ74":"QQ/wunai.gif","QQ75":"QQ/xia.gif","QQ76":"QQ/xiaojiujie.gif","QQ77":"QQ/xiaoku.gif","QQ78":"QQ/xiaoyanger.gif","QQ79":"QQ/xieyanxiao.gif","QQ80":"QQ/xigua.gif","QQ81":"QQ/xu.gif","QQ82":"QQ/yangtuo.gif","QQ83":"QQ/yinxian.gif","QQ84":"QQ/yiwen.gif","QQ85":"QQ/youhengheng.gif","QQ86":"QQ/youling.gif","QQ87":"QQ/yun.gif","QQ88":"QQ/zaijian.gif","QQ89":"QQ/zhayanjian.gif","QQ90":"QQ/zhemo.gif","QQ91":"QQ/zhouma.gif","QQ92":"QQ/zhuakuang.gif","QQ93":"QQ/zuohengheng.gif"},"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://github.com/d4wnnn" target="_blank" rel="nofollow noopener"><span>Github</span></a> <i class="iconfont icon-love"></i> <a href="tencent://message/?uin=2638177031" target="_blank" rel="nofollow noopener"><span>联系我</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+  <!-- 又拍云 -->
+  <div>
+    <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由
+        <img src="img/又拍云_logo5.png" srcset="/img/loading.gif" lazyload width="45px" /> 提供CDN加速/云存储服务</a>
+ </div>
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

