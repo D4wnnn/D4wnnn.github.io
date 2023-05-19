@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="Python脚本 Socket编程  当客户端执行sock.close()，会向服务器发送FIN包，此时服务端的conn.recv(1024)才会返回空字符串；如果直接发送空字符串，conn.recv(1024)并不会返回空字符串，而是继续阻塞等待。 服务端同理，执行conn.close()后，客户端的sock.recv(1024)也会返回空字符串 注意：当任意一段执行close()后，">
+    <meta name="description" content="Python脚本Socket编程 当客户端执行sock.close()，会向服务器发送FIN包，此时服务端的conn.recv(1024)才会返回空字符串；如果直接发送空字符串，conn.recv(1024)并不会返回空字符串，而是继续阻塞等待。 服务端同理，执行conn.close()后，客户端的sock.recv(1024)也会返回空字符串 注意：当任意一段执行close()后，另一端都要再次">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python脚本">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/05/16/Python%E8%84%9A%E6%9C%AC/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Python脚本 Socket编程  当客户端执行sock.close()，会向服务器发送FIN包，此时服务端的conn.recv(1024)才会返回空字符串；如果直接发送空字符串，conn.recv(1024)并不会返回空字符串，而是继续阻塞等待。 服务端同理，执行conn.close()后，客户端的sock.recv(1024)也会返回空字符串 注意：当任意一段执行close()后，">
+<meta property="og:description" content="Python脚本Socket编程 当客户端执行sock.close()，会向服务器发送FIN包，此时服务端的conn.recv(1024)才会返回空字符串；如果直接发送空字符串，conn.recv(1024)并不会返回空字符串，而是继续阻塞等待。 服务端同理，执行conn.close()后，客户端的sock.recv(1024)也会返回空字符串 注意：当任意一段执行close()后，另一端都要再次">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2023-05-15T16:00:26.000Z">
@@ -430,15 +430,13 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="python脚本">Python脚本</h1>
-<h2 id="socket编程">Socket编程</h2>
-<blockquote>
+                <h1 id="Python脚本"><a href="#Python脚本" class="headerlink" title="Python脚本"></a>Python脚本</h1><h2 id="Socket编程"><a href="#Socket编程" class="headerlink" title="Socket编程"></a>Socket编程</h2><blockquote>
 <p>当客户端执行<code>sock.close()</code>，会向服务器发送FIN包，此时服务端的<code>conn.recv(1024)</code>才会返回空字符串；如果直接发送空字符串，<code>conn.recv(1024)</code>并不会返回空字符串，而是继续阻塞等待。</p>
 <p>服务端同理，执行<code>conn.close()</code>后，客户端的<code>sock.recv(1024)</code>也会返回空字符串</p>
 <p>注意：当任意一段执行<code>close()</code>后，另一端都要再次执行<code>close()</code></p>
 </blockquote>
-<h2 id="日志">日志</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> logging<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    <span class="hljs-built_in">format</span> = <span class="hljs-string">"%(asctime)s-%(levelname)s-%(message)s"</span>  <span class="hljs-comment"># asctime为生成时间</span><br>    date_format = <span class="hljs-string">"%Y/%m/%d %H:%M:%S"</span>  <span class="hljs-comment"># 日期时间</span><br>    logging.basicConfig(<br>        filename=<span class="hljs-string">"qy.log"</span>,  <span class="hljs-comment"># 输出到文件,此时不会输出到控制台</span><br>        filemode=<span class="hljs-string">'a'</span>,  <span class="hljs-comment"># 默认为追加模式</span><br>        <span class="hljs-built_in">format</span>=<span class="hljs-built_in">format</span>,<br>        datefmt=date_format,<br>        level=logging.DEBUG  <span class="hljs-comment"># 日志级别</span><br>    )<br>    logging.debug(<span class="hljs-string">"debug"</span>)<br>    logging.info(<span class="hljs-string">"info"</span>)<br>    logging.warning(<span class="hljs-string">"warning"</span>)<br>    logging.error(<span class="hljs-string">"error"</span>)<br>    logging.critical(<span class="hljs-string">"critical"</span>)<br></code></pre></td></tr></table></figure>
+<h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> logging<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    <span class="hljs-built_in">format</span> = <span class="hljs-string">"%(asctime)s-%(levelname)s-%(message)s"</span>  <span class="hljs-comment"># asctime为生成时间</span><br>    date_format = <span class="hljs-string">"%Y/%m/%d %H:%M:%S"</span>  <span class="hljs-comment"># 日期时间</span><br>    logging.basicConfig(<br>        filename=<span class="hljs-string">"qy.log"</span>,  <span class="hljs-comment"># 输出到文件,此时不会输出到控制台</span><br>        filemode=<span class="hljs-string">'a'</span>,  <span class="hljs-comment"># 默认为追加模式</span><br>        <span class="hljs-built_in">format</span>=<span class="hljs-built_in">format</span>,<br>        datefmt=date_format,<br>        level=logging.DEBUG  <span class="hljs-comment"># 日志级别</span><br>    )<br>    logging.debug(<span class="hljs-string">"debug"</span>)<br>    logging.info(<span class="hljs-string">"info"</span>)<br>    logging.warning(<span class="hljs-string">"warning"</span>)<br>    logging.error(<span class="hljs-string">"error"</span>)<br>    logging.critical(<span class="hljs-string">"critical"</span>)<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>

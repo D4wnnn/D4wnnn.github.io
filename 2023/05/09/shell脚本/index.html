@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="shell脚本 变量  环境变量：  如何查看？env 或者printenv可以查看所有，printenv xxx或者echo $xxx可以查看特定变量 常见环境变量  创建变量：  等号两边不能有空格，如果变量有空格，必须放入引号中 同一行可以定义多个变量，但是要有分号分割  特殊变量： 123456$# 传递给脚本的参数个数$0 当前脚本文件名$n 第n个参数，如$">
+    <meta name="description" content="shell脚本变量 环境变量：  如何查看？env 或者printenv可以查看所有，printenv xxx或者echo $xxx可以查看特定变量 常见环境变量  创建变量：  等号两边不能有空格，如果变量有空格，必须放入引号中 同一行可以定义多个变量，但是要有分号分割  特殊变量： 123456$# 传递给脚本的参数个数$0 当前脚本文件名$n 第n个参数，如$1表示第一个参数$* 传递给脚本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shell脚本">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/05/09/shell%E8%84%9A%E6%9C%AC/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="shell脚本 变量  环境变量：  如何查看？env 或者printenv可以查看所有，printenv xxx或者echo $xxx可以查看特定变量 常见环境变量  创建变量：  等号两边不能有空格，如果变量有空格，必须放入引号中 同一行可以定义多个变量，但是要有分号分割  特殊变量： 123456$# 传递给脚本的参数个数$0 当前脚本文件名$n 第n个参数，如$">
+<meta property="og:description" content="shell脚本变量 环境变量：  如何查看？env 或者printenv可以查看所有，printenv xxx或者echo $xxx可以查看特定变量 常见环境变量  创建变量：  等号两边不能有空格，如果变量有空格，必须放入引号中 同一行可以定义多个变量，但是要有分号分割  特殊变量： 123456$# 传递给脚本的参数个数$0 当前脚本文件名$n 第n个参数，如$1表示第一个参数$* 传递给脚本">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://d4wnnn.github.io/img/article_img_4.jpg">
 <meta property="article:published_time" content="2023-05-09T11:24:07.000Z">
@@ -430,9 +430,7 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="shell脚本">shell脚本</h1>
-<h2 id="变量">变量</h2>
-<blockquote>
+                <h1 id="shell脚本"><a href="#shell脚本" class="headerlink" title="shell脚本"></a>shell脚本</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><blockquote>
 <p>环境变量：</p>
 <ul>
 <li>如何查看？<code>env 或者printenv可以查看所有，printenv xxx或者echo $xxx可以查看特定变量</code></li>
@@ -445,95 +443,105 @@ mjx-container[display="true"] + br {
 </ul>
 <p>特殊变量：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-variable">$#</span> 传递给脚本的参数个数<br><span class="hljs-variable">$0</span> 当前脚本文件名<br><span class="hljs-variable">$n</span> 第n个参数，如<span class="hljs-variable">$1</span>表示第一个参数<br>$* 传递给脚本的所有参数<br>$$ 当前shell脚本ID<br>$? 上一条命令的返回值或者说退出状态<br></code></pre></td></tr></table></figure>
-<p>参考：http://c.biancheng.net/view/806.html</p>
+
+<p>参考：<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/806.html">http://c.biancheng.net/view/806.html</a></p>
 </blockquote>
-<h2 id="条件判断">条件判断</h2>
-<blockquote>
+<h2 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h2><blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-keyword">if</span> commands; <span class="hljs-keyword">then</span><br>commands<br>[<span class="hljs-keyword">elif</span> commands; <span class="hljs-keyword">then</span><br>commands...]<br>[<span class="hljs-keyword">else</span><br>commands]<br><span class="hljs-keyword">fi</span><br></code></pre></td></tr></table></figure>
+
 <p>或者写成以下格式：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-keyword">if</span> <span class="hljs-literal">true</span><br><span class="hljs-keyword">then</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">'hello world'</span><br><span class="hljs-keyword">fi</span><br><br><span class="hljs-keyword">if</span> <span class="hljs-literal">false</span><br><span class="hljs-keyword">then</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">'it is false'</span> <span class="hljs-comment"># 本行不会执行</span><br><span class="hljs-keyword">fi</span><br></code></pre></td></tr></table></figure>
+
 <p>常见条件判断符号：</p>
 <ul>
-<li><p>```bash -eq 等于 -ne 不等于 -le 小于等于 -ge 大于等于 -lt 小于
--gt 大于 -n xxx 若不为空 则返回true -z 若为空 则返回true
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs subunit">  <br>* 表达式判断符号：https://wangchujiang.com/linux-command/c/test.html<br><br>### test命令<br><br>`if`结构的判断条件，一般使用test命令，有三种形式<br><br>```bash<br># 写法一<br><span class="hljs-keyword">test </span>expression<br><br># 写法二 中括号和表达式之间要有空格<br>[ expression ]<br><br># 写法三 支持正则判断 中括号和表达式之间要有空格<br>[[ expression ]]<br></code></pre></td></tr></table></figure></p></li>
-<li><p><code>[]</code>是<code>test</code>命令的简写形式</p></li>
+<li><pre><code class="bash">-eq 等于
+-ne 不等于
+-le 小于等于
+-ge 大于等于
+-lt 小于
+-gt 大于
+-n xxx 若不为空 则返回true
+-z 若为空 则返回true
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs subunit">  <br>* 表达式判断符号：https://wangchujiang.com/linux-command/c/test.html<br><br>### test命令<br><br>`if`结构的判断条件，一般使用test命令，有三种形式<br><br>```bash<br># 写法一<br><span class="hljs-keyword">test </span>expression<br><br># 写法二 中括号和表达式之间要有空格<br>[ expression ]<br><br># 写法三 支持正则判断 中括号和表达式之间要有空格<br>[[ expression ]]<br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p><code>[]</code>是<code>test</code>命令的简写形式</p>
+</li>
 </ul>
 </blockquote>
-<h2 id="循环">循环</h2>
-<blockquote>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><blockquote>
 <p><code>while</code>循环：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-keyword">while</span> condition; <span class="hljs-keyword">do</span><br>  commands<br><span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
-<p>或者</p>
+
+<p> 或者</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-keyword">while</span> condition<br><span class="hljs-keyword">do</span><br>	commands<br><span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="输入输出重定向">输入输出重定向</h2>
-<blockquote>
+<h2 id="输入输出重定向"><a href="#输入输出重定向" class="headerlink" title="输入输出重定向"></a>输入输出重定向</h2><blockquote>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>command &gt; file</th>
 <th>将输出重定向到 file。</th>
 </tr>
 </thead>
-<tbody>
-<tr class="odd">
+<tbody><tr>
 <td>command &lt; file</td>
 <td>将输入重定向到 file。</td>
 </tr>
-<tr class="even">
+<tr>
 <td>command &gt;&gt; file</td>
 <td>将输出以追加的方式重定向到 file。</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>n &gt; file</td>
 <td>将文件描述符为 n 的文件重定向到 file。</td>
 </tr>
-<tr class="even">
+<tr>
 <td>n &gt;&gt; file</td>
 <td>将文件描述符为 n 的文件以追加的方式重定向到 file。</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>n &gt;&amp; m</td>
 <td>将输出文件 m 和 n 合并。</td>
 </tr>
-<tr class="even">
+<tr>
 <td>n &lt;&amp; m</td>
 <td>将输入文件 m 和 n 合并。</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>&lt;&lt; tag</td>
 <td>将开始标记 tag 和结束标记 tag 之间的内容作为输入。</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <ul>
-<li><p>文件描述符：0为标准输入，1为标准输出，2为标准错误输出</p></li>
-<li><p>例：<code>ls a.txt b.txt &gt; output.txt 2&gt;&amp;1</code>，有<code>a.txt</code>但是没有<code>b.txt</code>，所以一部分在标准输出，一部分在标准错误输出。<code>&gt;</code>是<code>1&gt;</code>的简写，因此上述命令可写为<code>ls a.txt b.txt &gt; output.txt 2&gt;&amp;1</code>，<code>&amp;</code>存在的原因是为了指明后面的数字是文件描述符而不是文件名</p></li>
-<li><p><code>&gt;&amp;</code>和<code>&amp;&gt;意思相同</code></p></li>
+<li><p>文件描述符：0为标准输入，1为标准输出，2为标准错误输出</p>
+</li>
+<li><p>例：<code>ls a.txt b.txt &gt; output.txt 2&gt;&amp;1</code>，有<code>a.txt</code>但是没有<code>b.txt</code>，所以一部分在标准输出，一部分在标准错误输出。<code>&gt;</code>是<code>1&gt;</code>的简写，因此上述命令可写为<code>ls a.txt b.txt &gt; output.txt 2&gt;&amp;1</code>，<code>&amp;</code>存在的原因是为了指明后面的数字是文件描述符而不是文件名</p>
+</li>
+<li><p><code>&gt;&amp;</code>和<code>&amp;&gt;意思相同</code></p>
+</li>
 </ul>
 </blockquote>
-<h2 id="常见命令">常见命令</h2>
-<h3 id="awk">AWK</h3>
-<h3 id="grep">GREP</h3>
-<blockquote>
+<h2 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h2><h3 id="AWK"><a href="#AWK" class="headerlink" title="AWK"></a>AWK</h3><h3 id="GREP"><a href="#GREP" class="headerlink" title="GREP"></a>GREP</h3><blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">-w 只显示全匹配的列<br></code></pre></td></tr></table></figure>
+
+
 </blockquote>
-<h2 id="用户管理">用户管理</h2>
-<blockquote>
+<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><blockquote>
 <p><code>who</code>：显示当前所有登录用户的信息</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">who</span> 返回值：登录用户名称，终端信息，登录时间，远程主机或X display<br><span class="hljs-built_in">who</span> -b 返回上次系统启动的时间<br><br></code></pre></td></tr></table></figure>
+
 <p><code>last</code>：列出目前与过去登录用户相关信息，它会读取<code>/var/log/wtmp</code>文件并显示</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">last -10 查看最近十条登录信息<br></code></pre></td></tr></table></figure>
+
 <p><code>users</code>：打印当前主机所有登录用户的名称</p>
 </blockquote>
-<h2 id="参考">参考</h2>
-<blockquote>
-<p>https://wangdoc.com/bash/variable</p>
-<p>https://zhuanlan.zhihu.com/p/264346586</p>
-<p>http://c.biancheng.net/shell/</p>
-<p>https://www.yiibai.com/bash/bash-scripting.html</p>
-<p>https://quickref.cn/docs/bash.html</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://wangdoc.com/bash/variable">https://wangdoc.com/bash/variable</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/264346586">https://zhuanlan.zhihu.com/p/264346586</a></p>
+<p><a target="_blank" rel="noopener" href="http://c.biancheng.net/shell/">http://c.biancheng.net/shell/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.yiibai.com/bash/bash-scripting.html">https://www.yiibai.com/bash/bash-scripting.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://quickref.cn/docs/bash.html">https://quickref.cn/docs/bash.html</a></p>
 </blockquote>
 
                 

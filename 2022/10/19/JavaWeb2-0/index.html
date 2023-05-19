@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="JavaWeb2.0 Tomcat&amp;Servlet  若闪退则需要配置JAVA_HOME变量 IDEA部署Tomcat时并没有直接部署在webapps目录下,而是在out目录下 如何实现简单的前后端交互? 前端: 1234&lt;form action&#x3D;&quot;add&quot; method&#x3D;&quot;post&quot;&gt;    &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;age&quot;&amp;gt">
+    <meta name="description" content="JavaWeb2.0Tomcat&amp;Servlet 若闪退则需要配置JAVA_HOME变量  IDEA部署Tomcat时并没有直接部署在webapps目录下,而是在out目录下  如何实现简单的前后端交互? 前端: 1234&lt;form action&#x3D;&quot;add&quot; method&#x3D;&quot;post&quot;&gt;    &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;age&quot;&gt;    &amp;l">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaWeb2.0">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/10/19/JavaWeb2-0/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="JavaWeb2.0 Tomcat&amp;Servlet  若闪退则需要配置JAVA_HOME变量 IDEA部署Tomcat时并没有直接部署在webapps目录下,而是在out目录下 如何实现简单的前后端交互? 前端: 1234&lt;form action&#x3D;&quot;add&quot; method&#x3D;&quot;post&quot;&gt;    &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;age&quot;&amp;gt">
+<meta property="og:description" content="JavaWeb2.0Tomcat&amp;Servlet 若闪退则需要配置JAVA_HOME变量  IDEA部署Tomcat时并没有直接部署在webapps目录下,而是在out目录下  如何实现简单的前后端交互? 前端: 1234&lt;form action&#x3D;&quot;add&quot; method&#x3D;&quot;post&quot;&gt;    &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;age&quot;&gt;    &amp;l">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://d4wnnn.github.io/img/article_img_2.jpg">
 <meta property="article:published_time" content="2022-10-19T06:52:06.000Z">
@@ -430,23 +430,28 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="javaweb2.0">JavaWeb2.0</h1>
-<h2 id="tomcatservlet">Tomcat&amp;Servlet</h2>
-<ol type="1">
-<li><p>若闪退则需要配置<code>JAVA_HOME</code>变量</p></li>
-<li><p>IDEA部署Tomcat时并没有直接部署在webapps目录下,而是在out目录下</p></li>
+                <h1 id="JavaWeb2-0"><a href="#JavaWeb2-0" class="headerlink" title="JavaWeb2.0"></a>JavaWeb2.0</h1><h2 id="Tomcat-amp-Servlet"><a href="#Tomcat-amp-Servlet" class="headerlink" title="Tomcat&Servlet"></a>Tomcat&amp;Servlet</h2><ol>
+<li><p>若闪退则需要配置<code>JAVA_HOME</code>变量</p>
+</li>
+<li><p>IDEA部署Tomcat时并没有直接部署在webapps目录下,而是在out目录下</p>
+</li>
 <li><p>如何实现简单的前后端交互?</p>
 <p>前端:</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"add"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"age"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"提交"</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
 <p>后端:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AddServlet</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">HttpServlet</span> {<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doPost</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException {<br>        <span class="hljs-type">String</span> <span class="hljs-variable">ageStr</span> <span class="hljs-operator">=</span> req.getParameter(<span class="hljs-string">"age"</span>);<br>        <span class="hljs-type">Integer</span> <span class="hljs-variable">age</span> <span class="hljs-operator">=</span> Integer.parseInt(ageStr);<br>        System.out.println(age);<br>    }<br>}<br></code></pre></td></tr></table></figure>
+
 <p>xml配置文件:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">servlet</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">servlet-name</span>&gt;</span>d4wn<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">servlet-class</span>&gt;</span>com.d4wn.servlets.AddServlet<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-class</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">servlet</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">servlet-mapping</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">servlet-name</span>&gt;</span>d4wn<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>/add<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">servlet-mapping</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">servlet</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">servlet-name</span>&gt;</span>d4wn<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">servlet-class</span>&gt;</span>com.d4wn.servlets.AddServlet<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-class</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">servlet</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">servlet-mapping</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">servlet-name</span>&gt;</span>d4wn<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>/add<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">servlet-mapping</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
 <li><p>如何添加依赖?</p>
 <p>一种方法是把<code>lib</code>文件夹建立在<code>WEB-INF</code>目录下,这个时候<code>jar</code>被此模块独享</p>
-<p>另一种方法是建立在根目录,然后把目录添加为库,然后在项目结构里面引用此lib</p></li>
+<p>另一种方法是建立在根目录,然后把目录添加为库,然后在项目结构里面引用此lib</p>
+</li>
 <li><p>如何处理中文乱码问题?</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doPost</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException {<br>    <span class="hljs-comment">//post方式解决中文乱码问题</span><br>    <span class="hljs-comment">//tomcat8及以后,get方式无需解决中文乱码问题</span><br>    req.setCharacterEncoding(<span class="hljs-string">"UTF-8"</span>);<br>    <span class="hljs-type">String</span> <span class="hljs-variable">username</span> <span class="hljs-operator">=</span> req.getParameter(<span class="hljs-string">"username"</span>);<br>    System.out.println(username);<br>}<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doPost</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException {<br>    <span class="hljs-comment">//post方式解决中文乱码问题</span><br>    <span class="hljs-comment">//tomcat8及以后,get方式无需解决中文乱码问题</span><br>    req.setCharacterEncoding(<span class="hljs-string">"UTF-8"</span>);<br>    <span class="hljs-type">String</span> <span class="hljs-variable">username</span> <span class="hljs-operator">=</span> req.getParameter(<span class="hljs-string">"username"</span>);<br>    System.out.println(username);<br>}<br></code></pre></td></tr></table></figure>
+</li>
 <li><p>Servlet继承关系和生命周期如何?</p>
 <p>Servlet中的核心方法?</p>
 <ul>
@@ -463,97 +468,109 @@ mjx-container[display="true"] + br {
 <p>那么如何调整servlet的启动时间呢?</p>
 <p>在<code>web.xml</code>中设置<code>load-on-startop</code>,数字越小,启动越快,最小为0</p>
 <p>Servlet在容器中为单例的,线程不安全的,故尽量不要在servlet中定义成员变量</p>
-<p>若不得不在serlvet中定义成员变量,那么尽量不要改成员变量的值,并且尽量不要通过成员变量做一些逻辑判断</p></li>
+<p>若不得不在serlvet中定义成员变量,那么尽量不要改成员变量的值,并且尽量不要通过成员变量做一些逻辑判断</p>
+</li>
 <li><p>Session</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AddServlet</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">HttpServlet</span> {<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doPost</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException {<br>        <span class="hljs-type">HttpSession</span> <span class="hljs-variable">hs</span> <span class="hljs-operator">=</span> req.getSession(<span class="hljs-literal">false</span>);<br>        <span class="hljs-comment">//默认为false,为false会怎么样呢,若没有session则不会创建新的,返回null</span><br>        System.out.println(hs.getId());<br>        <span class="hljs-keyword">if</span>(hs.isNew()){<br>            System.out.println(<span class="hljs-string">"当前session是新的捏"</span>);<br>        }<br>        System.out.println(hs.getMaxInactiveInterval());<span class="hljs-comment">//失效时间</span><br>    }<br>}<br></code></pre></td></tr></table></figure>
+
 <p>那么如何向session中存取数据呢?</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doPost</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException {<br>    <span class="hljs-type">HttpSession</span> <span class="hljs-variable">sess</span> <span class="hljs-operator">=</span> req.getSession();<br>    sess.setAttribute(<span class="hljs-string">"username"</span>,<span class="hljs-string">"liuchao"</span>);<br>    System.out.println(sess.getAttribute(<span class="hljs-string">"username"</span>));<br>}<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doPost</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException {<br>    <span class="hljs-type">HttpSession</span> <span class="hljs-variable">sess</span> <span class="hljs-operator">=</span> req.getSession();<br>    sess.setAttribute(<span class="hljs-string">"username"</span>,<span class="hljs-string">"liuchao"</span>);<br>    System.out.println(sess.getAttribute(<span class="hljs-string">"username"</span>));<br>}<br></code></pre></td></tr></table></figure>
+</li>
 <li><p>服务器端转发和客户端重定向</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doPost</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException {<br>    req.getRequestDispatcher(<span class="hljs-string">"anotherDemo"</span>).forward(req, resp);<br>    <span class="hljs-comment">//上面这个是服务器端内部转发</span><br>    resp.sendRedirect(<span class="hljs-string">"https://www.baidu.com"</span>);<br>    <span class="hljs-comment">//上面这个是客服端重定向</span><br>}<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doPost</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException {<br>    req.getRequestDispatcher(<span class="hljs-string">"anotherDemo"</span>).forward(req, resp);<br>    <span class="hljs-comment">//上面这个是服务器端内部转发</span><br>    resp.sendRedirect(<span class="hljs-string">"https://www.baidu.com"</span>);<br>    <span class="hljs-comment">//上面这个是客服端重定向</span><br>}<br></code></pre></td></tr></table></figure>
+</li>
 <li><p>servlet保存作用域</p>
 <p>保存作用域有四个:</p>
 <p>page request session application</p>
 <ul>
-<li><p>page 已经不用了</p></li>
+<li><p>page 已经不用了</p>
+</li>
 <li><p>request 一次请求响应范围</p>
 <p>重定向不能共享此作用域</p>
-<p>但是服务器端转发可以</p></li>
-<li><p>session 一次会话范围有效</p></li>
+<p>但是服务器端转发可以</p>
+</li>
+<li><p>session 一次会话范围有效</p>
+</li>
 <li><p>application 一次应用程序有效</p>
 <p><code>application.setAttribute(...)</code>是公共的,一人设置,所有人共享</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">service</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException {<br>    req.getServletContext().setAttribute(<span class="hljs-string">"name"</span>,<span class="hljs-string">"q"</span>);<br>    System.out.println(req.getServletContext().getAttribute(<span class="hljs-string">"name"</span>));<br>    System.out.println(<span class="hljs-string">"hello"</span>);<br>}<br></code></pre></td></tr></table></figure></li>
-</ul></li>
+</ul>
+</li>
 </ol>
-<h2 id="filter">Filter</h2>
-<ul>
+<h2 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h2><ul>
 <li><p>三要素:</p>
 <ul>
 <li>拦截</li>
 <li>过滤</li>
 <li>放行</li>
-</ul></li>
+</ul>
+</li>
 <li><p>步骤</p>
 <ul>
 <li>实现Filter接口</li>
 <li>实现doFilter方法</li>
 <li>若满足条件则执行<code>chain.doFilter(request,response)</code></li>
-</ul></li>
-<li><div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> cn</span><span class="op">.</span><span class="im">d4wn</span><span class="op">.</span><span class="im">controllers</span><span class="op">;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">javax</span><span class="op">.</span><span class="im">servlet</span><span class="op">.*;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">javax</span><span class="op">.</span><span class="im">servlet</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">WebFilter</span><span class="op">;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">IOException</span><span class="op">;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">@WebFilter</span><span class="op">(</span><span class="st">"/index"</span><span class="op">)</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> FilterController <span class="kw">implements</span> <span class="bu">Filter</span> <span class="op">{</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">init</span><span class="op">(</span>FilterConfig filterConfig<span class="op">)</span> <span class="kw">throws</span> ServletException <span class="op">{</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"init"</span><span class="op">);</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">doFilter</span><span class="op">(</span>ServletRequest req<span class="op">,</span> ServletResponse resp<span class="op">,</span> FilterChain chain<span class="op">)</span> <span class="kw">throws</span> <span class="bu">IOException</span><span class="op">,</span> ServletException <span class="op">{</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"doFilter"</span><span class="op">);</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> c <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>req<span class="op">.</span><span class="fu">getParameter</span><span class="op">(</span><span class="st">"c"</span><span class="op">));</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>c<span class="op">);</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>c <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>            chain<span class="op">.</span><span class="fu">doFilter</span><span class="op">(</span>req<span class="op">,</span> resp<span class="op">);</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"fuckYou"</span><span class="op">);</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">destroy</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"destroy"</span><span class="op">);</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div></li>
+</ul>
+</li>
+<li><pre><code class="java">package cn.d4wn.controllers;
+
+import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
+import java.io.IOException;
+
+@WebFilter("/index")
+public class FilterController implements Filter {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+        System.out.println("init");
+
+    }
+
+    @Override
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
+        System.out.println("doFilter");
+        int c = Integer.parseInt(req.getParameter("c"));
+        System.out.println(c);
+        if (c == 1) {
+            chain.doFilter(req, resp);
+        } else {
+            System.out.println("fuckYou");
+        }
+
+    }
+
+    @Override
+    public void destroy() {
+        System.out.println("destroy");
+    }
+}
+</code></pre>
+</li>
 <li><p>生命周期:</p>
-<p>和Servlet生命周期类比，Filter生命周期的关键区别是：<strong>在Web应用启动时创建对象</strong></p></li>
+<p>和Servlet生命周期类比，Filter生命周期的关键区别是：<strong>在Web应用启动时创建对象</strong></p>
+</li>
 <li><p>匹配规则</p>
 <p>分为精确匹配和模糊匹配,模糊匹配可用星号代替</p>
 <p>模糊匹配:</p>
-<ol type="1">
-<li>前杠后星
-在我们配置了url-pattern为/user/*之后，请求地址只要是/user开头的那么就会被匹配。</li>
+<ol>
+<li>前杠后星 在我们配置了url-pattern为/user/*之后，请求地址只要是/user开头的那么就会被匹配。</li>
 <li>前星后缀 *.png</li>
 <li>不允许这么配置: /*.png</li>
-</ol></li>
+</ol>
+</li>
 <li><p>过滤器链</p>
 <ul>
 <li>Filter链中每一个Filter执行的<strong>顺序是由web.xml中filter-mapping配置的顺序决定</strong>的。</li>
-</ul></li>
 </ul>
-<h2 id="listener">Listener</h2>
-<ul>
-<li><p>观察者模式是23种设计模式之一</p></li>
+</li>
+</ul>
+<h2 id="Listener"><a href="#Listener" class="headerlink" title="Listener"></a>Listener</h2><ul>
+<li><p>观察者模式是23种设计模式之一</p>
+</li>
 <li><blockquote>
-<p>监听器：专门用于对其他对象身上发生的事件或状态改变进行监听和相应处理的对象，当被监视的对象发生情况时，立即采取相应的行动。
-<strong>Servlet监听器</strong>：Servlet规范中定义的一种特殊类，它用于监听Web应用程序中的ServletContext，HttpSession
-和HttpServletRequest等域对象的创建与销毁事件，以及监听这些域对象中的属性发生修改的事件。</p>
-</blockquote></li>
+<p>监听器：专门用于对其他对象身上发生的事件或状态改变进行监听和相应处理的对象，当被监视的对象发生情况时，立即采取相应的行动。 <strong>Servlet监听器</strong>：Servlet规范中定义的一种特殊类，它用于监听Web应用程序中的ServletContext，HttpSession 和HttpServletRequest等域对象的创建与销毁事件，以及监听这些域对象中的属性发生修改的事件。</p>
+</blockquote>
+</li>
 <li><p>监听器列表</p>
 <ul>
 <li>ServletContextListener监听ServletContext对象的创建与销毁</li>
@@ -564,7 +581,8 @@ mjx-container[display="true"] + br {
 <li>ServletRequestAttributeListener监听ServletRequest中属性的创建、修改和销毁</li>
 <li>HttpSessionBindingListener监听某个对象在Session域中的创建与移除</li>
 <li>HttpSessionActivationListener监听某个对象在Session中的序列化与反序列化。</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 
                 

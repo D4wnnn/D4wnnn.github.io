@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="第三章存储系统 3.1.0_存储系统的基本概念   image-20221010155127292  存储器的分类 层次结构:三级存储体系:Cache 主存 外存 Cache速度最快，容量小，在CPU内部。 Cache和主存是一种映射的关系。 存储器的分类(按照介质)：  半导体存储器  静态存储器(SRAM,如Cache)：利用双稳态触发器存储信息 这里可能会出填空">
+    <meta name="description" content="第三章存储系统3.1.0_存储系统的基本概念 存储器的分类层次结构:三级存储体系:Cache 主存 外存 Cache速度最快，容量小，在CPU内部。 Cache和主存是一种映射的关系。 存储器的分类(按照介质)：  半导体存储器  静态存储器(SRAM,如Cache)：利用双稳态触发器存储信息 这里可能会出填空 特点:速度快,非破坏性读出,集成度低,功耗大,信息易失,有源器件(靠电源实现特定功能)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机组成原理3-存储系统">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="第三章存储系统 3.1.0_存储系统的基本概念   image-20221010155127292  存储器的分类 层次结构:三级存储体系:Cache 主存 外存 Cache速度最快，容量小，在CPU内部。 Cache和主存是一种映射的关系。 存储器的分类(按照介质)：  半导体存储器  静态存储器(SRAM,如Cache)：利用双稳态触发器存储信息 这里可能会出填空">
+<meta property="og:description" content="第三章存储系统3.1.0_存储系统的基本概念 存储器的分类层次结构:三级存储体系:Cache 主存 外存 Cache速度最快，容量小，在CPU内部。 Cache和主存是一种映射的关系。 存储器的分类(按照介质)：  半导体存储器  静态存储器(SRAM,如Cache)：利用双稳态触发器存储信息 这里可能会出填空 特点:速度快,非破坏性读出,集成度低,功耗大,信息易失,有源器件(靠电源实现特定功能)">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://d4wnnn.github.io/img/article_img_2.jpg">
 <meta property="article:published_time" content="2022-10-11T12:17:24.000Z">
@@ -376,7 +376,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.4k 字
+          2.1k 字
         
       </span>
     
@@ -387,7 +387,7 @@ mjx-container[display="true"] + br {
         
         
         
-          29 分钟
+          18 分钟
         
       </span>
     
@@ -430,383 +430,258 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h2 id="第三章存储系统">第三章存储系统</h2>
-<h2 id="存储系统的基本概念">3.1.0_存储系统的基本概念</h2>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221010155127292.png" srcset="/img/loading.gif" lazyload alt="image-20221010155127292">
-<figcaption aria-hidden="true">image-20221010155127292</figcaption>
-</figure>
-<h3 id="存储器的分类">存储器的分类</h3>
-<p>层次结构:三级存储体系:Cache 主存 外存</p>
+                <h2 id="第三章存储系统"><a href="#第三章存储系统" class="headerlink" title="第三章存储系统"></a>第三章存储系统</h2><h2 id="3-1-0-存储系统的基本概念"><a href="#3-1-0-存储系统的基本概念" class="headerlink" title="3.1.0_存储系统的基本概念"></a>3.1.0_存储系统的基本概念</h2><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221010155127292.png" srcset="/img/loading.gif" lazyload alt="image-20221010155127292"></p>
+<h3 id="存储器的分类"><a href="#存储器的分类" class="headerlink" title="存储器的分类"></a>存储器的分类</h3><p>层次结构:三级存储体系:Cache 主存 外存</p>
 <p>Cache速度最快，容量小，在CPU内部。</p>
 <p>Cache和主存是一种映射的关系。</p>
 <p>存储器的分类(按照介质)：</p>
-<ol type="1">
+<ol>
 <li><p>半导体存储器</p>
-<ol type="1">
+<ol>
 <li><p>静态存储器(SRAM,如Cache)：利用<code>双稳态触发器</code>存储信息</p>
 <p>这里可能会出填空</p>
 <p>特点:速度快,非破坏性读出,集成度低,功耗大,信息易失,有源器件(靠电源实现特定功能)</p>
-<p>应用场合:高速缓存和小容量主存</p></li>
+<p>应用场合:高速缓存和小容量主存</p>
+</li>
 <li><p>动态存储器(DRAM,如内存)：用<code>电容存储的电荷</code>存储信息</p>
 <p>特点:速度低，破坏性读出，集成度高，功耗小，需要刷新</p>
-<p>应用场合:大容量主存</p></li>
-</ol></li>
+<p>应用场合:大容量主存</p>
+</li>
+</ol>
+</li>
 <li><p>磁表面存储器</p>
 <p>磁层上不同方向的<code>磁化区域</code>表示信息</p>
 <p>特点:容量大,非破坏性读出,适合长期保存信息,速度慢</p>
-<p>应用场合:外部存储器(机械硬盘HDD)</p></li>
+<p>应用场合:外部存储器(机械硬盘HDD)</p>
+</li>
 <li><p>光盘存储器(只读光盘)</p>
 <p>利用激光对光盘表面的记录膜进行照射后是否出现融坑表示信息</p>
 <p>特点:容量很大,非破坏性读出,长期保存信息,速度慢</p>
-<p>应用场合:外部存储器</p></li>
+<p>应用场合:外部存储器</p>
+</li>
 </ol>
 <p>存储器的分类(按照存取方式):</p>
-<ol type="1">
+<ol>
 <li><p>随机访问存储器(RAM)</p>
 <p>随机存取:访问时间和地址单元位置无关(联想译码器)</p>
 <p>ROM(只读不写)</p>
-<ol type="1">
+<ol>
 <li>固存:用户不能编程</li>
 <li>PROM:用户可一次编程</li>
 <li>EPROM:用户可多次编程(紫外线擦除)</li>
 <li>EEPROM:用户可多次编程(电擦除)</li>
-</ol></li>
+</ol>
+</li>
 <li><p>顺序访问存储器(SAM)</p>
-<p>访问时间和数据位置有关,如磁带</p></li>
+<p>访问时间和数据位置有关,如磁带</p>
+</li>
 <li><p>直接访问存储器(DAM)</p>
 <p>读/写部件先直接指向一个小区域,再在该区域内顺序查找,访问时间和数据位置有关</p>
-<p>如磁盘 光盘</p></li>
+<p>如磁盘 光盘</p>
+</li>
 </ol>
-<h3 id="存储器的技术指标">存储器的技术指标</h3>
-<p>存取周期比存储时间大</p>
+<h3 id="存储器的技术指标"><a href="#存储器的技术指标" class="headerlink" title="存储器的技术指标"></a>存储器的技术指标</h3><p>存取周期比存储时间大</p>
 <p>存取时间:从存储器收到读写命令，到存储器读出（写入）信息所需要的时间T<sub>A</sub></p>
 <p>存取周期:存储器做<code>连续访问操作过程</code>中<code>一次完整的存取操作</code>所需的全部时间T<sub>B</sub></p>
 <p>数据传输率R:存储器数据带宽/存取周期(bps)</p>
-<h3 id="王道考研笔记">王道考研笔记</h3>
-<p>有的教材把安装在电脑内部的磁盘称为辅存,把U盘光盘称为外存;</p>
+<h3 id="王道考研笔记"><a href="#王道考研笔记" class="headerlink" title="王道考研笔记"></a>王道考研笔记</h3><p>有的教材把安装在电脑内部的磁盘称为辅存,把U盘光盘称为外存;</p>
 <p>有的教材把他们统称为辅存或者外存</p>
 <p>随机存取存储器(RAM):读写任何一个存储单元所需时间都相同,与存储单元所在的物理位置无关</p>
 <p>顺序存取存储器(SAM):读写一个存储单元所需时间取决于存储单元的物理位置.如磁带</p>
 <p>直接存取存储器(DAM):拥有二者特性,先直接选取信息所在区域,然后按顺序存取,如机械磁盘</p>
 <p>串行访问存储器:读写某个存储单元所需时间与存储单元的物理位置有关</p>
-<ol type="1">
+<ol>
 <li>顺序存取存储器</li>
 <li>直接存储存取器</li>
 </ol>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221010160445159-16654908518703.png" srcset="/img/loading.gif" lazyload alt="image-20221010160445159">
-<figcaption aria-hidden="true">image-20221010160445159</figcaption>
-</figure>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221010160445159-16654908518703.png" srcset="/img/loading.gif" lazyload alt="image-20221010160445159"></p>
 <p>按照信息的可更改性可以将存储器分为<code>RAM</code>和<code>ROM</code>(蓝光光碟,BIOS,实体音乐专辑)</p>
 <p>按照信息的可保存性可以分为<code>易失性存储器</code>和<code>非易失性存储器</code></p>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014153349766.png" srcset="/img/loading.gif" lazyload alt="image-20221014153349766">
-<figcaption aria-hidden="true">image-20221014153349766</figcaption>
-</figure>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014153602561.png" srcset="/img/loading.gif" lazyload alt="image-20221014153602561">
-<figcaption aria-hidden="true">image-20221014153602561</figcaption>
-</figure>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014153614979.png" srcset="/img/loading.gif" lazyload alt="image-20221014153614979">
-<figcaption aria-hidden="true">image-20221014153614979</figcaption>
-</figure>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014153653487.png" srcset="/img/loading.gif" lazyload alt="image-20221014153653487">
-<figcaption aria-hidden="true">image-20221014153653487</figcaption>
-</figure>
-<h2 id="主存储器的基本组成">3.1.1_主存储器的基本组成</h2>
-<ol type="1">
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014153349766.png" srcset="/img/loading.gif" lazyload alt="image-20221014153349766"></p>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014153602561.png" srcset="/img/loading.gif" lazyload alt="image-20221014153602561"></p>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014153614979.png" srcset="/img/loading.gif" lazyload alt="image-20221014153614979"></p>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014153653487.png" srcset="/img/loading.gif" lazyload alt="image-20221014153653487"></p>
+<h2 id="3-1-1-主存储器的基本组成"><a href="#3-1-1-主存储器的基本组成" class="headerlink" title="3.1.1_主存储器的基本组成"></a>3.1.1_主存储器的基本组成</h2><ol>
 <li><p>!!!</p>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014154318425.png" srcset="/img/loading.gif" lazyload alt="image-20221014154318425">
-<figcaption aria-hidden="true">image-20221014154318425</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014154604247.png" srcset="/img/loading.gif" lazyload alt="image-20221014154604247">
-<figcaption aria-hidden="true">image-20221014154604247</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014154912708.png" srcset="/img/loading.gif" lazyload alt="image-20221014154912708">
-<figcaption aria-hidden="true">image-20221014154912708</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014155218615.png" srcset="/img/loading.gif" lazyload alt="image-20221014155218615">
-<figcaption aria-hidden="true">image-20221014155218615</figcaption>
-</figure>
-<p>驱动起到放大作用</p></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014155420410.png" srcset="/img/loading.gif" lazyload alt="image-20221014155420410">
-<figcaption aria-hidden="true">image-20221014155420410</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014155750395.png" srcset="/img/loading.gif" lazyload alt="image-20221014155750395">
-<figcaption aria-hidden="true">image-20221014155750395</figcaption>
-</figure></li>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014154318425.png" srcset="/img/loading.gif" lazyload alt="image-20221014154318425"></p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014154604247.png" srcset="/img/loading.gif" lazyload alt="image-20221014154604247"></p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014154912708.png" srcset="/img/loading.gif" lazyload alt="image-20221014154912708"></p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014155218615.png" srcset="/img/loading.gif" lazyload alt="image-20221014155218615"></p>
+<p>驱动起到放大作用</p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014155420410.png" srcset="/img/loading.gif" lazyload alt="image-20221014155420410"></p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221014155750395.png" srcset="/img/loading.gif" lazyload alt="image-20221014155750395"></p>
+</li>
 </ol>
-<h2 id="sram和dram">3.3.2_SRAM和DRAM</h2>
-<h3 id="基础电路实现">基础电路实现</h3>
-<ol type="1">
+<h2 id="3-3-2-SRAM和DRAM"><a href="#3-3-2-SRAM和DRAM" class="headerlink" title="3.3.2_SRAM和DRAM"></a>3.3.2_SRAM和DRAM</h2><h3 id="基础电路实现"><a href="#基础电路实现" class="headerlink" title="基础电路实现"></a>基础电路实现</h3><ol>
 <li><p>DRAM动态RAM,用于主存</p>
-<p>用<code>栅极电容</code>存储信息</p></li>
+<p>用<code>栅极电容</code>存储信息</p>
+</li>
 <li><p>SRAM静态RAM,用于Cache</p>
-<p>使用<code>双稳态触发器</code>存储信息</p></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015002215098.png" srcset="/img/loading.gif" lazyload alt="image-20221015002215098">
-<figcaption aria-hidden="true">image-20221015002215098</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015002642133.png" srcset="/img/loading.gif" lazyload alt="image-20221015002642133">
-<figcaption aria-hidden="true">image-20221015002642133</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015002724102.png" srcset="/img/loading.gif" lazyload alt="image-20221015002724102">
-<figcaption aria-hidden="true">image-20221015002724102</figcaption>
-</figure></li>
+<p>使用<code>双稳态触发器</code>存储信息</p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015002215098.png" srcset="/img/loading.gif" lazyload alt="image-20221015002215098"></p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015002642133.png" srcset="/img/loading.gif" lazyload alt="image-20221015002642133"></p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015002724102.png" srcset="/img/loading.gif" lazyload alt="image-20221015002724102"></p>
+</li>
 <li><p>注意:对于栅极电容,电容内的电荷只能维持2ms,即便不断电,2ms后也会消失,故需要刷新</p>
-<p>但是对于双稳态触发器,只要不断电,触发器的状态就不会改变</p></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015003402138.png" srcset="/img/loading.gif" lazyload alt="image-20221015003402138">
-<figcaption aria-hidden="true">image-20221015003402138</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015003859454.png" srcset="/img/loading.gif" lazyload alt="image-20221015003859454">
-<figcaption aria-hidden="true">image-20221015003859454</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015004146782.png" srcset="/img/loading.gif" lazyload alt="image-20221015004146782">
-<figcaption aria-hidden="true">image-20221015004146782</figcaption>
-</figure></li>
-<li><p><code>DRAM</code>现在已经过时了,现在的主存常采用<code>SDRAM</code>芯片</p></li>
-<li><p>刷新周期：刷新一行所用的时间</p></li>
-<li><p>刷新周期数：刷新一片芯片所需的周期数由芯片的行数决定</p></li>
-<li><p>芯片刷新是由<code>刷新地址计数器</code>提供行地址定时刷新</p></li>
+<p>但是对于双稳态触发器,只要不断电,触发器的状态就不会改变</p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015003402138.png" srcset="/img/loading.gif" lazyload alt="image-20221015003402138"></p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015003859454.png" srcset="/img/loading.gif" lazyload alt="image-20221015003859454"></p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015004146782.png" srcset="/img/loading.gif" lazyload alt="image-20221015004146782"></p>
+</li>
+<li><p><code>DRAM</code>现在已经过时了,现在的主存常采用<code>SDRAM</code>芯片</p>
+</li>
+<li><p>刷新周期：刷新一行所用的时间</p>
+</li>
+<li><p>刷新周期数：刷新一片芯片所需的周期数由芯片的行数决定</p>
+</li>
+<li><p>芯片刷新是由<code>刷新地址计数器</code>提供行地址定时刷新</p>
+</li>
 </ol>
-<h3 id="刷新周期的安排方式">刷新周期的安排方式</h3>
-<ul>
+<h3 id="刷新周期的安排方式"><a href="#刷新周期的安排方式" class="headerlink" title="刷新周期的安排方式"></a>刷新周期的安排方式</h3><ul>
 <li><p>集中刷新：2ms内集中刷新</p>
-<p>集中刷新用于实时性要求不高的场合，会有死区产生</p></li>
+<p>集中刷新用于实时性要求不高的场合，会有死区产生</p>
+</li>
 <li><p>分散刷新：各个刷新周期安排在存取周期中</p>
 <p>主存利用率降低，常用在低速场合中</p>
-<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20230211115306010.png" srcset="/img/loading.gif" lazyload alt="image-20230211115306010" style="zoom:50%;"></p></li>
+<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20230211115306010.png" srcset="/img/loading.gif" lazyload alt="image-20230211115306010" style="zoom:50%;">
+</li>
 <li><p>异步刷新：刷新周期分散安排在2ms内</p>
-<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20230211115537616.png" srcset="/img/loading.gif" lazyload alt="image-20230211115537616" style="zoom:50%;"></p></li>
+<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20230211115537616.png" srcset="/img/loading.gif" lazyload alt="image-20230211115537616" style="zoom:50%;"></li>
 </ul>
-<h2 id="只读存储器rom">3.3.3_只读存储器ROM</h2>
-<ol type="1">
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015004701719.png" srcset="/img/loading.gif" lazyload alt="image-20221015004701719">
-<figcaption aria-hidden="true">image-20221015004701719</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015005901113.png" srcset="/img/loading.gif" lazyload alt="image-20221015005901113">
-<figcaption aria-hidden="true">image-20221015005901113</figcaption>
-</figure></li>
+<h2 id="3-3-3-只读存储器ROM"><a href="#3-3-3-只读存储器ROM" class="headerlink" title="3.3.3_只读存储器ROM"></a>3.3.3_只读存储器ROM</h2><ol>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015004701719.png" srcset="/img/loading.gif" lazyload alt="image-20221015004701719"></p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015005901113.png" srcset="/img/loading.gif" lazyload alt="image-20221015005901113"></p>
+</li>
 <li><p>计算机内部重要的ROM</p>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015010318040.png" srcset="/img/loading.gif" lazyload alt="image-20221015010318040">
-<figcaption aria-hidden="true">image-20221015010318040</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015010417645.png" srcset="/img/loading.gif" lazyload alt="image-20221015010417645">
-<figcaption aria-hidden="true">image-20221015010417645</figcaption>
-</figure></li>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015010318040.png" srcset="/img/loading.gif" lazyload alt="image-20221015010318040"></p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015010417645.png" srcset="/img/loading.gif" lazyload alt="image-20221015010417645"></p>
+</li>
 </ol>
-<h2 id="主存储器和cpu的连接">3.4_主存储器和CPU的连接</h2>
-<h3 id="王道版本">王道版本</h3>
-<ol type="1">
-<li><p>现在的计算机MAR和MDR通常集成在CPU内部,存储芯片内只需一个普通的寄存器(暂存输入
-输出数据)</p></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015135333108.png" srcset="/img/loading.gif" lazyload alt="image-20221015135333108">
-<figcaption aria-hidden="true">image-20221015135333108</figcaption>
-</figure></li>
+<h2 id="3-4-主存储器和CPU的连接"><a href="#3-4-主存储器和CPU的连接" class="headerlink" title="3.4_主存储器和CPU的连接"></a>3.4_主存储器和CPU的连接</h2><h3 id="王道版本"><a href="#王道版本" class="headerlink" title="王道版本"></a>王道版本</h3><ol>
+<li><p>现在的计算机MAR和MDR通常集成在CPU内部,存储芯片内只需一个普通的寄存器(暂存输入 输出数据)</p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015135333108.png" srcset="/img/loading.gif" lazyload alt="image-20221015135333108"></p>
+</li>
 <li><p>位拓展</p>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015135815606.png" srcset="/img/loading.gif" lazyload alt="image-20221015135815606">
-<figcaption aria-hidden="true">image-20221015135815606</figcaption>
-</figure></li>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015135815606.png" srcset="/img/loading.gif" lazyload alt="image-20221015135815606"></p>
+</li>
 <li><p>字拓展-线选法</p>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015141930078.png" srcset="/img/loading.gif" lazyload alt="image-20221015141930078">
-<figcaption aria-hidden="true">image-20221015141930078</figcaption>
-</figure></li>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015141930078.png" srcset="/img/loading.gif" lazyload alt="image-20221015141930078"></p>
+</li>
 <li><p>字拓展-译码片选法</p>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015145052106.png" srcset="/img/loading.gif" lazyload alt="image-20221015145052106">
-<figcaption aria-hidden="true">image-20221015145052106</figcaption>
-</figure>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015145052106.png" srcset="/img/loading.gif" lazyload alt="image-20221015145052106"></p>
 <p>位拓展可以使存储器的字长变的更长,从而更好的发挥数据总线的数据传输能力</p>
-<p>字拓展可以增加存储器的存储字数,可以更好的利用cpu的寻址能力</p></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015145440559.png" srcset="/img/loading.gif" lazyload alt="image-20221015145440559">
-<figcaption aria-hidden="true">image-20221015145440559</figcaption>
-</figure></li>
+<p>字拓展可以增加存储器的存储字数,可以更好的利用cpu的寻址能力</p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015145440559.png" srcset="/img/loading.gif" lazyload alt="image-20221015145440559"></p>
+</li>
 <li><p>字位同时拓展法</p>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015145700497.png" srcset="/img/loading.gif" lazyload alt="image-20221015145700497">
-<figcaption aria-hidden="true">image-20221015145700497</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015150754666.png" srcset="/img/loading.gif" lazyload alt="image-20221015150754666">
-<figcaption aria-hidden="true">image-20221015150754666</figcaption>
-</figure></li>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015145700497.png" srcset="/img/loading.gif" lazyload alt="image-20221015145700497"></p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221015150754666.png" srcset="/img/loading.gif" lazyload alt="image-20221015150754666"></p>
+</li>
 </ol>
-<h3 id="校内版本主存储器的组织">校内版本(主存储器的组织)</h3>
-<p>首先做位拓展</p>
-<h4 id="位拓展">位拓展</h4>
-<p>位拓展不需要片选信号，读写信号是统一的，片选信号也是统一的</p>
-<h4 id="字拓展">字拓展</h4>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20230211120745823.png" srcset="/img/loading.gif" lazyload alt="image-20230211120745823">
-<figcaption aria-hidden="true">image-20230211120745823</figcaption>
-</figure>
-<h4 id="字位同时拓展">字位同时拓展</h4>
-<p>同一组内片选信号相同</p>
+<h3 id="校内版本-主存储器的组织"><a href="#校内版本-主存储器的组织" class="headerlink" title="校内版本(主存储器的组织)"></a>校内版本(主存储器的组织)</h3><p>首先做位拓展</p>
+<h4 id="位拓展"><a href="#位拓展" class="headerlink" title="位拓展"></a>位拓展</h4><p>位拓展不需要片选信号，读写信号是统一的，片选信号也是统一的</p>
+<h4 id="字拓展"><a href="#字拓展" class="headerlink" title="字拓展"></a>字拓展</h4><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20230211120745823.png" srcset="/img/loading.gif" lazyload alt="image-20230211120745823"></p>
+<h4 id="字位同时拓展"><a href="#字位同时拓展" class="headerlink" title="字位同时拓展"></a>字位同时拓展</h4><p>同一组内片选信号相同</p>
 <p>每一组的地址都是从00000H开始</p>
 <p>考试时默认全译码</p>
 <p>部分译码存在地址重叠的问题</p>
 <p>部分译码常用在一些嵌入式设备上</p>
 <p>当发现地址重叠时一定意味着高位上至少一根地址线没有被使用</p>
 <p>138译码器一般高地址在中间</p>
-<h4 id="数据校验">数据校验</h4>
-<h5 id="奇偶校验">奇偶校验</h5>
-<p>只能发现错误，但是不能纠错</p>
-<h2 id="双端口ram和多模块存储器">3.5_双端口RAM和多模块存储器</h2>
-<ol type="1">
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017145501877.png" srcset="/img/loading.gif" lazyload alt="image-20221017145501877">
-<figcaption aria-hidden="true">image-20221017145501877</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017150436868.png" srcset="/img/loading.gif" lazyload alt="image-20221017150436868">
-<figcaption aria-hidden="true">image-20221017150436868</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017151004522.png" srcset="/img/loading.gif" lazyload alt="image-20221017151004522">
-<figcaption aria-hidden="true">image-20221017151004522</figcaption>
-</figure>
+<h4 id="数据校验"><a href="#数据校验" class="headerlink" title="数据校验"></a>数据校验</h4><h5 id="奇偶校验"><a href="#奇偶校验" class="headerlink" title="奇偶校验"></a>奇偶校验</h5><p>只能发现错误，但是不能纠错</p>
+<h2 id="3-5-双端口RAM和多模块存储器"><a href="#3-5-双端口RAM和多模块存储器" class="headerlink" title="3.5_双端口RAM和多模块存储器"></a>3.5_双端口RAM和多模块存储器</h2><ol>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017145501877.png" srcset="/img/loading.gif" lazyload alt="image-20221017145501877"></p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017150436868.png" srcset="/img/loading.gif" lazyload alt="image-20221017150436868"></p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017151004522.png" srcset="/img/loading.gif" lazyload alt="image-20221017151004522"></p>
 <p>右上角的问题:</p>
-<ol type="1">
+<ol>
 <li>方法一:取余</li>
 <li>方法二:看低位</li>
-</ol></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017151227240.png" srcset="/img/loading.gif" lazyload alt="image-20221017151227240">
-<figcaption aria-hidden="true">image-20221017151227240</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017151334038.png" srcset="/img/loading.gif" lazyload alt="image-20221017151334038">
-<figcaption aria-hidden="true">image-20221017151334038</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017152156208.png" srcset="/img/loading.gif" lazyload alt="image-20221017152156208">
-<figcaption aria-hidden="true">image-20221017152156208</figcaption>
-</figure>
-<p>放到颜色相同的卡槽是低位交叉的多提存储器</p></li>
 </ol>
-<h2 id="cache的基本概念和原理">3.6.1_Cache的基本概念和原理</h2>
-<ol type="1">
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017153205924.png" srcset="/img/loading.gif" lazyload alt="image-20221017153205924">
-<figcaption aria-hidden="true">image-20221017153205924</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017153452389.png" srcset="/img/loading.gif" lazyload alt="image-20221017153452389">
-<figcaption aria-hidden="true">image-20221017153452389</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017154010050.png" srcset="/img/loading.gif" lazyload alt="image-20221017154010050">
-<figcaption aria-hidden="true">image-20221017154010050</figcaption>
-</figure></li>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017151227240.png" srcset="/img/loading.gif" lazyload alt="image-20221017151227240"></p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017151334038.png" srcset="/img/loading.gif" lazyload alt="image-20221017151334038"></p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017152156208.png" srcset="/img/loading.gif" lazyload alt="image-20221017152156208"></p>
+<p>放到颜色相同的卡槽是低位交叉的多提存储器</p>
+</li>
 </ol>
-<h2 id="cache和主存的映射关系">3.6.2_Cache和主存的映射关系</h2>
-<ol type="1">
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017154427026.png" srcset="/img/loading.gif" lazyload alt="image-20221017154427026">
-<figcaption aria-hidden="true">image-20221017154427026</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017155425409.png" srcset="/img/loading.gif" lazyload alt="image-20221017155425409">
-<figcaption aria-hidden="true">image-20221017155425409</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017155719388.png" srcset="/img/loading.gif" lazyload alt="image-20221017155719388">
-<figcaption aria-hidden="true">image-20221017155719388</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017155726613.png" srcset="/img/loading.gif" lazyload alt="image-20221017155726613">
-<figcaption aria-hidden="true">image-20221017155726613</figcaption>
-</figure></li>
+<h2 id="3-6-1-Cache的基本概念和原理"><a href="#3-6-1-Cache的基本概念和原理" class="headerlink" title="3.6.1_Cache的基本概念和原理"></a>3.6.1_Cache的基本概念和原理</h2><ol>
+<li><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017153205924.png" srcset="/img/loading.gif" lazyload alt="image-20221017153205924"></li>
+<li><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017153452389.png" srcset="/img/loading.gif" lazyload alt="image-20221017153452389"></li>
+<li><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017154010050.png" srcset="/img/loading.gif" lazyload alt="image-20221017154010050"></li>
 </ol>
-<h2 id="cache替换算法">3.6.3_Cache替换算法</h2>
-<ol type="1">
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017160003399.png" srcset="/img/loading.gif" lazyload alt="image-20221017160003399">
-<figcaption aria-hidden="true">image-20221017160003399</figcaption>
-</figure>
-<p>其中直接映射不用考虑算法</p></li>
-<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017160035131.png" srcset="/img/loading.gif" lazyload></p></li>
-<li><p>随机算法实现简单，但完全没考虑局部性原理，命中率低，实际效果很不稳定</p></li>
-<li><p>先进先出算法也是实现简单,但是FIFO仍没考虑局部性原理,最先被调入的Cache的块也有可能是被最频繁访问的</p></li>
-<li><p>抖动现象:频繁的换入换出现象(刚被替换的块又被调入)</p></li>
+<h2 id="3-6-2-Cache和主存的映射关系"><a href="#3-6-2-Cache和主存的映射关系" class="headerlink" title="3.6.2_Cache和主存的映射关系"></a>3.6.2_Cache和主存的映射关系</h2><ol>
+<li><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017154427026.png" srcset="/img/loading.gif" lazyload alt="image-20221017154427026"></li>
+<li><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017155425409.png" srcset="/img/loading.gif" lazyload alt="image-20221017155425409"></li>
+<li><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017155719388.png" srcset="/img/loading.gif" lazyload alt="image-20221017155719388"></li>
+<li><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017155726613.png" srcset="/img/loading.gif" lazyload alt="image-20221017155726613"></li>
+</ol>
+<h2 id="3-6-3-Cache替换算法"><a href="#3-6-3-Cache替换算法" class="headerlink" title="3.6.3_Cache替换算法"></a>3.6.3_Cache替换算法</h2><ol>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017160003399.png" srcset="/img/loading.gif" lazyload alt="image-20221017160003399"></p>
+<p>其中直接映射不用考虑算法</p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221017160035131.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>随机算法实现简单，但完全没考虑局部性原理，命中率低，实际效果很不稳定</p>
+</li>
+<li><p>先进先出算法也是实现简单,但是FIFO仍没考虑局部性原理,最先被调入的Cache的块也有可能是被最频繁访问的</p>
+</li>
+<li><p>抖动现象:频繁的换入换出现象(刚被替换的块又被调入)</p>
+</li>
 <li><p>LRU算法</p>
 <p>基于局部性原理,实际运行效果优秀,Cache命中率高</p>
 <p>若被频繁访问的主存块数量&gt;Cache行的数量,则可能发生抖动</p>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018213008103.png" srcset="/img/loading.gif" lazyload alt="image-20221018213008103">
-<figcaption aria-hidden="true">image-20221018213008103</figcaption>
-</figure></li>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018213008103.png" srcset="/img/loading.gif" lazyload alt="image-20221018213008103"></p>
+</li>
 <li><p>LFU算法</p>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018213826549.png" srcset="/img/loading.gif" lazyload alt="image-20221018213826549">
-<figcaption aria-hidden="true">image-20221018213826549</figcaption>
-</figure></li>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018213826549.png" srcset="/img/loading.gif" lazyload alt="image-20221018213826549"></p>
+</li>
 <li><p>总结</p>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018213843709.png" srcset="/img/loading.gif" lazyload alt="image-20221018213843709">
-<figcaption aria-hidden="true">image-20221018213843709</figcaption>
-</figure></li>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018213843709.png" srcset="/img/loading.gif" lazyload alt="image-20221018213843709"></p>
+</li>
 </ol>
-<h2 id="cache写策略">3.6.4_Cache写策略</h2>
-<ol type="1">
-<li><p>本节要解决的问题:如何确保主存中数据母本的一致性</p></li>
+<h2 id="3-6-4-Cache写策略"><a href="#3-6-4-Cache写策略" class="headerlink" title="3.6.4_Cache写策略"></a>3.6.4_Cache写策略</h2><ol>
+<li><p>本节要解决的问题:如何确保主存中数据母本的一致性</p>
+</li>
 <li><p>写命中-写回法</p>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018214434315.png" srcset="/img/loading.gif" lazyload alt="image-20221018214434315">
-<figcaption aria-hidden="true">image-20221018214434315</figcaption>
-</figure></li>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018214434315.png" srcset="/img/loading.gif" lazyload alt="image-20221018214434315"></p>
+</li>
 <li><p>写命中-全写法</p>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018214541598.png" srcset="/img/loading.gif" lazyload alt="image-20221018214541598">
-<figcaption aria-hidden="true">image-20221018214541598</figcaption>
-</figure>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018214659577.png" srcset="/img/loading.gif" lazyload alt="image-20221018214659577">
-<figcaption aria-hidden="true">image-20221018214659577</figcaption>
-</figure></li>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018214541598.png" srcset="/img/loading.gif" lazyload alt="image-20221018214541598"></p>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018214659577.png" srcset="/img/loading.gif" lazyload alt="image-20221018214659577"></p>
+</li>
 <li><p>写不命中-写分配法</p>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018214757032.png" srcset="/img/loading.gif" lazyload alt="image-20221018214757032">
-<figcaption aria-hidden="true">image-20221018214757032</figcaption>
-</figure></li>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018214757032.png" srcset="/img/loading.gif" lazyload alt="image-20221018214757032"></p>
+</li>
 <li><p>写不命中-非写分配法</p>
-<figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018215014107.png" srcset="/img/loading.gif" lazyload alt="image-20221018215014107">
-<figcaption aria-hidden="true">image-20221018215014107</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018215241453.png" srcset="/img/loading.gif" lazyload alt="image-20221018215241453">
-<figcaption aria-hidden="true">image-20221018215241453</figcaption>
-</figure></li>
-<li><figure>
-<img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018215304382.png" srcset="/img/loading.gif" lazyload alt="image-20221018215304382">
-<figcaption aria-hidden="true">image-20221018215304382</figcaption>
-</figure></li>
+<p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018215014107.png" srcset="/img/loading.gif" lazyload alt="image-20221018215014107"></p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018215241453.png" srcset="/img/loading.gif" lazyload alt="image-20221018215241453"></p>
+</li>
+<li><p><img src="/2022/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/image-20221018215304382.png" srcset="/img/loading.gif" lazyload alt="image-20221018215304382"></p>
+</li>
 </ol>
-<h2 id="页式存储">3.7.1_页式存储</h2>
-
+<h2 id="3-7-1-页式存储"><a href="#3-7-1-页式存储" class="headerlink" title="3.7.1_页式存储"></a>3.7.1_页式存储</h2>
                 
               </div>
             
