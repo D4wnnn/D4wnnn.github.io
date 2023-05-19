@@ -16,26 +16,26 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="Mysql CVE-2012-2122-身份认证绕过漏洞 exp 1 for i in &#96;seq 1 1000&#96;;do mysql -uroot -pwrong -h 172.30.158.168 -P 3306;done 复现 攻击机:172.30.152.248 靶机:172.30.158.168   image-20221003110807493    image-">
+    <meta name="description" content="常见网络协议 背景  GFW(Great Firewall),中国国家防火墙，与古代长城不同，GFW并非阻止外来访问，而是限制国内流量到部分国外站点，但是除了一些涉及政治的网站被封堵，大量的技术网站也被封锁。对于GFW的存在，有利有弊，08年奥运会前夕，恐怖分子在facebook策划了一起有关中国西部的袭击事件，出于安全考虑，国内要求facebook进行审查防止再度出现恐怖事件，但face">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mysql漏洞总结">
-<meta property="og:url" content="https://d4wnnn.github.io/2022/12/29/Mysql%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="常见网络协议">
+<meta property="og:url" content="https://d4wnnn.github.io/2022/01/26/%E5%B8%B8%E8%A7%81%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Mysql CVE-2012-2122-身份认证绕过漏洞 exp 1 for i in &#96;seq 1 1000&#96;;do mysql -uroot -pwrong -h 172.30.158.168 -P 3306;done 复现 攻击机:172.30.152.248 靶机:172.30.158.168   image-20221003110807493    image-">
+<meta property="og:description" content="常见网络协议 背景  GFW(Great Firewall),中国国家防火墙，与古代长城不同，GFW并非阻止外来访问，而是限制国内流量到部分国外站点，但是除了一些涉及政治的网站被封堵，大量的技术网站也被封锁。对于GFW的存在，有利有弊，08年奥运会前夕，恐怖分子在facebook策划了一起有关中国西部的袭击事件，出于安全考虑，国内要求facebook进行审查防止再度出现恐怖事件，但face">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://d4wnnn.github.io/img/article_img_1.jpg">
-<meta property="article:published_time" content="2022-12-28T16:54:33.000Z">
-<meta property="article:modified_time" content="2023-05-09T13:30:11.435Z">
+<meta property="og:image" content="https://d4wnnn.github.io/img/article_img_2.jpg">
+<meta property="article:published_time" content="2022-01-26T11:40:26.000Z">
+<meta property="article:modified_time" content="2023-05-19T03:51:14.876Z">
 <meta property="article:author" content="D4wn">
 <meta property="article:tag" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://d4wnnn.github.io/img/article_img_1.jpg">
+<meta name="twitter:image" content="https://d4wnnn.github.io/img/article_img_2.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Mysql漏洞总结 - D4wn</title>
+  <title>常见网络协议 - D4wn</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -348,7 +348,7 @@ mjx-container[display="true"] + br {
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Mysql漏洞总结"></span>
+            <span id="subtitle" data-typed-text="常见网络协议"></span>
           
         </div>
 
@@ -364,8 +364,8 @@ mjx-container[display="true"] + br {
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-12-29 00:54" pubdate>
-          2022年12月29日 凌晨
+        <time datetime="2022-01-26 19:40" pubdate>
+          2022年1月26日 晚上
         </time>
       </span>
     
@@ -376,7 +376,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          178 字
+          1.1k 字
         
       </span>
     
@@ -387,7 +387,7 @@ mjx-container[display="true"] + br {
         
         
         
-          2 分钟
+          10 分钟
         
       </span>
     
@@ -425,26 +425,45 @@ mjx-container[display="true"] + br {
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Mysql漏洞总结</h1>
+            <h1 style="display: none">常见网络协议</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="mysql">Mysql</h1>
-<h2 id="cve-2012-2122-身份认证绕过漏洞">CVE-2012-2122-身份认证绕过漏洞</h2>
-<h3 id="exp">exp</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `<span class="hljs-built_in">seq</span> 1 1000`;<span class="hljs-keyword">do</span> mysql -uroot -pwrong -h 172.30.158.168 -P 3306;<span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
-<h3 id="复现">复现</h3>
-<p>攻击机:172.30.152.248</p>
-<p>靶机:172.30.158.168</p>
-<figure>
-<img src="/2022/12/29/Mysql%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93/image-20221003110807493.png" srcset="/img/loading.gif" lazyload alt="image-20221003110807493">
-<figcaption aria-hidden="true">image-20221003110807493</figcaption>
-</figure>
-<figure>
-<img src="/2022/12/29/Mysql%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93/image-20221003110812226.png" srcset="/img/loading.gif" lazyload alt="image-20221003110812226">
-<figcaption aria-hidden="true">image-20221003110812226</figcaption>
-</figure>
+                <h1 id="常见网络协议">常见网络协议</h1>
+<h2 id="背景">背景</h2>
+<blockquote>
+<p>GFW(Great
+Firewall),中国国家防火墙，与古代长城不同，GFW并非阻止外来访问，而是限制国内流量到部分国外站点，但是除了一些涉及政治的网站被封堵，大量的技术网站也被封锁。对于GFW的存在，有利有弊，08年奥运会前夕，恐怖分子在facebook策划了一起有关中国西部的袭击事件，出于安全考虑，国内要求facebook进行审查防止再度出现恐怖事件，但facebook出于用户隐私给予拒绝，谷歌也以同样的理由不予答应。于是大陆不得不开始封锁相关国外网站。在那个国民素质不高的年代，这么做无疑是明智的，如果没有GFW，可能会有相当一部分网民受到洗脑，不利于国内建设。从另一角度看，如果当初facebook答应大陆要求，无疑会降低公司公信力毕竟用户隐私是必须要考虑的。从客观上来说，GFW是大陆和国外网站共同作用下出现的，没有绝对的对错之分。近些年国内其实对fq的态度有了明显转变，比如央视也在国外有youtube账号。在一些敏感时期，大量机场的ip都会被封以防止不必要的麻烦，之后ip可能会恢复正常，可以看到其实GFW是可以做到有张有弛的，而并不是绝对的封锁。相信在未来，随着国家的强大和国民素质的提高，GFW总有成为历史的一天。下面不提供绕过方法，仅设计一些技术和原理。</p>
+</blockquote>
+<h2 id="方法分类">方法分类：</h2>
+<blockquote>
+<p>绕过方法分为三类</p>
+<ul>
+<li><p>软件fq vpn(Virtual Private
+Network):虚拟私有网络（不太安全但市场占有率较高）
+Shadowsocks以及衍生品(V2ray、Trojan、SSR)，Shadowsocks以及ShadowsocksR既有软件又是协议
+ps：一般情况下，（也有例外）所谓的全局指的是代理软件接收到的所有流量，但是有些软件跑在系统层，权限更高，比如（UWP），此
+时全局代理不起作用 附：
+若要实现软件fq,可以自行购买vps，搭建机场，较为推荐v2ray，自行搭建安全风险较高，用v2ray比较安全，一旦被GFW封锁，就要去改ip，造成不必要的麻烦。
+VPS(Linode、Vultr、Bandwagon)</p></li>
+<li><p>硬件翻墙 软路由：成本较高，技术要求比较高，什么都想需要自己配置
+硬路由：一般的路由cpu可能并不能维持各种加密解密的算力，导致实际带宽可能大幅度下降</p></li>
+<li><p>网关翻墙
+Clash(允许局域网连接)，此时局域网用户可通过代理实现fq</p></li>
+</ul>
+</blockquote>
+<h2 id="各个协议特点">各个协议特点</h2>
+<blockquote>
+<p>shadowsocks:目前最简单快速，是翻墙的主流
+shadowsocksR：与前者非同一作者，网上存在诸多非议
+v2ray：安全性更高，但是更加复杂，支持的协议和算法多
+trajon：走的是轻量化道路</p>
+</blockquote>
+<h2 id="参考">参考</h2>
+<blockquote>
+<p>https://www.youtube.com/playlist?list=PLqybz7NWybwUgR-S6m78tfd-lV4sBvGFG</p>
+</blockquote>
 
                 
               </div>
@@ -483,8 +502,8 @@ mjx-container[display="true"] + br {
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Mysql漏洞总结</div>
-      <div>https://d4wnnn.github.io/2022/12/29/Mysql漏洞总结/</div>
+      <div>常见网络协议</div>
+      <div>https://d4wnnn.github.io/2022/01/26/常见网络协议/</div>
     </div>
     <div class="license-meta">
       
@@ -496,7 +515,7 @@ mjx-container[display="true"] + br {
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年12月29日</div>
+          <div>2022年1月26日</div>
         </div>
       
       
@@ -534,9 +553,9 @@ mjx-container[display="true"] + br {
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/12/29/msf%E6%95%99%E7%A8%8B/" title="msf教程">
+                      <a href="/2022/01/26/Windows%E7%A3%81%E7%9B%98%E5%AD%98%E5%82%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%88%86%E6%9E%90/" title="Windows磁盘存储的一些分析">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">msf教程</span>
+                        <span class="hidden-mobile">Windows磁盘存储的一些分析</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -544,8 +563,8 @@ mjx-container[display="true"] + br {
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/12/29/Redis%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93/" title="Redis漏洞总结">
-                        <span class="hidden-mobile">Redis漏洞总结</span>
+                      <a href="/2022/01/26/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Java学习笔记">
+                        <span class="hidden-mobile">Java学习笔记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
