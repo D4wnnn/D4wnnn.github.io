@@ -14,20 +14,20 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="D4wn">
-  <meta name="keywords" content="Python装饰器">
+  <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="Python装饰器闭包函数 一个函数，其参数和返回值都是函数，闭包函数的返回值是对传入函数进行增强后的结果  装饰器 本质是函数闭包，修改其他函数的功能，有助于代码更简短 注意：装饰器只在第一次调用前起作用，只增强一次  无参，无返回值1234567891011121314151617181920212223def a_new_decorator(fun): # 装饰器    def a_func">
+    <meta name="description" content="Python装饰器 闭包函数  一个函数，其参数和返回值都是函数，闭包函数的返回值是对传入函数进行增强后的结果  装饰器  本质是函数闭包，修改其他函数的功能，有助于代码更简短 注意：装饰器只在第一次调用前起作用，只增强一次  无参，无返回值 1234567891011121314151617181920212223def a_new_decorator(fun): # 装饰">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python装饰器">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/10/06/Python%E8%A3%85%E9%A5%B0%E5%99%A8/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Python装饰器闭包函数 一个函数，其参数和返回值都是函数，闭包函数的返回值是对传入函数进行增强后的结果  装饰器 本质是函数闭包，修改其他函数的功能，有助于代码更简短 注意：装饰器只在第一次调用前起作用，只增强一次  无参，无返回值1234567891011121314151617181920212223def a_new_decorator(fun): # 装饰器    def a_func">
+<meta property="og:description" content="Python装饰器 闭包函数  一个函数，其参数和返回值都是函数，闭包函数的返回值是对传入函数进行增强后的结果  装饰器  本质是函数闭包，修改其他函数的功能，有助于代码更简短 注意：装饰器只在第一次调用前起作用，只增强一次  无参，无返回值 1234567891011121314151617181920212223def a_new_decorator(fun): # 装饰">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://d4wnnn.github.io/img/article_img_5.jpg">
 <meta property="article:published_time" content="2022-10-06T03:52:08.000Z">
-<meta property="article:modified_time" content="2023-05-09T13:30:11.404Z">
+<meta property="article:modified_time" content="2023-05-21T05:24:00.287Z">
 <meta property="article:author" content="D4wn">
-<meta property="article:tag" content="Python装饰器">
+<meta property="article:tag" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://d4wnnn.github.io/img/article_img_5.jpg">
   
@@ -430,23 +430,26 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="Python装饰器"><a href="#Python装饰器" class="headerlink" title="Python装饰器"></a>Python装饰器</h1><h2 id="闭包函数"><a href="#闭包函数" class="headerlink" title="闭包函数"></a>闭包函数</h2><blockquote>
+                <h1 id="python装饰器">Python装饰器</h1>
+<h2 id="闭包函数">闭包函数</h2>
+<blockquote>
 <p>一个函数，其参数和返回值都是函数，闭包函数的返回值是对传入函数进行增强后的结果</p>
 </blockquote>
-<h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><blockquote>
+<h2 id="装饰器">装饰器</h2>
+<blockquote>
 <p>本质是函数闭包，修改其他函数的功能，有助于代码更简短</p>
 <p>注意：装饰器只在第一次调用前起作用，只增强一次</p>
 </blockquote>
-<h3 id="无参，无返回值"><a href="#无参，无返回值" class="headerlink" title="无参，无返回值"></a>无参，无返回值</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">a_new_decorator</span>(<span class="hljs-params">fun</span>): <span class="hljs-comment"># 装饰器</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">a_func_after_decorator</span>():<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"hello"</span>)<br>        fun()<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"see you"</span>)<br><br>    <span class="hljs-keyword">return</span> a_func_after_decorator<br><br><br><span class="hljs-meta">@a_new_decorator</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">a_func_requiring_decoration</span>(): <span class="hljs-comment"># 别装饰函数</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"我是一个待装饰的函数"</span>)<br><br><br>a_func_requiring_decoration()<br><span class="hljs-built_in">print</span>(a_func_requiring_decoration.__name__)<br><br><span class="hljs-comment"># outputs:</span><br><span class="hljs-comment"># hello</span><br><span class="hljs-comment"># 我是一个待装饰的函数</span><br><span class="hljs-comment"># see you</span><br><span class="hljs-comment"># a_func_after_decorator</span><br><span class="hljs-comment"># 进程已结束,退出代码0</span><br></code></pre></td></tr></table></figure>
-
+<h3 id="无参无返回值">无参，无返回值</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">a_new_decorator</span>(<span class="hljs-params">fun</span>): <span class="hljs-comment"># 装饰器</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">a_func_after_decorator</span>():<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"hello"</span>)<br>        fun()<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"see you"</span>)<br><br>    <span class="hljs-keyword">return</span> a_func_after_decorator<br><br><br><span class="hljs-meta">@a_new_decorator</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">a_func_requiring_decoration</span>(): <span class="hljs-comment"># 别装饰函数</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"我是一个待装饰的函数"</span>)<br><br><br>a_func_requiring_decoration()<br><span class="hljs-built_in">print</span>(a_func_requiring_decoration.__name__)<br><br><span class="hljs-comment"># outputs:</span><br><span class="hljs-comment"># hello</span><br><span class="hljs-comment"># 我是一个待装饰的函数</span><br><span class="hljs-comment"># see you</span><br><span class="hljs-comment"># a_func_after_decorator</span><br><span class="hljs-comment"># 进程已结束,退出代码0</span><br></code></pre></td></tr></table></figure>
 <p>eg2:使用functools.wraps</p>
 <blockquote>
-<p><strong>@wraps</strong>接受一个函数来进行装饰，并加入了复制函数名称、注释文档、参数列表等等的功能。这可以让我们在装饰器里面访问在装饰之前的函数的属性。–菜鸟教程</p>
+<p><strong><span class="citation" data-cites="wraps">@wraps</span></strong>接受一个函数来进行装饰，并加入了复制函数名称、注释文档、参数列表等等的功能。这可以让我们在装饰器里面访问在装饰之前的函数的属性。--菜鸟教程</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">a_new_decorator</span>(<span class="hljs-params">fun</span>): <span class="hljs-comment">#装饰器</span><br><span class="hljs-meta">    @wraps(<span class="hljs-params">fun</span>)</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">a_func_after_decorator</span>():<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"hello"</span>)<br>        fun()<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"see you"</span>)<br><br>    <span class="hljs-keyword">return</span> a_func_after_decorator<br><br><br><span class="hljs-meta">@a_new_decorator</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">a_func_requiring_decoration</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"我是一个待装饰的函数"</span>)<br><br><br>a_func_requiring_decoration()<br><span class="hljs-built_in">print</span>(a_func_requiring_decoration.__name__)<br><span class="hljs-comment"># outputs</span><br><span class="hljs-comment"># hello</span><br><span class="hljs-comment"># 我是一个待装饰的函数</span><br><span class="hljs-comment"># see you</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment"># 进程已结束,退出代码0</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="有参，有返回值"><a href="#有参，有返回值" class="headerlink" title="有参，有返回值"></a>有参，有返回值</h3><blockquote>
-<p>若被修饰函数有参数，则需在装饰器内定义wrapper时加入参数如”*args”,wrapper内调用被修饰函数也要加入参数，另外，若被修饰函数有返回值，则在wrapper里默认是无效的，需要定义一个临时变量接受其返回值</p>
+<h3 id="有参有返回值">有参，有返回值</h3>
+<blockquote>
+<p>若被修饰函数有参数，则需在装饰器内定义wrapper时加入参数如"*args",wrapper内调用被修饰函数也要加入参数，另外，若被修饰函数有返回值，则在wrapper里默认是无效的，需要定义一个临时变量接受其返回值</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">a_decorator</span>(<span class="hljs-params">func</span>): <span class="hljs-comment"># 装饰器，计算函数运行时间</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args</span>):<br>        start = time.time() <span class="hljs-comment"># 开始时间</span><br>        result = func(*args)<br>        end = time.time() <span class="hljs-comment"># 结束时间</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"运行时间:{}"</span>.<span class="hljs-built_in">format</span>(end-start))<br>        <span class="hljs-keyword">return</span> result <span class="hljs-comment">#返回值：偶数个数</span><br><br>    <span class="hljs-keyword">return</span> wrapper<br><br><br><span class="hljs-meta">@a_decorator</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">count_nums</span>(<span class="hljs-params">maximum</span>):<span class="hljs-comment"># 计算从0到maxinum的偶数个数</span><br>    count = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, maximum):<br>        <span class="hljs-keyword">if</span> i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>:<br>            count += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">continue</span><br>    <span class="hljs-keyword">return</span> count<br><br><br><span class="hljs-built_in">print</span>(count_nums(<span class="hljs-number">100000000</span>))<br><br><span class="hljs-comment"># outputs:</span><br><span class="hljs-comment"># 运行时间:3.6575281620025635</span><br><span class="hljs-comment"># 50000000</span><br></code></pre></td></tr></table></figure>
 
@@ -478,13 +481,6 @@ mjx-container[display="true"] + br {
 
     </div>
   
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Python%E8%A3%85%E9%A5%B0%E5%99%A8/">#Python装饰器</a>
-      
-    </div>
   
 </div>
 

