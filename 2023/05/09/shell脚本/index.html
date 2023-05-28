@@ -16,20 +16,20 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="shell脚本 变量  环境变量：  如何查看？env 或者printenv可以查看所有，printenv xxx或者echo $xxx可以查看特定变量 常见环境变量  创建变量：  等号两边不能有空格，如果变量有空格，必须放入引号中 同一行可以定义多个变量，但是要有分号分割  特殊变量： 123456$# 传递给脚本的参数个数$0 当前脚本文件名$n 第n个参数，如$">
+    <meta name="description" content="shell脚本 一、变量  环境变量：  如何查看？env 或者printenv可以查看所有，printenv xxx或者echo $xxx可以查看特定变量 常见环境变量  创建变量：  等号两边不能有空格，如果变量有空格，必须放入引号中 同一行可以定义多个变量，但是要有分号分割  特殊变量： 123456$# 传递给脚本的参数个数$0 当前脚本文件名$n 第n个参数，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shell脚本">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/05/09/shell%E8%84%9A%E6%9C%AC/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="shell脚本 变量  环境变量：  如何查看？env 或者printenv可以查看所有，printenv xxx或者echo $xxx可以查看特定变量 常见环境变量  创建变量：  等号两边不能有空格，如果变量有空格，必须放入引号中 同一行可以定义多个变量，但是要有分号分割  特殊变量： 123456$# 传递给脚本的参数个数$0 当前脚本文件名$n 第n个参数，如$">
+<meta property="og:description" content="shell脚本 一、变量  环境变量：  如何查看？env 或者printenv可以查看所有，printenv xxx或者echo $xxx可以查看特定变量 常见环境变量  创建变量：  等号两边不能有空格，如果变量有空格，必须放入引号中 同一行可以定义多个变量，但是要有分号分割  特殊变量： 123456$# 传递给脚本的参数个数$0 当前脚本文件名$n 第n个参数，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://d4wnnn.github.io/img/article_img_4.jpg">
+<meta property="og:image" content="https://d4wnnn.github.io/img/article_img_6.jpg">
 <meta property="article:published_time" content="2023-05-09T11:24:07.000Z">
-<meta property="article:modified_time" content="2023-05-16T11:32:32.732Z">
+<meta property="article:modified_time" content="2023-05-24T05:30:16.518Z">
 <meta property="article:author" content="D4wn">
 <meta property="article:tag" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://d4wnnn.github.io/img/article_img_4.jpg">
+<meta name="twitter:image" content="https://d4wnnn.github.io/img/article_img_6.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -376,7 +376,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          1.8k 字
         
       </span>
     
@@ -387,7 +387,7 @@ mjx-container[display="true"] + br {
         
         
         
-          14 分钟
+          16 分钟
         
       </span>
     
@@ -431,7 +431,7 @@ mjx-container[display="true"] + br {
               <div class="markdown-body">
                 
                 <h1 id="shell脚本">shell脚本</h1>
-<h2 id="变量">变量</h2>
+<h2 id="一变量">一、变量</h2>
 <blockquote>
 <p>环境变量：</p>
 <ul>
@@ -447,7 +447,7 @@ mjx-container[display="true"] + br {
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-variable">$#</span> 传递给脚本的参数个数<br><span class="hljs-variable">$0</span> 当前脚本文件名<br><span class="hljs-variable">$n</span> 第n个参数，如<span class="hljs-variable">$1</span>表示第一个参数<br>$* 传递给脚本的所有参数<br>$$ 当前shell脚本ID<br>$? 上一条命令的返回值或者说退出状态<br></code></pre></td></tr></table></figure>
 <p>参考：http://c.biancheng.net/view/806.html</p>
 </blockquote>
-<h2 id="条件判断">条件判断</h2>
+<h2 id="二条件判断">二、条件判断</h2>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-keyword">if</span> commands; <span class="hljs-keyword">then</span><br>commands<br>[<span class="hljs-keyword">elif</span> commands; <span class="hljs-keyword">then</span><br>commands...]<br>[<span class="hljs-keyword">else</span><br>commands]<br><span class="hljs-keyword">fi</span><br></code></pre></td></tr></table></figure>
 <p>或者写成以下格式：</p>
@@ -460,14 +460,14 @@ mjx-container[display="true"] + br {
 <li><p><code>[]</code>是<code>test</code>命令的简写形式</p></li>
 </ul>
 </blockquote>
-<h2 id="循环">循环</h2>
+<h2 id="三循环">三、循环</h2>
 <blockquote>
 <p><code>while</code>循环：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-keyword">while</span> condition; <span class="hljs-keyword">do</span><br>  commands<br><span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
 <p>或者</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-keyword">while</span> condition<br><span class="hljs-keyword">do</span><br>	commands<br><span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="输入输出重定向">输入输出重定向</h2>
+<h2 id="四输入输出重定向">四、输入输出重定向</h2>
 <blockquote>
 <table>
 <thead>
@@ -513,13 +513,13 @@ mjx-container[display="true"] + br {
 <li><p><code>&gt;&amp;</code>和<code>&amp;&gt;意思相同</code></p></li>
 </ul>
 </blockquote>
-<h2 id="常见命令">常见命令</h2>
+<h2 id="五常见命令">五、常见命令</h2>
 <h3 id="awk">AWK</h3>
 <h3 id="grep">GREP</h3>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">-w 只显示全匹配的列<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="用户管理">用户管理</h2>
+<h2 id="六用户管理">六、用户管理</h2>
 <blockquote>
 <p><code>who</code>：显示当前所有登录用户的信息</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">who</span> 返回值：登录用户名称，终端信息，登录时间，远程主机或X display<br><span class="hljs-built_in">who</span> -b 返回上次系统启动的时间<br><br></code></pre></td></tr></table></figure>
@@ -534,6 +534,13 @@ mjx-container[display="true"] + br {
 <p>http://c.biancheng.net/shell/</p>
 <p>https://www.yiibai.com/bash/bash-scripting.html</p>
 <p>https://quickref.cn/docs/bash.html</p>
+</blockquote>
+<h2 id="八附windows平台脚本">八、附：Windows平台脚本</h2>
+<p>如何在后台静默运行？</p>
+<blockquote>
+<p>创建<code>run.vbs</code></p>
+<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vb"><span class="hljs-keyword">Set</span> objShell = WScript.CreateObject(<span class="hljs-string">"WScript.Shell"</span>)<br>objShell.Run <span class="hljs-string">"cmd /c your_script.bat"</span>, <span class="hljs-number">0</span><br><span class="hljs-keyword">Set</span> objShell = <span class="hljs-literal">Nothing</span><br></code></pre></td></tr></table></figure>
+<p>其中<code>your_script.bat</code>为自己的脚本文件</p>
 </blockquote>
 
                 
@@ -718,6 +725,19 @@ mjx-container[display="true"] + br {
 
   
 
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('mermaid' in window) {
+        mermaid.init();
+      }
+    });
+  });
+</script>
 
 
 

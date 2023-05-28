@@ -16,20 +16,20 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="Python脚本 Socket编程  当客户端执行sock.close()，会向服务器发送FIN包，此时服务端的conn.recv(1024)才会返回空字符串；如果直接发送空字符串，conn.recv(1024)并不会返回空字符串，而是继续阻塞等待。 服务端同理，执行conn.close()后，客户端的sock.recv(1024)也会返回空字符串 注意：当任意一段执行close()后，">
+    <meta name="description" content="Python脚本 项目打包  常见的打包工具有哪些 ？  distutils setuptools  什么是setuptools?  setuptools是distutils的增强版，并不在标准库中，拓展了很多功能，大部分用户都会选择setuptools模块  源码包与二进制包有什么区别？  源码包：  安装过程：先解压，再编译，最后安装，所以跨平台，速度比较慢">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python脚本">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/05/16/Python%E8%84%9A%E6%9C%AC/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Python脚本 Socket编程  当客户端执行sock.close()，会向服务器发送FIN包，此时服务端的conn.recv(1024)才会返回空字符串；如果直接发送空字符串，conn.recv(1024)并不会返回空字符串，而是继续阻塞等待。 服务端同理，执行conn.close()后，客户端的sock.recv(1024)也会返回空字符串 注意：当任意一段执行close()后，">
+<meta property="og:description" content="Python脚本 项目打包  常见的打包工具有哪些 ？  distutils setuptools  什么是setuptools?  setuptools是distutils的增强版，并不在标准库中，拓展了很多功能，大部分用户都会选择setuptools模块  源码包与二进制包有什么区别？  源码包：  安装过程：先解压，再编译，最后安装，所以跨平台，速度比较慢">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
+<meta property="og:image" content="https://d4wnnn.github.io/img/article_img_0.jpg">
 <meta property="article:published_time" content="2023-05-15T16:00:26.000Z">
-<meta property="article:modified_time" content="2023-05-19T03:53:59.523Z">
+<meta property="article:modified_time" content="2023-05-24T05:28:33.162Z">
 <meta property="article:author" content="D4wn">
 <meta property="article:tag" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
+<meta name="twitter:image" content="https://d4wnnn.github.io/img/article_img_0.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -376,7 +376,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          616 字
+          3.2k 字
         
       </span>
     
@@ -387,7 +387,7 @@ mjx-container[display="true"] + br {
         
         
         
-          6 分钟
+          27 分钟
         
       </span>
     
@@ -431,11 +431,105 @@ mjx-container[display="true"] + br {
               <div class="markdown-body">
                 
                 <h1 id="python脚本">Python脚本</h1>
+<h2 id="项目打包">项目打包</h2>
+<blockquote>
+<p>常见的打包工具有哪些 ？</p>
+<ul>
+<li>distutils</li>
+<li>setuptools</li>
+</ul>
+<p>什么是setuptools?</p>
+<ul>
+<li>setuptools是distutils的增强版，并不在标准库中，拓展了很多功能，大部分用户都会选择setuptools模块</li>
+</ul>
+<p>源码包与二进制包有什么区别？</p>
+<ul>
+<li><p>源码包：</p>
+<ul>
+<li>安装过程：先解压，再编译，最后安装，所以跨平台，速度比较慢</li>
+</ul></li>
+<li><p>二进制包：</p>
+<ul>
+<li><p>省去了编译的过程，直接解压安装；但是由于不同平台编译出来的包无法通用，所以在发布时需要先编译好多个平台的包：</p>
+<p>常见格式：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">格式</th>
+<th style="text-align: center;">后缀</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">egg</td>
+<td style="text-align: center;">.egg</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">wheel</td>
+<td style="text-align: center;">.whl</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>egg和whl有何区别？</p>
+<ul>
+<li>Egg是setuptools在2004年引入的，Wheel则是在2012年才定义，Wheel的出现是为了替代Egg，本事是一个Zip包，现在被认为是标准的Python二进制包格式</li>
+<li>wheel包可以通过pip安装，只不过需要首先安装wheel模块：<code>pip install wheel</code></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>setup.py的编写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> __future__ <span class="hljs-keyword">import</span> print_function<br><span class="hljs-keyword">from</span> setuptools <span class="hljs-keyword">import</span> setup, find_packages<br><br>data_files = []<br><br>setup(<br>    name=<span class="hljs-string">'capbac'</span>,<br>    version=<span class="hljs-string">'1.0'</span>,<br>    description=<span class="hljs-string">'Sawtooth CapBAC'</span>,<br>    author=<span class="hljs-string">'kappanneo'</span>,<br>    <span class="hljs-comment"># 项目主页</span><br>    url=<span class="hljs-string">'https://github.com/kappanneo/sawtooth-capbac'</span>,<br>    <span class="hljs-comment"># 指的是你要安装的包</span><br>    packages=find_packages(),<br>    <span class="hljs-comment"># 指明当前模块现需要依赖哪些包，若环境中没有，则从pypi中下载</span><br>    install_requires=[<br>        <span class="hljs-string">'aiohttp'</span>,<br>        <span class="hljs-string">'aiocoap'</span><br>        <span class="hljs-string">'colorlog'</span>,<br>        <span class="hljs-string">'protobuf'</span>,<br>        <span class="hljs-string">'sawtooth-sdk'</span>,<br>        <span class="hljs-string">'sawtooth-signing'</span>,<br>        <span class="hljs-string">'PyYAML'</span>,<br>    ],<br>    <span class="hljs-comment">#指明目的目录和源文件路径</span><br>    data_files=data_files,<br>    <span class="hljs-comment"># 用来支持自动生成脚本，安装后自动生成/usr/bin/capbac的可执行文件</span><br>    <span class="hljs-comment"># 该文件入口指向capbac_cli.py的main_wrapper函数</span><br>    entry_points={<br>        <span class="hljs-string">'console_scripts'</span>: [<br>            <span class="hljs-string">'capbac = capbac_cli:main_wrapper'</span>,<br>        ]<br>    })<br><br><br></code></pre></td></tr></table></figure>
+<p>使用setup.py构建包：</p>
+<ul>
+<li><p>构建源码发布包：</p>
+<ul>
+<li><p>构建</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python setup.py sdist<br></code></pre></td></tr></table></figure></li>
+<li><p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">eash_install xxx.tar.gz<br></code></pre></td></tr></table></figure></li>
+</ul></li>
+<li><p>构建二进制分发包：</p>
+<ul>
+<li><p>Windows上可以构建成exe这样的二进制软件包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python setup.py bdist_wininst<br></code></pre></td></tr></table></figure></li>
+<li><p>Linux上构建rpm包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python setup.py bdist_rpm<br></code></pre></td></tr></table></figure></li>
+<li><p>Linux上构建egg包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python setup.py bdist_egg<br></code></pre></td></tr></table></figure></li>
+<li><p>在多个平台构建：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python setup.py bdist<br></code></pre></td></tr></table></figure></li>
+</ul></li>
+</ul>
+<p>使用setup.py安装包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">python setup.py install 安装到系统全局环境<br>python setup.py develop 不会真正安装包，而是在环境变量中创建一个软链接，便于调试<br></code></pre></td></tr></table></figure>
+<p>参考资料：https://blog.csdn.net/calvinpaean/article/details/113580458</p>
+</blockquote>
+<h2 id="日期模块">日期模块</h2>
+<p>time</p>
+<blockquote>
+<ul>
+<li><p>当前时间戳：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><span class="hljs-built_in">print</span>(time.time())<br><span class="hljs-comment"># 1684753413.0579932</span><br></code></pre></td></tr></table></figure></li>
+<li><p>时间戳转时间：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> datetime<br><span class="hljs-keyword">import</span> time<br><br>t1 = time.time()<br>t2 = datetime.datetime.fromtimestamp(t1)<br><span class="hljs-built_in">print</span>(t2.isoformat())<br></code></pre></td></tr></table></figure></li>
+<li><p>输出当前时间的字符串</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><span class="hljs-built_in">print</span>(time.strftime(<span class="hljs-string">"%Y-%m-%d--&gt;%H:%M:%S"</span>))<br><span class="hljs-comment"># 2023-05-22--&gt;19:06:59</span><br></code></pre></td></tr></table></figure></li>
+<li><p>将字符串解析为datatime对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime<br>  <br>date_str = <span class="hljs-string">'2021-05-22'</span><br>date_obj = datetime.strptime(date_str, <span class="hljs-string">'%Y-%m-%d'</span>)<br><span class="hljs-built_in">print</span>(date_obj)<br><span class="hljs-comment"># 2021-05-22 00:00:00</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+<p>参考：https://geekpy.github.io/2018/08/12/python_time/</p>
 <h2 id="socket编程">Socket编程</h2>
 <blockquote>
 <p>当客户端执行<code>sock.close()</code>，会向服务器发送FIN包，此时服务端的<code>conn.recv(1024)</code>才会返回空字符串；如果直接发送空字符串，<code>conn.recv(1024)</code>并不会返回空字符串，而是继续阻塞等待。</p>
 <p>服务端同理，执行<code>conn.close()</code>后，客户端的<code>sock.recv(1024)</code>也会返回空字符串</p>
 <p>注意：当任意一段执行<code>close()</code>后，另一端都要再次执行<code>close()</code></p>
+<ul>
+<li><p><code>client.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> socket<br><br><span class="hljs-comment"># 创建TCP套接字对象</span><br>sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br><span class="hljs-comment"># socket.AF_INET为ipv4，socket.SOCK_STREAM为TCP套接字</span><br><span class="hljs-comment"># 连接服务器</span><br>sock.connect((<span class="hljs-string">'192.168.126.140'</span>, <span class="hljs-number">8083</span>))<br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-comment"># 发送数据到服务器并接收响应</span><br>    sock.sendall(<span class="hljs-string">b'asd'</span>)<br>    data = sock.recv(<span class="hljs-number">1024</span>)<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> data:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"fuck!~"</span>)<br>        sock.close()<br>        <span class="hljs-keyword">break</span><br>    <span class="hljs-comment"># 打印从服务器接收到的响应</span><br>    <span class="hljs-built_in">print</span>(data.decode())<br><br>    <span class="hljs-comment"># 关闭套接字</span><br></code></pre></td></tr></table></figure></li>
+<li><p><code>server.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> socket<br>      <br><span class="hljs-comment"># 创建TCP套接字对象</span><br>sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>      <br><span class="hljs-comment"># 绑定IP地址和端口号</span><br>sock.bind((<span class="hljs-string">'localhost'</span>, <span class="hljs-number">8080</span>))<br>      <br><span class="hljs-comment"># 开始监听客户端连接</span><br>sock.listen(<span class="hljs-number">1</span>)<br><span class="hljs-comment"># 1表示最多允许排队的连接数为1个</span><br>      <br><span class="hljs-comment"># 等待客户端连接</span><br>conn, addr = sock.accept()<br>      <br><span class="hljs-comment"># 接收来自客户端的数据并发送回去</span><br><span class="hljs-built_in">print</span>(addr)<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    data = conn.recv(<span class="hljs-number">1024</span>)<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> data:<br>        <span class="hljs-keyword">break</span><br>    conn.sendall(data + <span class="hljs-string">b'fuck'</span>)<br>      <br><span class="hljs-comment"># 关闭套接字</span><br>conn.close()<br>sock.close()<br></code></pre></td></tr></table></figure></li>
+</ul>
 </blockquote>
 <h2 id="日志">日志</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> logging<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    <span class="hljs-built_in">format</span> = <span class="hljs-string">"%(asctime)s-%(levelname)s-%(message)s"</span>  <span class="hljs-comment"># asctime为生成时间</span><br>    date_format = <span class="hljs-string">"%Y/%m/%d %H:%M:%S"</span>  <span class="hljs-comment"># 日期时间</span><br>    logging.basicConfig(<br>        filename=<span class="hljs-string">"qy.log"</span>,  <span class="hljs-comment"># 输出到文件,此时不会输出到控制台</span><br>        filemode=<span class="hljs-string">'a'</span>,  <span class="hljs-comment"># 默认为追加模式</span><br>        <span class="hljs-built_in">format</span>=<span class="hljs-built_in">format</span>,<br>        datefmt=date_format,<br>        level=logging.DEBUG  <span class="hljs-comment"># 日志级别</span><br>    )<br>    logging.debug(<span class="hljs-string">"debug"</span>)<br>    logging.info(<span class="hljs-string">"info"</span>)<br>    logging.warning(<span class="hljs-string">"warning"</span>)<br>    logging.error(<span class="hljs-string">"error"</span>)<br>    logging.critical(<span class="hljs-string">"critical"</span>)<br></code></pre></td></tr></table></figure>
@@ -622,6 +716,19 @@ mjx-container[display="true"] + br {
 
   
 
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('mermaid' in window) {
+        mermaid.init();
+      }
+    });
+  });
+</script>
 
 
 
