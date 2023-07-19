@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2022-10-04T06:32:11.000Z">
-<meta property="article:modified_time" content="2023-07-09T18:12:22.666Z">
+<meta property="article:modified_time" content="2023-07-13T05:11:23.159Z">
 <meta property="article:author" content="D4wn">
 <meta property="article:tag" content="HTML">
 <meta property="article:tag" content="CSS">
@@ -390,7 +390,7 @@ mjx-container[display="true"] + br {
         
         
         
-          98 分钟
+          101 分钟
         
       </span>
     
@@ -534,8 +534,22 @@ mjx-container[display="true"] + br {
 <li><p>交集选择器</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span><span class="hljs-selector-class">.box</span>{<br>    属性：属性值<br>}<br></code></pre></td></tr></table></figure></li>
 <li><p>伪类选择器(向某些选择器添加特殊的效果)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">eg:<br>顺序(LVHA)不能变！！！<br>a:link 未访问<br>a:visited 已经访问<br>a:hover 鼠标经过<br>a:active 鼠标按下未抬起<br>a:last-child<br>          <br>:focue 用于选取获得焦点的表单元素<br><span class="hljs-built_in">input</span>:focus {<br>    background-color: red;<br>}<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">eg:<br>顺序(LVHA)不能变！！！<br>a:link 未访问<br>a:visited 已经访问<br>a:hover 鼠标经过<br>a:active 鼠标按下未抬起<br>a:last-child<br>                  <br>:focue 用于选取获得焦点的表单元素<br><span class="hljs-built_in">input</span>:focus {<br>    background-color: red;<br>}<br></code></pre></td></tr></table></figure></li>
 </ul>
+</blockquote>
+<h4 id="结构伪类选择器">2.2.3 结构伪类选择器</h4>
+<blockquote>
+<p>作用：根据元素在HTML中的结构关系查找元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css">E<span class="hljs-selector-pseudo">:first</span>-child 第一个元素<br>E<span class="hljs-selector-pseudo">:last-child</span> 最后一个元素<br>E<span class="hljs-selector-pseudo">:nth-child</span>(<span class="hljs-selector-tag">i</span>) 第<span class="hljs-selector-tag">i</span>个E元素<br>E<span class="hljs-selector-pseudo">:nth-last-child</span>(j) 倒数第j个元素<br>E<span class="hljs-selector-pseudo">:nth-child</span>(<span class="hljs-number">2</span>n) 第偶数个元素<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="伪元素">2.2.4 伪元素</h4>
+<blockquote>
+<p>伪元素：由CSS模拟出的标签效果</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-pseudo">::before</span> 在父元素内容的最前添加一个伪元素<br><span class="hljs-selector-pseudo">::after</span> 在父元素内容的最后添加一个伪元素<br></code></pre></td></tr></table></figure>
+<p>伪元素默认的是行内元素</p>
+<p>必须设置content属性才能生效</p>
+<p>eg:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css"></span><br><span class="language-css">    <span class="hljs-selector-class">.father</span><span class="hljs-selector-pseudo">::before</span> {</span><br><span class="language-css">        <span class="hljs-attribute">content</span>: <span class="hljs-string">'你'</span>;</span><br><span class="language-css">    }</span><br><span class="language-css"></span><br><span class="language-css">    <span class="hljs-selector-class">.father</span><span class="hljs-selector-pseudo">::after</span> {</span><br><span class="language-css">        <span class="hljs-attribute">content</span>: <span class="hljs-string">'吗'</span>;</span><br><span class="language-css">    }</span><br><span class="language-css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"father"</span>&gt;</span>好<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="元素显示模式">2.3 元素显示模式</h3>
 <blockquote>
@@ -631,93 +645,154 @@ mjx-container[display="true"] + br {
 <p>类似内边距</p></li>
 <li><p>一般在项目开始时会清除标签默认的padding和margin</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css">* {<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;<br>}<br></code></pre></td></tr></table></figure></li>
-<li><p>==块级盒子水平居中对齐==</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">盒子必须指定了宽度<br>左右外边距设置为auto：<br>margin: <span class="hljs-number">0</span> auto;<br><br>行内元素或者行内块元素水平居中给其父亲添加text-align：center即可居中<br><br>相邻块元素会出现垂直外边距合并的问题<br>对于两个父子关系的块级元素 父子元素都有上外边距 此时父元素会塌陷较大的外边距值<br>	如何解决：<br>    	父元素添加上边框<br>        为父元素定义上边距<br>        为父元素添加overflow：hidden<br></code></pre></td></tr></table></figure></li>
 <li><p>清除内外边距</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">* {<br>   padding:<span class="hljs-number">0</span>;<br>   margin:<span class="hljs-number">0</span>;<br>}<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">* {<br>    padding:<span class="hljs-number">0</span>;<br>    margin:<span class="hljs-number">0</span>;<br>   }<br></code></pre></td></tr></table></figure></li>
 <li><p>注意：垂直布局的块级元素，上下的margin会合并，最终距离为margin的最大值；</p>
 <p>解决方法：只给其中一个margin设置即可</p></li>
 <li><p>塌陷现象：相互嵌套的块级元素，子元素的margin-top会作用在父元素上，导致父元素一起往下移动</p>
 <p>解决方法：</p>
 <ol type="1">
 <li>给父元素设置padding-top</li>
+</ol></li>
+</ul>
+<ol start="2" type="1">
 <li>给父元素设置overflow：hidden</li>
 <li>转换为行内块元素</li>
 <li>设置浮动</li>
-</ol></li>
+</ol>
+<ul>
 <li><p>行内标签的垂直方向的padding和margin不生效</p>
 <p>解决方法：设置line-height</p></li>
 </ul>
 </blockquote>
 <h3 id="浮动">2.5 浮动</h3>
-<p>https://www.bilibili.com/video/BV1Kg411T7t9?t=25.4&amp;p=112</p>
 <blockquote>
+<p>标准流：又称文档流，是浏览器在渲染显示网页内容时默认采用的一套排版规则</p>
+<p>浮动的作用：</p>
+<ol type="1">
+<li>现有技术的问题：浏览器在解析块级元素或者行内块元素时，若代码换行，会解析出一个小间距</li>
+<li>早期作用：图文环绕</li>
+<li>现在的作用：网页布局</li>
+</ol>
+<p>浮动的特点：</p>
+<ol type="1">
+<li>浮动元素在标准流中不占据位置，比标准流高半个级别，可以覆盖元素</li>
+<li>浮动后的元素具备行内块元素特点</li>
+<li>浮动后的元素不能通过text-aligin:center或者margin:0 atuo来居中</li>
+</ol>
+<p>CSS书写顺序(浏览器执行效率更高):</p>
+<ol type="1">
+<li>浮动/display</li>
+<li>盒子模型：margin，padding，border，width，height，background-color</li>
+<li>文字的样式</li>
+</ol>
+</blockquote>
+<p>清除浮动</p>
+<blockquote>
+<p>含义：清除浮动带来的影响</p>
+<p>为什么要清除浮动？</p>
 <ul>
-<li>传统布局方式
+<li>由于父级盒子在很多情况下不方便给高度，但是子盒子浮动又不占有位置，最后父盒子高度为0，所以要清除浮动</li>
+</ul>
+<p>清除浮动方法一: 额外标签法：</p>
 <ul>
-<li>标准流</li>
-<li>浮动</li>
-<li>定位</li>
-</ul></li>
-<li>浮动的作用
+<li><p>在父元素内容的最后添加应给块级元素，给添加的元素添加clear:both</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css"></span><br><span class="language-css">    <span class="hljs-selector-class">.clear</span> {</span><br><span class="language-css">        <span class="hljs-attribute">clear</span>: both;</span><br><span class="language-css">    }</span><br><span class="language-css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"father"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"damao"</span>&gt;</span>a<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ermao"</span>&gt;</span>a<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clear"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>清除浮动方法二: 单伪元素清除法</p>
 <ul>
-<li>让块级标签在一行显示，方便布局</li>
-</ul></li>
-<li>特点：
+<li><p>用伪元素替代额外标签</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.clearfix</span><span class="hljs-selector-pseudo">::after</span>{<br>    <span class="hljs-attribute">content</span>: <span class="hljs-string">''</span>;<br>    <span class="hljs-attribute">display</span>: block;<br>    <span class="hljs-attribute">clear</span>: both;<br>}<br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>清除浮动方法三: 双伪元素清除法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.clearfix</span><span class="hljs-selector-pseudo">:before</span>,<br><span class="hljs-selector-class">.clearfix</span><span class="hljs-selector-pseudo">:after</span> {<br>    <span class="hljs-attribute">display</span>: table;<br>    <span class="hljs-attribute">content</span>: <span class="hljs-string">''</span>;<br>}<br><span class="hljs-selector-class">.clearfix</span><span class="hljs-selector-pseudo">:after</span>{<br>    <span class="hljs-attribute">clear</span>:both;<br>}<br><span class="hljs-selector-class">.clearfix</span>{<br>    *zoom: <span class="hljs-number">1</span>;<br>}<br></code></pre></td></tr></table></figure>
+<p>清除浮动方法四：overflow</p>
 <ul>
-<li>浮动元素会脱离标准流，在标准流中不占位置</li>
-<li>浮动元素比标准流高半个级别，可以覆盖标准流中的标签，但是无法盖住字体</li>
-<li>下一个浮动元素会在上一个浮动的左右排列</li>
-<li>浮动后的元素具备行内块特点</li>
-</ul></li>
+<li>给父元素添加overflow:hidden</li>
 </ul>
 </blockquote>
 <p>网页定位第一准则：多个块级元素纵向排列找标准流
 多个块级元素横向排列找浮动</p>
 <p>网页定位第二准则：先设置盒子大小 之后设置盒子位置</p>
-<p>float创建浮动框 将其移动到一边
-直到边缘触碰到块或者另一个浮动框的边缘</p>
-<p>浮动特性：</p>
-<ul>
-<li><p>浮动元素会脱离标准流</p>
-<p>浮动的盒子不再保留原来的位置</p></li>
-<li><p>浮动的元素会一行内显示并且元素顶部对齐</p></li>
-<li><p>浮动的元素会具有行内块的特性</p></li>
-</ul>
-<p>浮动元素经常和标准流父亲搭配使用：先用标准流的父亲元素排列上下位置，然后内部元素采取浮动排列左右位置</p>
-<p>要浮动全浮动</p>
-<p>为什么要清除浮动？</p>
-<p>由于父级盒子在很多情况下不方便给高度，但是子盒子浮动又不占有位置，最后父盒子高度为0，所以要清除浮动</p>
-<p>清除浮动的本质就是清除浮动的影响</p>
-<p>若父盒子有高度 则不需要清除浮动</p>
-<p>clear:left/right/both</p>
-<p>在实际应用中，几乎只用clear:both</p>
-<p>清除浮动的方法</p>
-<ul>
-<li><p>闭合标签法：clear:both（新添加的块级元素必须是块级元素）</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>D4wn<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css"></span><br><span class="language-css">        <span class="hljs-selector-class">.father</span> {</span><br><span class="language-css">            <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid;</span><br><span class="language-css"></span><br><span class="language-css">        }</span><br><span class="language-css"></span><br><span class="language-css">        <span class="hljs-selector-class">.damao</span> {</span><br><span class="language-css">            <span class="hljs-attribute">float</span>: left;</span><br><span class="language-css">            <span class="hljs-attribute">height</span>: <span class="hljs-number">500px</span>;</span><br><span class="language-css">            <span class="hljs-attribute">width</span>: <span class="hljs-number">500px</span>;</span><br><span class="language-css">            <span class="hljs-attribute">background-color</span>: blue;</span><br><span class="language-css">        }</span><br><span class="language-css"></span><br><span class="language-css">        <span class="hljs-selector-class">.ermao</span> {</span><br><span class="language-css">            <span class="hljs-attribute">float</span>: left;</span><br><span class="language-css">            <span class="hljs-attribute">height</span>: <span class="hljs-number">500px</span>;</span><br><span class="language-css">            <span class="hljs-attribute">width</span>: <span class="hljs-number">500px</span>;</span><br><span class="language-css">            <span class="hljs-attribute">background-color</span>: yellow;</span><br><span class="language-css"></span><br><span class="language-css">        }</span><br><span class="language-css"></span><br><span class="language-css">        <span class="hljs-selector-class">.clear</span> {</span><br><span class="language-css">            <span class="hljs-attribute">clear</span>: both;</span><br><span class="language-css">        }</span><br><span class="language-css">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"father"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"damao"</span>&gt;</span>a<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ermao"</span>&gt;</span>a<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clear"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
-<li><p>给父元素添加overflow属性：hidden/auto/scroll
-缺点：无法显示溢出的部分</p></li>
-<li><p>：after伪元素法 也是给父元素添加</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs CSS"><span class="hljs-selector-class">.clearfix</span><span class="hljs-selector-pseudo">:after</span>{<br>    <span class="hljs-attribute">content</span>:<span class="hljs-string">""</span>;<br>    <span class="hljs-attribute">display</span>:block;<br>    <span class="hljs-attribute">height</span>:<span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">clear</span>:both;<br>    <span class="hljs-attribute">visibility</span>:hidden;<br>}<br><span class="hljs-selector-class">.clearfix</span>{<br>    <span class="hljs-comment">/*IE6、7专有*/</span><br>    *zoom: <span class="hljs-number">1</span>;<br>}<br></code></pre></td></tr></table></figure></li>
-<li><p>双伪元素清除浮动 也是给父元素添加</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.clearfix</span><span class="hljs-selector-pseudo">:before</span>,<br><span class="hljs-selector-class">.clearfix</span><span class="hljs-selector-pseudo">:after</span> {<br>    <span class="hljs-attribute">display</span>:table;<br>    <span class="hljs-attribute">content</span>:<span class="hljs-string">""</span>;<br>}<br><span class="hljs-selector-class">.clearfix</span><span class="hljs-selector-pseudo">:after</span>{<br>    <span class="hljs-attribute">clear</span>:both;<br>}<br><span class="hljs-selector-class">.clearfix</span>{<br>    *zoom: <span class="hljs-number">1</span>;<br>}<br></code></pre></td></tr></table></figure></li>
-</ul>
-<p>CSS属性书写顺序</p>
+<h3 id="定位">2.6 定位</h3>
+<p>https://www.bilibili.com/video/BV1Kg411T7t9?t=37.1&amp;p=147</p>
+<blockquote>
+<p>定位的作用：可以让元素自由的摆放在任意位置，常用于元素重叠的场景，或者让元素始终固定在屏幕某个位置</p>
+</blockquote>
+<h4 id="相对定位">2.6.1 相对定位</h4>
+<blockquote>
+<p>定义：相对于自己原来的位置进行移动</p>
+<p>代码：<code>position: relative</code></p>
+<p>特点：</p>
 <ol type="1">
-<li>布局定位属性 建议display第一个写</li>
-<li>自身属性</li>
-<li>文本属性</li>
-<li>其他属性</li>
+<li>占有原来的位置</li>
+<li>显示模式不变</li>
+<li>改变位置参照自己原来的位置</li>
 </ol>
-<p>在实际开发中，我们会使用li+a的方法制作导航栏</p>
-<p>同一个盒子里面的元素要加浮动就都加浮动</p>
-<p>因为导航栏里面的文字不一样多，所以最好给a链接左右padding撑开盒子，而不是指定宽度</p>
-<p>行内块元素之间默认是有个缝隙的</p>
-<p>https://www.bilibili.com/video/BV14J4114768?t=90.8&amp;p=206</p>
-<p>[ch03. 盒子模型 (mphy.top)](</p>
+</blockquote>
+<h4 id="绝对定位">2.6.2 绝对定位</h4>
+<blockquote>
+<p>定义：相对于非静态的父元素(也可以是父元素的父元素等)进行移动。也就是先找已经定位的父元素，若没有，以浏览器窗口为参照进行定位</p>
+<p>代码：<code>position: absolute</code></p>
+<p>特点:</p>
+<ol type="1">
+<li>脱离标准流，不占位置</li>
+<li>显示模式变成行内块</li>
+</ol>
+<p>注意：父标签一般用相对定位，简称<code>子绝夫相</code></p>
+<p>绝对定位的盒子不能使用左右<code>margin 0 auto</code>去居中，那么如何居中呢？</p>
+<ol type="1">
+<li><p>方法一:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">position</span>: absolute;<br><span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;<br><span class="hljs-attribute">margin-left</span>: -元素宽度的一半;<br><span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;<br><span class="hljs-attribute">margin-top</span>: -元素高度的一般;<br></code></pre></td></tr></table></figure></li>
+<li><p>方法二：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;<br><span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;<br>tracsform: <span class="hljs-built_in">translate</span>(-<span class="hljs-number">50%</span>,-<span class="hljs-number">50%</span>);<br></code></pre></td></tr></table></figure></li>
+</ol>
+</blockquote>
+<h4 id="固定定位">2.6.3 固定定位</h4>
+<blockquote>
+<p>定义：相对于浏览器进行定位移动</p>
+<p>代码: <code>position: fixed</code></p>
+<p>特点：</p>
+<ol type="1">
+<li>脱离标准流，不占位置</li>
+<li>改变位置参考浏览器窗口</li>
+<li>具备行内块特点</li>
+</ol>
+</blockquote>
+<h4 id="元素的层级关系">2.6.4 元素的层级关系</h4>
+<blockquote>
+<p>不同布局方式元素的层级关系:</p>
+<ul>
+<li>标准流&lt;浮动&lt;定位</li>
+</ul>
+<p>不同定位之间的层级关系:</p>
+<ul>
+<li>相对、绝对、固定默认层级相同</li>
+<li>此时HTML中写在最下面的元素层级更高，会覆盖上面的元素，也就是后来者居上</li>
+</ul>
+<p>如何改变层级关系?</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">z-index</span>:<span class="hljs-number">1</span>;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">默认值为0，值越大越在上层</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<p>注意：<code>z-index</code>必须配合定位才能生效</p>
+</blockquote>
+<h3 id="装饰">2.7 装饰</h3>
+<h4 id="垂直对齐方式">2.7.1 垂直对齐方式</h4>
+<blockquote>
+<p>属性名：<code>vertical-align</code></p>
+<p>属性值:</p>
+<ul>
+<li>baseline：默认，基线对齐</li>
+<li>middle: 中部对其</li>
+<li>top: 顶部对齐</li>
+<li>bottom: 底部对齐</li>
+</ul>
+<p>应用场景:</p>
+<ul>
+<li>但凡是行内块和文字对齐或者行内块和行内块对齐，要想居中，都要是<code>vertical-align: center</code></li>
+</ul>
+</blockquote>
+<p>https://www.bilibili.com/video/BV1Kg411T7t9?t=422.0&amp;p=160</p>
 <h2 id="三js">三、JS</h2>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Y84y1L7Nn/?p=1&amp;vd_source=bf133d296119691c661008e881da330a">JS基础Day1-01-JavaScript核心与进阶课程安排_哔哩哔哩_bilibili</a></p>
+<p>https://www.bilibili.com/video/BV1Y84y1L7Nn?t=107.4</p>
 <h3 id="基础知识语法">3.1 基础知识、语法</h3>
 <h4 id="变量">变量</h4>
 <blockquote>

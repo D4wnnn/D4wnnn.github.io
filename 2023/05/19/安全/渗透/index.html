@@ -16,16 +16,16 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="渗透  https:&#x2F;&#x2F;www.ctftools.com&#x2F; 该第9天  一、基础入门 二、信息打点  判断网站操作系统类型：  通过ICMP报文的TTL值判断 通过网站返回包的一些字段判断  判断网站使用的语言:  通过网站返回包的字段 通过搜索引擎，比如必应: site: acdawn.cn php  源码泄露:  CMS识别 网站备份文件 GIT源码">
+    <meta name="description" content="渗透  https:&#x2F;&#x2F;www.ctftools.com&#x2F; 该第9天  一、基础入门 二、信息打点  除了第11天没看，其余已看   判断网站操作系统类型：  通过ICMP报文的TTL值判断 通过网站返回包的一些字段判断  判断网站使用的语言:  通过网站返回包的字段 通过搜索引擎，比如必应: site: acdawn.cn php  源码泄露:  C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="渗透">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/05/19/%E5%AE%89%E5%85%A8/%E6%B8%97%E9%80%8F/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="渗透  https:&#x2F;&#x2F;www.ctftools.com&#x2F; 该第9天  一、基础入门 二、信息打点  判断网站操作系统类型：  通过ICMP报文的TTL值判断 通过网站返回包的一些字段判断  判断网站使用的语言:  通过网站返回包的字段 通过搜索引擎，比如必应: site: acdawn.cn php  源码泄露:  CMS识别 网站备份文件 GIT源码">
+<meta property="og:description" content="渗透  https:&#x2F;&#x2F;www.ctftools.com&#x2F; 该第9天  一、基础入门 二、信息打点  除了第11天没看，其余已看   判断网站操作系统类型：  通过ICMP报文的TTL值判断 通过网站返回包的一些字段判断  判断网站使用的语言:  通过网站返回包的字段 通过搜索引擎，比如必应: site: acdawn.cn php  源码泄露:  C">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://d4wnnn.github.io/img/article_img_1.jpg">
 <meta property="article:published_time" content="2023-05-19T03:25:17.000Z">
-<meta property="article:modified_time" content="2023-07-09T18:09:43.850Z">
+<meta property="article:modified_time" content="2023-07-18T06:48:02.230Z">
 <meta property="article:author" content="D4wn">
 <meta property="article:tag" content="渗透">
 <meta name="twitter:card" content="summary_large_image">
@@ -376,7 +376,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.8k 字
+          8.9k 字
         
       </span>
     
@@ -387,7 +387,7 @@ mjx-container[display="true"] + br {
         
         
         
-          57 分钟
+          74 分钟
         
       </span>
     
@@ -438,6 +438,9 @@ mjx-container[display="true"] + br {
 <h2 id="一基础入门">一、基础入门</h2>
 <h2 id="二信息打点">二、信息打点</h2>
 <blockquote>
+<p>除了第11天没看，其余已看</p>
+</blockquote>
+<blockquote>
 <p>判断网站操作系统类型：</p>
 <ol type="1">
 <li>通过ICMP报文的TTL值判断</li>
@@ -481,13 +484,34 @@ mjx-container[display="true"] + br {
 <li>https://tools.ipip.net/cdn.php</li>
 <li>http://17ce.com/</li>
 </ol>
-<p>WAF:</p>
+<p>绕过CDN:</p>
 <ol type="1">
-<li>看图识WAF：https://www.cnblogs.com/charon1937/p/13799467.html</li>
+<li><p>从子域名入手</p></li>
+<li><p>历史DNS记录</p></li>
+<li><p>Mx记录或者邮件</p></li>
+<li><p>国外请求</p></li>
+<li><p>网络空间扫描历史文件</p></li>
+<li><p>漏洞(比如ssrf,请求外部地址)</p>
+<p>参考资料：https://www.secpulse.com/archives/51380.html</p></li>
 </ol>
+<p>WAF:</p>
+<ul>
+<li>看图识WAF：https://www.cnblogs.com/charon1937/p/13799467.html</li>
+</ul>
 <p>负载均衡:</p>
-<ol type="1">
+<ul>
 <li>LBD</li>
+</ul>
+<p>APP信息搜集：</p>
+<ul>
+<li>主要分为部分</li>
+</ul>
+<ol type="1">
+<li><p>内在提取</p>
+<p>若出现错误，可能是APP存在壳，需要利用Xposed模块的dexdump或者frida模块的RRIDE-DEXDump</p>
+<p>Apk资源提取器可以提取APK文件，以及一些资源文件</p></li>
+<li><p>外在抓包</p>
+<p>Xposed的JustTrustMe工具可以配置Fiddler等证书，进而实现抓包</p></li>
 </ol>
 </blockquote>
 <p>附：</p>
@@ -520,9 +544,59 @@ mjx-container[display="true"] + br {
 <blockquote>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">lbd </span>www.<span class="hljs-keyword">baidu.com</span><br></code></pre></td></tr></table></figure>
 </blockquote>
+<p>历史DNS记录查询网站</p>
+<blockquote>
+<p>https://www.dnsdb.io/zh-cn/</p>
+<p>https://x.threatbook.com/</p>
+<p>https://viewdns.info/</p>
+<p>https://www.17ce.com/</p>
+</blockquote>
 <h2 id="三php开发">三、PHP开发</h2>
+<blockquote>
+<p>未看</p>
+</blockquote>
 <h2 id="四web攻防">四、WEB攻防</h2>
-<h3 id="前置知识">前置知识</h3>
+<blockquote>
+<p>第20天的php特性已看完</p>
+</blockquote>
+<h3 id="asp">4.1 ASP</h3>
+<h3 id="aspx">4.2 ASPX</h3>
+<h3 id="php">4.3 PHP</h3>
+<p>过滤函数缺陷绕过</p>
+<p>参考资料:
+https://blog.csdn.net/m0_65336233/article/details/127181355</p>
+<blockquote>
+<p>弱类型比较与强类型比较</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs php">==: 只比较数值，不比较类型<br>===: 数值和类型都比较<br></code></pre></td></tr></table></figure>
+<p>md5绕过1(两个等于号)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">"Content-Type:text/html;charset=utf-8"</span>);<br><span class="hljs-variable">$flag</span> = <span class="hljs-string">"this is flag"</span>;<br><span class="hljs-keyword">if</span> (<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'username'</span>] != <span class="hljs-variable">$_GET</span>[<span class="hljs-string">'password'</span>]) {<br>    <span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'username'</span>]) == <span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'password'</span>])) {<br>        <span class="hljs-keyword">echo</span> <span class="hljs-variable">$flag</span>;<br>    } <span class="hljs-keyword">else</span> {<br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">'?'</span>;<br>    }<br>}<br><span class="hljs-comment">//http://127.0.0.1/?username=240610708&amp;password=QNKCDZO</span><br></code></pre></td></tr></table></figure>
+<p>md5绕过2(3个等于号)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">"Content-Type:text/html;charset=utf-8"</span>);<br><span class="hljs-variable">$flag</span> = <span class="hljs-string">"this is flag"</span>;<br><span class="hljs-keyword">if</span> (<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'username'</span>] != <span class="hljs-variable">$_GET</span>[<span class="hljs-string">'password'</span>]) {<br>    <span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'username'</span>]) === <span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'password'</span>])) {<br>        <span class="hljs-keyword">echo</span> <span class="hljs-variable">$flag</span>;<br>    } <span class="hljs-keyword">else</span> {<br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">'?'</span>;<br>    }<br>}<br><span class="hljs-comment">//http://127.0.0.1/?username[]=1&amp;password[]=2</span><br></code></pre></td></tr></table></figure>
+<p>strpos()绕过</p>
+<ul>
+<li>利用%0a</li>
+</ul>
+<p>in_array第三个参数安全</p>
+<p>若第三个参数为false，则不会检测数据类型</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-variable">$flag</span> = <span class="hljs-string">'this is flag'</span>;<br><span class="hljs-variable">$whitelist</span> = [<span class="hljs-string">'1'</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];<br><span class="hljs-variable">$page</span>=<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'i'</span>];<br><span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">in_array</span>(<span class="hljs-variable">$page</span>, <span class="hljs-variable">$whitelist</span>,<span class="hljs-literal">false</span>)) {<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">"yes"</span>;<br>}<br><span class="hljs-comment">//http://127.0.0.1/?i=+1</span><br></code></pre></td></tr></table></figure>
+<p>preg_match()绕过</p>
+<p>若传递的是一个数组，则会直接绕过</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-variable">$flag</span> = <span class="hljs-string">'this is flag'</span>;<br><span class="hljs-keyword">if</span> (<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'num'</span>])) {<br>    <span class="hljs-variable">$num</span> = <span class="hljs-variable">$_GET</span>[<span class="hljs-string">'num'</span>];<br>    <span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">"/[0-9]/"</span>, <span class="hljs-variable">$num</span>)) {<br>        <span class="hljs-keyword">die</span>(<span class="hljs-string">"no no no!"</span>);<br>    }<br>    <span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">intval</span>(<span class="hljs-variable">$num</span>)) {<br>        <span class="hljs-keyword">echo</span> <span class="hljs-variable">$flag</span>;<br>    }<br>}<br><span class="hljs-comment">//http://127.0.0.1/?num[]=1</span><br></code></pre></td></tr></table></figure>
+<p>str_replace()绕过</p>
+<p>str_replace()无法迭代替换</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-variable">$flag</span> = <span class="hljs-string">'this is flag'</span>;<br><span class="hljs-variable">$sql</span> = <span class="hljs-variable">$_GET</span>[<span class="hljs-string">'s'</span>];<br><span class="hljs-variable">$sql</span> = <span class="hljs-title function_ invoke__">str_replace</span>(<span class="hljs-string">'select'</span>, <span class="hljs-string">''</span>, <span class="hljs-variable">$sql</span>);<br><span class="hljs-keyword">echo</span> <span class="hljs-variable">$sql</span>;<br><span class="hljs-comment">//http://127.0.0.1/?s=selselectect</span><br></code></pre></td></tr></table></figure>
+<p>综合题目</p>
+<p>preg_match过滤了x，无法使用16进制，前面强类型比较$num，代表无法使用+等过滤，只能使用进制转换；为绕过strpos，需要在前面加上+或者空格</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-variable">$flag</span> = <span class="hljs-string">'this is flag'</span>;<br><span class="hljs-title function_ invoke__">highlight_file</span>(<span class="hljs-keyword">__FILE__</span>);<br><span class="hljs-keyword">if</span> (<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'num'</span>])) {<br>    <span class="hljs-variable">$num</span> = <span class="hljs-variable">$_GET</span>[<span class="hljs-string">'num'</span>];<br>    <span class="hljs-keyword">if</span> (<span class="hljs-variable">$num</span> === <span class="hljs-string">'4476'</span>) {<br>        <span class="hljs-keyword">die</span>(<span class="hljs-string">'no no no'</span>);<br>    }<br>    <span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">"/[a-z]/i"</span>, <span class="hljs-variable">$num</span>)) {<br>        <span class="hljs-keyword">die</span>(<span class="hljs-string">'no no no'</span>);<br>    }<br>    <span class="hljs-keyword">if</span> (!<span class="hljs-title function_ invoke__">strpos</span>(<span class="hljs-variable">$num</span>, <span class="hljs-string">"0"</span>)) {<br>        <span class="hljs-keyword">die</span>(<span class="hljs-string">'no no no'</span>);<br>    }<br>    <span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">intval</span>(<span class="hljs-variable">$num</span>, <span class="hljs-number">0</span>) == <span class="hljs-number">4476</span>) {<br>        <span class="hljs-keyword">echo</span> <span class="hljs-variable">$flag</span>;<br>    }<br>}<br><span class="hljs-comment">//http://127.0.0.1/?num=+010574</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="java">4.4 Java</h3>
+<blockquote>
+
+</blockquote>
+<h3 id="python">4.5 Python</h3>
+<h3 id="javascript">4.6 JavaScript</h3>
+<h3 id="通用安全漏洞">4.7 通用安全漏洞</h3>
+<p>前置知识</p>
 <blockquote>
 <p>同源策略(SOP)包括三个条件</p>
 <ol type="1">
@@ -535,12 +609,12 @@ mjx-container[display="true"] + br {
 <p>但是限制的一些前端功能的实现 所以就有了许多跨域的手段</p>
 <p>前端的访问后端 若出现跨域问题 是前端的问题</p>
 </blockquote>
-<h3 id="子域名接管-检测探针利用">子域名接管-检测&amp;探针&amp;利用</h3>
+<p>子域名接管-检测&amp;探针&amp;利用</p>
 <blockquote>
 <p>通过检测CNAME获取指向 若发现过期域名 可以注册实现劫持</p>
 <p>子域名接管不仅仅限于CNAME记录</p>
 </blockquote>
-<h3 id="cors">CORS</h3>
+<p>CORS</p>
 <blockquote>
 <ul>
 <li><p>Cross-Orgin Resource Sharing 跨域资源共享
@@ -554,14 +628,14 @@ mjx-container[display="true"] + br {
 <li><p>利用条件：用户登录且有安全问题 只能获取资源文件</p></li>
 </ul>
 </blockquote>
-<h3 id="jsonp">JSONP</h3>
+<p>JSONP</p>
 <blockquote>
 <p>JSNOP只支持get 不支持post</p>
 <p>jsonp跨域巧妙的利用了script标签能跨域的特点 实现了json的跨域传输</p>
 <p>用户A浏览器访问过虎牙 优酷 淘宝等页面
 攻击者尝试去测试这些官方的回调(callback)页面</p>
 </blockquote>
-<h3 id="工具使用">工具使用</h3>
+<p>工具使用</p>
 <blockquote>
 <ul>
 <li><p>dnsub-子域名扫描工具</p>
@@ -574,7 +648,7 @@ mjx-container[display="true"] + br {
 </ul>
 </blockquote>
 <h2 id="五服务攻防">五、服务攻防</h2>
-<h3 id="前置知识-1">前置知识</h3>
+<h3 id="前置知识">前置知识</h3>
 <blockquote>
 <p>常见服务应用的安全测试</p>
 <ol type="1">
