@@ -18,8 +18,8 @@
   
     <meta name="description" content="欢迎来到我的个人博客！这里将分享我对生活、技术和旅行等方面的思考和经验。无论你是一个有志于学习技术知识的开发者，还是一个喜欢尝试不同文化的旅行者，都可以在这里找到有趣的内容和启发。我希望通过我的博客为大家带来一些有价值的见解和思考，同时也期待与各位读者交流互动，共同成长。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="标签 - CSS">
-<meta property="og:url" content="https://d4wnnn.github.io/tags/CSS/index.html">
+<meta property="og:title" content="D4wn">
+<meta property="og:url" content="https://d4wnnn.github.io/page/9/index.html">
 <meta property="og:site_name" content="D4wn">
 <meta property="og:description" content="欢迎来到我的个人博客！这里将分享我对生活、技术和旅行等方面的思考和经验。无论你是一个有志于学习技术知识的开发者，还是一个喜欢尝试不同文化的旅行者，都可以在这里找到有趣的内容和启发。我希望通过我的博客为大家带来一些有价值的见解和思考，同时也期待与各位读者交流互动，共同成长。">
 <meta property="og:locale" content="zh_CN">
@@ -31,7 +31,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>标签 - CSS - D4wn</title>
+  <title>D4wn</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -233,7 +233,7 @@ mjx-container[display="true"] + br {
   <header>
     
 
-<div class="header-inner" style="height: 80vh;">
+<div class="header-inner" style="height: 100vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -338,7 +338,7 @@ mjx-container[display="true"] + br {
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="标签 - CSS"></span>
+            <span id="subtitle" data-typed-text="An elegant Material-Design theme for Hexo"></span>
           
         </div>
 
@@ -362,30 +362,88 @@ mjx-container[display="true"] + br {
     
       <div class="container nopadding-x-md">
         <div id="board"
-          >
+          style="margin-top: 0">
           
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="list-group">
-  <p class="h4">共计 1 篇文章</p>
-  <hr>
-  
-  
+
+  <div class="row mx-auto index-card">
     
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/01/19/Others/Arp%E6%AC%BA%E9%AA%97/" target="_blank">
+          <img src="/img/article_img_0.jpg" srcset="/img/loading.gif" lazyload alt="Arp欺骗">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/19/Others/Arp%E6%AC%BA%E9%AA%97/" target="_blank">
+          Arp欺骗
+        </a>
+      </h1>
+
       
-      <p class="h5">2022</p>
-    
-    <a href="/2022/10/04/%E5%89%8D%E7%AB%AF/FrontEnd/" class="list-group-item list-group-item-action">
-      <time>10-04</time>
-      <div class="list-group-item-title">FrontEnd</div>
-    </a>
+      <a class="index-excerpt " href="/2022/01/19/Others/Arp%E6%AC%BA%E9%AA%97/" target="_blank">
+        <div>
+          
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-19 14:04" pubdate>
+              2022-01-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
   
-</div>
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Others/" class="category-chain-item">Others</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ARP/">#ARP</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
 
 
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/8/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#board">7</a><a class="page-number" href="/page/8/#board">8</a><span class="page-number current">9</span>
+    </span>
+  </nav>
 
 
 
@@ -502,7 +560,37 @@ mjx-container[display="true"] + br {
       }
       var text = subtitle.getAttribute('data-typed-text');
       
-        typing(text);
+        jQuery.ajax({
+          type: 'GET',
+          url: 'https://v1.hitokoto.cn/?c=j&amp;c=i',
+          headers: {},
+          dataType: 'json',
+          success: function(result) {
+            var apiText;
+            if (result) {
+              var keys = 'hitokoto'.split(',');
+              if (result instanceof Array) {
+                result = result[0];
+              }
+              for (const k of keys) {
+                var value = result[k];
+                if (typeof value === 'string') {
+                  apiText = value;
+                  break;
+                } else if (value instanceof Object) {
+                  result = value;
+                }
+              }
+            }
+            apiText ? typing(apiText) : typing(text);
+          },
+          error: function(xhr, status, error) {
+            if (error) {
+              console.error('Failed to request https://v1.hitokoto.cn/?c=j&amp;c=i:', error);
+            }
+            typing(text);
+          }
+        })
       
     })(window, document);
   </script>
