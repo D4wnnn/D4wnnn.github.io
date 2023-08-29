@@ -16,18 +16,18 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="Ubuntu配置 通用 用户管理 adduser是useradd的友好交互式前端，使用perl编写的。useradd是一个最普遍的命令 删除用户 1sudo userdel -r 用户名 # 彻底删除 添加用户 1sudo useradd -m 用户名 # -m是添加家目录 查看普通用户的数量 1grep -c &quot;&#x2F;bin&#x2F;bash&quot; &#x2F;etc&#x2F;passwd 配置hexo环境">
+    <meta name="description" content="Linux配置 Ubuntu Kali 通用 配置Hexo环境 123456789101112131415161718192021222324252627282930313233343536373839404142434445#!&#x2F;bin&#x2F;bashset -e# 用户创建,设置密码，赋权限target_username&#x3D;gittarget_password&#x3D;rootuseradd -m">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu配置">
-<meta property="og:url" content="https://d4wnnn.github.io/2023/04/22/DevOps/Ubuntu%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:title" content="Linux配置">
+<meta property="og:url" content="https://d4wnnn.github.io/2023/04/22/DevOps/Linux%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Ubuntu配置 通用 用户管理 adduser是useradd的友好交互式前端，使用perl编写的。useradd是一个最普遍的命令 删除用户 1sudo userdel -r 用户名 # 彻底删除 添加用户 1sudo useradd -m 用户名 # -m是添加家目录 查看普通用户的数量 1grep -c &quot;&#x2F;bin&#x2F;bash&quot; &#x2F;etc&#x2F;passwd 配置hexo环境">
+<meta property="og:description" content="Linux配置 Ubuntu Kali 通用 配置Hexo环境 123456789101112131415161718192021222324252627282930313233343536373839404142434445#!&#x2F;bin&#x2F;bashset -e# 用户创建,设置密码，赋权限target_username&#x3D;gittarget_password&#x3D;rootuseradd -m">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://d4wnnn.github.io/img/article_img_4.jpg">
 <meta property="article:published_time" content="2023-04-22T05:56:14.000Z">
-<meta property="article:modified_time" content="2023-07-09T18:09:03.490Z">
+<meta property="article:modified_time" content="2023-08-25T05:16:21.688Z">
 <meta property="article:author" content="D4wn">
-<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://d4wnnn.github.io/img/article_img_4.jpg">
   
@@ -35,7 +35,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Ubuntu配置 - D4wn</title>
+  <title>Linux配置 - D4wn</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -348,7 +348,7 @@ mjx-container[display="true"] + br {
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Ubuntu配置"></span>
+            <span id="subtitle" data-typed-text="Linux配置"></span>
           
         </div>
 
@@ -376,7 +376,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.3k 字
+          7.4k 字
         
       </span>
     
@@ -387,7 +387,7 @@ mjx-container[display="true"] + br {
         
         
         
-          69 分钟
+          62 分钟
         
       </span>
     
@@ -425,31 +425,23 @@ mjx-container[display="true"] + br {
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Ubuntu配置</h1>
+            <h1 style="display: none">Linux配置</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="ubuntu配置">Ubuntu配置</h1>
+                <h1 id="linux配置">Linux配置</h1>
+<h2 id="ubuntu">Ubuntu</h2>
+<h2 id="kali">Kali</h2>
 <h2 id="通用">通用</h2>
-<h3 id="用户管理">用户管理</h3>
-<p>adduser是useradd的友好交互式前端，使用perl编写的。useradd是一个最普遍的命令</p>
-<p>删除用户</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo userdel -r 用户名 <span class="hljs-comment"># 彻底删除</span><br></code></pre></td></tr></table></figure>
-<p>添加用户</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo useradd -m 用户名 <span class="hljs-comment"># -m是添加家目录</span><br></code></pre></td></tr></table></figure>
-<p>查看普通用户的数量</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">grep -c <span class="hljs-string">"/bin/bash"</span> /etc/passwd<br></code></pre></td></tr></table></figure>
-<p>配置hexo环境</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-built_in">set</span> -e<br><span class="hljs-comment"># 用户创建,设置密码，赋权限</span><br>target_username=git<br>target_password=root<br>useradd -m git<br><span class="hljs-built_in">echo</span> -e <span class="hljs-string">"<span class="hljs-variable">${target_password}</span>\n<span class="hljs-variable">${target_password}</span>"</span> | sudo passwd <span class="hljs-variable">${target_username}</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">'git ALL=(ALL:ALL) ALL'</span> | sudo <span class="hljs-built_in">tee</span> -a /etc/sudoers<br><br><span class="hljs-comment"># 创建git仓库</span><br>su git &lt;&lt;<span class="hljs-string">Code</span><br><span class="hljs-string">sudo mkdir /var/repo/</span><br><span class="hljs-string">sudo chown -R $USER:$USER /var/repo/</span><br><span class="hljs-string">sudo chmod -R 755 /var/repo/</span><br><span class="hljs-string">cd /var/repo/</span><br><span class="hljs-string">sudo git init --bare hexo_static.git</span><br><span class="hljs-string">Code</span><br><br><span class="hljs-comment"># 配置Nginx托管文件目录</span><br>su git &lt;&lt;<span class="hljs-string">Code</span><br><span class="hljs-string">sudo apt update</span><br><span class="hljs-string">sudo apt install nginx -y</span><br><span class="hljs-string">sudo mkdir -p /var/www/hexo</span><br><span class="hljs-string">sudo chown -R $USER:$USER /var/www/hexo</span><br><span class="hljs-string">sudo chmod -R 755 /var/www/hexo</span><br><span class="hljs-string">sudo sed -i 's@root /var/www/html;@root /var/www/hexo;@g' /etc/nginx/sites-enabled/default</span><br><span class="hljs-string">sudo service nginx restart</span><br><span class="hljs-string">Code</span><br><br><span class="hljs-comment"># 创建Git钩子</span><br>su git &lt;&lt;<span class="hljs-string">Code</span><br><span class="hljs-string">sudo touch /var/repo/hexo_static.git/hooks/post-receive</span><br><span class="hljs-string">sudo sh -c "echo '#!/bin/bash' &gt;&gt; /var/repo/hexo_static.git/hooks/post-receive"</span><br><span class="hljs-string">sudo sh -c "echo 'git --work-tree=/var/www/hexo --git-dir=/var/repo/hexo_static.git checkout -f' &gt;&gt; /var/repo/hexo_static.git/hooks/post-receive"</span><br><span class="hljs-string"></span><br><span class="hljs-string">sudo chmod +x /var/repo/hexo_static.git/hooks/post-receive</span><br><span class="hljs-string">Code</span><br><br><span class="hljs-comment"># 配置ssh密钥</span><br>su git &lt;&lt;<span class="hljs-string">Code</span><br><span class="hljs-string">sudo mkdir -p ~/.ssh     #新建一个.ssh文件夹</span><br><span class="hljs-string">sudo touch ~/.ssh/authorized_keys #新建一个.authorized_keys</span><br><span class="hljs-string">sudo chmod 600 ~/.ssh/authorized_keys  #该权限是保证git用户免密登录推送文件必要步骤</span><br><span class="hljs-string">sudo chmod 700 ~/.ssh</span><br><span class="hljs-string">sudo sh -c "echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDBe/UsMlJRIL+Z4w0DTr9nRmKu8Tt9cPoKj/t7fOHWItBPxMaVryrq732nIkZlCrtpJNkZJsfN9Fq2oGHyA/x3qrXBjhNiFUx2NTRHPlcfVMfTf+XB34oa4eAHOEWpkxCDZe+W0nV3va8sp7poSQqA+GD+YmidZ8dR57TQdfnTTFB9SIW7DZBATRseUzf/PtPRTVh7Jn/963M/JHVhV+OHXJ0BRCvu0YBg/oqxPkWJ41kZOZJP6KfDVICgoERgULRdnYWLNUUNlLOQ4LPDG3fhQHJgN2L9hqjf0bk5Zx5ZA9Uy093AAdkyElY2rkxeN9hwOZT/YFEbvUAT0v2kDtf1TM8lfuO3ibD2j9Pxetv/jUKNthliSmdeB/+tD6hkJ6/mdjvoIgqATY2YlEIM7YYTAZ4mVaqAbYKx3HHDRlj7Jd2wUEGuOFcuzvqIsIHTfSzcydvUBW04zLUKAl/Zacp0mi+wmbgyX3gZYO6nhFCjmQPaO2KyNLrArYepWifDnlk= d4wn@D4wn' &gt; /home/git/.ssh/authorized_keys"</span><br><span class="hljs-string">Code</span><br><br></code></pre></td></tr></table></figure>
+<h3 id="配置hexo环境">配置Hexo环境</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-built_in">set</span> -e<br><span class="hljs-comment"># 用户创建,设置密码，赋权限</span><br>target_username=git<br>target_password=root<br>useradd -m git<br><span class="hljs-built_in">echo</span> -e <span class="hljs-string">"<span class="hljs-variable">${target_password}</span>\n<span class="hljs-variable">${target_password}</span>"</span> | sudo passwd <span class="hljs-variable">${target_username}</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">'git ALL=(ALL:ALL) ALL'</span> | sudo <span class="hljs-built_in">tee</span> -a /etc/sudoers<br><br><span class="hljs-comment"># 创建git仓库</span><br>su git &lt;&lt;<span class="hljs-string">Code</span><br><span class="hljs-string">sudo mkdir /var/repo/</span><br><span class="hljs-string">sudo chown -R $USER:$USER /var/repo/</span><br><span class="hljs-string">sudo chmod -R 755 /var/repo/</span><br><span class="hljs-string">cd /var/repo/</span><br><span class="hljs-string">sudo git init --bare hexo_static.git</span><br><span class="hljs-string">Code</span><br><br><span class="hljs-comment"># 配置Nginx托管文件目录</span><br>su git &lt;&lt;<span class="hljs-string">Code</span><br><span class="hljs-string">sudo apt update</span><br><span class="hljs-string">sudo apt install nginx -y</span><br><span class="hljs-string">sudo mkdir -p /var/www/hexo</span><br><span class="hljs-string">sudo chown -R $USER:$USER /var/www/hexo</span><br><span class="hljs-string">sudo chmod -R 755 /var/www/hexo</span><br><span class="hljs-string">sudo sed -i 's@root /var/www/html;@root /var/www/hexo;@g' /etc/nginx/sites-enabled/default</span><br><span class="hljs-string">sudo service nginx restart</span><br><span class="hljs-string">Code</span><br><br><span class="hljs-comment"># 创建Git钩子</span><br>su git &lt;&lt;<span class="hljs-string">Code</span><br><span class="hljs-string">sudo touch /var/repo/hexo_static.git/hooks/post-receive</span><br><span class="hljs-string">sudo sh -c "echo '#!/bin/bash' &gt;&gt; /var/repo/hexo_static.git/hooks/post-receive"</span><br><span class="hljs-string">sudo sh -c "echo 'git --work-tree=/var/www/hexo --git-dir=/var/repo/hexo_static.git checkout -f' &gt;&gt; /var/repo/hexo_static.git/hooks/post-receive"</span><br><span class="hljs-string">sudo chmod +x /var/repo/hexo_static.git/hooks/post-receive</span><br><span class="hljs-string">Code</span><br><br><span class="hljs-comment"># 配置ssh密钥</span><br>su git &lt;&lt;<span class="hljs-string">Code</span><br><span class="hljs-string">sudo mkdir -p ~/.ssh     #新建一个.ssh文件夹</span><br><span class="hljs-string">sudo touch ~/.ssh/authorized_keys #新建一个.authorized_keys</span><br><span class="hljs-string">sudo chmod 600 ~/.ssh/authorized_keys  #该权限是保证git用户免密登录推送文件必要步骤</span><br><span class="hljs-string">sudo chmod 700 ~/.ssh</span><br><span class="hljs-string">sudo sh -c "echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDBe/UsMlJRIL+Z4w0DTr9nRmKu8Tt9cPoKj/t7fOHWItBPxMaVryrq732nIkZlCrtpJNkZJsfN9Fq2oGHyA/x3qrXBjhNiFUx2NTRHPlcfVMfTf+XB34oa4eAHOEWpkxCDZe+W0nV3va8sp7poSQqA+GD+YmidZ8dR57TQdfnTTFB9SIW7DZBATRseUzf/PtPRTVh7Jn/963M/JHVhV+OHXJ0BRCvu0YBg/oqxPkWJ41kZOZJP6KfDVICgoERgULRdnYWLNUUNlLOQ4LPDG3fhQHJgN2L9hqjf0bk5Zx5ZA9Uy093AAdkyElY2rkxeN9hwOZT/YFEbvUAT0v2kDtf1TM8lfuO3ibD2j9Pxetv/jUKNthliSmdeB/+tD6hkJ6/mdjvoIgqATY2YlEIM7YYTAZ4mVaqAbYKx3HHDRlj7Jd2wUEGuOFcuzvqIsIHTfSzcydvUBW04zLUKAl/Zacp0mi+wmbgyX3gZYO6nhFCjmQPaO2KyNLrArYepWifDnlk= d4wn@D4wn' &gt; /home/git/.ssh/authorized_keys"</span><br><span class="hljs-string">Code</span><br></code></pre></td></tr></table></figure>
 <p>参考：https://cnhuazhu.top/next/2021/10/12/%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88Ubuntu%EF%BC%89/Hexo%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88Ubuntu-20-04%EF%BC%89/#%E7%8E%AF%E5%A2%83</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-built_in">set</span> -e<br><span class="hljs-comment"># 用户创建,设置密码，赋权限</span><br><br>target_username=git<br>target_password=root<br>userdel -r <span class="hljs-variable">${target_username}</span><br>useradd -m <span class="hljs-variable">${target_username}</span><br><span class="hljs-built_in">echo</span> -e <span class="hljs-string">"<span class="hljs-variable">${target_password}</span>\n<span class="hljs-variable">${target_password}</span>"</span> | sudo passwd <span class="hljs-variable">${target_username}</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">'git ALL=(ALL:ALL) ALL'</span> | sudo <span class="hljs-built_in">tee</span> -a /etc/sudoers<br><br><span class="hljs-comment"># 配置ssh密钥</span><br>su git &lt;&lt;<span class="hljs-string">Code</span><br><span class="hljs-string">sudo mkdir -p ~/.ssh     #新建一个.ssh文件夹</span><br><span class="hljs-string">sudo touch ~/.ssh/authorized_keys #新建一个.authorized_keys</span><br><span class="hljs-string">sudo chmod 600 ~/.ssh/authorized_keys  #该权限是保证git用户免密登录推送文件必要步骤</span><br><span class="hljs-string">sudo chmod 700 ~/.ssh</span><br><span class="hljs-string">sudo sh -c "cat rsa.pub &gt; /home/git/.ssh/authorized_keys"</span><br><span class="hljs-string">Code</span><br></code></pre></td></tr></table></figure>
-<p>https://cnhuazhu.top/next/2021/10/12/%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88Ubuntu%EF%BC%89/Hexo%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88Ubuntu-20-04%EF%BC%89/#Windows%E6%90%AD%E5%BB%BA%E5%AE%A2%E6%88%B7%E7%AB%AF</p>
-<h2 id="ubuntu22.04">ubuntu22.04</h2>
+<h2 id="ubuntu22.04">Ubuntu22.04</h2>
 <h3 id="允许root本地登录">允许root本地登录</h3>
 <blockquote>
 <ul>
-<li><p>设置root密码</p>
+<li><p>设置Root密码</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo passwd root<br></code></pre></td></tr></table></figure></li>
 <li><p>注释文件行</p>
 <p>找到<code>/etc/pam.d/gdm-password</code>和<code>/etc/pam.d/gdm-autologin</code></p>
@@ -460,7 +452,7 @@ mjx-container[display="true"] + br {
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">tty</span> -s &amp;&amp; mesg n || <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 </blockquote>
-<h3 id="允许root远程登录">允许root远程登录</h3>
+<h3 id="允许root远程登录">允许Root远程登录</h3>
 <blockquote>
 <p>安装ssh</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">apt update<br>apt install openssh-server<br></code></pre></td></tr></table></figure>
@@ -469,11 +461,11 @@ mjx-container[display="true"] + br {
 <p>重启ssh</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl restart ssh<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="安装设置proxychains代理">安装设置proxychains代理</h3>
+<h3 id="安装设置proxychains代理">安装设置Proxychains代理</h3>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install -y proxychains4<br>total_lines=$(<span class="hljs-built_in">wc</span> -l &lt; /etc/proxychains4.conf)<br>second_to_last_line=$((total_lines - <span class="hljs-number">1</span>))<br>sudo sed -i <span class="hljs-string">"<span class="hljs-variable">${second_to_last_line}</span>s/.*/socks5 192.168.1.109 10810/"</span> /etc/proxychains4.conf<br>sudo <span class="hljs-built_in">echo</span> <span class="hljs-string">"alias p='proxychains4'"</span> | sudo <span class="hljs-built_in">tee</span> -a /root/.bashrc<br><br><span class="hljs-comment">### 安装miniconda</span><br><br>```bash<br>wget -P /root/ https://repo.anaconda.com/miniconda/Miniconda3-py38_23.1.0-1-Linux-x86_64.sh<br><span class="hljs-built_in">chmod</span> +x /root/Miniconda3-py38_23.1.0-1-Linux-x86_64.sh<br>bash /root/Miniconda3-py38_23.1.0-1-Linux-x86_64.sh -b -p /root/miniconda3<br>/root/miniconda3/bin/conda init $(<span class="hljs-built_in">echo</span> <span class="hljs-variable">$SHELL</span> | awk -F <span class="hljs-string">'/'</span> <span class="hljs-string">'{print $NF}'</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install -y proxychains4<br>total_lines=$(<span class="hljs-built_in">wc</span> -l &lt; /etc/proxychains4.conf)<br>second_to_last_line=$((total_lines - <span class="hljs-number">1</span>))<br>sudo sed -i <span class="hljs-string">"<span class="hljs-variable">${second_to_last_line}</span>s/.*/socks5 192.168.1.109 10810/"</span> /etc/proxychains4.conf<br>sudo <span class="hljs-built_in">echo</span> <span class="hljs-string">"alias p='proxychains4'"</span> | sudo <span class="hljs-built_in">tee</span> -a /root/.bashrc<br><br><span class="hljs-comment">### 安装Miniconda</span><br><br>```bash<br>wget -P /root/ https://repo.anaconda.com/miniconda/Miniconda3-py38_23.1.0-1-Linux-x86_64.sh<br><span class="hljs-built_in">chmod</span> +x /root/Miniconda3-py38_23.1.0-1-Linux-x86_64.sh<br>bash /root/Miniconda3-py38_23.1.0-1-Linux-x86_64.sh -b -p /root/miniconda3<br>/root/miniconda3/bin/conda init $(<span class="hljs-built_in">echo</span> <span class="hljs-variable">$SHELL</span> | awk -F <span class="hljs-string">'/'</span> <span class="hljs-string">'{print $NF}'</span>)<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="开机自动登录root">开机自动登录root</h3>
+<h3 id="开机自动登录root">开机自动登录Root</h3>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">touch</span> /etc/gdm3/custom.conf<br><span class="hljs-built_in">echo</span> -e <span class="hljs-string">"[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=root"</span> | sudo <span class="hljs-built_in">tee</span> -a /etc/gdm3/custom.conf<br></code></pre></td></tr></table></figure>
 </blockquote>
@@ -520,7 +512,7 @@ notebook配置允许远程登录同时关闭密码</h3>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Ubuntu/">#Ubuntu</a>
+        <a href="/tags/Linux/">#Linux</a>
       
     </div>
   
@@ -532,8 +524,8 @@ notebook配置允许远程登录同时关闭密码</h3>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Ubuntu配置</div>
-      <div>https://d4wnnn.github.io/2023/04/22/DevOps/Ubuntu配置/</div>
+      <div>Linux配置</div>
+      <div>https://d4wnnn.github.io/2023/04/22/DevOps/Linux配置/</div>
     </div>
     <div class="license-meta">
       

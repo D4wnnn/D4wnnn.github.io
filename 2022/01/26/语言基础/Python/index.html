@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://d4wnnn.github.io/img/python.png">
 <meta property="article:published_time" content="2022-01-26T03:52:08.000Z">
-<meta property="article:modified_time" content="2023-07-19T12:59:50.242Z">
+<meta property="article:modified_time" content="2023-08-24T10:05:46.990Z">
 <meta property="article:author" content="D4wn">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary_large_image">
@@ -376,7 +376,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          10k 字
+          11k 字
         
       </span>
     
@@ -387,7 +387,7 @@ mjx-container[display="true"] + br {
         
         
         
-          85 分钟
+          91 分钟
         
       </span>
     
@@ -515,7 +515,7 @@ mjx-container[display="true"] + br {
 <li><p>输出当前时间的字符串</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><span class="hljs-built_in">print</span>(time.strftime(<span class="hljs-string">"%Y-%m-%d--&gt;%H:%M:%S"</span>))<br><span class="hljs-comment"># 2023-05-22--&gt;19:06:59</span><br></code></pre></td></tr></table></figure></li>
 <li><p>将字符串解析为datatime对象</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime<br>              <br>date_str = <span class="hljs-string">'2021-05-22'</span><br>date_obj = datetime.strptime(date_str, <span class="hljs-string">'%Y-%m-%d'</span>)<br><span class="hljs-built_in">print</span>(date_obj)<br><span class="hljs-comment"># 2021-05-22 00:00:00</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime<br>                    <br>date_str = <span class="hljs-string">'2021-05-22'</span><br>date_obj = datetime.strptime(date_str, <span class="hljs-string">'%Y-%m-%d'</span>)<br><span class="hljs-built_in">print</span>(date_obj)<br><span class="hljs-comment"># 2021-05-22 00:00:00</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 </blockquote>
 <p>参考：https://geekpy.github.io/2018/08/12/python_time/</p>
@@ -524,11 +524,13 @@ mjx-container[display="true"] + br {
 <p>当客户端执行<code>sock.close()</code>，会向服务器发送FIN包，此时服务端的<code>conn.recv(1024)</code>才会返回空字符串；如果直接发送空字符串，<code>conn.recv(1024)</code>并不会返回空字符串，而是继续阻塞等待。</p>
 <p>服务端同理，执行<code>conn.close()</code>后，客户端的<code>sock.recv(1024)</code>也会返回空字符串</p>
 <p>注意：当任意一段执行<code>close()</code>后，另一端都要再次执行<code>close()</code></p>
+<p><code>socket.send()</code>受制于MTU，不一定发送完给定的数据</p>
+<p><code>socket.sendall()</code>若发送完则返回None,失败则抛出异常</p>
 <ul>
 <li><p><code>client.py</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> socket<br><br><span class="hljs-comment"># 创建TCP套接字对象</span><br>sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br><span class="hljs-comment"># socket.AF_INET为ipv4，socket.SOCK_STREAM为TCP套接字</span><br><span class="hljs-comment"># 连接服务器</span><br>sock.connect((<span class="hljs-string">'192.168.126.140'</span>, <span class="hljs-number">8083</span>))<br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-comment"># 发送数据到服务器并接收响应</span><br>    sock.sendall(<span class="hljs-string">b'asd'</span>)<br>    data = sock.recv(<span class="hljs-number">1024</span>)<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> data:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"fuck!~"</span>)<br>        sock.close()<br>        <span class="hljs-keyword">break</span><br>    <span class="hljs-comment"># 打印从服务器接收到的响应</span><br>    <span class="hljs-built_in">print</span>(data.decode())<br><br>    <span class="hljs-comment"># 关闭套接字</span><br></code></pre></td></tr></table></figure></li>
 <li><p><code>server.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> socket<br>              <br><span class="hljs-comment"># 创建TCP套接字对象</span><br>sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>              <br><span class="hljs-comment"># 绑定IP地址和端口号</span><br>sock.bind((<span class="hljs-string">'localhost'</span>, <span class="hljs-number">8080</span>))<br>              <br><span class="hljs-comment"># 开始监听客户端连接</span><br>sock.listen(<span class="hljs-number">1</span>)<br><span class="hljs-comment"># 1表示最多允许排队的连接数为1个</span><br>              <br><span class="hljs-comment"># 等待客户端连接</span><br>conn, addr = sock.accept()<br>              <br><span class="hljs-comment"># 接收来自客户端的数据并发送回去</span><br><span class="hljs-built_in">print</span>(addr)<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    data = conn.recv(<span class="hljs-number">1024</span>)<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> data:<br>        <span class="hljs-keyword">break</span><br>    conn.sendall(data + <span class="hljs-string">b'fuck'</span>)<br>              <br><span class="hljs-comment"># 关闭套接字</span><br>conn.close()<br>sock.close()<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> socket<br>    <br><span class="hljs-comment"># 创建TCP套接字对象</span><br>sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>    <br><span class="hljs-comment"># 绑定IP地址和端口号</span><br>sock.bind((<span class="hljs-string">'localhost'</span>, <span class="hljs-number">8080</span>))<br>    <br><span class="hljs-comment"># 开始监听客户端连接</span><br>sock.listen(<span class="hljs-number">1</span>)<br><span class="hljs-comment"># 1表示最多允许排队的连接数为1个</span><br>    <br><span class="hljs-comment"># 等待客户端连接</span><br>conn, addr = sock.accept()<br>    <br><span class="hljs-comment"># 接收来自客户端的数据并发送回去</span><br><span class="hljs-built_in">print</span>(addr)<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    data = conn.recv(<span class="hljs-number">1024</span>)<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> data:<br>        <span class="hljs-keyword">break</span><br>    conn.sendall(data + <span class="hljs-string">b'fuck'</span>)<br>    <br><span class="hljs-comment"># 关闭套接字</span><br>conn.close()<br>sock.close()<br></code></pre></td></tr></table></figure></li>
 </ul>
 </blockquote>
 <h2 id="四日志">四、日志</h2>
@@ -670,6 +672,28 @@ mjx-container[display="true"] + br {
 <h2 id="十matplotlib">十、Matplotlib</h2>
 <p>https://www.matplotlib.org.cn/tutorials</p>
 <p>https://matplotlib.org/stable/tutorials/introductory/quick_start.html</p>
+<h2 id="十一包和模块">十一、包和模块</h2>
+<p>https://www.bilibili.com/video/BV194411r7a8?t=30.7</p>
+<p>模块：为了提高代码的重用价值，将一组功能写进一个单独的.py文件中，这个.py文件就是一个模块</p>
+<p>包：一个有层次的目录结构，定义了n个模块或子包，目录下一定有<code>__init__.py</code>文件</p>
+<p>库：参照其他语言的叫法，可以是模块也可以是包</p>
+<ul>
+<li>import与from</li>
+</ul>
+<p>import的最后是一个模块,比如import
+A.B.C中的C。如果只使用import不使用from的话，可以使用别名简化前缀，或者增加拓展性，比如import
+A as p与import B as p, 可以根据需求从A和B之间选择，但是最终都是p。</p>
+<p>如果只import包，默认不会导入包的内容。我们可以在<code>__init__.py</code>文件中指明默认import哪些模块(要使用绝对路径)</p>
+<ul>
+<li>from注意事项</li>
+</ul>
+<p>from A import
+B中A的范围一定大于B，其中B一定要达到最简化，也就是把路径尽可能放在A，其中访问取值：包&gt;模块&gt;模块资源</p>
+<p>我们可以通过from 模块 import *
+的方式导入模块的所有资源，但是模块中需要定义<code>__all__=['A','B']</code>，其中列表内是所有资源。若没有<code>__all__</code>，则会导入所有非下划线开头的资源</p>
+<p>当然from 包 import *
+也可以，但是需要在<code>__init__.py</code>中指明<code>__all__</code>变量，列表里面存放模块名</p>
+<p>https://www.bilibili.com/video/BV194411r7a8?t=241.3&amp;p=15</p>
 
                 
               </div>
