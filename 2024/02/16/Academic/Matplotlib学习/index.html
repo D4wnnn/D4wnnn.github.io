@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="Matplotlib 是一个用于在 Python 中创建静态、动画和交互式可视化的综合库。Matplotlib 让简单的事情变得简单，也让困难的事情成为可能。 Matplotlib(下面简称 PLT) 涵盖了众多图片类型，想要细致的需要每一种是比较困难和不切实际的。因此有效的学习方法就是以一种常见的图形为基础，学习好 PLT 常见的画图配置选项。 下面以折线图为例，讲解如何利用 PLT">
+    <meta name="description" content="Matplotlib 是一个用于在 Python 中创建静态、动画和交互式可视化的综合库。Matplotlib 让简单的事情变得简单，也让困难的事情成为可能。 Matplotlib(下面简称 PLT) 涵盖了众多图片类型，想要细致的需要每一种是比较困难和不切实际的。因此有效的学习方法就是以一种常见的图形为基础，学习好 PLT 常见的画图配置选项。 下面以折线图为例，讲解如何利用 PLT 绘制图片。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matplotlib学习">
 <meta property="og:url" content="https://d4wnnn.github.io/2024/02/16/Academic/Matplotlib%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Matplotlib 是一个用于在 Python 中创建静态、动画和交互式可视化的综合库。Matplotlib 让简单的事情变得简单，也让困难的事情成为可能。 Matplotlib(下面简称 PLT) 涵盖了众多图片类型，想要细致的需要每一种是比较困难和不切实际的。因此有效的学习方法就是以一种常见的图形为基础，学习好 PLT 常见的画图配置选项。 下面以折线图为例，讲解如何利用 PLT">
+<meta property="og:description" content="Matplotlib 是一个用于在 Python 中创建静态、动画和交互式可视化的综合库。Matplotlib 让简单的事情变得简单，也让困难的事情成为可能。 Matplotlib(下面简称 PLT) 涵盖了众多图片类型，想要细致的需要每一种是比较困难和不切实际的。因此有效的学习方法就是以一种常见的图形为基础，学习好 PLT 常见的画图配置选项。 下面以折线图为例，讲解如何利用 PLT 绘制图片。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2024-02-16T05:31:16.000Z">
@@ -383,7 +383,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          883 字
+          879 字
         
       </span>
     
@@ -436,46 +436,33 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <p>Matplotlib 是一个用于在 Python
-中创建静态、动画和交互式可视化的综合库。Matplotlib
-让简单的事情变得简单，也让困难的事情成为可能。</p>
-<p>Matplotlib(下面简称 PLT)
-涵盖了众多图片类型，想要细致的需要每一种是比较困难和不切实际的。因此有效的学习方法就是以一种常见的图形为基础，学习好
-PLT 常见的画图配置选项。</p>
+                <p>Matplotlib 是一个用于在 Python 中创建静态、动画和交互式可视化的综合库。Matplotlib 让简单的事情变得简单，也让困难的事情成为可能。</p>
+<p>Matplotlib(下面简称 PLT) 涵盖了众多图片类型，想要细致的需要每一种是比较困难和不切实际的。因此有效的学习方法就是以一种常见的图形为基础，学习好 PLT 常见的画图配置选项。</p>
 <p>下面以折线图为例，讲解如何利用 PLT 绘制图片。</p>
-<h1 id="折线图">折线图</h1>
-<p>PLT 中对于中文的显示存在问题，需要使用如下方式配置显示中文。</p>
+<h1 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h1><p>PLT 中对于中文的显示存在问题，需要使用如下方式配置显示中文。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt  <br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np  <br><span class="hljs-keyword">from</span> matplotlib.font_manager <span class="hljs-keyword">import</span> FontManager  <br>  <br><span class="hljs-comment"># 让图片可以显示中文  </span><br>plt.rcParams[<span class="hljs-string">'font.sans-serif'</span>] = <span class="hljs-string">'SimHei'</span>  <br><span class="hljs-comment"># 让图片可以显示负号  </span><br>plt.rcParams[<span class="hljs-string">'axes.unicode_minus'</span>] = <span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure>
+
 <p>当然，我们也可以查看所有字体。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 查看所有字体  </span><br>fm = FontManager()  <br>my_fonts = <span class="hljs-built_in">set</span>(f.name <span class="hljs-keyword">for</span> f <span class="hljs-keyword">in</span> fm.ttflist)  <br>my_fonts<br></code></pre></td></tr></table></figure>
+
 <p>下面开始绘制折线图。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 折线图  </span><br>x = np.linspace(-<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">40</span>)  <span class="hljs-comment"># 等差数列, 将(-10,10) 等分成40份  </span><br>y = -x ** <span class="hljs-number">2</span>  <br><span class="hljs-comment"># 可以将颜色与折线类型放在一起, 如'b--'  </span><br><span class="hljs-comment"># c:颜色, b(蓝色), g(绿色), r(红色), c(青色), m(品红), y(黄色), k(黑色), w(白色)  </span><br><span class="hljs-comment"># ls: line style, '-' '--' '-.' ':'  </span><br><span class="hljs-comment"># lw: 线条宽度  </span><br><span class="hljs-comment"># marker: 标记, 如'o','*', '.', '^', '&gt;'  </span><br><span class="hljs-comment"># markersize: 标记大小  </span><br><span class="hljs-comment"># mfs: 标记的背景色  </span><br><span class="hljs-comment"># markeredgecolor: 标记的边缘颜色  </span><br><span class="hljs-comment"># markeredgewidth: 标记的边缘宽度  </span><br><span class="hljs-comment"># figsize 给定(宽，高); dpi 指定像素密度  </span><br>plt.figure(figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">5</span>), dpi=<span class="hljs-number">100</span>)  <br><span class="hljs-comment"># 更改刻度  </span><br>plt.xticks(np.arange(-<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">2</span>))  <br>plt.yticks(np.arange(-<span class="hljs-number">100</span>, <span class="hljs-number">0</span>, <span class="hljs-number">20</span>))  <br><span class="hljs-comment"># 刻度范围  </span><br>plt.xlim(-<span class="hljs-number">15</span>, <span class="hljs-number">15</span>)  <br>plt.ylim(-<span class="hljs-number">110</span>, <span class="hljs-number">10</span>)  <br><span class="hljs-comment"># 图的标题  </span><br>plt.title(<span class="hljs-string">'抛物线示例'</span>)  <br><span class="hljs-comment"># 设置标签  </span><br>plt.xlabel(<span class="hljs-string">'x轴'</span>, loc=<span class="hljs-string">'right'</span>)  <br>plt.ylabel(<span class="hljs-string">'y轴'</span>, rotation=<span class="hljs-number">0</span>, loc=<span class="hljs-string">'top'</span>)  <br><span class="hljs-comment"># 画文字  </span><br>plt.text(<span class="hljs-number">0</span>, <span class="hljs-number">4</span>, <span class="hljs-string">'顶点'</span>, ha=<span class="hljs-string">'center'</span>)  <span class="hljs-comment"># ha: 水平对齐方式  </span><br>plt.plot(x, y, c=<span class="hljs-string">'c'</span>, ls=<span class="hljs-string">'-'</span>, lw=<span class="hljs-number">2</span>, marker=<span class="hljs-string">'o'</span>, markersize=<span class="hljs-number">7</span>, mfc=<span class="hljs-string">'r'</span>, markeredgecolor=<span class="hljs-string">'y'</span>, markeredgewidth=<span class="hljs-number">2</span>,  <br>         label=<span class="hljs-string">'抛物线'</span>)  <br><span class="hljs-comment"># 显示图例  </span><br>plt.legend()<br></code></pre></td></tr></table></figure>
-<figure>
-<img src="/2024/02/16/Academic/Matplotlib%E5%AD%A6%E4%B9%A0/line-chart.jpg" srcset="/img/loading.gif" lazyload alt="line-chart">
-<figcaption aria-hidden="true">line-chart</figcaption>
-</figure>
-<h1 id="子图多图">子图多图</h1>
-<p>下面，我们学习如何在一张图中绘制多个子图。</p>
+
+<p><img src="/2024/02/16/Academic/Matplotlib%E5%AD%A6%E4%B9%A0/line-chart.jpg" srcset="/img/loading.gif" lazyload alt="line-chart"></p>
+<h1 id="子图多图"><a href="#子图多图" class="headerlink" title="子图多图"></a>子图多图</h1><p>下面，我们学习如何在一张图中绘制多个子图。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 多图布局-subplot  </span><br>fig = plt.figure()  <br>x = np.linspace(-np.pi, np.pi, <span class="hljs-number">50</span>)  <br><span class="hljs-comment"># 2行2列中的第1个图  </span><br>ax1 = plt.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>)  <br>ax1.plot(x, np.sin(x))  <br>ax1.set_title(<span class="hljs-string">"子图1"</span>)  <br><span class="hljs-comment"># 2行2列中的第2个图  </span><br>ax2 = plt.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>)  <br>ax2.plot(x, np.cos(x))  <br>ax2.set_title(<span class="hljs-string">"子图2"</span>)  <br><span class="hljs-comment"># 2行2列中的第3个图  </span><br>ax3 = plt.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)  <br>ax3.plot(x, np.tan(x))  <br>ax3.set_title(<span class="hljs-string">"子图3"</span>)  <br><span class="hljs-comment"># 2行2列中的第4个图  </span><br>ax4 = plt.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>)  <br>ax4.plot(x, np.sinh(x))  <br>ax4.set_title(<span class="hljs-string">"子图4"</span>)  <br><span class="hljs-comment"># 呈现紧凑布局  </span><br>fig.tight_layout()  <br></code></pre></td></tr></table></figure>
-<figure>
-<img src="/2024/02/16/Academic/Matplotlib%E5%AD%A6%E4%B9%A0/subplot1.jpg" srcset="/img/loading.gif" lazyload alt="subplot1">
-<figcaption aria-hidden="true">subplot1</figcaption>
-</figure>
+
+<p><img src="/2024/02/16/Academic/Matplotlib%E5%AD%A6%E4%B9%A0/subplot1.jpg" srcset="/img/loading.gif" lazyload alt="subplot1"></p>
 <p>但是，如果我们不想这样规规矩矩的排列图片，我们也可以将某一些列合并。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 多图布局-subplot  </span><br>fig = plt.figure()  <br>x = np.linspace(-np.pi, np.pi, <span class="hljs-number">50</span>)  <br><span class="hljs-comment"># 2行2列中的第1个图  </span><br>ax1 = plt.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>)  <br>ax1.plot(x, np.sin(x))  <br>ax1.set_title(<span class="hljs-string">"子图1"</span>)  <br><span class="hljs-comment"># 2行2列中的第2个图  </span><br>ax2 = plt.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>)  <br>ax2.plot(x, np.cos(x))  <br>ax2.set_title(<span class="hljs-string">"子图2"</span>)  <br><span class="hljs-comment"># 2行1列的第2个图, 因为第一个图被子图1和子图2占据了  </span><br>ax3 = plt.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>)  <br>ax3.plot(x, np.tan(x))  <br>ax3.set_title(<span class="hljs-string">"子图3"</span>)  <br><span class="hljs-comment"># 呈现紧凑布局  </span><br>fig.tight_layout()  <br></code></pre></td></tr></table></figure>
-<figure>
-<img src="/2024/02/16/Academic/Matplotlib%E5%AD%A6%E4%B9%A0/subplot2.jpg" srcset="/img/loading.gif" lazyload alt="subplot2">
-<figcaption aria-hidden="true">subplot2</figcaption>
-</figure>
-<p>此外, 还有一种方法是使用 subplots (),
-一次性返回所有的子图。在此不做介绍。</p>
-<p>如果我们想绘制多图，则只需要每次调用 <code>plt.show()</code>
-即可。若不调用，则默认在同一张图中进行绘制。</p>
+
+<p><img src="/2024/02/16/Academic/Matplotlib%E5%AD%A6%E4%B9%A0/subplot2.jpg" srcset="/img/loading.gif" lazyload alt="subplot2"></p>
+<p>此外, 还有一种方法是使用 subplots (), 一次性返回所有的子图。在此不做介绍。</p>
+<p>如果我们想绘制多图，则只需要每次调用 <code>plt.show()</code> 即可。若不调用，则默认在同一张图中进行绘制。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 画多个图，及时分开  </span><br>plt.figure(dpi=<span class="hljs-number">50</span>)  <br>x = np.linspace(-<span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">50</span>)  <br>plt.plot(x, np.sin(x))  <br><span class="hljs-comment"># 立刻显示图片  </span><br>plt.show()  <br>plt.figure(dpi=<span class="hljs-number">50</span>)  <br>plt.plot(x, np.cos(x))<br></code></pre></td></tr></table></figure>
-<h1 id="参考">参考</h1>
-<blockquote>
-<p>https://www.bilibili.com/video/BV1nM411m7Cf?t=1.3
-https://matplotlib.org/stable/plot_types/index.html</p>
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1nM411m7Cf?t=1.3">https://www.bilibili.com/video/BV1nM411m7Cf?t=1.3</a><br><a target="_blank" rel="noopener" href="https://matplotlib.org/stable/plot_types/index.html">https://matplotlib.org/stable/plot_types/index.html</a></p>
 </blockquote>
 
                 

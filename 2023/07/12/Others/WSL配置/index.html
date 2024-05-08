@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="WSL配置 WSL官方文档: https:&#x2F;&#x2F;learn.microsoft.com&#x2F;zh-cn&#x2F;windows&#x2F;wsl&#x2F;setup&#x2F;environment 常用命令  1234567wsl -l -o 查看网络上的可用分发wsl --install kali-linux 安装某一个系统wsl -l 查看已安装的子系统wsl -s kali-linux 设置默认的子系统wsl -d xx">
+    <meta name="description" content="WSL配置WSL官方文档: https:&#x2F;&#x2F;learn.microsoft.com&#x2F;zh-cn&#x2F;windows&#x2F;wsl&#x2F;setup&#x2F;environment 常用命令 1234567wsl -l -o 查看网络上的可用分发wsl --install kali-linux 安装某一个系统wsl -l 查看已安装的子系统wsl -s kali-linux 设置默认的子系统wsl -d xxx 进入某个子">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WSL配置">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/07/12/Others/WSL%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="WSL配置 WSL官方文档: https:&#x2F;&#x2F;learn.microsoft.com&#x2F;zh-cn&#x2F;windows&#x2F;wsl&#x2F;setup&#x2F;environment 常用命令  1234567wsl -l -o 查看网络上的可用分发wsl --install kali-linux 安装某一个系统wsl -l 查看已安装的子系统wsl -s kali-linux 设置默认的子系统wsl -d xx">
+<meta property="og:description" content="WSL配置WSL官方文档: https:&#x2F;&#x2F;learn.microsoft.com&#x2F;zh-cn&#x2F;windows&#x2F;wsl&#x2F;setup&#x2F;environment 常用命令 1234567wsl -l -o 查看网络上的可用分发wsl --install kali-linux 安装某一个系统wsl -l 查看已安装的子系统wsl -s kali-linux 设置默认的子系统wsl -d xxx 进入某个子">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2023-07-12T13:06:58.000Z">
@@ -383,7 +383,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          123 字
+          122 字
         
       </span>
     
@@ -436,25 +436,19 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="wsl配置">WSL配置</h1>
-<p>WSL官方文档:
-https://learn.microsoft.com/zh-cn/windows/wsl/setup/environment</p>
-<h2 id="常用命令">常用命令</h2>
-<blockquote>
+                <h1 id="WSL配置"><a href="#WSL配置" class="headerlink" title="WSL配置"></a>WSL配置</h1><p>WSL官方文档: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/wsl/setup/environment">https://learn.microsoft.com/zh-cn/windows/wsl/setup/environment</a></p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><blockquote>
 <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ada">wsl -l -o 查看网络上的可用分发<br>wsl <span class="hljs-comment">--install kali-linux 安装某一个系统</span><br>wsl -l 查看已安装的子系统<br>wsl -s kali-linux 设置默认的子系统<br>wsl -d xxx 进入某个子系统<br>wsl -t xxx 终止某个子系统<br>wsl <span class="hljs-comment">--unregister xxx 删除某个系统</span><br></code></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="wsl配置clion">WSL配置Clion</h2>
-<blockquote>
+<h2 id="WSL配置Clion"><a href="#WSL配置Clion" class="headerlink" title="WSL配置Clion"></a>WSL配置Clion</h2><blockquote>
 <p>kali配置：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt update<br>sudo apt install build-essential<br>sudo apt install gdb<br>sudo apt install cmake<br></code></pre></td></tr></table></figure>
+
 <p>注意路径问题:</p>
-<figure>
-<img src="/2023/07/12/Others/WSL%E9%85%8D%E7%BD%AE/image-20230712213413946.png" srcset="/img/loading.gif" lazyload alt="image-20230712213413946">
-<figcaption aria-hidden="true">image-20230712213413946</figcaption>
-</figure>
+<p><img src="/2023/07/12/Others/WSL%E9%85%8D%E7%BD%AE/image-20230712213413946.png" srcset="/img/loading.gif" lazyload alt="image-20230712213413946"></p>
 </blockquote>
-<h2 id="wsl更改存储目录">WSL更改存储目录</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Bash">wsl --shutdown kali-linux<br>wsl --<span class="hljs-built_in">export</span> kali-linux E:\wslData\kali-linux.tar<br>wsl --unregister kali-linux<br>wsl --import kali E:\wslData\kali E:\wslData\kali-linux.tar --version 2<br></code></pre></td></tr></table></figure>
+<h2 id="WSL更改存储目录"><a href="#WSL更改存储目录" class="headerlink" title="WSL更改存储目录"></a>WSL更改存储目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Bash">wsl --shutdown kali-linux<br>wsl --<span class="hljs-built_in">export</span> kali-linux E:\wslData\kali-linux.tar<br>wsl --unregister kali-linux<br>wsl --import kali E:\wslData\kali E:\wslData\kali-linux.tar --version 2<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>

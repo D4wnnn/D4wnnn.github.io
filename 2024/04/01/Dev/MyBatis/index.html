@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="MyBatis 快速入门 首先，我们需要导入依赖包。 12345678910&lt;dependency&gt;  	&lt;groupId&gt;mysql&lt;&#x2F;groupId&gt;  	&lt;artifactId&gt;mysql-connector-java&lt;&#x2F;artifactId&gt;  	&lt;version&gt;8.0.29&lt;&#x2F;version&gt;">
+    <meta name="description" content="MyBatis快速入门首先，我们需要导入依赖包。 12345678910&lt;dependency&gt;  	&lt;groupId&gt;mysql&lt;&#x2F;groupId&gt;  	&lt;artifactId&gt;mysql-connector-java&lt;&#x2F;artifactId&gt;  	&lt;version&gt;8.0.29&lt;&#x2F;version&gt;  &lt;&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MyBatis">
 <meta property="og:url" content="https://d4wnnn.github.io/2024/04/01/Dev/MyBatis/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="MyBatis 快速入门 首先，我们需要导入依赖包。 12345678910&lt;dependency&gt;  	&lt;groupId&gt;mysql&lt;&#x2F;groupId&gt;  	&lt;artifactId&gt;mysql-connector-java&lt;&#x2F;artifactId&gt;  	&lt;version&gt;8.0.29&lt;&#x2F;version&gt;">
+<meta property="og:description" content="MyBatis快速入门首先，我们需要导入依赖包。 12345678910&lt;dependency&gt;  	&lt;groupId&gt;mysql&lt;&#x2F;groupId&gt;  	&lt;artifactId&gt;mysql-connector-java&lt;&#x2F;artifactId&gt;  	&lt;version&gt;8.0.29&lt;&#x2F;version&gt;  &lt;&#x2F;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2024-04-01T05:46:34.000Z">
@@ -436,109 +436,76 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="mybatis">MyBatis</h1>
-<h2 id="快速入门">快速入门</h2>
-<p>首先，我们需要导入依赖包。</p>
+                <h1 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h1><h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p>首先，我们需要导入依赖包。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>8.0.29<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>  <br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.5.5<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>  <br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<p>第一步，在 <code>resources</code> 文件夹下创建
-<code>mybatic-config.xml</code> 。此配置文件可以在 mybatis
-官网找到，主要用来配置 sql 数据源以及 mapper 文件的存放位置。</p>
+
+<p>第一步，在 <code>resources</code> 文件夹下创建 <code>mybatic-config.xml</code> 。此配置文件可以在 mybatis 官网找到，主要用来配置 sql 数据源以及 mapper 文件的存放位置。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> ?&gt;</span>  <br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">configuration</span>  </span><br><span class="hljs-meta"><span class="hljs-keyword">PUBLIC</span> <span class="hljs-string">"-//mybatis.org//DTD Config 3.0//EN"</span>  </span><br><span class="hljs-meta"><span class="hljs-string">"https://mybatis.org/dtd/mybatis-3-config.dtd"</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">environments</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"development"</span>&gt;</span>  <br>		<span class="hljs-tag">&lt;<span class="hljs-name">environment</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"development"</span>&gt;</span>  <br>		<span class="hljs-tag">&lt;<span class="hljs-name">transactionManager</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"JDBC"</span>/&gt;</span>  <br>			<span class="hljs-tag">&lt;<span class="hljs-name">dataSource</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"POOLED"</span>&gt;</span>  <br>			<span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"driver"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"com.mysql.cj.jdbc.Driver"</span>/&gt;</span>  <br>			<span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"url"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"jdbc:mysql://localhost:3306/atguigudb"</span>/&gt;</span>  <br>			<span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"username"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"root"</span>/&gt;</span>  <br>			<span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"root"</span>/&gt;</span>  <br>		<span class="hljs-tag">&lt;/<span class="hljs-name">dataSource</span>&gt;</span>  <br>		<span class="hljs-tag">&lt;/<span class="hljs-name">environment</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;/<span class="hljs-name">environments</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">mappers</span>&gt;</span>  <br>		<span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">resource</span>=<span class="hljs-string">"JobMapper.xml"</span>/&gt;</span>  <br>	<span class="hljs-tag">&lt;/<span class="hljs-name">mappers</span>&gt;</span>  <br><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<p>第二步，同样在 <code>resources</code> 文件夹下新建 mapper
-配置文件，如 <code>JobMapper.xml</code> 。Mapper
-文件也就是存放着对数据库操作的 SQL 语句。</p>
+
+<p>第二步，同样在 <code>resources</code> 文件夹下新建 mapper 配置文件，如 <code>JobMapper.xml</code> 。Mapper 文件也就是存放着对数据库操作的 SQL 语句。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> ?&gt;</span>  <br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">mapper</span>  </span><br><span class="hljs-meta"><span class="hljs-keyword">PUBLIC</span> <span class="hljs-string">"-//mybatis.org//DTD Mapper 3.0//EN"</span>  </span><br><span class="hljs-meta"><span class="hljs-string">"https://mybatis.org/dtd/mybatis-3-mapper.dtd"</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">"test"</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"selectAll"</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">"cn.d4wn.pojo.Job"</span>&gt;</span>  <br>		select * from jobs  <br>	<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>  <br><span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<p>其中 <code>id</code> 代表着下面这条 sql 语句，而
-<code>namespace</code>
-是命名空间，因为不同的表可能有相同的命令，例如，都是
-<code>seleseAll</code>。右边的 <code>resultType</code>
-也就是我们的实体类对象，注意要使用全类名。</p>
+
+<p>其中 <code>id</code> 代表着下面这条 sql 语句，而 <code>namespace</code> 是命名空间，因为不同的表可能有相同的命令，例如，都是 <code>seleseAll</code>。右边的 <code>resultType</code> 也就是我们的实体类对象，注意要使用全类名。</p>
 <p>第三步，执行 SQL 语句</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> {  <br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException {  <br>	<span class="hljs-comment">// 创建 session 对象  </span><br>	<span class="hljs-type">String</span> <span class="hljs-variable">resource</span> <span class="hljs-operator">=</span> <span class="hljs-string">"mybatis-config.xml"</span>;  <br>	<span class="hljs-type">InputStream</span> <span class="hljs-variable">is</span> <span class="hljs-operator">=</span> Resources.getResourceAsStream(resource);  <br>	<span class="hljs-type">SqlSessionFactory</span> <span class="hljs-variable">sqlSessionFactory</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SqlSessionFactoryBuilder</span>().build(is);  <br>	<span class="hljs-type">SqlSession</span> <span class="hljs-variable">session</span> <span class="hljs-operator">=</span> sqlSessionFactory.openSession();  <br>	<span class="hljs-comment">// 执行SQL语句  </span><br>	List&lt;Job&gt; jobs = session.selectList(<span class="hljs-string">"test.selectAll"</span>);  <br>	System.out.println(jobs);  <br>	<span class="hljs-comment">// 关闭Session  </span><br>	session.close();  <br>	}  <br>}<br></code></pre></td></tr></table></figure>
-<p>首先加载配置文件，然后就可以通过 <code>命名空间.id</code> 调用我们的
-SQL 语句了。</p>
-<p>以上就是 MyBatis 框架中的 "Hello World"。不难看出，创建 session
-对象的代码其实有很多都是一次性的，只需要复制粘贴即可。而此时操作 SQL
-的流程其实有很多可以优化的地方，这将在下面详细介绍。</p>
+
+<p>首先加载配置文件，然后就可以通过 <code>命名空间.id</code> 调用我们的 SQL 语句了。</p>
+<p>以上就是 MyBatis 框架中的 “Hello World”。不难看出，创建 session 对象的代码其实有很多都是一次性的，只需要复制粘贴即可。而此时操作 SQL 的流程其实有很多可以优化的地方，这将在下面详细介绍。</p>
 <p>代码：模块 <code>MyBatisDemo1</code></p>
-<h2 id="mapper-代理开发">Mapper 代理开发</h2>
-<h3 id="总体流程">总体流程</h3>
-<p>首先，加载 <code>mybatis-config.xml</code> 的代码没有变，创建的
-session 对象也没有变。接下来就是调用 session
-对象的方法，之前我们使用的是
-<code>命名空间.id</code>，但是这种使用硬编码的格式并不好，我们能否想办法解决硬编码的问题呢？</p>
-<p>答案是肯定的，我们可以单独建立一个 <code>mappers</code>
-包，里面存放着各种接口，同级目录下有各种对应的 mapper
-配置文件。那么，当加载该接口时，就会转而加载该接口下与之同名的 mapper
-配置文件。</p>
-<p>而当我们调用接口的某方法时，就会去对应的 mapper 文件中查找对应的
-id，进而执行指定的 sql。</p>
+<h2 id="Mapper-代理开发"><a href="#Mapper-代理开发" class="headerlink" title="Mapper 代理开发"></a>Mapper 代理开发</h2><h3 id="总体流程"><a href="#总体流程" class="headerlink" title="总体流程"></a>总体流程</h3><p>首先，加载 <code>mybatis-config.xml</code> 的代码没有变，创建的 session 对象也没有变。接下来就是调用 session 对象的方法，之前我们使用的是 <code>命名空间.id</code>，但是这种使用硬编码的格式并不好，我们能否想办法解决硬编码的问题呢？</p>
+<p>答案是肯定的，我们可以单独建立一个 <code>mappers</code> 包，里面存放着各种接口，同级目录下有各种对应的 mapper 配置文件。那么，当加载该接口时，就会转而加载该接口下与之同名的 mapper 配置文件。</p>
+<p>而当我们调用接口的某方法时，就会去对应的 mapper 文件中查找对应的 id，进而执行指定的 sql。</p>
 <p>因此，要想实现 mapper 代理开发，需要做到 3 件事情：</p>
 <ul>
-<li>定义 Mapper 接口 (接口名与 mapper 配置文件相同)，在 Mapper
-接口中定义方法 (即 mapper 配置文件的 id)。保证 mapper
-配置文件与接口在同一目录下。</li>
+<li>定义 Mapper 接口 (接口名与 mapper 配置文件相同)，在 Mapper 接口中定义方法 (即 mapper 配置文件的 id)。保证 mapper 配置文件与接口在同一目录下。</li>
 <li>设置 mapper 文件中的 namespace 为 Mapper 接口的全限定名。</li>
-<li>在 <code>mybatis-config.xml</code> 中设置 mapper
-配置文件的位置。</li>
+<li>在 <code>mybatis-config.xml</code> 中设置 mapper 配置文件的位置。</li>
 </ul>
 <p>项目结构：</p>
-<figure>
-<img src="/2024/04/01/Dev/MyBatis/image-20240218230130673.png" srcset="/img/loading.gif" lazyload alt="|331">
-<figcaption aria-hidden="true">|331</figcaption>
-</figure>
+<p><img src="/2024/04/01/Dev/MyBatis/image-20240218230130673.png" srcset="/img/loading.gif" lazyload alt="|331"></p>
 <p><code>Main.java</code></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 执行SQL语句  </span><br><span class="hljs-type">JobMapper</span> <span class="hljs-variable">mapper</span> <span class="hljs-operator">=</span> session.getMapper(JobMapper.class);  <br>List&lt;Job&gt; jobs = mapper.selectAll();  <br></code></pre></td></tr></table></figure>
+
 <p><code>JobMapper.xml</code></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">"cn.d4wn.mappers.JobMapper"</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"selectAll"</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">"cn.d4wn.pojo.Job"</span>&gt;</span>  <br>		select * from jobs  <br>	<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>  <br><span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
 <p><code>JobMapper.java</code></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">JobMapper</span> {  <br>	List&lt;Job&gt; <span class="hljs-title function_">selectAll</span><span class="hljs-params">()</span>;  <br>}<br></code></pre></td></tr></table></figure>
+
 <p>代码：模块 <code>MyBatisDemo2</code></p>
-<h3 id="别名配置">别名配置</h3>
-<p>前面我们在配置 <code>resultType</code>
-的时候，需要使用到实体类的全限定名，我们可以通过配置别名来简化。</p>
+<h3 id="别名配置"><a href="#别名配置" class="headerlink" title="别名配置"></a>别名配置</h3><p>前面我们在配置 <code>resultType</code> 的时候，需要使用到实体类的全限定名，我们可以通过配置别名来简化。</p>
 <p>在 <code>mybatis-config.xml</code> 中，添加配置如下：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">typeAliases</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">package</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"cn.d4wn.pojo"</span>/&gt;</span>  <br><span class="hljs-tag">&lt;/<span class="hljs-name">typeAliases</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<p>上面指明的是实体类的包。然后在 <code>returnType</code>
-中就不必指明全类名了。</p>
+
+<p>上面指明的是实体类的包。然后在 <code>returnType</code> 中就不必指明全类名了。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">"cn.d4wn.mappers.JobMapper"</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"selectAll"</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">"job"</span>&gt;</span>  <br>	select * from jobs  <br>	<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>  <br><span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
 <p>这里的 <code>job</code> 也可以是 <code>Job</code>，不区分大小写。</p>
 <p>代码：模块 <code>MyBatisDemo3</code></p>
-<h3 id="resultmap">ResultMap</h3>
-<p>一般来说，实体类中的属性遵循小驼峰命名规则，而数据库中的字段名则可能是下划线，这就起了冲突，而
-<code>resultMap</code> 可以用来解决这个问题。</p>
+<h3 id="ResultMap"><a href="#ResultMap" class="headerlink" title="ResultMap"></a>ResultMap</h3><p>一般来说，实体类中的属性遵循小驼峰命名规则，而数据库中的字段名则可能是下划线，这就起了冲突，而 <code>resultMap</code> 可以用来解决这个问题。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">resultMap</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"JobMap"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"job"</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">column</span>=<span class="hljs-string">"job_title"</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"jobTitle"</span>/&gt;</span>  <br><span class="hljs-tag">&lt;/<span class="hljs-name">resultMap</span>&gt;</span>  <br>  <br><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"selectAll"</span> <span class="hljs-attr">resultMap</span>=<span class="hljs-string">"JobMap"</span>&gt;</span>  <br>	select * from jobs  <br><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<p><code>column</code> 即数据库中的字段，<code>property</code>
-即实体类中的属性名。<code>type</code> 指的是实体类。</p>
+
+<p><code>column</code> 即数据库中的字段，<code>property</code> 即实体类中的属性名。<code>type</code> 指的是实体类。</p>
 <p>注意，如果是查询全部的操作，从数据库中查询出的数据，是按照列顺序进入实体类的构造参数。</p>
-<p>例如，若实体类的构造函数参数为
-<code>(String jobId, String jobTitle, int minSalary, int maxSalary)</code>，而查询出的列为
-<code>(job_id, jot_title, min_salary, max_salary)</code>。二者将一一对应，此时不需要
-<code>resultMap</code>
-也可以。但是如果不是查询全部列，而是单一列名，或者列顺序与构造参数不一致，则需要使用
-<code>resultMap</code>。</p>
-<h3 id="查询">查询</h3>
-<p>设计到查询时，我们需要关注参数如何传播。有两种方式：</p>
+<p>例如，若实体类的构造函数参数为 <code>(String jobId, String jobTitle, int minSalary, int maxSalary)</code>，而查询出的列为 <code>(job_id, jot_title, min_salary, max_salary)</code>。二者将一一对应，此时不需要 <code>resultMap</code> 也可以。但是如果不是查询全部列，而是单一列名，或者列顺序与构造参数不一致，则需要使用 <code>resultMap</code>。</p>
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><p>设计到查询时，我们需要关注参数如何传播。有两种方式：</p>
 <ul>
 <li><code>#{xxx}</code></li>
 <li><code>${xxx}</code>：有 sql 注入问题</li>
 </ul>
-<p>此外，如果我们的查询条件中有 <code>&gt;</code>
-等特殊字符，同样有两种方法：</p>
+<p>此外，如果我们的查询条件中有 <code>&gt;</code> 等特殊字符，同样有两种方法：</p>
 <ul>
 <li>转义，如 <code>&amp;gt;</code></li>
 <li><code>&lt;![CDATA[内容]]&gt;</code></li>
 </ul>
 <p>之前我们一直在讨论单条件查询，接下来，我们来剖析一下多条件查询。</p>
-<p>与单条件查询不同，多条件查询有多个参数，MyBatis
-是如何知道参数对应哪个位置呢？</p>
+<p>与单条件查询不同，多条件查询有多个参数，MyBatis 是如何知道参数对应哪个位置呢？</p>
 <ul>
 <li>使用 <code>@Param(占位符)</code> 注解</li>
 <li>使用实体类</li>
 <li>使用 map 集合</li>
 </ul>
-<p>但是如果多条件查询中的条件数目可变 (动态 SQL)，又该如何描述 sql
-语句呢？MyBatis 为我们提供了逻辑判断标签来解决。</p>
+<p>但是如果多条件查询中的条件数目可变 (动态 SQL)，又该如何描述 sql 语句呢？MyBatis 为我们提供了逻辑判断标签来解决。</p>
 
                 
               </div>

@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="MongoDB 课程链接：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1bJ411x7mq?t&#x3D;52.4&amp;p&#x3D;12 一、概述 应用场景：  高并发 高拓展性 写入操作频繁  体系结构：  数据库  默认库：  admin：root数据库 local：不会复制给集群内其它服务器的数据库 config   Collection D">
+    <meta name="description" content="MongoDB课程链接：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1bJ411x7mq?t&#x3D;52.4&amp;p&#x3D;12 一、概述应用场景：  高并发 高拓展性 写入操作频繁  体系结构：  数据库 默认库： admin：root数据库 local：不会复制给集群内其它服务器的数据库 config     Collection Document  二、常见操作 数据库相关">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MongoDB">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/06/08/Dev/MongoDB/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="MongoDB 课程链接：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1bJ411x7mq?t&#x3D;52.4&amp;p&#x3D;12 一、概述 应用场景：  高并发 高拓展性 写入操作频繁  体系结构：  数据库  默认库：  admin：root数据库 local：不会复制给集群内其它服务器的数据库 config   Collection D">
+<meta property="og:description" content="MongoDB课程链接：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1bJ411x7mq?t&#x3D;52.4&amp;p&#x3D;12 一、概述应用场景：  高并发 高拓展性 写入操作频繁  体系结构：  数据库 默认库： admin：root数据库 local：不会复制给集群内其它服务器的数据库 config     Collection Document  二、常见操作 数据库相关">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
 <meta property="article:published_time" content="2023-06-08T08:56:54.000Z">
@@ -436,10 +436,8 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="mongodb">MongoDB</h1>
-<p>课程链接：https://www.bilibili.com/video/BV1bJ411x7mq?t=52.4&amp;p=12</p>
-<h2 id="一概述">一、概述</h2>
-<p>应用场景：</p>
+                <h1 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h1><p>课程链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1bJ411x7mq?t=52.4&p=12">https://www.bilibili.com/video/BV1bJ411x7mq?t=52.4&amp;p=12</a></p>
+<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>应用场景：</p>
 <ul>
 <li>高并发</li>
 <li>高拓展性</li>
@@ -447,71 +445,86 @@ mjx-container[display="true"] + br {
 </ul>
 <p>体系结构：</p>
 <ul>
-<li>数据库
-<ul>
-<li>默认库：
-<ul>
+<li>数据库<ul>
+<li>默认库：<ul>
 <li>admin：root数据库</li>
 <li>local：不会复制给集群内其它服务器的数据库</li>
 <li>config</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>Collection</li>
 <li>Document</li>
 </ul>
-<h2 id="二常见操作">二、常见操作</h2>
-<ul>
+<h2 id="二、常见操作"><a href="#二、常见操作" class="headerlink" title="二、常见操作"></a>二、常见操作</h2><ul>
 <li><p>数据库相关</p>
 <ul>
 <li><p>创建和使用：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">use qy_db; <span class="hljs-comment">-- 不存在则创建</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">use qy_db; <span class="hljs-comment">-- 不存在则创建</span><br></code></pre></td></tr></table></figure>
+</li>
 <li><p>查看当前/所有数据库</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">show</span> dbs; <span class="hljs-comment">-- 查看数据库</span><br>db; <span class="hljs-comment">-- 查看当前数据库</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">show</span> dbs; <span class="hljs-comment">-- 查看数据库</span><br>db; <span class="hljs-comment">-- 查看当前数据库</span><br></code></pre></td></tr></table></figure>
+</li>
 <li><p>删除数据库</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.dropDatabase();<br></code></pre></td></tr></table></figure></li>
-</ul></li>
+</ul>
+</li>
 <li><p>集合相关</p>
 <ul>
 <li><p>显式创建</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.createCollection("my");<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.createCollection("my");<br></code></pre></td></tr></table></figure>
+</li>
 <li><p>隐式创建</p>
-<p>直接插入文档，若没有会自动创建</p></li>
+<p>直接插入文档，若没有会自动创建</p>
+</li>
 <li><p>删除集合</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.col.drop();<br></code></pre></td></tr></table></figure></li>
-</ul></li>
+</ul>
+</li>
 <li><p>文档相关</p>
 <ul>
 <li><p>增</p>
 <ul>
 <li><p>单个文档插入</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.col.insert(<br>	{<br>    "id":"123",<br>    "name":"qy"<br>    }<br>)<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.col.insert(<br>	{<br>    "id":"123",<br>    "name":"qy"<br>    }<br>)<br></code></pre></td></tr></table></figure>
+</li>
 <li><p>多个文档插入</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.col.insertMany()<br></code></pre></td></tr></table></figure></li>
-</ul></li>
+</ul>
+</li>
 <li><p>删</p>
 <ul>
 <li><p>删除全部</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.col.remove({})<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.col.remove({})<br></code></pre></td></tr></table></figure>
+</li>
 <li><p>删除指定数据</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.col.remove({_id:"1"})<br></code></pre></td></tr></table></figure></li>
-</ul></li>
+</ul>
+</li>
 <li><p>改</p>
 <ul>
 <li><p>覆盖修改</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.col.update({_id:"1"},{name:qy})<br>通式：<br>db.col.update(查询条件，更新值，可选项)<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.col.update({_id:"1"},{name:qy})<br>通式：<br>db.col.update(查询条件，更新值，可选项)<br></code></pre></td></tr></table></figure>
+</li>
 <li><p>局部修改</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.col.update({_id:"1"},{$<span class="hljs-keyword">set</span>:{name:qy}})<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.col.update({_id:"1"},{$<span class="hljs-keyword">set</span>:{name:qy}})<br></code></pre></td></tr></table></figure>
+</li>
 <li><p>批量修改</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.col.update({_id:"1"},{$<span class="hljs-keyword">set</span>:{name:qy}},{multi:<span class="hljs-literal">true</span>})<br></code></pre></td></tr></table></figure></li>
-</ul></li>
+</ul>
+</li>
 <li><p>查</p>
 <ul>
 <li><p>普通查询</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.col.find() <span class="hljs-comment">-- 查询所有</span><br>db.col.find({}) <span class="hljs-comment">-- 查询指定条件</span><br>db.getCollection("xxx").find({}) <span class="hljs-comment">-- 若集合名为数字开头可用此命令</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.col.find() <span class="hljs-comment">-- 查询所有</span><br>db.col.find({}) <span class="hljs-comment">-- 查询指定条件</span><br>db.getCollection("xxx").find({}) <span class="hljs-comment">-- 若集合名为数字开头可用此命令</span><br></code></pre></td></tr></table></figure>
+</li>
 <li><p>投影查询</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.col.find({查询条件},{_id:<span class="hljs-number">0</span>,name:<span class="hljs-number">1</span>})<br></code></pre></td></tr></table></figure></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
                 
