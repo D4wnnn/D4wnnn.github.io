@@ -1,0 +1,948 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="D4wn">
+  <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
+  
+    <meta name="description" content="摘要与关键词 1234567\begin{abstract}This document describes...\end{abstract}\begin{IEEEkeywords}Class, IEEEtran, paper, style, template, typesetting.\end{IEEEkeywords} 引言 首字母大写 : 1\IEEEPARstart{W}{elcom">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TIFS格式解读">
+<meta property="og:url" content="https://d4wnnn.github.io/2024/04/16/Academic/TIFS%E6%A0%BC%E5%BC%8F%E8%A7%A3%E8%AF%BB/index.html">
+<meta property="og:site_name" content="D4wn">
+<meta property="og:description" content="摘要与关键词 1234567\begin{abstract}This document describes...\end{abstract}\begin{IEEEkeywords}Class, IEEEtran, paper, style, template, typesetting.\end{IEEEkeywords} 引言 首字母大写 : 1\IEEEPARstart{W}{elcom">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
+<meta property="article:published_time" content="2024-04-16T06:02:54.000Z">
+<meta property="article:modified_time" content="2024-05-07T20:42:53.114Z">
+<meta property="article:author" content="D4wn">
+<meta property="article:tag" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
+  
+  
+  
+  <title>TIFS格式解读 - D4wn</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"d4wnnn.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"104d1c240fe4777ab966bd68252f7714","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?104d1c240fe4777ab966bd68252f7714";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>D4wn</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/total.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="TIFS格式解读"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        D4wn
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-16 14:02" pubdate>
+          2024年4月16日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">TIFS格式解读</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="摘要与关键词">摘要与关键词</h1>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{abstract}<br>This document describes...<br><span class="hljs-keyword">\end</span>{abstract}<br><br><span class="hljs-keyword">\begin</span>{IEEEkeywords}<br>Class, IEEEtran, paper, style, template, typesetting.<br><span class="hljs-keyword">\end</span>{IEEEkeywords}<br></code></pre></td></tr></table></figure>
+<h1 id="引言">引言</h1>
+<p>首字母大写 :</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\IEEEPARstart</span>{W}{elcome}<br></code></pre></td></tr></table></figure>
+<h1 id="正文">正文</h1>
+<h2 id="列表">列表</h2>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{list}{}{}<br><span class="hljs-keyword">\item</span>{bare<span class="hljs-keyword">\_</span>jrnl.tex}<br><span class="hljs-keyword">\item</span>{bare<span class="hljs-keyword">\_</span>conf.tex}<br><span class="hljs-keyword">\end</span>{list}<br></code></pre></td></tr></table></figure>
+<h2 id="章节">章节</h2>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\section</span>{Title}<br></code></pre></td></tr></table></figure>
+<h2 id="作者名和机构">作者名和机构</h2>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\author</span>{Masahito Hayashi <br><span class="hljs-keyword">\IEEEmembership</span>{Fellow, IEEE}, Masaki Owari<br><span class="hljs-keyword">\thanks</span>{M. Hayashi is with Graduate School <br>of Mathematics, Nagoya University, Nagoya, <br>Japan}<br><span class="hljs-keyword">\thanks</span>{M. Owari is with the Faculty of <br>Informatics, Shizuoka University, <br>Hamamatsu, Shizuoka, Japan.}<br></code></pre></td></tr></table></figure>
+<h2 id="页眉">页眉</h2>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\markboth</span>{Journal of Quantum Electronics, <br>Vol. 1, No. 1, January 2021}<br>{Author1, Author2, <br><span class="hljs-keyword">\MakeLowercase</span>{<span class="hljs-keyword">\textit</span>{(et al.)}: <br>Paper Title}<br></code></pre></td></tr></table></figure>
+<h2 id="引用">引用</h2>
+<p>在开头应该加上 <code>\usepackage{cite}</code></p>
+<h2 id="图片">图片</h2>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\usepackage</span>{graphicx}<br><br><span class="hljs-comment">% 强制图片浮动到top</span><br><span class="hljs-keyword">\begin</span>{figure}[!t]<br><span class="hljs-keyword">\centering</span><br><span class="hljs-keyword">\includegraphics</span>[width=2.5in]{fig1}<br><span class="hljs-keyword">\caption</span>{This is the caption for one fig.}<br><span class="hljs-keyword">\label</span>{fig1}<br><span class="hljs-keyword">\end</span>{figure}<br></code></pre></td></tr></table></figure>
+<p>子图：(bare_jrnl_new_samples 4. Tex)</p>
+<p>加载 <code>subfig</code> 包</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{figure*}[!t]<br><span class="hljs-keyword">\centering</span><br><br><span class="hljs-keyword">\subfloat</span>[]{<span class="hljs-keyword">\includegraphics</span>[width=2.5in]{fig1}<span class="hljs-comment">%</span><br><span class="hljs-keyword">\label</span>{fig<span class="hljs-built_in">_</span>first<span class="hljs-built_in">_</span>case}}<br><span class="hljs-keyword">\hfil</span> <span class="hljs-comment">% 分割器, 等间距</span><br><span class="hljs-keyword">\subfloat</span>[]{<span class="hljs-keyword">\includegraphics</span>[width=2.5in]{fig1}<span class="hljs-comment">%</span><br><span class="hljs-keyword">\label</span>{fig<span class="hljs-built_in">_</span>second<span class="hljs-built_in">_</span>case}}<br><br><span class="hljs-keyword">\caption</span>{Dae. Ad quatur autat ut porepel itemoles dolor autem fuga. Bus quia con nessunti as remo di quatus non perum que nimus. (a) Case I. (b) Case II.}<br><span class="hljs-keyword">\label</span>{fig<span class="hljs-built_in">_</span>sim}<br><span class="hljs-keyword">\end</span>{figure*}<br></code></pre></td></tr></table></figure>
+<h2 id="表格">表格</h2>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{table}<br><span class="hljs-keyword">\begin</span>{center}<br><span class="hljs-keyword">\caption</span>{Filter design equations  ...}<br><span class="hljs-keyword">\label</span>{tab1}<br><span class="hljs-keyword">\begin</span>{tabular}{| c | c | c |}<br><span class="hljs-keyword">\hline</span><br>Order <span class="hljs-built_in">&amp;</span> Arbitrary coefficients <span class="hljs-built_in">&amp;</span> <br>coefficients<span class="hljs-keyword">\\</span><br>of filter <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>e<span class="hljs-built_in">_</span>m<span class="hljs-built_in">$</span> <span class="hljs-built_in">&amp;</span>   <span class="hljs-built_in">$</span>b<span class="hljs-built_in">_</span>{ij}<span class="hljs-built_in">$</span> <span class="hljs-keyword">\\</span><br><span class="hljs-keyword">\hline</span><br>1<span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>b<span class="hljs-built_in">_</span>{ij}=<span class="hljs-keyword">\hat</span>{e}.<span class="hljs-keyword">\hat</span>{<span class="hljs-keyword">\beta</span><span class="hljs-built_in">_</span>{ij}}<span class="hljs-built_in">$</span>, <br><span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>b<span class="hljs-built_in">_</span>{00}=0<span class="hljs-built_in">$</span><span class="hljs-keyword">\\</span><br><span class="hljs-keyword">\hline</span><br>2<span class="hljs-built_in">&amp;</span><span class="hljs-built_in">$</span><span class="hljs-keyword">\beta</span><span class="hljs-built_in">_</span>{22}=(~1,-1,-1,~~1,~~1,~~1)<span class="hljs-built_in">$</span> <span class="hljs-built_in">&amp;</span><span class="hljs-keyword">\\</span> <br><span class="hljs-keyword">\hline</span><br>3<span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>b<span class="hljs-built_in">_</span>{ij}=<span class="hljs-keyword">\hat</span>{e}.<span class="hljs-keyword">\hat</span>{<span class="hljs-keyword">\beta</span><span class="hljs-built_in">_</span>{ij}}<span class="hljs-built_in">$</span>, <br><span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>b<span class="hljs-built_in">_</span>{00}=0<span class="hljs-built_in">$</span>,<span class="hljs-keyword">\\</span><br><span class="hljs-keyword">\hline</span> <br><span class="hljs-keyword">\end</span>{tabular}<br><span class="hljs-keyword">\end</span>{center}<br><span class="hljs-keyword">\end</span>{table}<br><br><span class="hljs-comment">% 引用：</span><br>Table~<span class="hljs-keyword">\ref</span>{tab1} lists the closed-form...<br></code></pre></td></tr></table></figure>
+<h2 id="列表-1">列表</h2>
+<p>有三种类型：</p>
+<p>Simple unnumbered</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{list}{}{}<br><span class="hljs-keyword">\item</span>{bare<span class="hljs-keyword">\_</span>jrnl.tex}<br><span class="hljs-keyword">\item</span>{bare<span class="hljs-keyword">\_</span>conf.tex}<br><span class="hljs-keyword">\item</span>{bare<span class="hljs-keyword">\_</span>jrnl<span class="hljs-keyword">\_</span>compsoc.tex}<br><span class="hljs-keyword">\item</span>{bare<span class="hljs-keyword">\_</span>conf<span class="hljs-keyword">\_</span>compsoc.tex}<br><span class="hljs-keyword">\item</span>{bare<span class="hljs-keyword">\_</span>jrnl<span class="hljs-keyword">\_</span>comsoc.tex}<br><span class="hljs-keyword">\end</span>{list}<br></code></pre></td></tr></table></figure>
+<figure>
+<img src="/2024/04/16/Academic/TIFS%E6%A0%BC%E5%BC%8F%E8%A7%A3%E8%AF%BB/image-20240329150559241.png" srcset="/img/loading.gif" lazyload alt="|281">
+<figcaption aria-hidden="true">|281</figcaption>
+</figure>
+<p>Numbered</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{enumerate}<br><span class="hljs-keyword">\item</span>{bare<span class="hljs-keyword">\_</span>jrnl.tex}<br><span class="hljs-keyword">\item</span>{bare<span class="hljs-keyword">\_</span>conf.tex}<br><span class="hljs-keyword">\item</span>{bare<span class="hljs-keyword">\_</span>jrnl<span class="hljs-keyword">\_</span>compsoc.tex}<br><span class="hljs-keyword">\item</span>{bare<span class="hljs-keyword">\_</span>conf<span class="hljs-keyword">\_</span>compsoc.tex}<br><span class="hljs-keyword">\item</span>{bare<span class="hljs-keyword">\_</span>jrnl<span class="hljs-keyword">\_</span>comsoc.tex}<br><span class="hljs-keyword">\end</span>{enumerate}<br></code></pre></td></tr></table></figure>
+<figure>
+<img src="/2024/04/16/Academic/TIFS%E6%A0%BC%E5%BC%8F%E8%A7%A3%E8%AF%BB/image-20240329150537675.png" srcset="/img/loading.gif" lazyload alt="|285">
+<figcaption aria-hidden="true">|285</figcaption>
+</figure>
+<p>Bulleted</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{itemize}<br><span class="hljs-keyword">\item</span>{bare<span class="hljs-keyword">\_</span>jrnl.tex}<br><span class="hljs-keyword">\item</span>{bare<span class="hljs-keyword">\_</span>conf.tex}<br><span class="hljs-keyword">\item</span>{bare<span class="hljs-keyword">\_</span>jrnl<span class="hljs-keyword">\_</span>compsoc.tex}<br><span class="hljs-keyword">\item</span>{bare<span class="hljs-keyword">\_</span>conf<span class="hljs-keyword">\_</span>compsoc.tex}<br><span class="hljs-keyword">\item</span>{bare<span class="hljs-keyword">\_</span>jrnl<span class="hljs-keyword">\_</span>comsoc.tex}<br><span class="hljs-keyword">\end</span>{itemize}<br><br></code></pre></td></tr></table></figure>
+<figure>
+<img src="/2024/04/16/Academic/TIFS%E6%A0%BC%E5%BC%8F%E8%A7%A3%E8%AF%BB/image-20240329150518239.png" srcset="/img/loading.gif" lazyload alt="|280">
+<figcaption aria-hidden="true">|280</figcaption>
+</figure>
+<p>对于其他不太常见的元素，如算法、定理和证明，以及浮动结构，如全页表、图形或方程，请参阅''
+IEEEtran_HOWTO. Pdf''双列浮动''部分。</p>
+<h2 id="其它">其它</h2>
+<p>节标题后的第一个段落通常不缩进，使用 <code>\noindent</code></p>
+<h1 id="后置内容">后置内容</h1>
+<h2 id="致谢">致谢</h2>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\section</span>{Acknowledgments}<br><span class="hljs-keyword">\noindent</span> Text describing those who <br>supported your paper.<br></code></pre></td></tr></table></figure>
+<h2 id="参考文献">参考文献</h2>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{verbatim}<span class="hljs-string"></span><br><span class="hljs-string">\bibitem{Sira3}</span><br><span class="hljs-string">H. Sira-Ramirez. ``On the sliding mode </span><br><span class="hljs-string">control of nonlinear systems,'' </span><br><span class="hljs-string">\textit{Systems \&amp; Control Letters}, </span><br><span class="hljs-string">vol. 19, pp. 303--312, 1992.</span><br></code></pre></td></tr></table></figure>
+<figure>
+<img src="/2024/04/16/Academic/TIFS%E6%A0%BC%E5%BC%8F%E8%A7%A3%E8%AF%BB/image-20240329151010118.png" srcset="/img/loading.gif" lazyload alt="|486">
+<figcaption aria-hidden="true">|486</figcaption>
+</figure>
+<h2 id="bittex-的使用">BitTex 的使用</h2>
+<p>若希望使用 BibTeX，请参阅 IEEEtran 参考书目包附带的文档。</p>
+<h2 id="传记和作者照片">传记和作者照片</h2>
+<p>作者可以选择是否包含他们的照片。照片应该是位图图形(.tif
+或.jpg)，大小要适合允许的空间。请参阅下面的代码示例:</p>
+<p>无照片版：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{IEEEbiographynophoto}{Jane Doe}<br>Biography text here without a photo.<br><span class="hljs-keyword">\end</span>{IEEEbiographynophoto}<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/04/16/Academic/TIFS%E6%A0%BC%E5%BC%8F%E8%A7%A3%E8%AF%BB/image-20240329151409527.png" srcset="/img/loading.gif" lazyload></p>
+<p>有照片版：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{IEEEbiography}[{<span class="hljs-keyword">\includegraphics</span><br>[width=1in,height=1.25in,clip,<br>keepaspectratio]{fig1.png}}]<br>{IEEE Publications Technology Team} <br>In this paragraph you can place <br>your educational, professional background <br>and research and other interests.<br><span class="hljs-keyword">\end</span>{IEEEbiography}<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/04/16/Academic/TIFS%E6%A0%BC%E5%BC%8F%E8%A7%A3%E8%AF%BB/image-20240329151428473.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="数学排版">数学排版</h1>
+<h2 id="公式">公式</h2>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{equation}<br><span class="hljs-keyword">\label</span>{deqn<span class="hljs-built_in">_</span>ex1}<br>x = <span class="hljs-keyword">\sum</span><span class="hljs-built_in">_</span>{i=0}<span class="hljs-built_in">^</span>{n} 2{i} Q.<br><span class="hljs-keyword">\end</span>{equation}<br><br><span class="hljs-comment">% 引用：</span><br>Please see (<span class="hljs-keyword">\ref</span>{deqn<span class="hljs-built_in">_</span>ex1})<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/04/16/Academic/TIFS%E6%A0%BC%E5%BC%8F%E8%A7%A3%E8%AF%BB/image-20240329151843939.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="公式编号">公式编号</h2>
+<p>文章的公式编号为 (1),
+(2)等，不要使用罗马数字或节号。另外，不要使用连字符，如
+<code>1-a</code>, <code>1.a</code>，而应该使用 <code>1a</code></p>
+<h2 id="多行公式和对齐">多行公式和对齐</h2>
+<p>单个方程在分割到多行时，每一行之间并没有要求严格对齐。通常在这种情况下，LaTeX
+会根据方程的长度和页面的宽度自动选择合适的分割点，以使得方程看起来整洁而美观。</p>
+<p>如：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{multline}<br><span class="hljs-keyword">\text</span>{The first line of this example}<span class="hljs-keyword">\\</span><br><span class="hljs-keyword">\text</span>{The second line of this example}<span class="hljs-keyword">\\</span><br><span class="hljs-keyword">\text</span>{The third line of this example}<br><span class="hljs-keyword">\end</span>{multline}<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/04/16/Academic/TIFS%E6%A0%BC%E5%BC%8F%E8%A7%A3%E8%AF%BB/image-20240329152519269.png" srcset="/img/loading.gif" lazyload></p>
+<p>多个方程：使用等号对齐</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{align}<br>a <span class="hljs-built_in">&amp;</span>= c+d <span class="hljs-keyword">\\</span><br>b <span class="hljs-built_in">&amp;</span>= e+f<br><span class="hljs-keyword">\end</span>{align}<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/04/16/Academic/TIFS%E6%A0%BC%E5%BC%8F%E8%A7%A3%E8%AF%BB/image-20240329152611311.png" srcset="/img/loading.gif" lazyload></p>
+<p><code>align</code> 可以有多个对齐点：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{align}<br>x <span class="hljs-built_in">&amp;</span>= y <span class="hljs-built_in">&amp;</span> X <span class="hljs-built_in">&amp;</span> =Y <span class="hljs-built_in">&amp;</span> a <span class="hljs-built_in">&amp;</span>=bc<span class="hljs-keyword">\\</span><br>x' <span class="hljs-built_in">&amp;</span>= y' <span class="hljs-built_in">&amp;</span> X' <span class="hljs-built_in">&amp;</span>=Y' <span class="hljs-built_in">&amp;</span>a' <span class="hljs-built_in">&amp;</span>=bz<br><span class="hljs-keyword">\end</span>{align}<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/04/16/Academic/TIFS%E6%A0%BC%E5%BC%8F%E8%A7%A3%E8%AF%BB/image-20240329152728839.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="子编号">子编号</h2>
+<p>amsmath 包提供了一个 <code>subequations</code>
+环境来方便子编号。一个例子:</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{subequations}<span class="hljs-keyword">\label</span>{eq:2}<br><span class="hljs-keyword">\begin</span>{align}<br>f<span class="hljs-built_in">&amp;</span>=g <span class="hljs-keyword">\label</span>{eq:2A}<span class="hljs-keyword">\\</span><br>f' <span class="hljs-built_in">&amp;</span>=g' <span class="hljs-keyword">\label</span>{eq:2B}<span class="hljs-keyword">\\</span><br><span class="hljs-keyword">\mathcal</span>{L}f <span class="hljs-built_in">&amp;</span>= <span class="hljs-keyword">\mathcal</span>{L}g <span class="hljs-keyword">\label</span>{eq:2c}<br><span class="hljs-keyword">\end</span>{align}<br><span class="hljs-keyword">\end</span>{subequations}<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/04/16/Academic/TIFS%E6%A0%BC%E5%BC%8F%E8%A7%A3%E8%AF%BB/image-20240329152845061.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="分段函数">分段函数</h2>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{equation*}<br>{z<span class="hljs-built_in">_</span>m(t)} = <span class="hljs-keyword">\begin</span>{cases}<br>1,<span class="hljs-built_in">&amp;</span>{<span class="hljs-keyword">\text</span>{if}}<span class="hljs-keyword">\ </span>{<span class="hljs-keyword">\beta</span> }<span class="hljs-built_in">_</span>m(t) <span class="hljs-keyword">\\</span> <br>{0,}<span class="hljs-built_in">&amp;</span>{<span class="hljs-keyword">\text</span>{otherwise.}} <br><span class="hljs-keyword">\end</span>{cases}<br><span class="hljs-keyword">\end</span>{equation*}<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/04/16/Academic/TIFS%E6%A0%BC%E5%BC%8F%E8%A7%A3%E8%AF%BB/image-20240329153038172.png" srcset="/img/loading.gif" lazyload></p>
+<p>注意 <code>&amp;</code> 符号，它用于标记 <code>tabular</code>
+环境中各列的对齐位置。不要使用 <code>\quad</code>
+或其他固定空格来尝试对齐列。相比于使用固定空格，使用 <code>&amp;</code>
+更加灵活且能够实现更好的列对齐效果。注意使用 <code>\text</code>
+宏来插入文本元素，比如 "if" 和 "otherwise"。在数学环境中，使用
+<code>\text</code>
+可以确保文本元素以正确的字体和样式显示，而不是以数学符号的形式出现。</p>
+<h2 id="过时的编码">过时的编码</h2>
+<p>注意不要使用 <code>$$</code> 或者 <code>\eqnarray</code>
+等过时的编码</p>
+<h2 id="使用适当的分隔符">使用适当的分隔符</h2>
+<p>单行非数字标号的公式：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\[</span> . . . <span class="hljs-keyword">\]</span><br><br>or<br><br><span class="hljs-keyword">\begin</span>{equation*}<br>...<br><span class="hljs-keyword">\end</span>{equation*}<br></code></pre></td></tr></table></figure>
+<p>多行非数字标号的公式：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{align*}<br>...<br><span class="hljs-keyword">\end</span>{align*}<br></code></pre></td></tr></table></figure>
+<p>单行标号的公式：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{equation}<br>...<br><span class="hljs-keyword">\end</span>{equation}<br></code></pre></td></tr></table></figure>
+<p>多行数字标号的公式：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>{align}<br>...<br><span class="hljs-keyword">\end</span>{align}<br></code></pre></td></tr></table></figure>
+<h1 id="参考文献-1">参考文献</h1>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-comment">% 使用bib文件作为参考文档</span><br><span class="hljs-keyword">\bibliographystyle</span>{plain}<br><span class="hljs-keyword">\bibliography</span>{refs.bib}<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Academic/" class="category-chain-item">Academic</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>TIFS格式解读</div>
+      <div>https://d4wnnn.github.io/2024/04/16/Academic/TIFS格式解读/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>D4wn</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月16日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/04/16/Academic/%E5%AF%B9%E6%8A%97%E6%A0%B7%E6%9C%AC%E6%94%BB%E5%87%BB-CW%E7%AE%97%E6%B3%95/" title="对抗样本攻击-CW算法">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">对抗样本攻击-CW算法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/04/16/Academic/A%20Smart-Contract-Based%20Access%20Control%20Framework%20for%20Cloud%20Smart%20Healthcare%20System/" title="A Smart-Contract-Based Access Control Framework for Cloud Smart Healthcare System">
+                        <span class="hidden-mobile">A Smart-Contract-Based Access Control Framework for Cloud Smart Healthcare System</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"iQzcdzgtk7S3lKyzUoT3segU-gzGzoHsz","appKey":"mL1QjUEvvzJ9E2xIVz0OuJuj","path":"window.location.pathname","placeholder":"Hello","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://iqzcdzgt.lc-cn-n1-shared.com","emojiCDN":"https://valinecdn.bili33.top/","emojiMaps":{"QQ1":"QQ/aini.gif","QQ2":"QQ/aixin.gif","QQ3":"QQ/aoman.gif","QQ4":"QQ/baiyan.gif","QQ5":"QQ/bangbangtang.gif","QQ6":"QQ/baojin.gif","QQ7":"QQ/baoquan.gif","QQ8":"QQ/bishi.gif","QQ9":"QQ/bizui.gif","QQ11":"QQ/cahan.gif","QQ12":"QQ/caidao.gif","QQ13":"QQ/chi.gif","QQ14":"QQ/ciya.gif","QQ15":"QQ/dabing.gif","QQ16":"QQ/daku.gif","QQ17":"QQ/dan.gif","QQ18":"QQ/deyi.gif","QQ19":"QQ/doge.gif","QQ20":"QQ/fadai.gif","QQ21":"QQ/fanu.gif","QQ22":"QQ/fendou.gif","QQ23":"QQ/ganga.gif","QQ24":"QQ/gouyin.gif","QQ25":"QQ/guzhang.gif","QQ26":"QQ/haixiu.gif","QQ27":"QQ/hanxiao.gif","QQ28":"QQ/haobang.gif","QQ29":"QQ/haqian.gif","QQ30":"QQ/hecai.gif","QQ31":"QQ/hexie.gif","QQ32":"QQ/huaixiao.gif","QQ33":"QQ/jie.gif","QQ34":"QQ/jingkong.gif","QQ35":"QQ/jingxi.gif","QQ36":"QQ/jingya.gif","QQ37":"QQ/juhua.gif","QQ38":"QQ/keai.gif","QQ39":"QQ/kelian.gif","QQ40":"QQ/koubi.gif","QQ41":"QQ/ku.gif","QQ42":"QQ/kuaikule.gif","QQ43":"QQ/kulou.gif","QQ44":"QQ/kun.gif","QQ45":"QQ/lanqiu.gif","QQ46":"QQ/leiben.gif","QQ47":"QQ/lenghan.gif","QQ48":"QQ/liuhan.gif","QQ49":"QQ/liulei.gif","QQ50":"QQ/nanguo.gif","QQ51":"QQ/OK.gif","QQ52":"QQ/penxue.gif","QQ53":"QQ/piezui.gif","QQ54":"QQ/pijiu.gif","QQ55":"QQ/qiang.gif","QQ56":"QQ/qiaoda.gif","QQ57":"QQ/qinqin.gif","QQ58":"QQ/qiudale.gif","QQ59":"QQ/quantou.gif","QQ60":"QQ/saorao.gif","QQ61":"QQ/se.gif","QQ62":"QQ/shengli.gif","QQ63":"QQ/shouqiang.gif","QQ64":"QQ/shuai.gif","QQ65":"QQ/shui.gif","QQ66":"QQ/tiaopi.gif","QQ67":"QQ/touxiao.gif","QQ68":"QQ/tu.gif","QQ69":"QQ/tuosai.gif","QQ70":"QQ/weiqu.gif","QQ71":"QQ/weixiao.gif","QQ72":"QQ/woshou.gif","QQ73":"QQ/wozuimei.gif","QQ74":"QQ/wunai.gif","QQ75":"QQ/xia.gif","QQ76":"QQ/xiaojiujie.gif","QQ77":"QQ/xiaoku.gif","QQ78":"QQ/xiaoyanger.gif","QQ79":"QQ/xieyanxiao.gif","QQ80":"QQ/xigua.gif","QQ81":"QQ/xu.gif","QQ82":"QQ/yangtuo.gif","QQ83":"QQ/yinxian.gif","QQ84":"QQ/yiwen.gif","QQ85":"QQ/youhengheng.gif","QQ86":"QQ/youling.gif","QQ87":"QQ/yun.gif","QQ88":"QQ/zaijian.gif","QQ89":"QQ/zhayanjian.gif","QQ90":"QQ/zhemo.gif","QQ91":"QQ/zhouma.gif","QQ92":"QQ/zhuakuang.gif","QQ93":"QQ/zuohengheng.gif"},"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://github.com/d4wnnn" target="_blank" rel="nofollow noopener"><span>Github</span></a> <i class="iconfont icon-love"></i> <a href="tencent://message/?uin=2638177031" target="_blank" rel="nofollow noopener"><span>联系我</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

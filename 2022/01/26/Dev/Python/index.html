@@ -1,0 +1,1143 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="D4wn">
+  <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
+  
+    <meta name="description" content="Python 一、项目打包  常见的打包工具有哪些 ？  distutils setuptools  什么是setuptools?  setuptools是distutils的增强版，并不在标准库中，拓展了很多功能，大部分用户都会选择setuptools模块  源码包与二进制包有什么区别？  源码包：  安装过程：先解压，再编译，最后安装，所以跨平台，速度比较慢">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python">
+<meta property="og:url" content="https://d4wnnn.github.io/2022/01/26/Dev/Python/index.html">
+<meta property="og:site_name" content="D4wn">
+<meta property="og:description" content="Python 一、项目打包  常见的打包工具有哪些 ？  distutils setuptools  什么是setuptools?  setuptools是distutils的增强版，并不在标准库中，拓展了很多功能，大部分用户都会选择setuptools模块  源码包与二进制包有什么区别？  源码包：  安装过程：先解压，再编译，最后安装，所以跨平台，速度比较慢">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://d4wnnn.github.io/img/python.png">
+<meta property="article:published_time" content="2022-01-26T03:52:08.000Z">
+<meta property="article:modified_time" content="2024-05-07T19:49:27.420Z">
+<meta property="article:author" content="D4wn">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://d4wnnn.github.io/img/python.png">
+  
+  
+  
+  <title>Python - D4wn</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"d4wnnn.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"104d1c240fe4777ab966bd68252f7714","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?104d1c240fe4777ab966bd68252f7714";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>D4wn</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/total.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Python"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        D4wn
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-01-26 11:52" pubdate>
+          2022年1月26日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          30 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Python</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="python">Python</h1>
+<h2 id="一项目打包">一、项目打包</h2>
+<blockquote>
+<p>常见的打包工具有哪些 ？</p>
+<ul>
+<li>distutils</li>
+<li>setuptools</li>
+</ul>
+<p>什么是setuptools?</p>
+<ul>
+<li>setuptools是distutils的增强版，并不在标准库中，拓展了很多功能，大部分用户都会选择setuptools模块</li>
+</ul>
+<p>源码包与二进制包有什么区别？</p>
+<ul>
+<li><p>源码包：</p>
+<ul>
+<li>安装过程：先解压，再编译，最后安装，所以跨平台，速度比较慢</li>
+</ul></li>
+<li><p>二进制包：</p>
+<ul>
+<li><p>省去了编译的过程，直接解压安装；但是由于不同平台编译出来的包无法通用，所以在发布时需要先编译好多个平台的包：</p>
+<p>常见格式：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">格式</th>
+<th style="text-align: center;">后缀</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">egg</td>
+<td style="text-align: center;">.egg</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">wheel</td>
+<td style="text-align: center;">.whl</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>egg和whl有何区别？</p>
+<ul>
+<li>Egg是setuptools在2004年引入的，Wheel则是在2012年才定义，Wheel的出现是为了替代Egg，本事是一个Zip包，现在被认为是标准的Python二进制包格式</li>
+<li>wheel包可以通过pip安装，只不过需要首先安装wheel模块：<code>pip install wheel</code></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>setup.py的编写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> __future__ <span class="hljs-keyword">import</span> print_function<br><span class="hljs-keyword">from</span> setuptools <span class="hljs-keyword">import</span> setup, find_packages<br><br>data_files = []<br><br>setup(<br>    name=<span class="hljs-string">'capbac'</span>,<br>    version=<span class="hljs-string">'1.0'</span>,<br>    description=<span class="hljs-string">'Sawtooth CapBAC'</span>,<br>    author=<span class="hljs-string">'kappanneo'</span>,<br>    <span class="hljs-comment"># 项目主页</span><br>    url=<span class="hljs-string">'https://github.com/kappanneo/sawtooth-capbac'</span>,<br>    <span class="hljs-comment"># 指的是你要安装的包</span><br>    packages=find_packages(),<br>    <span class="hljs-comment"># 指明当前模块现需要依赖哪些包，若环境中没有，则从pypi中下载</span><br>    install_requires=[<br>        <span class="hljs-string">'aiohttp'</span>,<br>        <span class="hljs-string">'aiocoap'</span><br>        <span class="hljs-string">'colorlog'</span>,<br>        <span class="hljs-string">'protobuf'</span>,<br>        <span class="hljs-string">'sawtooth-sdk'</span>,<br>        <span class="hljs-string">'sawtooth-signing'</span>,<br>        <span class="hljs-string">'PyYAML'</span>,<br>    ],<br>    <span class="hljs-comment">#指明目的目录和源文件路径</span><br>    data_files=data_files,<br>    <span class="hljs-comment"># 用来支持自动生成脚本，安装后自动生成/usr/bin/capbac的可执行文件</span><br>    <span class="hljs-comment"># 该文件入口指向capbac_cli.py的main_wrapper函数</span><br>    entry_points={<br>        <span class="hljs-string">'console_scripts'</span>: [<br>            <span class="hljs-string">'capbac = capbac_cli:main_wrapper'</span>,<br>        ]<br>    })<br><br><br></code></pre></td></tr></table></figure>
+<p>使用setup.py构建包：</p>
+<ul>
+<li><p>构建源码发布包：</p>
+<ul>
+<li><p>构建</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python setup.py sdist<br></code></pre></td></tr></table></figure></li>
+<li><p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">eash_install xxx.tar.gz<br></code></pre></td></tr></table></figure></li>
+</ul></li>
+<li><p>构建二进制分发包：</p>
+<ul>
+<li><p>Windows上可以构建成exe这样的二进制软件包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python setup.py bdist_wininst<br></code></pre></td></tr></table></figure></li>
+<li><p>Linux上构建rpm包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python setup.py bdist_rpm<br></code></pre></td></tr></table></figure></li>
+<li><p>Linux上构建egg包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python setup.py bdist_egg<br></code></pre></td></tr></table></figure></li>
+<li><p>在多个平台构建：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python setup.py bdist<br></code></pre></td></tr></table></figure></li>
+</ul></li>
+</ul>
+<p>使用setup.py安装包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">python setup.py install 安装到系统全局环境<br>python setup.py develop 不会真正安装包，而是在环境变量中创建一个软链接，便于调试<br></code></pre></td></tr></table></figure>
+<p>参考资料：https://blog.csdn.net/calvinpaean/article/details/113580458</p>
+</blockquote>
+<h2 id="二日期模块">二、日期模块</h2>
+<p>time</p>
+<blockquote>
+<ul>
+<li><p>当前时间戳：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><span class="hljs-built_in">print</span>(time.time())<br><span class="hljs-comment"># 1684753413.0579932</span><br></code></pre></td></tr></table></figure></li>
+<li><p>时间戳转时间：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> datetime<br><span class="hljs-keyword">import</span> time<br><br>t1 = time.time()<br>t2 = datetime.datetime.fromtimestamp(t1)<br><span class="hljs-built_in">print</span>(t2.isoformat())<br></code></pre></td></tr></table></figure></li>
+<li><p>输出当前时间的字符串</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><span class="hljs-built_in">print</span>(time.strftime(<span class="hljs-string">"%Y-%m-%d--&gt;%H:%M:%S"</span>))<br><span class="hljs-comment"># 2023-05-22--&gt;19:06:59</span><br></code></pre></td></tr></table></figure></li>
+<li><p>将字符串解析为datatime对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime<br>                                              <br>date_str = <span class="hljs-string">'2021-05-22'</span><br>date_obj = datetime.strptime(date_str, <span class="hljs-string">'%Y-%m-%d'</span>)<br><span class="hljs-built_in">print</span>(date_obj)<br><span class="hljs-comment"># 2021-05-22 00:00:00</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+<p>参考：https://geekpy.github.io/2018/08/12/python_time/</p>
+<h2 id="三socket编程">三、Socket编程</h2>
+<blockquote>
+<p>当客户端执行<code>sock.close()</code>，会向服务器发送FIN包，此时服务端的<code>conn.recv(1024)</code>才会返回空字符串；如果直接发送空字符串，<code>conn.recv(1024)</code>并不会返回空字符串，而是继续阻塞等待。</p>
+<p>服务端同理，执行<code>conn.close()</code>后，客户端的<code>sock.recv(1024)</code>也会返回空字符串</p>
+<p>注意：当任意一段执行<code>close()</code>后，另一端都要再次执行<code>close()</code></p>
+<p><code>socket.send()</code>受制于MTU，不一定发送完给定的数据</p>
+<p><code>socket.sendall()</code>若发送完则返回None,失败则抛出异常</p>
+<ul>
+<li><p><code>client.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> socket<br><br><span class="hljs-comment"># 创建TCP套接字对象</span><br>sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br><span class="hljs-comment"># socket.AF_INET为ipv4，socket.SOCK_STREAM为TCP套接字</span><br><span class="hljs-comment"># 连接服务器</span><br>sock.connect((<span class="hljs-string">'192.168.126.140'</span>, <span class="hljs-number">8083</span>))<br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-comment"># 发送数据到服务器并接收响应</span><br>    sock.sendall(<span class="hljs-string">b'asd'</span>)<br>    data = sock.recv(<span class="hljs-number">1024</span>)<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> data:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"fuck!~"</span>)<br>        sock.close()<br>        <span class="hljs-keyword">break</span><br>    <span class="hljs-comment"># 打印从服务器接收到的响应</span><br>    <span class="hljs-built_in">print</span>(data.decode())<br><br>    <span class="hljs-comment"># 关闭套接字</span><br></code></pre></td></tr></table></figure></li>
+<li><p><code>server.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> socket<br>                              <br><span class="hljs-comment"># 创建TCP套接字对象</span><br>sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>                              <br><span class="hljs-comment"># 绑定IP地址和端口号</span><br>sock.bind((<span class="hljs-string">'localhost'</span>, <span class="hljs-number">8080</span>))<br>                              <br><span class="hljs-comment"># 开始监听客户端连接</span><br>sock.listen(<span class="hljs-number">1</span>)<br><span class="hljs-comment"># 1表示最多允许排队的连接数为1个</span><br>                              <br><span class="hljs-comment"># 等待客户端连接</span><br>conn, addr = sock.accept()<br>                              <br><span class="hljs-comment"># 接收来自客户端的数据并发送回去</span><br><span class="hljs-built_in">print</span>(addr)<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    data = conn.recv(<span class="hljs-number">1024</span>)<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> data:<br>        <span class="hljs-keyword">break</span><br>    conn.sendall(data + <span class="hljs-string">b'fuck'</span>)<br>                              <br><span class="hljs-comment"># 关闭套接字</span><br>conn.close()<br>sock.close()<br></code></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+<h2 id="四日志">四、日志</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> logging<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    <span class="hljs-built_in">format</span> = <span class="hljs-string">"%(asctime)s-%(levelname)s-%(message)s"</span>  <span class="hljs-comment"># asctime为生成时间</span><br>    date_format = <span class="hljs-string">"%Y/%m/%d %H:%M:%S"</span>  <span class="hljs-comment"># 日期时间</span><br>    logging.basicConfig(<br>        filename=<span class="hljs-string">"qy.log"</span>,  <span class="hljs-comment"># 输出到文件,此时不会输出到控制台</span><br>        filemode=<span class="hljs-string">'a'</span>,  <span class="hljs-comment"># 默认为追加模式</span><br>        <span class="hljs-built_in">format</span>=<span class="hljs-built_in">format</span>,<br>        datefmt=date_format,<br>        level=logging.DEBUG  <span class="hljs-comment"># 日志级别</span><br>    )<br>    logging.debug(<span class="hljs-string">"debug"</span>)<br>    logging.info(<span class="hljs-string">"info"</span>)<br>    logging.warning(<span class="hljs-string">"warning"</span>)<br>    logging.error(<span class="hljs-string">"error"</span>)<br>    logging.critical(<span class="hljs-string">"critical"</span>)<br></code></pre></td></tr></table></figure>
+<h2 id="五参数解析argparser">五、参数解析Argparser</h2>
+<blockquote>
+<p>argparse模块帮助编写命令行接口</p>
+<p>默认值参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># coding:utf-8</span><br><span class="hljs-keyword">import</span> argparse<br><br>parser = argparse.ArgumentParser(description=<span class="hljs-string">'命令行中传入一些数字'</span>) <span class="hljs-comment"># 参数解析器</span><br>parser.add_argument(<span class="hljs-string">'-a'</span>, <span class="hljs-built_in">type</span>=<span class="hljs-built_in">int</span>, nargs=<span class="hljs-string">'+'</span>, default=<span class="hljs-number">123</span>, <span class="hljs-built_in">help</span>=<span class="hljs-string">'加数a'</span>)<br>parser.add_argument(<span class="hljs-string">'-b'</span>, <span class="hljs-built_in">type</span>=<span class="hljs-built_in">int</span>, nargs=<span class="hljs-string">'+'</span>, default=<span class="hljs-number">456</span>, <span class="hljs-built_in">help</span>=<span class="hljs-string">'加数a'</span>)<br><br>args = parser.parse_args()<br><span class="hljs-built_in">print</span>(args.a[<span class="hljs-number">0</span>]+args.b[<span class="hljs-number">0</span>])<br><span class="hljs-built_in">print</span>(args.a)<br><span class="hljs-string">"""</span><br><span class="hljs-string">567</span><br><span class="hljs-string">[123, 222, 22]</span><br><span class="hljs-string">"""</span><br></code></pre></td></tr></table></figure>
+<p>必须参数</p>
+<p><code>required=True</code></p>
+<p>补充说明</p>
+<p>当-和--同时出现的时候 python默认后者为参数名</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">参数nargs：<br>nargs=<span class="hljs-string">'*'</span> 　表示参数可设置零个或多个<br>nargs=<span class="hljs-string">'+'</span> 表示参数可设置一个或多个<br>nargs=<span class="hljs-string">'?'</span>　表示参数可设置零个或一个<br></code></pre></td></tr></table></figure>
+<p>参考</p>
+<p>https://zhuanlan.zhihu.com/p/56922793</p>
+<p>https://baijiahao.baidu.com/s?id=1718013777590980266&amp;wfr=spider&amp;for=pc</p>
+</blockquote>
+<h2 id="六pandas">六、Pandas</h2>
+<h3 id="读取数据">6.1 读取数据</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br>data = pd.read_csv(<span class="hljs-string">"./factor_returns.csv"</span>)<br><span class="hljs-comment"># 可以读取csv tsv txt</span><br><span class="hljs-built_in">print</span>(data.head(<span class="hljs-number">60</span>))  <span class="hljs-comment"># 读取前60行数据</span><br><span class="hljs-built_in">print</span>(data.shape)  <span class="hljs-comment"># 行数和列数</span><br><span class="hljs-built_in">print</span>(data.columns)  <span class="hljs-comment"># 查看列名</span><br><span class="hljs-built_in">print</span>(data.index)  <span class="hljs-comment"># 查看索引列</span><br><span class="hljs-built_in">print</span>(data.dtypes)  <span class="hljs-comment"># 查看每列的数据类型</span><br>data2 = pd.read_csv(<span class="hljs-string">"./datingTestSet2.txt"</span>, sep=<span class="hljs-string">"\t"</span>, header=<span class="hljs-literal">None</span>, names=[<span class="hljs-string">"列名1"</span>, <span class="hljs-string">"列名2"</span>, <span class="hljs-string">"列名3"</span>, <span class="hljs-string">"列名4"</span>]) <span class="hljs-comment"># header = None表示没有头</span><br>pd.read_excel() <span class="hljs-comment"># 读取xls或者xlsx</span><br>pd.read_sql()<br></code></pre></td></tr></table></figure>
+<h3 id="数据结构">6.2 数据结构</h3>
+<h4 id="dataframe">DataFrame</h4>
+<p>二维数据，类似表格，有列名columns和行名index</p>
+<p>从DataFrame中读取一行或者一列：Series，其余仍是DataFrame</p>
+<p>DataFrame由多个Series组成，无论是行还是列，单独拆分出来都是一个Series</p>
+<p>若查询一列的话：直接把DataFrame当作字典即可</p>
+<p>若查询一行的话：需要用到loc</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br><br>data = pd.read_csv(<span class="hljs-string">"./datingTestSet2.txt"</span>, sep=<span class="hljs-string">"\t"</span>)<br><span class="hljs-built_in">print</span>(data.loc[<span class="hljs-number">0</span>]) 截取行<br><span class="hljs-string">"""</span><br><span class="hljs-string">milage        40920.000000</span><br><span class="hljs-string">Liters            8.326976</span><br><span class="hljs-string">Consumtime        0.953952</span><br><span class="hljs-string">target            3.000000</span><br><span class="hljs-string">Name: 0, dtype: float64</span><br><span class="hljs-string">"""</span><br><span class="hljs-built_in">print</span>(data.loc[<span class="hljs-number">0</span>:<span class="hljs-number">3</span>])<br><span class="hljs-string">"""</span><br><span class="hljs-string">   milage     Liters  Consumtime  target</span><br><span class="hljs-string">0   40920   8.326976    0.953952       3</span><br><span class="hljs-string">1   14488   7.153469    1.673904       2</span><br><span class="hljs-string">2   26052   1.441871    0.805124       1</span><br><span class="hljs-string">3   75136  13.147394    0.428964       1</span><br><span class="hljs-string">"""</span><br></code></pre></td></tr></table></figure>
+<h4 id="series">Series</h4>
+<p>一维数据，一行或者一列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br><br>data = pd.Series([<span class="hljs-string">"a"</span>, <span class="hljs-string">"1"</span>, <span class="hljs-string">"abc"</span>], index=[<span class="hljs-string">"i1"</span>, <span class="hljs-string">'i2'</span>, <span class="hljs-string">'3'</span>])  <span class="hljs-comment"># 通过列表创建Series</span><br><span class="hljs-built_in">print</span>(data.values)  <span class="hljs-comment"># 获取数据</span><br><span class="hljs-string">"""</span><br><span class="hljs-string">['a' '1' 'abc']</span><br><span class="hljs-string">"""</span><br><span class="hljs-built_in">print</span>(data.index)  <span class="hljs-comment"># 获取索引</span><br><span class="hljs-string">"""</span><br><span class="hljs-string">Index(['i1', 'i2', '3'], dtype='object')</span><br><span class="hljs-string">"""</span><br>data2 = pd.Series({<br>    <span class="hljs-string">'i0'</span>: <span class="hljs-string">"y"</span>,<br>    <span class="hljs-string">'i1'</span>: <span class="hljs-string">"q"</span>,<br>    <span class="hljs-string">'i2'</span>: <span class="hljs-string">"z"</span>,<br>    <span class="hljs-string">'i3'</span>: <span class="hljs-string">"x"</span>,<br>}) <span class="hljs-comment"># 通过字典创建Series</span><br><span class="hljs-built_in">print</span>(data2[[<span class="hljs-string">"i1"</span>, <span class="hljs-string">"i0"</span>]])  <span class="hljs-comment"># 获取值</span><br><span class="hljs-string">"""</span><br><span class="hljs-string">i1    q</span><br><span class="hljs-string">i0    y</span><br><span class="hljs-string">dtype: object</span><br><span class="hljs-string">"""</span><br><span class="hljs-built_in">print</span>(data2.i1)  <span class="hljs-comment"># 获取值</span><br><span class="hljs-string">"""</span><br><span class="hljs-string">q</span><br><span class="hljs-string">"""</span><br></code></pre></td></tr></table></figure>
+<h3 id="查询数据">6.3 查询数据</h3>
+<p>loc() ：根据标签名进行查询</p>
+<p>iloc() ：根据索引序列查询</p>
+<p>二者均可以用切片</p>
+<p>其中loc可以使用条件表达式进行查询</p>
+<h3 id="新增数据列">6.4 新增数据列</h3>
+<ol type="1">
+<li><p>直接赋值</p>
+<p><code>data[:, "new_column"] = data["col1"] + data["col2"]</code></p></li>
+<li><p>apply方法</p>
+<p><code>axis:0为行1为列，指定了那个axis，这个axis就要动起来</code></p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_content</span>():<br>    <span class="hljs-keyword">return</span> content<br>data.loc[:, <span class="hljs-string">"new_column"</span>] = data.apply(get_content, axis = <span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure></p></li>
+<li><p>assign方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">new_data = data.assign(<br>	new_cloumn = <span class="hljs-keyword">lambda</span> x: x[<span class="hljs-string">"col1"</span>]*<span class="hljs-number">33</span><br>)<br></code></pre></td></tr></table></figure></li>
+<li><p>按条件选择分组分别赋值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">data[<span class="hljs-string">"new_clo"</span>] = <span class="hljs-string">""</span><br>data.loc[条件<span class="hljs-number">1</span>，<span class="hljs-string">"new_col"</span>] = value1<br>data.loc[条件<span class="hljs-number">2</span>，<span class="hljs-string">"new_col"</span>] = value2<br></code></pre></td></tr></table></figure>
+<p>进度：https://www.bilibili.com/video/BV1UJ411A7Fs?p=6&amp;vd_source=bf133d296119691c661008e881da330a&amp;t=40.3</p></li>
+</ol>
+<h3 id="输出excel">6.5 输出excel</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">data = pd.DataFrame(data=data, columns=[<span class="hljs-string">"姓名"</span>, <span class="hljs-string">"学号"</span>, <span class="hljs-string">"加权平均分"</span>, <span class="hljs-string">"大类排名"</span>, <span class="hljs-string">"方向"</span>, <span class="hljs-string">"方向排名"</span>, <span class="hljs-string">"方向百分比"</span>])<br>data.to_excel(<span class="hljs-string">"./test.xlsx"</span>)<br></code></pre></td></tr></table></figure>
+<h3 id="其他">6.6 其他</h3>
+<p>设置不隐藏列数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pd.set_option(<span class="hljs-string">'display.max_columns'</span>, <span class="hljs-literal">None</span>)<br></code></pre></td></tr></table></figure>
+<p>筛选数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">df1 = df[df[<span class="hljs-string">'学生学院'</span>] == <span class="hljs-string">'信息与软件工程学院（示范性软件学院）'</span>]<br></code></pre></td></tr></table></figure>
+<p>合并数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">merged_df = pd.merge(df1, df2, left_on=<span class="hljs-string">'学号'</span>, right_on=<span class="hljs-string">'学号'</span>, how=<span class="hljs-string">'left'</span>)<br></code></pre></td></tr></table></figure>
+<p>更改列的数据类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">merged_df[<span class="hljs-string">'学号'</span>] = merged_df[<span class="hljs-string">'学号'</span>].astype(<span class="hljs-built_in">str</span>)<br></code></pre></td></tr></table></figure>
+<p>筛选数据-以xxx开头</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">df = df[df[<span class="hljs-string">'学号'</span>].<span class="hljs-built_in">str</span>.startswith(<span class="hljs-string">'20210909'</span>)]<br></code></pre></td></tr></table></figure>
+<p>排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">df = df.sort_values(by=<span class="hljs-string">'加权平均分'</span>, ascending=<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure>
+<p>除去为NaN的数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">self.df = self.df.dropna(subset=[destPort])<br></code></pre></td></tr></table></figure>
+<p>重构索引</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">df.reset_index(drop=<span class="hljs-literal">True</span>,inplace=<span class="hljs-literal">True</span>)<br><span class="hljs-comment"># drop删除原有索引，inplace直接替换</span><br></code></pre></td></tr></table></figure>
+<p>统计数量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">grouped_df = df.groupby(df.columns.tolist()).size().reset_index(name=<span class="hljs-string">'Count'</span>)<br></code></pre></td></tr></table></figure>
+<p>删除某一列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">df = df.drop(<span class="hljs-string">'Flow ID'</span>,axis=<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+<p>筛选出目标数值在某一个列表内的数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Python">bots = grouped[grouped[<span class="hljs-string">'Source IP'</span>].isin(bots)]<br></code></pre></td></tr></table></figure>
+<p>乱序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Python">df = df.sample(frac=<span class="hljs-number">1</span>).reset_index(drop=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure>
+<p>计算若干列的均值和方差</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">selected_columns = [<span class="hljs-string">'column1'</span>, <span class="hljs-string">'column2'</span>]  <span class="hljs-comment"># 替换为你实际想要的列名</span><br>mean = df[selected_columns].mean() <span class="hljs-comment"># 平均值</span><br>variance = df[selected_columns].var() <span class="hljs-comment"># 方差</span><br></code></pre></td></tr></table></figure>
+<p>计算若干分组的均值和方差</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">grouped = df_filtered.groupby(<span class="hljs-string">' Source IP'</span>).agg({<br>    <span class="hljs-string">' Flow Duration'</span>: [<span class="hljs-string">'mean'</span>, <span class="hljs-string">'std'</span>],<br>    <span class="hljs-string">' Packet Length Mean'</span>: [<span class="hljs-string">'mean'</span>, <span class="hljs-string">'std'</span>]<br>})<br>若想输出到csv需要对列名进行处理<br>grouped.columns = [<span class="hljs-string">'_'</span>.join(col).strip() <span class="hljs-keyword">for</span> col <span class="hljs-keyword">in</span> grouped.columns.to_flat_index()]<br>grouped.reset_index(inplace=<span class="hljs-literal">True</span>)<br>grouped.to_csv(<span class="hljs-string">'数值特征.csv'</span>, index=<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure>
+<h2 id="七装饰器">七、装饰器</h2>
+<h3 id="闭包函数">闭包函数</h3>
+<blockquote>
+<p>一个函数，其参数和返回值都是函数，闭包函数的返回值是对传入函数进行增强后的结果</p>
+</blockquote>
+<h3 id="装饰器">装饰器</h3>
+<blockquote>
+<p>本质是函数闭包，修改其他函数的功能，有助于代码更简短</p>
+<p>注意：装饰器只在第一次调用前起作用，只增强一次</p>
+</blockquote>
+<h4 id="无参无返回值">无参，无返回值</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">a_new_decorator</span>(<span class="hljs-params">fun</span>): <span class="hljs-comment"># 装饰器</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">a_func_after_decorator</span>():<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"hello"</span>)<br>        fun()<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"see you"</span>)<br><br>    <span class="hljs-keyword">return</span> a_func_after_decorator<br><br><br><span class="hljs-meta">@a_new_decorator</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">a_func_requiring_decoration</span>(): <span class="hljs-comment"># 别装饰函数</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"我是一个待装饰的函数"</span>)<br><br><br>a_func_requiring_decoration()<br><span class="hljs-built_in">print</span>(a_func_requiring_decoration.__name__)<br><br><span class="hljs-comment"># outputs:</span><br><span class="hljs-comment"># hello</span><br><span class="hljs-comment"># 我是一个待装饰的函数</span><br><span class="hljs-comment"># see you</span><br><span class="hljs-comment"># a_func_after_decorator</span><br><span class="hljs-comment"># 进程已结束,退出代码0</span><br></code></pre></td></tr></table></figure>
+<p>eg2:使用functools.wraps</p>
+<blockquote>
+<p><strong><span class="citation" data-cites="wraps">@wraps</span></strong>接受一个函数来进行装饰，并加入了复制函数名称、注释文档、参数列表等等的功能。这可以让我们在装饰器里面访问在装饰之前的函数的属性。--菜鸟教程</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">a_new_decorator</span>(<span class="hljs-params">fun</span>): <span class="hljs-comment">#装饰器</span><br><span class="hljs-meta">    @wraps(<span class="hljs-params">fun</span>)</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">a_func_after_decorator</span>():<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"hello"</span>)<br>        fun()<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"see you"</span>)<br><br>    <span class="hljs-keyword">return</span> a_func_after_decorator<br><br><br><span class="hljs-meta">@a_new_decorator</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">a_func_requiring_decoration</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"我是一个待装饰的函数"</span>)<br><br><br>a_func_requiring_decoration()<br><span class="hljs-built_in">print</span>(a_func_requiring_decoration.__name__)<br><span class="hljs-comment"># outputs</span><br><span class="hljs-comment"># hello</span><br><span class="hljs-comment"># 我是一个待装饰的函数</span><br><span class="hljs-comment"># see you</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment"># 进程已结束,退出代码0</span><br></code></pre></td></tr></table></figure>
+<h4 id="有参有返回值">有参，有返回值</h4>
+<blockquote>
+<p>若被修饰函数有参数，则需在装饰器内定义wrapper时加入参数如"*args",wrapper内调用被修饰函数也要加入参数，另外，若被修饰函数有返回值，则在wrapper里默认是无效的，需要定义一个临时变量接受其返回值</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">a_decorator</span>(<span class="hljs-params">func</span>): <span class="hljs-comment"># 装饰器，计算函数运行时间</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args</span>):<br>        start = time.time() <span class="hljs-comment"># 开始时间</span><br>        result = func(*args)<br>        end = time.time() <span class="hljs-comment"># 结束时间</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"运行时间:{}"</span>.<span class="hljs-built_in">format</span>(end-start))<br>        <span class="hljs-keyword">return</span> result <span class="hljs-comment">#返回值：偶数个数</span><br><br>    <span class="hljs-keyword">return</span> wrapper<br><br><br><span class="hljs-meta">@a_decorator</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">count_nums</span>(<span class="hljs-params">maximum</span>):<span class="hljs-comment"># 计算从0到maxinum的偶数个数</span><br>    count = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, maximum):<br>        <span class="hljs-keyword">if</span> i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>:<br>            count += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">continue</span><br>    <span class="hljs-keyword">return</span> count<br><br><br><span class="hljs-built_in">print</span>(count_nums(<span class="hljs-number">100000000</span>))<br><br><span class="hljs-comment"># outputs:</span><br><span class="hljs-comment"># 运行时间:3.6575281620025635</span><br><span class="hljs-comment"># 50000000</span><br></code></pre></td></tr></table></figure>
+<h2 id="八collections">八、Collections</h2>
+<h3 id="deque">8.1 Deque</h3>
+<p>官方文档：https://docs.python.org/zh-cn/3/library/collections.html?highlight=deque#collections.deque</p>
+<blockquote>
+<p>说明：双向队列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque<br><br>d = deque()<br>d.append(<span class="hljs-number">1</span>)<br>d.append(<span class="hljs-number">2</span>)<br>d.append(<span class="hljs-number">3</span>)<br><span class="hljs-built_in">print</span>(d)<br>d.appendleft(<span class="hljs-number">11</span>)<br>d.appendleft(<span class="hljs-number">22</span>)<br>d.appendleft(<span class="hljs-number">33</span>)<br><span class="hljs-built_in">print</span>(d)<br><span class="hljs-built_in">print</span>(d.pop())<br><span class="hljs-built_in">print</span>(d.popleft())<br><span class="hljs-built_in">print</span>(d)<br><span class="hljs-string">"""</span><br><span class="hljs-string">deque([1, 2, 3])</span><br><span class="hljs-string">deque([33, 22, 11, 1, 2, 3])</span><br><span class="hljs-string">3</span><br><span class="hljs-string">33</span><br><span class="hljs-string">deque([22, 11, 1, 2])</span><br><span class="hljs-string">"""</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="counter">8.2 Counter</h3>
+<p>官方文档：https://docs.python.org/zh-cn/3/library/collections.html?highlight=deque#collections.Counter</p>
+<blockquote>
+<p>说明：可以很方便的用来计数</p>
+<p>使用样例1(计数):</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter<br><br>cnt = Counter()<br><span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> [<span class="hljs-string">'red'</span>, <span class="hljs-string">'blue'</span>, <span class="hljs-string">'red'</span>, <span class="hljs-string">'green'</span>, <span class="hljs-string">'blue'</span>, <span class="hljs-string">'blue'</span>]:<br>    cnt[word] += <span class="hljs-number">1</span><br><span class="hljs-built_in">print</span>(cnt)<br><span class="hljs-comment"># Counter({'blue': 3, 'red': 2, 'green': 1})</span><br></code></pre></td></tr></table></figure>
+<p>使用样例2(计数):</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter<br><br>cnt = Counter([<span class="hljs-string">'red'</span>, <span class="hljs-string">'blue'</span>, <span class="hljs-string">'red'</span>, <span class="hljs-string">'green'</span>, <span class="hljs-string">'blue'</span>, <span class="hljs-string">'blue'</span>])<br><span class="hljs-built_in">print</span>(cnt)<br><span class="hljs-comment"># Counter({'blue': 3, 'red': 2, 'green': 1})</span><br></code></pre></td></tr></table></figure>
+<p>使用样例3(筛选频率最高的前n项):</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter<br><br>cnt = Counter([<span class="hljs-string">'red'</span>, <span class="hljs-string">'blue'</span>, <span class="hljs-string">'red'</span>, <span class="hljs-string">'green'</span>, <span class="hljs-string">'blue'</span>, <span class="hljs-string">'blue'</span>])<br><span class="hljs-built_in">print</span>(cnt.most_common(<span class="hljs-number">2</span>))<br><span class="hljs-comment"># [('blue', 3), ('red', 2)]</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="heapq">8.3 heapq</h3>
+<p>官方文档：https://docs.python.org/zh-cn/3/library/heapq.html</p>
+<p>heapq直接存放在标准库中，不在Collections下</p>
+<blockquote>
+<p>说明：这个模块提供了堆队列的算法，也称为优先队列算法</p>
+<p>将列表转换为小顶堆:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> heapq<br><br>li = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">89</span>]<br>heapq.heapify(li)<br><span class="hljs-built_in">print</span>(li)<br></code></pre></td></tr></table></figure>
+<p>插入和弹出元素:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> heapq<br><br>li = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">89</span>]<br>heapq.heapify(li)<br>heapq.heappush(li, <span class="hljs-number">33</span>)<br>least_ele = heapq.heappop(li)<br><span class="hljs-built_in">print</span>(least_ele)<br></code></pre></td></tr></table></figure>
+<p>插入某元素后立马弹出根元素:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> heapq<br><br>li = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">89</span>]<br>heapq.heapify(li)<br>ele = heapq.heappushpop(li, <span class="hljs-number">33</span>)<br><span class="hljs-built_in">print</span>(ele)<br></code></pre></td></tr></table></figure>
+<p>弹出根元素后插入某元素:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> heapq<br><br>li = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">89</span>]<br>heapq.heapify(li)<br>ele = heapq.heapreplace(li, <span class="hljs-number">33</span>)<br><span class="hljs-built_in">print</span>(ele)<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="九pytorch">九、Pytorch</h2>
+<h3 id="基础知识">9.0 基础知识</h3>
+<blockquote>
+<p>torch.tensor与torch.Tensor有何不同？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><br><span class="hljs-comment"># torch.tensor会自动判断类型</span><br>x = torch.tensor([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])<br><span class="hljs-built_in">print</span>(torch.typename(x))<br><span class="hljs-comment"># 显式指明数据类型</span><br>y = torch.tensor([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], dtype=torch.<span class="hljs-built_in">float</span>)<br><span class="hljs-built_in">print</span>(torch.typename(y))<br><span class="hljs-comment"># torch.Tensor默认返回torch.FloatTensor类型</span><br>z = torch.Tensor([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])<br><span class="hljs-built_in">print</span>(torch.typename(z))<br><span class="hljs-string">"""</span><br><span class="hljs-string">torch.LongTensor</span><br><span class="hljs-string">torch.FloatTensor</span><br><span class="hljs-string">torch.FloatTensor</span><br><span class="hljs-string">"""</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="矩阵相乘">9.1 矩阵相乘</h3>
+<p>参考资料：https://www.bilibili.com/video/BV1za411S7sA?t=3.8</p>
+<p>不考虑数学意义上的矩阵乘法：</p>
+<ul>
+<li><code>torch.mul()</code>等价于<code>*</code></li>
+</ul>
+<p>数学意义上的矩阵相乘：</p>
+<ul>
+<li><code>torch.dot()</code>：一维</li>
+<li><code>torch.mm()</code>：二维</li>
+<li><code>torch.bmm()</code>：三维</li>
+<li><code>torch.matmul()，等价于@</code>：通用</li>
+</ul>
+<p>*运算</p>
+<blockquote>
+<p>两个矩阵按位相乘,和矩阵的乘法运算不同</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><br>x = torch.tensor([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])<br>y = torch.tensor([<span class="hljs-number">2</span>])<br><span class="hljs-built_in">print</span>(x * y)  <span class="hljs-comment"># tensor([2, 4])</span><br>x = torch.tensor([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])<br>y = torch.tensor([<span class="hljs-number">3</span>, <span class="hljs-number">4</span>])<br><span class="hljs-built_in">print</span>(x * y)  <span class="hljs-comment"># tensor([3, 8])</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<p>torch.dot()</p>
+<blockquote>
+<p>只支持一维的矩阵相乘，注意，一维矩阵的转置实际上是没有意义的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><br>x = torch.tensor([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])<br>y = torch.tensor([<span class="hljs-number">2</span>, <span class="hljs-number">4</span>])<br><span class="hljs-built_in">print</span>(torch.dot(x, y))  <span class="hljs-comment"># tensor(10)</span><br><span class="hljs-built_in">print</span>(torch.dot(x.t(), y))  <span class="hljs-comment"># tensor(10)</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<p>torch.mm()</p>
+<blockquote>
+<p>只支持二维的矩阵相乘</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><br>x = torch.tensor([[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>],<br>                  [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]])<br>y = torch.tensor([[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>],<br>                  [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]])<br><span class="hljs-built_in">print</span>(torch.mm(x, y))<br><span class="hljs-built_in">print</span>(torch.mm(x.t(), y))<br><span class="hljs-string">"""</span><br><span class="hljs-string">tensor([[ 7, 10],</span><br><span class="hljs-string">        [ 7, 10]])</span><br><span class="hljs-string">tensor([[ 4,  6],</span><br><span class="hljs-string">        [ 8, 12]])</span><br><span class="hljs-string">"""</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<p>torch.bmm()</p>
+<blockquote>
+<p>类似torch.mm()，只支持三维矩阵相乘</p>
+</blockquote>
+<p>torch.matmul()(等价于@)</p>
+<blockquote>
+<p>功能最强，支持广播</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><br>x = torch.tensor([[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>],<br>                  [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]])<br>y = torch.tensor([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])<br><span class="hljs-built_in">print</span>(x @ y)  <span class="hljs-comment"># tensor([5, 5])</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="十functools">十、Functools</h2>
+<p>reduce：当需要对一个可迭代对象做累积操作时使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> reduce<br><br>arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]<br><span class="hljs-built_in">print</span>(reduce(<span class="hljs-keyword">lambda</span> x, y: x * y, arr, <span class="hljs-number">1</span>))<br><span class="hljs-comment"># 接受3个参数: 函数,迭代对象,初始值</span><br><span class="hljs-comment"># 120</span><br></code></pre></td></tr></table></figure>
+<h2 id="十一包和模块">十一、包和模块</h2>
+<p>https://www.bilibili.com/video/BV194411r7a8?t=30.7</p>
+<p>模块：为了提高代码的重用价值，将一组功能写进一个单独的.py文件中，这个.py文件就是一个模块</p>
+<p>包：一个有层次的目录结构，定义了n个模块或子包，目录下一定有<code>__init__.py</code>文件</p>
+<p>库：参照其他语言的叫法，可以是模块也可以是包</p>
+<ul>
+<li>import与from</li>
+</ul>
+<p>import的最后是一个模块,比如import
+A.B.C中的C。如果只使用import不使用from的话，可以使用别名简化前缀，或者增加拓展性，比如import
+A as p与import B as p, 可以根据需求从A和B之间选择，但是最终都是p。</p>
+<p>如果只import包，默认不会导入包的内容。我们可以在<code>__init__.py</code>文件中指明默认import哪些模块(要使用绝对路径)</p>
+<ul>
+<li>from注意事项</li>
+</ul>
+<p>from A import
+B中A的范围一定大于B，其中B一定要达到最简化，也就是把路径尽可能放在A，其中访问取值：包&gt;模块&gt;模块资源</p>
+<p>我们可以通过from 模块 import *
+的方式导入模块的所有资源，但是模块中需要定义<code>__all__=['A','B']</code>，其中列表内是所有资源。若没有<code>__all__</code>，则会导入所有非下划线开头的资源</p>
+<p>当然from 包 import *
+也可以，但是需要在<code>__init__.py</code>中指明<code>__all__</code>变量，列表里面存放模块名</p>
+<p>https://www.bilibili.com/video/BV194411r7a8?t=241.3&amp;p=15</p>
+<h2 id="十二numpy">十二、Numpy</h2>
+<p>从正态分布中随机取值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">mean = <span class="hljs-number">2</span>  <span class="hljs-comment"># 均值</span><br>std_deviation = np.sqrt(<span class="hljs-number">45</span>)  <span class="hljs-comment"># 标准差，注意方差是标准差的平方</span><br><span class="hljs-comment"># 生成一个随机值</span><br>random_value = np.random.normal(mean, std_deviation)<br></code></pre></td></tr></table></figure>
+<h2 id="十三其它">十三、其它</h2>
+<h3 id="按照不同的概率选择元素">按照不同的概率选择元素</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">proto_choices = [<span class="hljs-string">'tcp'</span>, <span class="hljs-string">'udp'</span>]<br>proto_probabilities = [<span class="hljs-number">0.8</span>, <span class="hljs-number">0.2</span>]<br>selected_proto = random.choices(proto_choices, weights=proto_probabilities)[<span class="hljs-number">0</span>]<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Dev/" class="category-chain-item">Dev</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Python</div>
+      <div>https://d4wnnn.github.io/2022/01/26/Dev/Python/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>D4wn</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年1月26日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/01/26/Others/Windows%E7%A3%81%E7%9B%98%E5%AD%98%E5%82%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%88%86%E6%9E%90/" title="Windows磁盘存储的一些分析">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Windows磁盘存储的一些分析</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"iQzcdzgtk7S3lKyzUoT3segU-gzGzoHsz","appKey":"mL1QjUEvvzJ9E2xIVz0OuJuj","path":"window.location.pathname","placeholder":"Hello","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://iqzcdzgt.lc-cn-n1-shared.com","emojiCDN":"https://valinecdn.bili33.top/","emojiMaps":{"QQ1":"QQ/aini.gif","QQ2":"QQ/aixin.gif","QQ3":"QQ/aoman.gif","QQ4":"QQ/baiyan.gif","QQ5":"QQ/bangbangtang.gif","QQ6":"QQ/baojin.gif","QQ7":"QQ/baoquan.gif","QQ8":"QQ/bishi.gif","QQ9":"QQ/bizui.gif","QQ11":"QQ/cahan.gif","QQ12":"QQ/caidao.gif","QQ13":"QQ/chi.gif","QQ14":"QQ/ciya.gif","QQ15":"QQ/dabing.gif","QQ16":"QQ/daku.gif","QQ17":"QQ/dan.gif","QQ18":"QQ/deyi.gif","QQ19":"QQ/doge.gif","QQ20":"QQ/fadai.gif","QQ21":"QQ/fanu.gif","QQ22":"QQ/fendou.gif","QQ23":"QQ/ganga.gif","QQ24":"QQ/gouyin.gif","QQ25":"QQ/guzhang.gif","QQ26":"QQ/haixiu.gif","QQ27":"QQ/hanxiao.gif","QQ28":"QQ/haobang.gif","QQ29":"QQ/haqian.gif","QQ30":"QQ/hecai.gif","QQ31":"QQ/hexie.gif","QQ32":"QQ/huaixiao.gif","QQ33":"QQ/jie.gif","QQ34":"QQ/jingkong.gif","QQ35":"QQ/jingxi.gif","QQ36":"QQ/jingya.gif","QQ37":"QQ/juhua.gif","QQ38":"QQ/keai.gif","QQ39":"QQ/kelian.gif","QQ40":"QQ/koubi.gif","QQ41":"QQ/ku.gif","QQ42":"QQ/kuaikule.gif","QQ43":"QQ/kulou.gif","QQ44":"QQ/kun.gif","QQ45":"QQ/lanqiu.gif","QQ46":"QQ/leiben.gif","QQ47":"QQ/lenghan.gif","QQ48":"QQ/liuhan.gif","QQ49":"QQ/liulei.gif","QQ50":"QQ/nanguo.gif","QQ51":"QQ/OK.gif","QQ52":"QQ/penxue.gif","QQ53":"QQ/piezui.gif","QQ54":"QQ/pijiu.gif","QQ55":"QQ/qiang.gif","QQ56":"QQ/qiaoda.gif","QQ57":"QQ/qinqin.gif","QQ58":"QQ/qiudale.gif","QQ59":"QQ/quantou.gif","QQ60":"QQ/saorao.gif","QQ61":"QQ/se.gif","QQ62":"QQ/shengli.gif","QQ63":"QQ/shouqiang.gif","QQ64":"QQ/shuai.gif","QQ65":"QQ/shui.gif","QQ66":"QQ/tiaopi.gif","QQ67":"QQ/touxiao.gif","QQ68":"QQ/tu.gif","QQ69":"QQ/tuosai.gif","QQ70":"QQ/weiqu.gif","QQ71":"QQ/weixiao.gif","QQ72":"QQ/woshou.gif","QQ73":"QQ/wozuimei.gif","QQ74":"QQ/wunai.gif","QQ75":"QQ/xia.gif","QQ76":"QQ/xiaojiujie.gif","QQ77":"QQ/xiaoku.gif","QQ78":"QQ/xiaoyanger.gif","QQ79":"QQ/xieyanxiao.gif","QQ80":"QQ/xigua.gif","QQ81":"QQ/xu.gif","QQ82":"QQ/yangtuo.gif","QQ83":"QQ/yinxian.gif","QQ84":"QQ/yiwen.gif","QQ85":"QQ/youhengheng.gif","QQ86":"QQ/youling.gif","QQ87":"QQ/yun.gif","QQ88":"QQ/zaijian.gif","QQ89":"QQ/zhayanjian.gif","QQ90":"QQ/zhemo.gif","QQ91":"QQ/zhouma.gif","QQ92":"QQ/zhuakuang.gif","QQ93":"QQ/zuohengheng.gif"},"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://github.com/d4wnnn" target="_blank" rel="nofollow noopener"><span>Github</span></a> <i class="iconfont icon-love"></i> <a href="tencent://message/?uin=2638177031" target="_blank" rel="nofollow noopener"><span>联系我</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

