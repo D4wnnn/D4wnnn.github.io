@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="HEXO博客配置hexo:6.3.0 hexo-cli:4.3.0 npm设置代理 12npm config set proxy http:&#x2F;&#x2F;127.0.0.1:10809npm config set https-proxy http:&#x2F;&#x2F;127.0.0.1:10809  安装 123npm install -g hexo-cli # 安装hexomkdir blog &amp;&amp; cd">
+    <meta name="description" content="HEXO博客配置 hexo:6.3.0 hexo-cli:4.3.0 npm设置代理  12npm config set proxy http:&#x2F;&#x2F;127.0.0.1:10809npm config set https-proxy http:&#x2F;&#x2F;127.0.0.1:10809  安装  123npm install -g hexo-cli # 安装hexomkdir blog &amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HEXO博客配置">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/10/02/Others/HEXO%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="HEXO博客配置hexo:6.3.0 hexo-cli:4.3.0 npm设置代理 12npm config set proxy http:&#x2F;&#x2F;127.0.0.1:10809npm config set https-proxy http:&#x2F;&#x2F;127.0.0.1:10809  安装 123npm install -g hexo-cli # 安装hexomkdir blog &amp;&amp; cd">
+<meta property="og:description" content="HEXO博客配置 hexo:6.3.0 hexo-cli:4.3.0 npm设置代理  12npm config set proxy http:&#x2F;&#x2F;127.0.0.1:10809npm config set https-proxy http:&#x2F;&#x2F;127.0.0.1:10809  安装  123npm install -g hexo-cli # 安装hexomkdir blog &amp;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://d4wnnn.github.io/img/article_img_1.jpg">
 <meta property="article:published_time" content="2022-10-02T09:18:12.000Z">
@@ -436,108 +436,115 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="HEXO博客配置"><a href="#HEXO博客配置" class="headerlink" title="HEXO博客配置"></a>HEXO博客配置</h1><p>hexo:6.3.0</p>
+                <h1 id="hexo博客配置">HEXO博客配置</h1>
+<p>hexo:6.3.0</p>
 <p>hexo-cli:4.3.0</p>
-<h2 id="npm设置代理"><a href="#npm设置代理" class="headerlink" title="npm设置代理"></a>npm设置代理</h2><blockquote>
+<h2 id="npm设置代理">npm设置代理</h2>
+<blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm config <span class="hljs-built_in">set</span> proxy http://127.0.0.1:10809<br>npm config <span class="hljs-built_in">set</span> https-proxy http://127.0.0.1:10809<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+<h2 id="安装">安装</h2>
+<blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install -g hexo-cli <span class="hljs-comment"># 安装hexo</span><br><span class="hljs-built_in">mkdir</span> blog &amp;&amp; <span class="hljs-built_in">cd</span> blog<br>hexo init<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="连接Github"><a href="#连接Github" class="headerlink" title="连接Github"></a>连接Github</h2><blockquote>
+<h2 id="连接github">连接Github</h2>
+<blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 首先在本地生成rse秘钥和公钥：</span><br>ssh-keygen -t rsa -C <span class="hljs-string">"2638177031@qq.com"</span><br><br><span class="hljs-comment"># 然后把公钥放到github上</span><br><span class="hljs-comment"># 测试连接</span><br>ssh -T git@github.com<br><br><span class="hljs-comment"># 若连接失败 在.ssh目录下新建config文件 写入如下内容</span><br>Host github.com<br>       User D4wn<br>       Hostname ssh.github.com<br>       Port 443<br>       IdentityFile ~/.ssh/id_rsa <br></code></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="设置部署时忽略某个文件夹"><a href="#设置部署时忽略某个文件夹" class="headerlink" title="设置部署时忽略某个文件夹"></a>设置部署时忽略某个文件夹</h2><p>每个笔记都有一个attachment文件夹，虽然不会渲染，但也会拷贝到<code>.deploy_git</code>文件夹, 造成上传缓慢。</p>
+<h2 id="设置部署时忽略某个文件夹">设置部署时忽略某个文件夹</h2>
+<p>每个笔记都有一个attachment文件夹，虽然不会渲染，但也会拷贝到<code>.deploy_git</code>文件夹,
+造成上传缓慢。</p>
 <p>配置根目录下的配置文件：</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">deploy:</span><br>    <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>    <span class="hljs-attr">repo:</span> <span class="hljs-string">git@github.com:D4wnnn/D4wnnn.github.io.git</span><br>    <span class="hljs-attr">branch:</span> <span class="hljs-string">main</span><br>    <span class="hljs-attr">ignore_pattern:</span> <span class="hljs-string">"attachments"</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="跳过渲染"><a href="#跳过渲染" class="headerlink" title="跳过渲染"></a>跳过渲染</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">skip_render:</span> <span class="hljs-string">"_posts/*/*/attachments/**"</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="渲染图片√"><a href="#渲染图片√" class="headerlink" title="渲染图片√"></a>渲染图片√</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install https://github.com/CodeFalling/hexo-asset-image -- save<br></code></pre></td></tr></table></figure>
-
-<h2 id="修改主题颜色"><a href="#修改主题颜色" class="headerlink" title="修改主题颜色"></a>修改主题颜色</h2><blockquote>
+<h2 id="跳过渲染">跳过渲染</h2>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">skip_render:</span> <span class="hljs-string">"_posts/*/*/attachments/**"</span><br></code></pre></td></tr></table></figure>
+<h2 id="渲染图片">渲染图片√</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install https://github.com/CodeFalling/hexo-asset-image -- save<br></code></pre></td></tr></table></figure>
+<h2 id="修改主题颜色">修改主题颜色</h2>
+<blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.bg-color</span> {<br>    <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">linear-gradient</span>(to right, <span class="hljs-number">#1f3144</span> <span class="hljs-number">0%</span>, <span class="hljs-number">#1f3144</span> <span class="hljs-number">100%</span>);<br>}<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="修改背景颜色"><a href="#修改背景颜色" class="headerlink" title="修改背景颜色"></a>修改背景颜色</h2><blockquote>
+<h2 id="修改背景颜色">修改背景颜色</h2>
+<blockquote>
 <p><code>matery.css</code></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span> {<br>    <span class="hljs-comment">/*background-color: #eaeaea;*/</span><br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#181c27</span>;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">color</span>: <span class="hljs-number">#34495e</span>;<br>    <span class="hljs-attribute">overflow-x</span>: hidden;<br>    <span class="hljs-attribute">overflow-y</span>: auto;<br>}<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="转载限制"><a href="#转载限制" class="headerlink" title="转载限制"></a>转载限制</h2><blockquote>
+<h2 id="转载限制">转载限制</h2>
+<blockquote>
 <p>修改主题配置文件</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">reprint:</span><br>      <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span>   <span class="hljs-comment">#是否启用“转载规则限定模块”</span><br>      <span class="hljs-attr">default:</span> <span class="hljs-string">cc_by</span><br></code></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="设置默认为夜间模式"><a href="#设置默认为夜间模式" class="headerlink" title="设置默认为夜间模式"></a>设置默认为夜间模式</h2><blockquote>
+<h2 id="设置默认为夜间模式">设置默认为夜间模式</h2>
+<blockquote>
 <p><code>matery.js</code></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//黑夜模式提醒开启功能</span><br><span class="hljs-comment">// setTimeout(function () {</span><br><span class="hljs-comment">//     if ((new Date().getHours() &gt;= 19 || new Date().getHours() &lt; 7) &amp;&amp; !$('body').hasClass('DarkMode')) {</span><br><span class="hljs-comment">//         let toastHTML = '&lt;span style="color:#97b8b2;border-radius: 10px;&gt;' + '&lt;i class="fa fa-bellaria-hidden="true"&gt;&lt;/i&gt;晚上使用深色模式阅读更好哦。(ﾟ▽ﾟ)&lt;/span&gt;'</span><br><span class="hljs-comment">//         M.toast({ html: toastHTML })</span><br><span class="hljs-comment">//     }</span><br><span class="hljs-comment">// }, 2200);</span><br><br><span class="hljs-comment">//黑夜模式判断</span><br><span class="hljs-comment">// if (localStorage.getItem('isDark') === '1') {</span><br><span class="hljs-comment">//     document.body.classList.add('DarkMode');</span><br><span class="hljs-comment">//     $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')</span><br><span class="hljs-comment">// } else {</span><br><span class="hljs-comment">//     document.body.classList.remove('DarkMode');</span><br><span class="hljs-comment">//     $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')</span><br><span class="hljs-comment">// }</span><br><span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">'DarkMode'</span>);<br>$(<span class="hljs-string">'#sum-moon-icon'</span>).<span class="hljs-title function_">addClass</span>(<span class="hljs-string">"fa-sun"</span>).<span class="hljs-title function_">removeClass</span>(<span class="hljs-string">'fa-moon'</span>)<br><br>## 搜索引擎收录<br><br>验证是否被google收录：<span class="hljs-attr">site</span>:<span class="hljs-attr">https</span>: <span class="hljs-comment">//user.github.io/</span><br><br>提交地址：<span class="hljs-attr">https</span>:<span class="hljs-comment">//www.google.com/webmasters/tools/home?hl=zh-CN</span><br><br>添加站点地图：<br><br>* npm install hexo-generator-sitemap<br><br>* 在_config.<span class="hljs-property">xml</span>中添加如下内容：<br><br>  <span class="hljs-string">``</span><span class="hljs-string">`bash</span><br><span class="hljs-string">  sitemap:</span><br><span class="hljs-string">      path: sitemap.xml</span><br></code></pre></td></tr></table></figure>
-
-<p>百度：<a target="_blank" rel="noopener" href="https://ziyuan.baidu.com/">https://ziyuan.baidu.com/</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhanzhang.baidu.com/">https://zhanzhang.baidu.com/</a></p>
+<p>百度：https://ziyuan.baidu.com/</p>
+<p>https://zhanzhang.baidu.com/</p>
 </blockquote>
-<h2 id="配置Latex公式解析"><a href="#配置Latex公式解析" class="headerlink" title="配置Latex公式解析"></a>配置Latex公式解析</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42130258/article/details/127616311">https://blog.csdn.net/weixin_42130258/article/details/127616311</a></p>
+<h2 id="配置latex公式解析">配置Latex公式解析</h2>
+<p>https://blog.csdn.net/weixin_42130258/article/details/127616311</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm uninstall hexo-rendered-marked<br>npm install hexo-renderer-pandoc<br>npm install hexo-filter-mathjax<br></code></pre></td></tr></table></figure>
-
 <p>修改根配置文件<code>_config.yml</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">math:<br>    <span class="hljs-built_in">enable</span>: <span class="hljs-literal">true</span><br>    specific: <span class="hljs-literal">false</span>    <span class="hljs-comment">#开启后文章默认可用，自定义页面如需使用，需在 Front-matter 中指定 `math: true</span><br>    engine: mathjax<br>mathjax:<br>   tags: none <span class="hljs-comment"># or 'ams' or 'all'</span><br>   single_dollars: <span class="hljs-literal">true</span> <span class="hljs-comment"># enable single dollar signs as in-line math delimiters</span><br>   cjk_width: 0.9 <span class="hljs-comment"># relative CJK char width</span><br>   normal_width: 0.6 <span class="hljs-comment"># relative normal (monospace) width</span><br>   append_css: <span class="hljs-literal">true</span> <span class="hljs-comment"># add CSS to pages rendered by MathJax</span><br>   every_page: <span class="hljs-literal">true</span> <span class="hljs-comment"># if true, every page will be rendered by MathJax regardless the `mathjax` setting in Front-matter</span><br></code></pre></td></tr></table></figure>
-
 <p>参考资料：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jhgjhg225/article/details/125184280">https://blog.csdn.net/jhgjhg225/article/details/125184280</a></p>
+<p>https://blog.csdn.net/jhgjhg225/article/details/125184280</p>
 </blockquote>
-<h2 id="压缩页面"><a href="#压缩页面" class="headerlink" title="压缩页面"></a>压缩页面</h2><blockquote>
+<h2 id="压缩页面">压缩页面</h2>
+<blockquote>
 <p><code>npm install hexo-neat</code></p>
 <p>在根配置文件中添加如下配置：</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-comment"># hexo-neat</span><br><span class="hljs-comment">## Docs: https://github.com/rozbo/hexo-neat</span><br><span class="hljs-attr">neat_enable:</span> <span class="hljs-literal">true</span><br><span class="hljs-comment"># 压缩 html</span><br><span class="hljs-attr">neat_html:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">exclude:</span><br><span class="hljs-comment"># 压缩 css  </span><br><span class="hljs-attr">neat_css:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">exclude:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">'**/*.min.css'</span><br><span class="hljs-comment"># 压缩 js</span><br><span class="hljs-attr">neat_js:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">mangle:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">output:</span><br>  <span class="hljs-attr">compress:</span><br>  <span class="hljs-attr">exclude:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">'**/*.min.js'</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">'**/jquery.fancybox.pack.js'</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">'**/index.js'</span> <br></code></pre></td></tr></table></figure>
-
-<p>参考：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ba692a97a602">https://www.jianshu.com/p/ba692a97a602</a></p>
+<p>参考：https://www.jianshu.com/p/ba692a97a602</p>
 </blockquote>
 <p>法二：</p>
 <blockquote>
 <p><code>npm install hexo-all-minifier</code></p>
 <p>在根配置文件中添加如下配置：</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-string">&gt;all_minifier:</span> <span class="hljs-literal">true</span><br><span class="hljs-string">&gt;#</span> <span class="hljs-string">html压缩</span><br><span class="hljs-string">&gt;html_minifier:</span><br> <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br> <span class="hljs-attr">ignore_error:</span> <span class="hljs-literal">false</span><br> <span class="hljs-attr">exclude:</span><br><br><span class="hljs-string">&gt;#</span> <span class="hljs-string">css压缩</span><br><span class="hljs-string">&gt;css_minifier:</span><br> <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br> <span class="hljs-attr">exclude:</span><br>   <span class="hljs-bullet">-</span> <span class="hljs-string">'*.min.css'</span><br>   <br><span class="hljs-string">&gt;#</span> <span class="hljs-string">js压缩</span><br><span class="hljs-string">&gt;js_minifier:</span><br> <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br> <span class="hljs-attr">mangle:</span> <span class="hljs-literal">true</span><br> <span class="hljs-attr">compress:</span><br> <span class="hljs-attr">exclude:</span><br>   <span class="hljs-bullet">-</span> <span class="hljs-string">'*.min.js'</span><br><span class="hljs-string">&gt;js_concator:</span><br> <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br> <span class="hljs-attr">bundle_path:</span> <span class="hljs-string">'/js/bundle.js'</span><br> <span class="hljs-attr">front:</span> <span class="hljs-literal">false</span><br> <span class="hljs-attr">silent:</span> <span class="hljs-literal">false</span><br><br><span class="hljs-string">&gt;#</span> <span class="hljs-string">图片优化</span><br><span class="hljs-string">&gt;image_minifier:</span><br> <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br> <span class="hljs-attr">interlaced:</span> <span class="hljs-literal">false</span><br> <span class="hljs-attr">multipass:</span> <span class="hljs-literal">false</span><br> <span class="hljs-attr">optimizationLevel:</span> <span class="hljs-number">2</span><br> <span class="hljs-attr">pngquant:</span> <span class="hljs-literal">false</span><br> <span class="hljs-attr">progressive:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
-
-<p>参考：<a target="_blank" rel="noopener" href="https://github.com/chenzhutian/hexo-all-minifier/blob/master/README.md">https://github.com/chenzhutian/hexo-all-minifier/blob/master/README.md</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29654777/article/details/108222881?ydreferer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8=">https://blog.csdn.net/qq_29654777/article/details/108222881?ydreferer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8%3D</a></p>
+<p>参考：https://github.com/chenzhutian/hexo-all-minifier/blob/master/README.md</p>
+<p>https://blog.csdn.net/qq_29654777/article/details/108222881?ydreferer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8%3D</p>
 </blockquote>
-<h2 id="为部分文章设置密码"><a href="#为部分文章设置密码" class="headerlink" title="为部分文章设置密码"></a>为部分文章设置密码</h2><blockquote>
+<h2 id="为部分文章设置密码">为部分文章设置密码</h2>
+<blockquote>
 <p>安装插件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;npm i hexo-blog-encrypt<br></code></pre></td></tr></table></figure>
-
 <p>对根配置文件进行修改：</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-string">&gt;encrypt:</span> <span class="hljs-comment"># hexo-blog-encrypt</span><br> <span class="hljs-attr">silent:</span> <span class="hljs-literal">true</span><br> <span class="hljs-attr">abstract:</span> <span class="hljs-string">这是一篇加密文章，需要密码才能继续阅读</span><br> <span class="hljs-attr">message:</span> <span class="hljs-string">抱歉，此文章需要输入密码后查看</span><br> <span class="hljs-attr">tags:</span><br> <span class="hljs-bullet">-</span> {<span class="hljs-attr">name:</span> <span class="hljs-string">private</span>, <span class="hljs-attr">password:</span> <span class="hljs-string">hello</span>}<br> <span class="hljs-attr">wrong_pass_message:</span> <span class="hljs-string">抱歉，您输入的密码错误，请检查后重新输入。</span><br> <span class="hljs-attr">wrong_hash_message:</span> <span class="hljs-string">抱歉,</span> <span class="hljs-string">当前文章不能被校验,</span> <span class="hljs-string">不过您还是可以看看解密后的内容。</span><br></code></pre></td></tr></table></figure>
-
 <p>对待加密文章加上tag：private</p>
 <p>参考：</p>
 <ul>
-<li><p><a target="_blank" rel="noopener" href="https://www.itfanr.cc/2021/04/16/hexo-blog-article-encryption/">https://www.itfanr.cc/2021/04/16/hexo-blog-article-encryption/</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/D0n9X1n/hexo-blog-encrypt/tree/master">https://github.com/D0n9X1n/hexo-blog-encrypt/tree/master</a></p>
-</li>
+<li><p>https://www.itfanr.cc/2021/04/16/hexo-blog-article-encryption/</p></li>
+<li><p>https://github.com/D0n9X1n/hexo-blog-encrypt/tree/master</p></li>
 </ul>
 </blockquote>
-<h2 id="导入思维导图√"><a href="#导入思维导图√" class="headerlink" title="导入思维导图√"></a>导入思维导图√</h2><blockquote>
+<h2 id="导入思维导图">导入思维导图√</h2>
+<blockquote>
 <p>hexo-markmap:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/MaxChang3/hexo-markmap">https://github.com/MaxChang3/hexo-markmap</a></p>
-<p><a target="_blank" rel="noopener" href="https://redamancy.tech/technique/13.html">https://redamancy.tech/technique/13.html</a></p>
-<p>示例：<a target="_blank" rel="noopener" href="https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin/">https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin/</a></p>
+<p>https://github.com/MaxChang3/hexo-markmap</p>
+<p>https://redamancy.tech/technique/13.html</p>
+<p>示例：https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin/</p>
 <p>hexo-simple-mindmap:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/HunterXuan/hexo-simple-mindmap">https://github.com/HunterXuan/hexo-simple-mindmap</a></p>
-<p><a target="_blank" rel="noopener" href="https://hunterx.xyz/use-mindmap-in-hexo.html">https://hunterx.xyz/use-mindmap-in-hexo.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/75467441">https://zhuanlan.zhihu.com/p/75467441</a></p>
+<p>https://github.com/HunterXuan/hexo-simple-mindmap</p>
+<p>https://hunterx.xyz/use-mindmap-in-hexo.html</p>
+<p>https://zhuanlan.zhihu.com/p/75467441</p>
 <p>最后采用的是hexo-mindmap-plugin</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yml">{<span class="hljs-string">%</span> <span class="hljs-string">markmap</span> <span class="hljs-string">500px</span> <span class="hljs-string">%</span>}<br><br><span class="hljs-bullet">-</span> <span class="hljs-string">主题</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">内容1</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">内容2</span><br><br>{<span class="hljs-string">%</span> <span class="hljs-string">endmarkmap</span> <span class="hljs-string">%</span>}<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="设置支持markdown拓展语法"><a href="#设置支持markdown拓展语法" class="headerlink" title="设置支持markdown拓展语法"></a>设置支持markdown拓展语法</h2><blockquote>
+<h2 id="设置支持markdown拓展语法">设置支持markdown拓展语法</h2>
+<blockquote>
 <p>时间来不及了，暑假再搞</p>
-<p>各种渲染插件的对比：<a target="_blank" rel="noopener" href="https://zsyyblog.com/b73ceb85.html">https://zsyyblog.com/b73ceb85.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42951560/article/details/123596899">https://blog.csdn.net/qq_42951560/article/details/123596899</a></p>
+<p>各种渲染插件的对比：https://zsyyblog.com/b73ceb85.html</p>
+<p>https://blog.csdn.net/qq_42951560/article/details/123596899</p>
 </blockquote>
-<h2 id="博客url设置"><a href="#博客url设置" class="headerlink" title="博客url设置"></a>博客url设置</h2><blockquote>
-<p>待修改：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32767041/article/details/103285147">https://blog.csdn.net/qq_32767041/article/details/103285147</a></p>
-<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2143602">https://cloud.tencent.com/developer/article/2143602</a></p>
+<h2 id="博客url设置">博客url设置</h2>
+<blockquote>
+<p>待修改：https://blog.csdn.net/qq_32767041/article/details/103285147</p>
+<p>https://cloud.tencent.com/developer/article/2143602</p>
 </blockquote>
-<h2 id="画流程图"><a href="#画流程图" class="headerlink" title="画流程图"></a>画流程图</h2><blockquote>
-<p>参考官方文档：<a target="_blank" rel="noopener" href="https://fluid-dev.github.io/hexo-fluid-docs/guide/#mermaid-%E6%B5%81%E7%A8%8B%E5%9B%BE">https://fluid-dev.github.io/hexo-fluid-docs/guide/#mermaid-%E6%B5%81%E7%A8%8B%E5%9B%BE</a></p>
+<h2 id="画流程图">画流程图</h2>
+<blockquote>
+<p>参考官方文档：https://fluid-dev.github.io/hexo-fluid-docs/guide/#mermaid-%E6%B5%81%E7%A8%8B%E5%9B%BE</p>
 </blockquote>
 
                 

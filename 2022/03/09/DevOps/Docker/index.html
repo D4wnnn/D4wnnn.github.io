@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="Docker一、基本概念镜像(image)好比模板,可以根据镜像创建容器服务 容器(container) 仓库(repository)是存放镜像的地方 二、环境准备1234567891011121314151617181920212223242526272829 # 卸载旧版本 sudo yum remove docker \ docker-client \ docker-client-lates">
+    <meta name="description" content="Docker 一、基本概念 镜像(image)好比模板,可以根据镜像创建容器服务 容器(container) 仓库(repository)是存放镜像的地方 二、环境准备 1234567891011121314151617181920212223242526272829 # 卸载旧版本 sudo yum remove docker \ docker-client \ docker-cli">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/03/09/DevOps/Docker/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Docker一、基本概念镜像(image)好比模板,可以根据镜像创建容器服务 容器(container) 仓库(repository)是存放镜像的地方 二、环境准备1234567891011121314151617181920212223242526272829 # 卸载旧版本 sudo yum remove docker \ docker-client \ docker-client-lates">
+<meta property="og:description" content="Docker 一、基本概念 镜像(image)好比模板,可以根据镜像创建容器服务 容器(container) 仓库(repository)是存放镜像的地方 二、环境准备 1234567891011121314151617181920212223242526272829 # 卸载旧版本 sudo yum remove docker \ docker-client \ docker-cli">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://d4wnnn.github.io/img/docker.png">
 <meta property="article:published_time" content="2022-03-09T05:35:17.000Z">
@@ -436,96 +436,86 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h2><p>镜像(image)好比模板,可以根据镜像创建容器服务</p>
+                <h1 id="docker">Docker</h1>
+<h2 id="一基本概念">一、基本概念</h2>
+<p>镜像(image)好比模板,可以根据镜像创建容器服务</p>
 <p>容器(container)</p>
 <p>仓库(repository)是存放镜像的地方</p>
-<h2 id="二、环境准备"><a href="#二、环境准备" class="headerlink" title="二、环境准备"></a>二、环境准备</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"> # </span><span class="language-bash">卸载旧版本</span><br> sudo yum remove docker \<br> docker-client \<br> docker-client-latest \<br> docker-common \<br> docker-latest \<br> docker-latest-logrotate \<br> docker-logrotate \<br> docker-engine<br><span class="hljs-meta prompt_"> # </span><span class="language-bash">需要的安装包</span><br> sudo yum install -y yum-utils<br>  <br><span class="hljs-meta prompt_"> # </span><span class="language-bash">设置镜像仓库</span><br>  sudo yum-config-manager \<br>    --add-repo \<br>    http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">更新软件索引</span><br>yum makecache fast<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">安装docker</span><br>sudo yum install docker-ce docker-ce-cli containerd.io<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">启动docker</span><br>systemctl start docker<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">使用docker version查看是否安装成功</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">测试: docker run hello-world</span><br><br></code></pre></td></tr></table></figure>
-
-<h2 id="三、基本命令"><a href="#三、基本命令" class="headerlink" title="三、基本命令"></a>三、基本命令</h2><h3 id="3-1-镜像"><a href="#3-1-镜像" class="headerlink" title="3.1 镜像"></a>3.1 镜像</h3><p>搜索镜像:</p>
+<h2 id="二环境准备">二、环境准备</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"> # </span><span class="language-bash">卸载旧版本</span><br> sudo yum remove docker \<br> docker-client \<br> docker-client-latest \<br> docker-common \<br> docker-latest \<br> docker-latest-logrotate \<br> docker-logrotate \<br> docker-engine<br><span class="hljs-meta prompt_"> # </span><span class="language-bash">需要的安装包</span><br> sudo yum install -y yum-utils<br>  <br><span class="hljs-meta prompt_"> # </span><span class="language-bash">设置镜像仓库</span><br>  sudo yum-config-manager \<br>    --add-repo \<br>    http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">更新软件索引</span><br>yum makecache fast<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">安装docker</span><br>sudo yum install docker-ce docker-ce-cli containerd.io<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">启动docker</span><br>systemctl start docker<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">使用docker version查看是否安装成功</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">测试: docker run hello-world</span><br><br></code></pre></td></tr></table></figure>
+<h2 id="三基本命令">三、基本命令</h2>
+<h3 id="镜像">3.1 镜像</h3>
+<p>搜索镜像:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker search mysql<br>docker search mysql --filter=stars=3333<br></code></pre></td></tr></table></figure>
-
 <p>下载镜像:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull mysql<br>docker pull mysql:5.7<br></code></pre></td></tr></table></figure>
-
 <p>查看本地镜像:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker images<br></code></pre></td></tr></table></figure>
-
 <p>查看容器/镜像/数据卷所占空间:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker system df<br></code></pre></td></tr></table></figure>
-
 <p>删除镜像:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker rmi -f 镜像id<br>docker rmi -f $(docker images -aq) # 删除全部<br></code></pre></td></tr></table></figure>
-
 <p>导出镜像:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker save -o jwt.tar jwt:1.0 # 注意:这里的名字和标签要一一对应, 不能乱写, 否则后面load时名字和标签会变成none<br></code></pre></td></tr></table></figure>
-
 <p>加载镜像:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker load &lt; jwt.tar<br></code></pre></td></tr></table></figure>
-
 <p>虚悬镜像的查看与删除:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker images -f dangling=true<br>docker image prune<br></code></pre></td></tr></table></figure>
-
-<h3 id="3-2-容器"><a href="#3-2-容器" class="headerlink" title="3.2 容器"></a>3.2 容器</h3><p>运行容器:</p>
+<h3 id="容器">3.2 容器</h3>
+<p>运行容器:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -it -d -p 80:80 centos /bin/bash<br></code></pre></td></tr></table></figure>
-
 <p>删除容器:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker rm id # 删除容器<br>docker rm -f id # 强制删除容器<br></code></pre></td></tr></table></figure>
-
 <p>启动、重启、关闭、杀掉容器:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker start id <br>docker restart id # 重启容器<br>docker stop id<br>docker kill id # 强制停止容器<br></code></pre></td></tr></table></figure>
-
 <p>退出容器:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">ctrl + p + q # 不停止容器退出<br>exit # 停止容器并退出<br></code></pre></td></tr></table></figure>
-
 <p>查看容器:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker ps # 查看运行中容器<br>docker ps -a # 查看运行中容器+历史容器/<br></code></pre></td></tr></table></figure>
-
-<h3 id="3-3-常见的其他命令"><a href="#3-3-常见的其他命令" class="headerlink" title="3.3 常见的其他命令"></a>3.3 常见的其他命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker info # 查看docker概要信息<br>docker logs -ft --tail 10 id # 显示日志 -t加时间,-f保留打印窗口,--tail 显示最后的几行<br>docker top id #查看docker内进程，得到的结果中 uid为用户id,pid为进程id,ppid为父进程id<br>docker inspect id # 查看容器内部细节<br>docker exec -it id /bin/bash # 进入容器,开启新的终端<br>docker attach id # 进入容器,进入正在执行的终端<br><span class="hljs-meta prompt_"># </span><span class="language-bash">attach进入容器启动命令的终端，<span class="hljs-built_in">exit</span>不会停止容器</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-built_in">exec</span>进入容器会打开新的终端，用<span class="hljs-built_in">exit</span>退出不会导致容器的停止</span><br>docker cp id:目录/文件 主机目录 # 将容器内文件复制到物理机<br>docker export # 将容器转化为tar归档文件<br>docker export 2bd &gt; 123.tar<br>docker import # 将tar文件导入为镜像<br>cat 123.tar | docker import - d4wn/ubuntu:3.7<br>docker run -d tomcat -p 3356:8080 --name tomcat01 # 部署tomcat<br>docker stats # 查看内存状态<br>docker commit -m="描述信息" -a="作者" id 目标镜像名[:tags]<br></code></pre></td></tr></table></figure>
-
-<h3 id="3-4-推送镜像到Docker-hub"><a href="#3-4-推送镜像到Docker-hub" class="headerlink" title="3.4 推送镜像到Docker hub"></a>3.4 推送镜像到Docker hub</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker login -u d4wnnn<br>docker tag centos:7 d4wnnn/centos:7<br>docker push 昵称/镜像名<br></code></pre></td></tr></table></figure>
-
-<h2 id="四、卷技术"><a href="#四、卷技术" class="headerlink" title="四、卷技术"></a>四、卷技术</h2> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -itd -v /home/ceshi:/webapps --priviledged=true tomcat[:ro] /bin/bash # 指定路径挂载<br>docker run -itd -v name:/webapps tomcat[:ro] /bin/bash # 具名挂载<br>docker run -itd -v /webapps tomcat[:ro] /bin/bash # 匿名挂载<br><span class="hljs-meta prompt_"># </span><span class="language-bash">拓展 [:ro] 即<span class="hljs-built_in">read</span> only，只能在宿主机改数据，默认为rw</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="五、DockerFile"><a href="#五、DockerFile" class="headerlink" title="五、DockerFile"></a>五、DockerFile</h2><p>保留字必须为大写</p>
+<h3 id="常见的其他命令">3.3 常见的其他命令</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker info # 查看docker概要信息<br>docker logs -ft --tail 10 id # 显示日志 -t加时间,-f保留打印窗口,--tail 显示最后的几行<br>docker top id #查看docker内进程，得到的结果中 uid为用户id,pid为进程id,ppid为父进程id<br>docker inspect id # 查看容器内部细节<br>docker exec -it id /bin/bash # 进入容器,开启新的终端<br>docker attach id # 进入容器,进入正在执行的终端<br><span class="hljs-meta prompt_"># </span><span class="language-bash">attach进入容器启动命令的终端，<span class="hljs-built_in">exit</span>不会停止容器</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-built_in">exec</span>进入容器会打开新的终端，用<span class="hljs-built_in">exit</span>退出不会导致容器的停止</span><br>docker cp id:目录/文件 主机目录 # 将容器内文件复制到物理机<br>docker export # 将容器转化为tar归档文件<br>docker export 2bd &gt; 123.tar<br>docker import # 将tar文件导入为镜像<br>cat 123.tar | docker import - d4wn/ubuntu:3.7<br>docker run -d tomcat -p 3356:8080 --name tomcat01 # 部署tomcat<br>docker stats # 查看内存状态<br>docker commit -m="描述信息" -a="作者" id 目标镜像名[:tags]<br></code></pre></td></tr></table></figure>
+<h3 id="推送镜像到docker-hub">3.4 推送镜像到Docker hub</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker login -u d4wnnn<br>docker tag centos:7 d4wnnn/centos:7<br>docker push 昵称/镜像名<br></code></pre></td></tr></table></figure>
+<h2 id="四卷技术">四、卷技术</h2>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -itd -v /home/ceshi:/webapps --priviledged=true tomcat[:ro] /bin/bash # 指定路径挂载<br>docker run -itd -v name:/webapps tomcat[:ro] /bin/bash # 具名挂载<br>docker run -itd -v /webapps tomcat[:ro] /bin/bash # 匿名挂载<br><span class="hljs-meta prompt_"># </span><span class="language-bash">拓展 [:ro] 即<span class="hljs-built_in">read</span> only，只能在宿主机改数据，默认为rw</span><br></code></pre></td></tr></table></figure></p>
+<h2 id="五dockerfile">五、DockerFile</h2>
+<p>保留字必须为大写</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash">FROM 			<span class="hljs-comment"># 基于什么镜像</span><br>MAINTAINER 		<span class="hljs-comment"># 维护者</span><br>ENV				<span class="hljs-comment"># 构建的时候设置环境变量，可以在后续的RUN指令中使用</span><br>RUN				<span class="hljs-comment"># 镜像构建的时候需要运行的命令，就是在终端操作的命令(安装完系统后)</span><br>				<span class="hljs-comment"># exec格式：RUN ["./test.php","dev","offline"]</span><br>                <span class="hljs-comment"># ["可执行文件"，"param1"，：param2]</span><br>                <span class="hljs-comment"># shell格式：RUN yum install -y vim</span><br>ADD 			<span class="hljs-comment"># 将宿主机目录下的文件拷贝进镜像，并且会自动处理url和解压tar压缩包</span><br>COPY			<span class="hljs-comment"># 类似ADD，将文件拷贝到镜像, COPY 源路径 目的路径</span><br>WORKDIR			<span class="hljs-comment"># 登录进来的目录</span><br>USER			<span class="hljs-comment"># 指定镜像以什么样的用户去执行，默认为root</span><br>VOLUME			<span class="hljs-comment"># 挂载的目录</span><br>EXPOSE			<span class="hljs-comment"># 暴露端口配置,只是便于在元数据中展示，实际没用</span><br>ONBUILD			<span class="hljs-comment"># 当构建一个被继承DockerFile时就会自动触发</span><br>CMD				<span class="hljs-comment"># 注意，可以指定多个CMD，但是只有最后一个生效，docker run后的命令比如bin/bash会替换				 </span><br>				<span class="hljs-comment"># 掉他。CMD是在docker run的时候运行，RUN是在docker build的时候运行</span><br>ENTRYPOINT		<span class="hljs-comment"># 类似CMD，但是ENTRYPOINT不会被docker run后的命令覆盖，而且这些命令行参数会被当作ENTRYPOINT指令的参数</span><br>				<span class="hljs-comment"># 若同时指定ENTRYPOINT，则CMD的含义发生了变化，不再是直接运行其命令，而是将CMD的内容作为参数传递给ENTRYPOINT指令</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="EG-1-多阶段构建"><a href="#EG-1-多阶段构建" class="headerlink" title="EG.1-多阶段构建"></a>EG.1-多阶段构建</h3><p>在build阶段安装了编译工具和依赖项，复制了应用程序的源代码，安装了Python依赖项，并且编译了应用程序。</p>
+<h3 id="eg.1-多阶段构建">EG.1-多阶段构建</h3>
+<p>在build阶段安装了编译工具和依赖项，复制了应用程序的源代码，安装了Python依赖项，并且编译了应用程序。</p>
 <p>在release阶段从第一阶段复制了构建好的应用程序。这个阶段生成的镜像只包含运行时所需的组件，不包含编译工具和依赖项。</p>
 <p>通过这种方式，最终的镜像将比第一阶段的镜像更小，因为它只包含了运行应用程序所需的内容。这提高了镜像的安全性，同时也减小了镜像的大小。</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-comment"># 第一阶段：构建应用程序</span><br><span class="hljs-keyword">FROM</span> python:<span class="hljs-number">3.9</span>-slim-buster as build<br><span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /app</span><br><span class="hljs-comment"># 安装编译工具和依赖项</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> apt-get update &amp;&amp; apt-get install -y build-essential libffi-dev libssl-dev</span><br><span class="hljs-comment"># 复制应用程序的源代码到容器中</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> . .</span><br><span class="hljs-comment"># 安装Python依赖项</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> pip install --no-cache-dir -r requirements.txt</span><br><span class="hljs-comment"># 编译应用程序（假设你的应用程序需要编译）</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> python build.py</span><br><br><span class="hljs-comment"># 第二阶段：最终镜像</span><br><span class="hljs-keyword">FROM</span> python:<span class="hljs-number">3.9</span>-slim-buster as release<br><span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /app</span><br><span class="hljs-comment"># 从第一阶段复制构建好的应用程序到最终镜像</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> --from=build /app /app</span><br><span class="hljs-comment"># 设置环境变量等</span><br><span class="hljs-comment"># 最终镜像只包含运行时所需的组件</span><br><span class="hljs-keyword">CMD</span><span class="language-bash"> [<span class="hljs-string">"python"</span>, <span class="hljs-string">"app.py"</span>]</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="六、网络"><a href="#六、网络" class="headerlink" title="六、网络"></a>六、网络</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker network ls # 列出网络<br>docker network create name network # 创建网络<br>docker network rm name # 移除网络<br>docker network inspect xxx # 查看网络<br><span class="hljs-meta prompt_"># </span><span class="language-bash">docker 自定义网络支持通过主机名访问其他主机</span><br></code></pre></td></tr></table></figure>
-
+<h2 id="六网络">六、网络</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker network ls # 列出网络<br>docker network create name network # 创建网络<br>docker network rm name # 移除网络<br>docker network inspect xxx # 查看网络<br><span class="hljs-meta prompt_"># </span><span class="language-bash">docker 自定义网络支持通过主机名访问其他主机</span><br></code></pre></td></tr></table></figure>
 <p>若同时创建多个容器，比如指定容器名为web1，web2。他们默认都会连接到桥接网络，但是并不会提供DNS解析服务，也就是无法根据对应的容器名找到对应的IP地址。只有自己指定一个网络，才会为其设置DNS服务，使得容器名可以对应IP地址。</p>
-<h2 id="七、Docker-compose"><a href="#七、Docker-compose" class="headerlink" title="七、Docker-compose"></a>七、Docker-compose</h2><blockquote>
+<h2 id="七docker-compose">七、Docker-compose</h2>
+<blockquote>
 <p>定义: 是Docker官方的开源项目，负责实现Docker容器集群的快速编排。</p>
 <p>应用场景：比如在启动Web服务前，需要先启动MySQL服务，涉及到了容器的启动顺序问题。</p>
 </blockquote>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs Yaml"><span class="hljs-attr">version:</span> <span class="hljs-string">'3'</span><br><span class="hljs-attr">services:</span><br>  <span class="hljs-attr">redis_container:</span><br>    <span class="hljs-attr">build:</span> <span class="hljs-string">.</span><br>    <span class="hljs-attr">ports:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">"6379:6379"</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">"8888:22"</span><br>    <span class="hljs-attr">volumes:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">/path/to/your/physical/file:/path/inside/container</span> <br></code></pre></td></tr></table></figure>
-
 <p><code>build</code>和<code>image</code>字段:</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2217cfed29d7">https://www.jianshu.com/p/2217cfed29d7</a></p>
+<p>参考：https://www.jianshu.com/p/2217cfed29d7</p>
 <p>若仅仅使用image字段，则会首先查找有无该image，若无则去pull该image</p>
 <p>若仅仅使用build字段，则会build该镜像</p>
 <p>build后可以仅仅加上Dockerfile的目录，</p>
 <p>也可以通过下面这种方式设置</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs YML"><span class="hljs-attr">build:</span><br> <span class="hljs-attr">context:</span> <span class="hljs-string">../</span><br> <span class="hljs-attr">dockerfile:</span> <span class="hljs-string">xxx</span><br></code></pre></td></tr></table></figure>
-
 <p>若同时指定了image和build，则build的镜像会重命名为image字段设置的值</p>
 <p><code>restart: always</code></p>
 <p>该选项可以让docker-compose重启指定容器始终保持运行。如果容器因为某些原因停止运行，docker-compose将会自动重启它。</p>
 <p><code>depends_on</code></p>
 <p>它指定了一个或多个服务依赖于其他服务，以确保在启动依赖服务之前，必须先启动它们</p>
-<h2 id="八、其它问题"><a href="#八、其它问题" class="headerlink" title="八、其它问题"></a>八、其它问题</h2><p>千古问题：Is the docker daemon running?</p>
+<h2 id="八其它问题">八、其它问题</h2>
+<p>千古问题：Is the docker daemon running?</p>
 <p>彻底解决：</p>
 <p>查看当前有哪些关于docker的包：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">dpkg -l | grep -i docker<br></code></pre></td></tr></table></figure>
-
 <p>然后删除</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get purge -y xxx<br>sudo apt-get autoremove -y --purge xxx<br></code></pre></td></tr></table></figure>
-
 <p>然后重新安装</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://askubuntu.com/questions/935569/how-to-completely-uninstall-docker">https://askubuntu.com/questions/935569/how-to-completely-uninstall-docker</a></p>
+<p>参考：https://askubuntu.com/questions/935569/how-to-completely-uninstall-docker</p>
 
                 
               </div>

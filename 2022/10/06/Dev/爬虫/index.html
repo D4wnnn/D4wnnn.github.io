@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="爬虫前言链接： 【爬虫1000集】目前B站最完整的爬虫教程，包含所有干货内容！这还没人看，我不更了！_哔哩哔哩_bilibili Python并发编程简介_哔哩哔哩_bilibili index_img: img&#x2F;article_img_1.jpg 一、Python标准库爬虫 1234567891011import urllib.requesturl &#x3D; &quot;https:&#x2F;&#x2F;www.baidu.co">
+    <meta name="description" content="爬虫 前言 链接： 【爬虫1000集】目前B站最完整的爬虫教程，包含所有干货内容！这还没人看，我不更了！_哔哩哔哩_bilibili Python并发编程简介_哔哩哔哩_bilibili index_img: img&#x2F;article_img_1.jpg 一、Python标准库爬虫  1234567891011import urllib.requesturl &#x3D; &quot;https:&#x2F;&#x2F;w">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬虫">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/10/06/Dev/%E7%88%AC%E8%99%AB/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="爬虫前言链接： 【爬虫1000集】目前B站最完整的爬虫教程，包含所有干货内容！这还没人看，我不更了！_哔哩哔哩_bilibili Python并发编程简介_哔哩哔哩_bilibili index_img: img&#x2F;article_img_1.jpg 一、Python标准库爬虫 1234567891011import urllib.requesturl &#x3D; &quot;https:&#x2F;&#x2F;www.baidu.co">
+<meta property="og:description" content="爬虫 前言 链接： 【爬虫1000集】目前B站最完整的爬虫教程，包含所有干货内容！这还没人看，我不更了！_哔哩哔哩_bilibili Python并发编程简介_哔哩哔哩_bilibili index_img: img&#x2F;article_img_1.jpg 一、Python标准库爬虫  1234567891011import urllib.requesturl &#x3D; &quot;https:&#x2F;&#x2F;w">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://images.unsplash.com/photo-1458022479614-14737487b68c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTcxNTExMjk5Mg&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600">
 <meta property="article:published_time" content="2022-10-06T03:36:45.000Z">
@@ -444,13 +444,15 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>链接：</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1bL4y1V7q1?from=search&seid=2448060334540027731&spm_id_from=333.337.0.0&vd_source=bf133d296119691c661008e881da330a">【爬虫1000集】目前B站最完整的爬虫教程，包含所有干货内容！这还没人看，我不更了！_哔哩哔哩_bilibili</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1bK411A7tV?p=1&vd_source=bf133d296119691c661008e881da330a">Python并发编程简介_哔哩哔哩_bilibili</a></p>
+                <h1 id="爬虫">爬虫</h1>
+<h3 id="前言">前言</h3>
+<p>链接：</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1bL4y1V7q1?from=search&amp;seid=2448060334540027731&amp;spm_id_from=333.337.0.0&amp;vd_source=bf133d296119691c661008e881da330a">【爬虫1000集】目前B站最完整的爬虫教程，包含所有干货内容！这还没人看，我不更了！_哔哩哔哩_bilibili</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1bK411A7tV?p=1&amp;vd_source=bf133d296119691c661008e881da330a">Python并发编程简介_哔哩哔哩_bilibili</a></p>
 <p>index_img: img/article_img_1.jpg</p>
-<h3 id="一、Python标准库爬虫"><a href="#一、Python标准库爬虫" class="headerlink" title="一、Python标准库爬虫"></a>一、Python标准库爬虫</h3><blockquote>
+<h3 id="一python标准库爬虫">一、Python标准库爬虫</h3>
+<blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> urllib.request<br><br>url = <span class="hljs-string">"https://www.baidu.com"</span><br>headers = {<br>    <span class="hljs-string">'User-Agent'</span>: <span class="hljs-string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36'</span><br>}<br>request = urllib.request.Request(url=url, headers=headers)  <span class="hljs-comment"># 定制请求对象</span><br>html = urllib.request.urlopen(url)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(html))  <span class="hljs-comment"># &lt;class 'http.client.HTTPResponse'&gt;</span><br><span class="hljs-built_in">print</span>(html.getheaders())  <span class="hljs-comment"># 获取headers</span><br>urllib.request.urlretrieve(url=url, filename=<span class="hljs-string">"baidu.html"</span>)  <span class="hljs-comment"># 下载网页/图片</span><br></code></pre></td></tr></table></figure>
-
 <p>汉字变成Unicode编码</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> urllib.parse<br><br>name = urllib.parse.quote(<span class="hljs-string">"张"</span>)<br><span class="hljs-built_in">print</span>(name)<br><span class="hljs-comment"># %E5%BC%A0</span><br></code></pre></td></tr></table></figure>
 </blockquote>
@@ -462,48 +464,54 @@ mjx-container[display="true"] + br {
 <blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> json<br><span class="hljs-keyword">import</span> urllib.parse<br><span class="hljs-keyword">import</span> urllib.request<br><br>url = <span class="hljs-string">"https://fanyi.baidu.com/sug"</span><br>data = {<br>    <span class="hljs-string">"kw"</span>: <span class="hljs-string">"hello"</span><br>}<br>headers = {<br>    <span class="hljs-string">'User-Agent'</span>: <span class="hljs-string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36'</span>,<br>}<br>data = urllib.parse.urlencode(data).encode(<span class="hljs-string">"utf-8"</span>)<br>request = urllib.request.Request(url=url, data=data, headers=headers)<br>html = urllib.request.urlopen(request)<br><span class="hljs-built_in">print</span>(json.loads(html.read().decode(<span class="hljs-string">"utf-8"</span>)))<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="二、Requests"><a href="#二、Requests" class="headerlink" title="二、Requests"></a>二、Requests</h3><blockquote>
+<h3 id="二requests">二、Requests</h3>
+<blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><br>url = <span class="hljs-string">"https://fanyi.baidu.com/sug"</span><br>headers = {<br>    <span class="hljs-string">'User-Agent'</span>: <span class="hljs-string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36'</span><br>}<br>data = {<br>    <span class="hljs-string">"kw"</span>: <span class="hljs-string">"day"</span><br>}<br>html = requests.post(url=url, headers=headers, data=data)<br><span class="hljs-built_in">print</span>(html.json())<br>html.close()<br></code></pre></td></tr></table></figure>
-
 <p>XHR一般都是Ajax请求</p>
 </blockquote>
-<h3 id="三、数据解析"><a href="#三、数据解析" class="headerlink" title="三、数据解析"></a>三、数据解析</h3><h4 id="3-1-Re解析"><a href="#3-1-Re解析" class="headerlink" title="3.1 Re解析"></a>3.1 Re解析</h4><blockquote>
+<h3 id="三数据解析">三、数据解析</h3>
+<h4 id="re解析">3.1 Re解析</h4>
+<blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>s = <span class="hljs-string">"我的年龄是19,我的ID是1314"</span><br>obj = re.<span class="hljs-built_in">compile</span>(<span class="hljs-string">r"\d+"</span>)  <span class="hljs-comment"># 预编译正则语句</span><br><span class="hljs-built_in">print</span>(obj.findall(s))  <span class="hljs-comment"># 查找所有</span><br>iterator = obj.finditer(s)  <span class="hljs-comment"># 返回迭代器,效率较高</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> iterator:<br>    <span class="hljs-built_in">print</span>(i.group())<br><span class="hljs-built_in">print</span>(obj.<span class="hljs-keyword">match</span>(s))  <span class="hljs-comment"># 从头开始匹配</span><br><span class="hljs-built_in">print</span>(obj.search(s))  <span class="hljs-comment"># 只匹配一次</span><br></code></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>s = <span class="hljs-string">"""</span><br><span class="hljs-string">&lt;span class="video" id="1" src="url1"&gt;测试1&lt;/span&gt;</span><br><span class="hljs-string">&lt;span class="video" id="2" src="url2"&gt;测试2&lt;/span&gt;</span><br><span class="hljs-string">&lt;span class="video" id="3" src="url3"&gt;测试3&lt;/span&gt;</span><br><span class="hljs-string">"""</span><br>obj = re.<span class="hljs-built_in">compile</span>(<span class="hljs-string">r'&lt;span class="video" id="(?P&lt;ID&gt;\d+)" src=".*?"&gt;(?P&lt;Test&gt;.*?)&lt;/span&gt;'</span>, re.S)<br><span class="hljs-comment"># re.S让.能匹配换行符</span><br><span class="hljs-comment"># ?P&lt;分组名称&gt;</span><br>iterator = obj.finditer(s)<br><span class="hljs-keyword">for</span> it <span class="hljs-keyword">in</span> iterator:<br>    <span class="hljs-built_in">print</span>(it.group(<span class="hljs-string">"ID"</span>))<br>    <span class="hljs-built_in">print</span>(it.group(<span class="hljs-string">"Test"</span>))<br><br></code></pre></td></tr></table></figure>
-
 <p>实战-豆瓣Top250</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><span class="hljs-keyword">import</span> csv<br><span class="hljs-keyword">import</span> requests<br><br>base_url = <span class="hljs-string">"https://movie.douban.com/top250?start=0&amp;filter="</span><br>headers = {<br>    <span class="hljs-string">"User-Agent"</span>: <span class="hljs-string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.81 Safari/537.36 Edg/104.0.1293.54"</span><br>}<br>html = requests.get(url=base_url, headers=headers)<br>obj = re.<span class="hljs-built_in">compile</span>(<span class="hljs-string">r'&lt;span class="title"&gt;(?P&lt;title&gt;.*?)&lt;/span&gt;.*?'</span><br>                 <span class="hljs-string">r'&lt;span class="rating_num" property="v:average"&gt;(?P&lt;score&gt;.*?)&lt;/span&gt;.*?'</span><br>                 <span class="hljs-string">r'&lt;span&gt;(?P&lt;num&gt;.*?)人评价&lt;/span&gt;.*?'</span><br>                 <span class="hljs-string">r' &lt;span class="inq"&gt;(?P&lt;quote&gt;.*?)&lt;/span&gt;'</span>, re.S)<br>iterator = obj.finditer(html.text)<br>f = <span class="hljs-built_in">open</span>(<span class="hljs-string">"doubanTop250.csv"</span>, <span class="hljs-string">"w"</span>, encoding=<span class="hljs-string">"utf-8"</span>)<br>csvWriter = csv.writer(f)<br><span class="hljs-keyword">for</span> it <span class="hljs-keyword">in</span> iterator:<br>    row = it.groupdict()<br>    csvWriter.writerow(row.values())<br>html.close()<br>f.close()<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h4 id="3-2-Bs4解析"><a href="#3-2-Bs4解析" class="headerlink" title="3.2 Bs4解析"></a>3.2 Bs4解析</h4><blockquote>
-<p>bs4解析主要是通过标签名和属性解析   </p>
+<h4 id="bs4解析">3.2 Bs4解析</h4>
+<blockquote>
+<p>bs4解析主要是通过标签名和属性解析</p>
 </blockquote>
 <blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">html.find(<span class="hljs-string">"table"</span>,class_=<span class="hljs-string">"test"</span>) <span class="hljs-comment"># class_即class，此处的下划线是为了避免冲突</span><br><span class="hljs-comment"># 或者</span><br>html.find(<span class="hljs-string">"table"</span>,attrs={<br>    <span class="hljs-string">"class"</span>: <span class="hljs-string">"test"</span><br>})<br>test.text <span class="hljs-comment"># 拿到文本标签内容</span><br>test.get(<span class="hljs-string">"class"</span>) <span class="hljs-comment"># 拿到特定属性的值</span><br></code></pre></td></tr></table></figure>
 </blockquote>
-<h4 id="3-3-Xpath解析"><a href="#3-3-Xpath解析" class="headerlink" title="3.3 Xpath解析"></a>3.3 Xpath解析</h4><blockquote>
+<h4 id="xpath解析">3.3 Xpath解析</h4>
+<blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># //表示后代</span><br><span class="hljs-comment"># text()取文本</span><br>/book/author/*/nick[<span class="hljs-number">1</span>]/text() *表示任意节点 [<span class="hljs-number">1</span>]表示第一个(xpath是从第一个开始数的)<br>/book/author/*/nick[@<span class="hljs-keyword">class</span>=<span class="hljs-string">"test"</span>]/text() 查找特定属性<br>若从子节点查找xpath：./xxxxxx<br>若查找属性xpath：/book/author/@href<br><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree<br>tree = etree.parse(<span class="hljs-string">"index.html"</span>)<br>tree.xpath(<span class="hljs-string">"/"</span>)<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="四、Requests进阶"><a href="#四、Requests进阶" class="headerlink" title="四、Requests进阶"></a>四、Requests进阶</h3><h4 id="4-1-处理Cookie"><a href="#4-1-处理Cookie" class="headerlink" title="4.1 处理Cookie"></a>4.1 处理Cookie</h4><blockquote>
+<h3 id="四requests进阶">四、Requests进阶</h3>
+<h4 id="处理cookie">4.1 处理Cookie</h4>
+<blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">session = requests.session()<br>session.post()<br>session.get()<br><span class="hljs-comment"># 或者采用如下方式</span><br>requests.post(url,headers = {<br>    <span class="hljs-string">"Cookie"</span>: <span class="hljs-string">"xxx"</span><br>})<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h4 id="4-2-防盗链"><a href="#4-2-防盗链" class="headerlink" title="4.2 防盗链"></a>4.2 防盗链</h4><blockquote>
-<p>审查元素和页面源代码是有偏差的，审查元素部分代码是js脚本生成的<br>防盗链需要加上Referer字段</p>
+<h4 id="防盗链">4.2 防盗链</h4>
+<blockquote>
+<p>审查元素和页面源代码是有偏差的，审查元素部分代码是js脚本生成的
+防盗链需要加上Referer字段</p>
 </blockquote>
-<h4 id="4-3-代理"><a href="#4-3-代理" class="headerlink" title="4.3 代理"></a>4.3 代理</h4><blockquote>
+<h4 id="代理">4.3 代理</h4>
+<blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">proxies = {<br>    <span class="hljs-string">"https"</span>: <span class="hljs-string">"socks5://127.0.0.1:10808"</span>,<br>    <span class="hljs-string">"http"</span>: <span class="hljs-string">"socks5://127.0.0.1:10808"</span><br>}<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="五、并发编程"><a href="#五、并发编程" class="headerlink" title="五、并发编程"></a>五、并发编程</h3><blockquote>
+<h3 id="五并发编程">五、并发编程</h3>
+<blockquote>
 <p>并发编程分为两种应用场景</p>
 <ul>
 <li><p>CPU密集型</p>
 <p>指的是I/O在很短时间内就可以完成，主要是CPU进行大量的计算，特点是CPU占用率比较高</p>
-<p>比如：解压缩，加解密，正则表达式搜索</p>
-</li>
+<p>比如：解压缩，加解密，正则表达式搜索</p></li>
 <li><p>IO密集型</p>
 <p>指的是系统在运行过程中大部分时间在等待IO操作</p>
-<p>比如：文件处理程序，爬虫，读写数据库</p>
-</li>
+<p>比如：文件处理程序，爬虫，读写数据库</p></li>
 </ul>
 <p>一个进程可以启动n个线程，一个线程可以启动n个协程</p>
 <p>相比协程，线程的启动数目有限制，有线程切换开销</p>
@@ -511,49 +519,41 @@ mjx-container[display="true"] + br {
 <ul>
 <li><p>多进程</p>
 <p>可以多核，真正并行</p>
-<p>适用于CPU密集型计算</p>
-</li>
+<p>适用于CPU密集型计算</p></li>
 <li><p>多线程</p>
-<p>适用于IO密集型计算，同时运行的任务数目不多</p>
-</li>
+<p>适用于IO密集型计算，同时运行的任务数目不多</p></li>
 <li><p>多协程</p>
 <p>支持的库有限制</p>
-<p>适用于IO密集型计算，需要超多任务并行</p>
-</li>
+<p>适用于IO密集型计算，需要超多任务并行</p></li>
 </ul>
 </blockquote>
-<h4 id="5-1、多线程"><a href="#5-1、多线程" class="headerlink" title="5.1、多线程"></a>5.1、多线程</h4><blockquote>
+<h4 id="多线程">5.1、多线程</h4>
+<blockquote>
 <p>进程是分配资源的最小单位</p>
 <p>线程是程序执行的最小单位，多线程更加节省资源</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python">进程是资源单位<br>线程是执行单位<br><span class="hljs-keyword">from</span> threading <span class="hljs-keyword">import</span> Thread<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>():<br>    <span class="hljs-keyword">for</span> ii <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10000</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f"func<span class="hljs-subst">{ii}</span>"</span>)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    thread = Thread(target=func)<br>    thread.start()  <span class="hljs-comment"># 多线程状态设置为可以开始状态，具体的执行时间由cpu决定</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10000</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f"main<span class="hljs-subst">{i}</span>"</span>)<br></code></pre></td></tr></table></figure>
-
 <p>第二种写法</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> threading <span class="hljs-keyword">import</span> Thread<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyThread</span>(<span class="hljs-title class_ inherited__">Thread</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">run</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">for</span> ii <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10000</span>):<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">f"func<span class="hljs-subst">{ii}</span>"</span>)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    thread = MyThread()<br>    thread.start()  <span class="hljs-comment"># 多线程状态设置为可以开始状态，具体的执行时间由cpu决定</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10000</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f"main<span class="hljs-subst">{i}</span>"</span>)<br>这是第二种写法<br></code></pre></td></tr></table></figure>
-
 <p>多线程传递参数</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> threading <span class="hljs-keyword">import</span> Thread<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>(<span class="hljs-params">name</span>):<br>    <span class="hljs-keyword">for</span> ii <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10000</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f"<span class="hljs-subst">{name}</span><span class="hljs-subst">{ii}</span>"</span>)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    thread1 = Thread(target=func, args=(<span class="hljs-string">"张"</span>,)) 参数必须是元组<br>    thread1.start()<br>    thread2 = Thread(target=func, args=(<span class="hljs-string">"陈"</span>,))<br>    thread2.start()<br>多线程传递参数<br></code></pre></td></tr></table></figure>
-
 <p>设置守护主线程</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">m = Thread(target=func(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>),daemon=<span class="hljs-literal">True</span>)<br>或者<br>m.setDaemon(<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure>
-
 <p>线程之间的执行顺序是无序的</p>
 <p>线程之间的通信<code>queue.Queue()</code></p>
 <p>线程安全问题的解决：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> threading<br><span class="hljs-keyword">import</span> time<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Account</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, balance</span>):<br>        self.balance = balance<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">draw</span>(<span class="hljs-params">account: Account, amount</span>):<br>    <span class="hljs-keyword">with</span> lock:<br>        <span class="hljs-keyword">if</span> account.balance &gt;= amount:<br>            time.sleep(<span class="hljs-number">1</span>)<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">"取钱成功"</span>)<br>            account.balance -= amount<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">"余额为："</span>, account.balance)<br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">"取钱失败"</span>)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    account = Account(<span class="hljs-number">1000</span>)<br>    lock = threading.Lock()<br>    ta = threading.Thread(target=draw, args=(account, <span class="hljs-number">500</span>))<br>    tb = threading.Thread(target=draw, args=(account, <span class="hljs-number">600</span>))<br>    ta.start()<br>    tb.start() <br></code></pre></td></tr></table></figure>
-
 <p>获取返回参数只能通过queue间接获取</p>
 </blockquote>
-<h4 id="5-2、多进程"><a href="#5-2、多进程" class="headerlink" title="5.2、多进程"></a>5.2、多进程</h4><blockquote>
+<h4 id="多进程">5.2、多进程</h4>
+<blockquote>
 <p>进程是操作系统进行资源分配和调度运行的基本单位，一个程序至少有一个进程</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> Process<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>():<br>    <span class="hljs-keyword">for</span> ii <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1000</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"多进程"</span>, ii)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    pro = Process(target=func)<br>    <span class="hljs-comment"># target：执行的目标函数</span><br>    <span class="hljs-comment"># name：进程名，一般不设置</span><br>    <span class="hljs-comment"># group：进程组</span><br>    pro.start()<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1000</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"主进程"</span>, i)<br></code></pre></td></tr></table></figure>
-
 <p>如何传递参数？</p>
 <ul>
 <li>args：以元组形式传递</li>
 <li>kwargs：以字典形式传递</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">m = Process(target=func, args=(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>))<br>n = Process(target=func(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>))<br></code></pre></td></tr></table></figure>
-
 <p>如何获取进程编号?</p>
 <ul>
 <li><code>os.getpid()</code>获取当前进程编号</li>
@@ -562,10 +562,10 @@ mjx-container[display="true"] + br {
 <p>主进程会等待所有子进程执行结束再结束</p>
 <p>如何设置守护主进程？也就是主进程关闭后所有进程直接销毁</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">m = Process(target=func(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>))<br>m.daemon = <span class="hljs-literal">True</span><br>m.start()<br></code></pre></td></tr></table></figure>
-
 <p><code>thread.join()会阻塞当前线程（通常是主线程），直到被调用的线程执行完毕</code></p>
 </blockquote>
-<h4 id="5-3、线程池和进程池"><a href="#5-3、线程池和进程池" class="headerlink" title="5.3、线程池和进程池"></a>5.3、线程池和进程池</h4><blockquote>
+<h4 id="线程池和进程池">5.3、线程池和进程池</h4>
+<blockquote>
 <p>原理：新建线程系统需要分配资源，终止线程系统需要回收资源，如果可以重用线程，则可以减去新建/终止的开销</p>
 <p>一次性开辟一些线程，用户直接给线程池提交任务</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> concurrent.futures <span class="hljs-keyword">import</span> ProcessPoolExecutor, ThreadPoolExecutor<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>(<span class="hljs-params">name</span>):<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1000</span>):<br>        <span class="hljs-built_in">print</span>(name, i)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    <span class="hljs-keyword">with</span> ThreadPoolExecutor(<span class="hljs-number">61</span>) <span class="hljs-keyword">as</span> t:<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">500</span>):<br>            t.submit(func, name=<span class="hljs-string">"张"</span>)<br></code></pre></td></tr></table></figure>
@@ -574,96 +574,85 @@ mjx-container[display="true"] + br {
 <blockquote>
 <p>blog_spider.py</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># https://www.cnblogs.com/#p2</span><br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br><br>urls = [<span class="hljs-string">f'https://www.cnblogs.com/#p<span class="hljs-subst">{i}</span>'</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>)]<br><br><br><span class="hljs-comment"># 抓取网页源代码</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">craw</span>(<span class="hljs-params">url</span>):<br>    html = requests.get(url)<br>    <span class="hljs-keyword">return</span> html.text<br><br><br><span class="hljs-comment"># 利用bs4解析</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">parse</span>(<span class="hljs-params">html</span>):<br>    soup = BeautifulSoup(html, <span class="hljs-string">"html.parser"</span>)<br>    contents = soup.find_all(<span class="hljs-string">"a"</span>, class_=<span class="hljs-string">'post-item-title'</span>)<br>    result = []<br>    <span class="hljs-keyword">for</span> content <span class="hljs-keyword">in</span> contents:<br>        a = content.text<br>        b = content.get(<span class="hljs-string">'href'</span>)<br>        result.append({a: b})<br>    <span class="hljs-keyword">return</span> result<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    parse(craw(urls[<span class="hljs-number">0</span>]))<br></code></pre></td></tr></table></figure>
-
 <p>thread_pool.py</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> blog_spider<br><span class="hljs-keyword">import</span> concurrent.futures<br><br><span class="hljs-comment"># craw</span><br><span class="hljs-keyword">with</span> concurrent.futures.ThreadPoolExecutor() <span class="hljs-keyword">as</span> pool:<br>    <span class="hljs-comment"># 遍历方式一:map的结果和和入参的顺序是对应的,也就是说htmls是有序的</span><br>    htmls = pool.<span class="hljs-built_in">map</span>(blog_spider.craw, blog_spider.urls)<br>    htmls = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">zip</span>(blog_spider.urls, htmls))<br><br><span class="hljs-comment"># parse</span><br><span class="hljs-keyword">with</span> concurrent.futures.ThreadPoolExecutor() <span class="hljs-keyword">as</span> pool:<br>    futures = {}<br>    <span class="hljs-keyword">for</span> url, html <span class="hljs-keyword">in</span> htmls:<br>        <span class="hljs-comment"># 遍历方式二:这个是一个一个提交</span><br>        future = pool.submit(blog_spider.parse, html)<br>        futures[url] = future<br>    <span class="hljs-keyword">for</span> url, future <span class="hljs-keyword">in</span> futures.items():<br>        <span class="hljs-built_in">print</span>(url, future.result())<br></code></pre></td></tr></table></figure>
 </blockquote>
 <p>进程池</p>
 <blockquote>
-<p>GIL，全称是Global Interpreter Lock，是Python解释器的一个重要特性。它是一个互斥锁，用于确保在任何给定时间只有一个线程在解释器中运行。这意味着，即使在多核CPU上运行Python程序，由于GIL的存在，每个时刻只有一个CPU核心能够真正运行Python字节码，为了解决GIL带来的缺陷，引入了多进程。</p>
+<p>GIL，全称是Global Interpreter
+Lock，是Python解释器的一个重要特性。它是一个互斥锁，用于确保在任何给定时间只有一个线程在解释器中运行。这意味着，即使在多核CPU上运行Python程序，由于GIL的存在，每个时刻只有一个CPU核心能够真正运行Python字节码，为了解决GIL带来的缺陷，引入了多进程。</p>
 <p>在Flask中如何使用进程池进行CPU密集型计算?</p>
 <p>将进程池的定义放在main函数中,且在<code>app.run()</code>之前</p>
-<p><img src="/2022/10/06/Dev/%E7%88%AC%E8%99%AB/image-20230304150928879.png" srcset="/img/loading.gif" lazyload alt="image-20230304150928879"></p>
+<figure>
+<img src="/2022/10/06/Dev/%E7%88%AC%E8%99%AB/image-20230304150928879.png" srcset="/img/loading.gif" lazyload alt="image-20230304150928879">
+<figcaption aria-hidden="true">image-20230304150928879</figcaption>
+</figure>
 </blockquote>
-<h4 id="5-4、协程"><a href="#5-4、协程" class="headerlink" title="5.4、协程"></a>5.4、协程</h4><h5 id="5-4-1-Yield"><a href="#5-4-1-Yield" class="headerlink" title="5.4.1 Yield"></a>5.4.1 Yield</h5><blockquote>
+<h4 id="协程">5.4、协程</h4>
+<h5 id="yield">5.4.1 Yield</h5>
+<blockquote>
 <ul>
 <li><p>介绍：</p>
 <ul>
-<li><p>带有yield的函数不再是一个普通函数，而是一个生成器，可以用于迭代</p>
-</li>
-<li><p>类似return，迭代遇到一次yield就return，直到下一次调用，从上一次遇到yield的地方开始执行</p>
-</li>
-<li><p>若函数里面有yield，若无next()，则函数不会执行！！！</p>
-</li>
-</ul>
-</li>
+<li><p>带有yield的函数不再是一个普通函数，而是一个生成器，可以用于迭代</p></li>
+<li><p>类似return，迭代遇到一次yield就return，直到下一次调用，从上一次遇到yield的地方开始执行</p></li>
+<li><p>若函数里面有yield，若无next()，则函数不会执行！！！</p></li>
+</ul></li>
 <li><p>举例一：理解生成器</p>
 <p>在下面的代码中，<code>func</code>函数并不会执行！！！因为有<code>yield</code>，函数变成了生成器</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-number">1</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-number">2</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-number">3</span>)<br>    <span class="hljs-keyword">yield</span> <span class="hljs-number">4</span><br>    <span class="hljs-keyword">yield</span> <span class="hljs-number">5</span><br>    <span class="hljs-keyword">yield</span> <span class="hljs-number">6</span><br><br><br>func()<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-number">1</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-number">2</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-number">3</span>)<br>    <span class="hljs-keyword">yield</span> <span class="hljs-number">4</span><br>    <span class="hljs-keyword">yield</span> <span class="hljs-number">5</span><br>    <span class="hljs-keyword">yield</span> <span class="hljs-number">6</span><br><br><br>func()<br></code></pre></td></tr></table></figure></li>
 <li><p>举例二：理解有<code>yield</code>的函数的执行过程</p>
 <p>首先第一次调用<code>next()</code>，执行到<code>res = yield 4</code>，生成器返回4，后面再次调用<code>next(g)</code>的时候，<code>res</code>并没有接收到任何值！！！</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"starting..."</span>)<br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        res = <span class="hljs-keyword">yield</span> <span class="hljs-number">4</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"res:"</span>, res)<br><br><br>g = func()<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(g))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">"*"</span> * <span class="hljs-number">20</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(g))<br><span class="hljs-string">"""</span><br><span class="hljs-string">starting...</span><br><span class="hljs-string">4</span><br><span class="hljs-string">********************</span><br><span class="hljs-string">res: None</span><br><span class="hljs-string">4</span><br><span class="hljs-string">"""</span><br></code></pre></td></tr></table></figure>
-
-<p>若想让<code>res</code>接收到参数，可以这样修改代码：<code>g.send(666)</code>，然后<code>res</code>就能接收到666</p>
-</li>
+<p>若想让<code>res</code>接收到参数，可以这样修改代码：<code>g.send(666)</code>，然后<code>res</code>就能接收到666</p></li>
 </ul>
 <p><code>yield</code>参考资料：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mieleizhi0522/article/details/82142856">python中yield的用法详解——最简单，最清晰的解释</a></p>
 </blockquote>
-<h5 id="5-4-2-Asyncio"><a href="#5-4-2-Asyncio" class="headerlink" title="5.4.2 Asyncio"></a>5.4.2 Asyncio</h5><blockquote>
+<h5 id="asyncio">5.4.2 Asyncio</h5>
+<blockquote>
 <ul>
-<li><p>协程：在单线程内实现并发</p>
-</li>
-<li><p>意义：当程序遇见io操作的时候，可以选择性的切换到其他任务上</p>
-</li>
-<li><p><code>async</code>：修饰函数时，代表这个函数可以暂停，是协程函数，也就是遇到堵塞的时候去执行其它程序； 执行协程函数的时候，必须把协程对象交给<code>事件循环</code>处理</p>
-</li>
-<li><p><code>await</code>：后面是可以等待的对象，等待到对象的返回结果，才会继续执行后续代码</p>
-</li>
-<li><p><code>await with</code>：用于异步上下文管理器对象，进入代码块之前获取资源，代码块执行完毕后释放资源</p>
-</li>
+<li><p>协程：在单线程内实现并发</p></li>
+<li><p>意义：当程序遇见io操作的时候，可以选择性的切换到其他任务上</p></li>
+<li><p><code>async</code>：修饰函数时，代表这个函数可以暂停，是协程函数，也就是遇到堵塞的时候去执行其它程序；
+执行协程函数的时候，必须把协程对象交给<code>事件循环</code>处理</p></li>
+<li><p><code>await</code>：后面是可以等待的对象，等待到对象的返回结果，才会继续执行后续代码</p></li>
+<li><p><code>await with</code>：用于异步上下文管理器对象，进入代码块之前获取资源，代码块执行完毕后释放资源</p></li>
 <li><p>在<code>asyncio</code>中，运行协程函数的方式有三种：</p>
 <ul>
 <li><p><code>await 协程函数()</code>：通常是在一个协程中调用另一个协程，注意，这个一定出现在协程函数中，普通函数是不行的</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">await</span> download(<span class="hljs-number">1</span>)<br><span class="hljs-keyword">await</span> download(<span class="hljs-number">2</span>)<br><span class="hljs-comment"># 此时download()返回的是协程对象：&lt;class 'coroutine'&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p>上面这种情况会按顺序执行，因为虽然是协程函数，但是没有任何调度算法，也就是统一管理</p>
-</li>
-<li><p><code>asyncio.run()</code>：必须出现在非协程函数中，一般用于执行最顶层的入口函数，可以看做是一切的调度者</p>
-</li>
-<li><p><code>asyncio.create_task()</code>：将协程对象封装为<code>Task</code>，一般用于实现异步并发</p>
-</li>
-</ul>
-</li>
+<p>上面这种情况会按顺序执行，因为虽然是协程函数，但是没有任何调度算法，也就是统一管理</p></li>
+<li><p><code>asyncio.run()</code>：必须出现在非协程函数中，一般用于执行最顶层的入口函数，可以看做是一切的调度者</p></li>
+<li><p><code>asyncio.create_task()</code>：将协程对象封装为<code>Task</code>，一般用于实现异步并发</p></li>
+</ul></li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> asyncio<br><br><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">download</span>(<span class="hljs-params">url</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"开始请求"</span>)<br>    <span class="hljs-keyword">await</span> asyncio.sleep(<span class="hljs-number">3</span>)  <span class="hljs-comment"># 模拟网络请求</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"结束请求"</span>)<br><br><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    urls = [<br>        <span class="hljs-string">"https://www.baidu.com"</span>,<br>        <span class="hljs-string">"https://bilibili.com"</span>,<br>        <span class="hljs-string">"https://www.sougou.com"</span><br>    ]<br>    tasks = []<br>    <span class="hljs-keyword">for</span> url <span class="hljs-keyword">in</span> urls:<br>        tmp = asyncio.create_task(download(url))<br>        tasks.append(tmp)<br>    <span class="hljs-keyword">await</span> asyncio.wait(tasks)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>     asyncio.run(main())<br></code></pre></td></tr></table></figure>
-
 <p><code>Asynico</code>参考资料：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43380180/article/details/111573642">Python 异步 async/await（进阶详解）</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43380180/article/details/111573642">Python
+异步 async/await（进阶详解）</a></p>
 <p><a target="_blank" rel="noopener" href="https://ashooter.github.io/2018-11-19/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Python%E7%9A%84asyncio%E5%8D%8F%E7%A8%8B/">深入理解Python的asyncio协程</a></p>
 </blockquote>
-<h5 id="5-4-3-Aiohttp"><a href="#5-4-3-Aiohttp" class="headerlink" title="5.4.3 Aiohttp"></a>5.4.3 Aiohttp</h5><blockquote>
+<h5 id="aiohttp">5.4.3 Aiohttp</h5>
+<blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> asyncio<br><span class="hljs-keyword">import</span> aiohttp<br><br>i1 = <span class="hljs-string">"https://w.wallhaven.cc/full/x8/wallhaven-x8v5mv.jpg"</span><br>i2 = <span class="hljs-string">"https://w.wallhaven.cc/full/dp/wallhaven-dp1w5g.jpg"</span><br>i3 = <span class="hljs-string">"https://w.wallhaven.cc/full/72/wallhaven-7286w9.png"</span><br>urls = [i1, i2, i3]<br><br><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">download</span>(<span class="hljs-params">url</span>):<br>       name = url.split(<span class="hljs-string">"/"</span>)[-<span class="hljs-number">1</span>]<br>       <span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> aiohttp.ClientSession() <span class="hljs-keyword">as</span> session:<br>           <span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> session.get(url) <span class="hljs-keyword">as</span> resp:<br>               <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(name, <span class="hljs-string">"wb"</span>) <span class="hljs-keyword">as</span> f:<br>                   f.write(<span class="hljs-keyword">await</span> resp.content.read())<br><br><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>       tasks = (asyncio.create_task(download(url)) <span class="hljs-keyword">for</span> url <span class="hljs-keyword">in</span> urls)<br>       <span class="hljs-keyword">await</span> asyncio.wait(<span class="hljs-built_in">list</span>(tasks))<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>       asyncio.get_event_loop().run_until_complete(main())<br><br></code></pre></td></tr></table></figure>
 </blockquote>
-<h5 id="5-4-4-信号量"><a href="#5-4-4-信号量" class="headerlink" title="5.4.4 信号量"></a>5.4.4 信号量</h5><blockquote>
+<h5 id="信号量">5.4.4 信号量</h5>
+<blockquote>
 <p>控制并发的最大数量</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">sem = asyncio.Semaphore(<span class="hljs-number">10</span>)<br><span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> sem:<br>    <span class="hljs-comment"># ...</span><br></code></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="六、Selenium"><a href="#六、Selenium" class="headerlink" title="六、Selenium"></a>六、Selenium</h3><blockquote>
+<h3 id="六selenium">六、Selenium</h3>
+<blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium.webdriver <span class="hljs-keyword">import</span> Chrome<br><span class="hljs-keyword">from</span> selenium.webdriver.common.by <span class="hljs-keyword">import</span> By<br><span class="hljs-keyword">from</span> selenium.webdriver.common.keys <span class="hljs-keyword">import</span> Keys<br><span class="hljs-keyword">import</span> time<br><span class="hljs-comment"># 创建浏览器对象</span><br><span class="hljs-comment"># 若点击链接创建了新窗口，selenium是不能切换的</span><br>web = Chrome()<br>web.get(<span class="hljs-string">"https://www.baidu.com"</span>)<br>web.find_element(By.XPATH, <span class="hljs-string">'//*[@id="kw"]'</span>).send_keys(<span class="hljs-string">"python"</span>, Keys.ENTER)<br>time.sleep(<span class="hljs-number">3</span>)<br>web.find_element(By.XPATH, <span class="hljs-string">'//*[@id="2"]/div/div/h3/a'</span>).click()<br>time.sleep(<span class="hljs-number">3</span>)<br>web.switch_to.window(web.window_handles[-<span class="hljs-number">1</span>])<br>time.sleep(<span class="hljs-number">3</span>)<br><span class="hljs-comment"># 关掉子窗口，但是selenium还停留在原始窗口，需要手动切换</span><br>web.close()<br>web.switch_to.window(web.window_handles[<span class="hljs-number">0</span>])<br></code></pre></td></tr></table></figure>
-
 <p>若遇到Iframe则不行，需要进行如下处理</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">web.switch_to.frame(web.find_element(By.XPATH,<span class="hljs-string">'xxx'</span>))<br>web.switch_to.default_content() <span class="hljs-comment"># 返回原窗口</span><br></code></pre></td></tr></table></figure>
-
 <p>若要操作下拉列表，需要导入下面的模块</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium.webdriver.support.select <span class="hljs-keyword">import</span> Select<br>sel = Select(sel_el)<br></code></pre></td></tr></table></figure>
-<p>   无头模式</p>
-<pre><code class="hljs"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium.webdriver <span class="hljs-keyword">import</span> Chrome<br>&gt;<span class="hljs-keyword">from</span> selenium.webdriver.chrome.options <span class="hljs-keyword">import</span> Options<br><br>&gt;opt = Options()<br>opt.add_argument(<span class="hljs-string">"--headless"</span>)<br>opt.add_argument(<span class="hljs-string">"--disable-gpu"</span>)<br>web = Chrome(options=opt)<br>web.get(<span class="hljs-string">"https://www.baidu.com"</span>)<br><span class="hljs-built_in">print</span>(web.title)<br></code></pre></td></tr></table></figure>
-</code></pre>
+<p>无头模式</p>
+<pre><code class="hljs"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium.webdriver <span class="hljs-keyword">import</span> Chrome<br>&gt;<span class="hljs-keyword">from</span> selenium.webdriver.chrome.options <span class="hljs-keyword">import</span> Options<br><br>&gt;opt = Options()<br>opt.add_argument(<span class="hljs-string">"--headless"</span>)<br>opt.add_argument(<span class="hljs-string">"--disable-gpu"</span>)<br>web = Chrome(options=opt)<br>web.get(<span class="hljs-string">"https://www.baidu.com"</span>)<br><span class="hljs-built_in">print</span>(web.title)<br></code></pre></td></tr></table></figure></code></pre>
 <p>如何拿到页面源代码？</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(web.page_source)<br></code></pre></td></tr></table></figure>
-
 <p>检测是否为selenium控制</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">window.navigator.webdriver<br>&gt;若为true如何处理：<br><span class="hljs-keyword">from</span> selenium.webdriver <span class="hljs-keyword">import</span> Chrome<br>&gt;<span class="hljs-keyword">from</span> selenium.webdriver.chrome.options <span class="hljs-keyword">import</span> Options<br><br>opt = Options()<br>opt.add_argument(<span class="hljs-string">"--disable-blink-features=AutomationControlled"</span>)<br>web = Chrome(options=opt)<br>web.get(<span class="hljs-string">"https://www.baidu.com"</span>)<br></code></pre></td></tr></table></figure>
 </blockquote>

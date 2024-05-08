@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="流量分析处理Zeek官网安装教程(Docker,或者Linux)：https:&#x2F;&#x2F;docs.zeek.org&#x2F;en&#x2F;current&#x2F;install.html 最终安装界面(选择添加软件源的方式)：https:&#x2F;&#x2F;build.opensuse.org&#x2F;package&#x2F;show&#x2F;security:zeek&#x2F;zeekhttps:&#x2F;&#x2F;software.opensuse.org&#x2F;&#x2F;download.html">
+    <meta name="description" content="流量分析处理 Zeek 官网安装教程(Docker,或者Linux)：https:&#x2F;&#x2F;docs.zeek.org&#x2F;en&#x2F;current&#x2F;install.html 最终安装界面(选择添加软件源的方式)： https:&#x2F;&#x2F;build.opensuse.org&#x2F;package&#x2F;show&#x2F;security:zeek&#x2F;zeek https:&#x2F;&#x2F;software.opensuse.org&#x2F;&#x2F;down">
 <meta property="og:type" content="article">
 <meta property="og:title" content="流量分析处理">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/04/30/Academic/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="流量分析处理Zeek官网安装教程(Docker,或者Linux)：https:&#x2F;&#x2F;docs.zeek.org&#x2F;en&#x2F;current&#x2F;install.html 最终安装界面(选择添加软件源的方式)：https:&#x2F;&#x2F;build.opensuse.org&#x2F;package&#x2F;show&#x2F;security:zeek&#x2F;zeekhttps:&#x2F;&#x2F;software.opensuse.org&#x2F;&#x2F;download.html">
+<meta property="og:description" content="流量分析处理 Zeek 官网安装教程(Docker,或者Linux)：https:&#x2F;&#x2F;docs.zeek.org&#x2F;en&#x2F;current&#x2F;install.html 最终安装界面(选择添加软件源的方式)： https:&#x2F;&#x2F;build.opensuse.org&#x2F;package&#x2F;show&#x2F;security:zeek&#x2F;zeek https:&#x2F;&#x2F;software.opensuse.org&#x2F;&#x2F;down">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://d4wnnn.github.io/img/article_img_5.jpg">
 <meta property="article:published_time" content="2023-04-30T02:32:37.000Z">
@@ -436,34 +436,38 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="流量分析处理"><a href="#流量分析处理" class="headerlink" title="流量分析处理"></a>流量分析处理</h1><h2 id="Zeek"><a href="#Zeek" class="headerlink" title="Zeek"></a>Zeek</h2><p>官网安装教程(Docker,或者Linux)：<a target="_blank" rel="noopener" href="https://docs.zeek.org/en/current/install.html">https://docs.zeek.org/en/current/install.html</a></p>
-<p>最终安装界面(选择添加软件源的方式)：<br><a target="_blank" rel="noopener" href="https://build.opensuse.org/package/show/security:zeek/zeek">https://build.opensuse.org/package/show/security:zeek/zeek</a><br><a target="_blank" rel="noopener" href="https://software.opensuse.org//download.html?project=security:zeek&package=zeek">https://software.opensuse.org//download.html?project=security%3Azeek&amp;package=zeek</a></p>
-<p>Zeek手册：<a target="_blank" rel="noopener" href="https://docs.zeek.org/en/v5.1.0/logs/conn.html">https://docs.zeek.org/en/v5.1.0/logs/conn.html</a></p>
+                <h1 id="流量分析处理">流量分析处理</h1>
+<h2 id="zeek">Zeek</h2>
+<p>官网安装教程(Docker,或者Linux)：https://docs.zeek.org/en/current/install.html</p>
+<p>最终安装界面(选择添加软件源的方式)：
+https://build.opensuse.org/package/show/security:zeek/zeek
+https://software.opensuse.org//download.html?project=security%3Azeek&amp;package=zeek</p>
+<p>Zeek手册：https://docs.zeek.org/en/v5.1.0/logs/conn.html</p>
 <p>分析：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">zeek -C -r new.pcap<br></code></pre></td></tr></table></figure>
-
-<h2 id="Wireshark"><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h2><h3 id="过滤IP"><a href="#过滤IP" class="headerlink" title="过滤IP"></a>过滤IP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">ip.src == 113.54.243.163 <span class="hljs-comment">#源</span><br>ip.dst == 113.54.243.163 <span class="hljs-comment">#目的</span><br>ip.src == 113.54.243.163 <span class="hljs-comment">#源 目的</span><br>ip.src_host: reverse resolved hostname of that IP address<br></code></pre></td></tr></table></figure>
-
-<h3 id="过滤端口"><a href="#过滤端口" class="headerlink" title="过滤端口"></a>过滤端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">tcp.port == 80<br>tcp.srcport == 80<br>tcp.dstport == 80<br>tcp.udpport == 80<br></code></pre></td></tr></table></figure>
-
-<h3 id="过滤协议"><a href="#过滤协议" class="headerlink" title="过滤协议"></a>过滤协议</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">arp<br>!arp<br></code></pre></td></tr></table></figure>
-
-<h3 id="过滤MAC"><a href="#过滤MAC" class="headerlink" title="过滤MAC"></a>过滤MAC</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">eth.src<br>eth.dst<br>eth.addr<br></code></pre></td></tr></table></figure>
-
-<h3 id="包长度过滤"><a href="#包长度过滤" class="headerlink" title="包长度过滤"></a>包长度过滤</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">udp.length 指udp本身固定长度8加上udp下面那块数据包之和<br>tcp.len 指的是ip数据包(tcp下面那块数据),不包括tcp本身<br>ip.len  除了以太网头固定长度14,其它都算是ip.len,即从ip本身到最后<br>frame.len 整个数据包长度,从eth开始到最后<br></code></pre></td></tr></table></figure>
-
-<h3 id="Pcap处理"><a href="#Pcap处理" class="headerlink" title="Pcap处理"></a>Pcap处理</h3><p>统计数据包数目</p>
+<h2 id="wireshark">Wireshark</h2>
+<h3 id="过滤ip">过滤IP</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">ip.src == 113.54.243.163 <span class="hljs-comment">#源</span><br>ip.dst == 113.54.243.163 <span class="hljs-comment">#目的</span><br>ip.src == 113.54.243.163 <span class="hljs-comment">#源 目的</span><br>ip.src_host: reverse resolved hostname of that IP address<br></code></pre></td></tr></table></figure>
+<h3 id="过滤端口">过滤端口</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">tcp.port == 80<br>tcp.srcport == 80<br>tcp.dstport == 80<br>tcp.udpport == 80<br></code></pre></td></tr></table></figure>
+<h3 id="过滤协议">过滤协议</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">arp<br>!arp<br></code></pre></td></tr></table></figure>
+<h3 id="过滤mac">过滤MAC</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">eth.src<br>eth.dst<br>eth.addr<br></code></pre></td></tr></table></figure>
+<h3 id="包长度过滤">包长度过滤</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">udp.length 指udp本身固定长度8加上udp下面那块数据包之和<br>tcp.len 指的是ip数据包(tcp下面那块数据),不包括tcp本身<br>ip.len  除了以太网头固定长度14,其它都算是ip.len,即从ip本身到最后<br>frame.len 整个数据包长度,从eth开始到最后<br></code></pre></td></tr></table></figure>
+<h3 id="pcap处理">Pcap处理</h3>
+<p>统计数据包数目</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs Bash">capinfos.exe <span class="hljs-string">"C:\Users\28185\Desktop\202310151400 (1).pcap"</span> <span class="hljs-comment"># 统计数据包数目</span><br>E:\Software\Wireshark&gt;capinfos.exe <span class="hljs-string">"C:\Users\28185\Desktop\202310151400 (1).pcap"</span><br>File name:           C:\Users\28185\Desktop\202310151400 (1).pcap<br>File <span class="hljs-built_in">type</span>:           Wireshark/tcpdump/... - pcap<br>File encapsulation:  Ethernet<br>File timestamp precision:  microseconds (6)<br>Packet size <span class="hljs-built_in">limit</span>:   file hdr: 96 bytes<br>Packet size <span class="hljs-built_in">limit</span>:   inferred: 34 bytes - 287 bytes (range)<br>Number of packets:   132 M<br>File size:           9521 MB<br>Data size:           118 GB<br>Capture duration:    899.941805 seconds<br>First packet time:   2023-10-15 13:00:00.252265<br>Last packet time:    2023-10-15 13:15:00.194070<br>Data byte rate:      131 MBps<br>Data bit rate:       1053 Mbps<br>Average packet size: 891.26 bytes<br>Average packet rate: 147 kpackets/s<br>SHA256:              8463639978a0e2f63ab3084721b0e418e575494953779fe1ebaf3e3c9204f4da<br>RIPEMD160:           2cda1d6346c87ad6281f00b2632fdc2c0d587b70<br>SHA1:                3cb4d64432254e778f4265276d767dfc479c3a4a<br>Strict time order:   False<br>Number of interfaces <span class="hljs-keyword">in</span> file: 1<br>Interface <span class="hljs-comment">#0 info:</span><br>                     Encapsulation = Ethernet (1 - ether)<br>                     Capture length = 96<br>                     Time precision = microseconds (6)<br>                     Time ticks per second = 1000000<br>                     Number of <span class="hljs-built_in">stat</span> entries = 0<br>                     Number of packets = 132974450<br></code></pre></td></tr></table></figure>
-
 <p>分割Pcap文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">editcap.exe -c 66487225 <span class="hljs-string">"C:\Users\28185\Desktop\202310151400 (1).pcap"</span> <span class="hljs-string">"C:\Users\28185\Desktop\prefix"</span> <span class="hljs-comment"># prefix为前缀, c为每个Pcap文件的数据报个数</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wojiaopanpan/article/details/69944970">https://blog.csdn.net/wojiaopanpan/article/details/69944970</a></p>
-<h2 id="tcpdump"><a href="#tcpdump" class="headerlink" title="tcpdump"></a>tcpdump</h2><p>分割pcap文件</p>
+<h3 id="参考">参考</h3>
+<p>https://blog.csdn.net/wojiaopanpan/article/details/69944970</p>
+<h2 id="tcpdump">tcpdump</h2>
+<p>分割pcap文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tcpdump -r original.pcap -w new.pcap -C 5<br></code></pre></td></tr></table></figure>
-
 <p>-c&lt;数据包数目&gt;：收到指定的数据包数目后，就停止进行倾倒操作；</p>
-<p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/tcpdump.html">https://wangchujiang.com/linux-command/c/tcpdump.html</a></p>
+<p>https://wangchujiang.com/linux-command/c/tcpdump.html</p>
 
                 
               </div>

