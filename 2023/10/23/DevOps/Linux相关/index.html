@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="后端,博客,网络安全,爬虫,D4wn,d4wnnn,脚本,Selenium,计算机网络,操作系统">
   
-    <meta name="description" content="Linux相关 [ 3886.983875] oom-kill:constraint&#x3D;CONSTRAINT_NONE,nodemask&#x3D;(null),cpuset&#x3D;&#x2F;,mems_allowed&#x3D;0,global_oom,task_memcg&#x3D;&#x2F;user.slice&#x2F;user-0.slice&#x2F;user@0.service&#x2F;apps.slice&#x2F;apps-org.gnome.Terminal.sl">
+    <meta name="description" content="Linux相关[ 3886.983875] oom-kill:constraint&#x3D;CONSTRAINT_NONE,nodemask&#x3D;(null),cpuset&#x3D;&#x2F;,mems_allowed&#x3D;0,global_oom,task_memcg&#x3D;&#x2F;user.slice&#x2F;user-0.slice&#x2F;user@0.service&#x2F;apps.slice&#x2F;apps-org.gnome.Terminal.slice">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux相关">
 <meta property="og:url" content="https://d4wnnn.github.io/2023/10/23/DevOps/Linux%E7%9B%B8%E5%85%B3/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="Linux相关 [ 3886.983875] oom-kill:constraint&#x3D;CONSTRAINT_NONE,nodemask&#x3D;(null),cpuset&#x3D;&#x2F;,mems_allowed&#x3D;0,global_oom,task_memcg&#x3D;&#x2F;user.slice&#x2F;user-0.slice&#x2F;user@0.service&#x2F;apps.slice&#x2F;apps-org.gnome.Terminal.sl">
+<meta property="og:description" content="Linux相关[ 3886.983875] oom-kill:constraint&#x3D;CONSTRAINT_NONE,nodemask&#x3D;(null),cpuset&#x3D;&#x2F;,mems_allowed&#x3D;0,global_oom,task_memcg&#x3D;&#x2F;user.slice&#x2F;user-0.slice&#x2F;user@0.service&#x2F;apps.slice&#x2F;apps-org.gnome.Terminal.slice">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://images.unsplash.com/photo-1431887773042-803ed52bed26?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTcxNTE1ODU2MQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600">
 <meta property="article:published_time" content="2023-10-23T09:45:42.000Z">
@@ -383,7 +383,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          322 字
+          320 字
         
       </span>
     
@@ -436,56 +436,43 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="linux相关">Linux相关</h1>
-<p>[ 3886.983875]
-oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=/,mems_allowed=0,global_oom,task_memcg=/user.slice/user-0.slice/user@0.service/apps.slice/apps-org.gnome.Terminal.slice/vte-spawn-f2101af1-11b9-4c5e-b9ea-241950036390.scope,task=zeek,pid=38846,uid=0
-[ 3886.984046] Out of memory: Killed process 38846 (zeek)
-total-vm:8399880kB, anon-rss:6976348kB, file-rss:0kB, shmem-rss:0kB,
-UID:0 pgtables:14688kB oom_score_adj:0 [ 3954.429362] perf: interrupt
-took too long (23536 &gt; 23386), lowering
-kernel.perf_event_max_sample_rate to 8250</p>
-<p>https://askubuntu.com/questions/709336/how-to-find-out-why-process-was-killed-on-server</p>
-<h2 id="配置dns解析">配置DNS解析</h2>
-<p>Kali:</p>
+                <h1 id="Linux相关"><a href="#Linux相关" class="headerlink" title="Linux相关"></a>Linux相关</h1><p>[ 3886.983875] oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=/,mems_allowed=0,global_oom,task_memcg=/user.slice/user-0.slice/<a href="mailto:&#117;&#x73;&#x65;&#114;&#x40;&#48;&#46;&#x73;&#x65;&#x72;&#118;&#x69;&#x63;&#x65;">user@0.service</a>/apps.slice/apps-org.gnome.Terminal.slice/vte-spawn-f2101af1-11b9-4c5e-b9ea-241950036390.scope,task=zeek,pid=38846,uid=0<br>[ 3886.984046] Out of memory: Killed process 38846 (zeek) total-vm:8399880kB, anon-rss:6976348kB, file-rss:0kB, shmem-rss:0kB, UID:0 pgtables:14688kB oom_score_adj:0<br>[ 3954.429362] perf: interrupt took too long (23536 &gt; 23386), lowering kernel.perf_event_max_sample_rate to 8250</p>
+<p><a target="_blank" rel="noopener" href="https://askubuntu.com/questions/709336/how-to-find-out-why-process-was-killed-on-server">https://askubuntu.com/questions/709336/how-to-find-out-why-process-was-killed-on-server</a></p>
+<h2 id="配置DNS解析"><a href="#配置DNS解析" class="headerlink" title="配置DNS解析"></a>配置DNS解析</h2><p>Kali:</p>
 <p><code>/etc/resolv.conf</code>:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">nameserver 114.114.114.114<br>nameserver 8.8.8.8<br></code></pre></td></tr></table></figure>
-<h2 id="如何查找局域网内的dhcp服务器地址">如何查找局域网内的DHCP服务器地址</h2>
-<p>Kali:</p>
+
+<h2 id="如何查找局域网内的DHCP服务器地址"><a href="#如何查找局域网内的DHCP服务器地址" class="headerlink" title="如何查找局域网内的DHCP服务器地址"></a>如何查找局域网内的DHCP服务器地址</h2><p>Kali:</p>
 <p>首先使用namp探测局域网内主机</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nmap 192.168.126.0/24<br></code></pre></td></tr></table></figure>
-<figure>
-<img src="/2023/10/23/DevOps/Linux%E7%9B%B8%E5%85%B3/image-20231027113333594.png" srcset="/img/loading.gif" lazyload alt="image-20231027113333594">
-<figcaption aria-hidden="true">image-20231027113333594</figcaption>
-</figure>
+
+<p><img src="/2023/10/23/DevOps/Linux%E7%9B%B8%E5%85%B3/image-20231027113333594.png" srcset="/img/loading.gif" lazyload alt="image-20231027113333594"></p>
 <p>然后利用<code>dhcping -s</code>探测</p>
-<figure>
-<img src="/2023/10/23/DevOps/Linux%E7%9B%B8%E5%85%B3/image-20231027113412925.png" srcset="/img/loading.gif" lazyload alt="image-20231027113412925">
-<figcaption aria-hidden="true">image-20231027113412925</figcaption>
-</figure>
-<h2 id="什么是pam认证">什么是PAM认证</h2>
-<p>PAM(Pluggable Authentication Modules
-可插拔式认证模块)是Linux中用于身份验证的程序，比如<code>sudo su</code>，本地管理员可以随意选择程序的认证方式，模块默认放在<code>/lib/security</code>下</p>
+<p><img src="/2023/10/23/DevOps/Linux%E7%9B%B8%E5%85%B3/image-20231027113412925.png" srcset="/img/loading.gif" lazyload alt="image-20231027113412925"></p>
+<h2 id="什么是PAM认证"><a href="#什么是PAM认证" class="headerlink" title="什么是PAM认证"></a>什么是PAM认证</h2><p>PAM(Pluggable Authentication Modules 可插拔式认证模块)是Linux中用于身份验证的程序，比如<code>sudo su</code>，本地管理员可以随意选择程序的认证方式，模块默认放在<code>/lib/security</code>下</p>
 <p>PAM的配置文件一般放在<code>/etc/pam.d/</code>目录下</p>
 <p>配置文件的格式如下：</p>
 <ul>
-<li>认证类型
+<li><p>认证类型</p>
 <ul>
 <li>auth：对用户身份验证</li>
 <li>account：对账号属性验证</li>
 <li>password：使用用户信息来更新数据</li>
 <li>session：会话管理</li>
-</ul></li>
-<li>控制类型
+</ul>
+</li>
+<li><p>控制类型</p>
 <ul>
 <li>required</li>
 <li>requisite</li>
 <li>sufficient</li>
 <li>optional</li>
-</ul></li>
-<li>PAM模块名以及参数</li>
+</ul>
+</li>
+<li><p>PAM模块名以及参数</p>
+</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs Bash">auth       optional   pam_faildelay.so  delay=3000000<br>auth [success=ok new_authtok_reqd=ok ignore=ignore user_unknown=bad default=die] pam_securetty.so<br>session [success=ok ignore=ignore module_unknown=ignore default=bad] pam_selinux.so close<br>session    required     pam_loginuid.so<br>session [success=ok ignore=ignore module_unknown=ignore default=bad] pam_selinux.so open<br>session       required   pam_env.so readenv=1<br>session       required   pam_env.so readenv=1 envfile=/etc/default/locale<br>@include common-auth<br>auth       optional   pam_group.so<br>session    required   pam_limits.so<br>session    optional   pam_lastlog.so<br>session    optional   pam_motd.so motd=/run/motd.dynamic<br>session    optional   pam_motd.so noupdate<br>session    optional   pam_mail.so standard<br>session    optional   pam_keyinit.so force revoke<br>@include common-account<br>@include common-session<br>@include common-password<br></code></pre></td></tr></table></figure>
-
                 
               </div>
             
