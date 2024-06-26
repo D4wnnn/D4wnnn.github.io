@@ -16,12 +16,12 @@
   <meta name="author" content="D4wn">
   <meta name="keywords" content="FISCO-BCOS">
   
-    <meta name="description" content="环境配置12345678apt update# JAVA环境apt install -y default-jdkexport JAVA_HOME&#x3D;&quot;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;default-java&quot; # 设置JAVA_HOME# Mysqlapt install mysql-server# Python包, 其中3.7.3 已经过测试python3 -m pip install PyMySQL">
+    <meta name="description" content="环境配置 12345678apt update# JAVA环境apt install -y default-jdkexport JAVA_HOME&#x3D;&quot;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;default-java&quot; # 设置JAVA_HOME# Mysqlapt install mysql-server# Python包, 其中3.7.3 已经过测试python3 -m pip install PyMySQ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FISCO BCOS">
 <meta property="og:url" content="https://d4wnnn.github.io/2024/04/16/Blockchain/FISCO%20BCOS/index.html">
 <meta property="og:site_name" content="D4wn">
-<meta property="og:description" content="环境配置12345678apt update# JAVA环境apt install -y default-jdkexport JAVA_HOME&#x3D;&quot;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;default-java&quot; # 设置JAVA_HOME# Mysqlapt install mysql-server# Python包, 其中3.7.3 已经过测试python3 -m pip install PyMySQL">
+<meta property="og:description" content="环境配置 12345678apt update# JAVA环境apt install -y default-jdkexport JAVA_HOME&#x3D;&quot;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;default-java&quot; # 设置JAVA_HOME# Mysqlapt install mysql-server# Python包, 其中3.7.3 已经过测试python3 -m pip install PyMySQ">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://images.unsplash.com/photo-1426900985728-92d56f56fdb2?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTcxNTE1ODM4Mw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600">
 <meta property="article:published_time" content="2024-04-16T05:55:48.000Z">
@@ -437,144 +437,188 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">apt update<br><span class="hljs-comment"># JAVA环境</span><br>apt install -y default-jdk<br><span class="hljs-built_in">export</span> JAVA_HOME=<span class="hljs-string">"/usr/lib/jvm/default-java"</span> <span class="hljs-comment"># 设置JAVA_HOME</span><br><span class="hljs-comment"># Mysql</span><br>apt install mysql-server<br><span class="hljs-comment"># Python包, 其中3.7.3 已经过测试</span><br>python3 -m pip install PyMySQL<br></code></pre></td></tr></table></figure>
-
-<p>Oracle JDK：1.8.0_141、1.8.0_202、11.0.2、14.0.2、15.0.2<br>Open JDK：11.0.2、14.0.2、15.0.2</p>
+                <h1 id="环境配置">环境配置</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">apt update<br><span class="hljs-comment"># JAVA环境</span><br>apt install -y default-jdk<br><span class="hljs-built_in">export</span> JAVA_HOME=<span class="hljs-string">"/usr/lib/jvm/default-java"</span> <span class="hljs-comment"># 设置JAVA_HOME</span><br><span class="hljs-comment"># Mysql</span><br>apt install mysql-server<br><span class="hljs-comment"># Python包, 其中3.7.3 已经过测试</span><br>python3 -m pip install PyMySQL<br></code></pre></td></tr></table></figure>
+<p>Oracle JDK：1.8.0_141、1.8.0_202、11.0.2、14.0.2、15.0.2 Open
+JDK：11.0.2、14.0.2、15.0.2</p>
 <p>要注意的是 FISCO 有 v2 和 v3，二者不兼容。</p>
-<h1 id="版本说明"><a href="#版本说明" class="headerlink" title="版本说明"></a>版本说明</h1><p>轻便 Air 版本：采用 all-in-one 的封装模式，将所有模块编译成一个二进制（进程），一个进程即为一个区块链节点，包括网络、共识、接入等所有功能模块，采用本地 RocksDB 存储。它适用于初学者入门、功能验证、POC 产品等。</p>
-<p>专业 Pro 版本：包括 RPC、Gateway 两个接入层的服务和多个区块链节点 Node 服务组成，其中一个 Node 服务代表一个群组，存储采用本地 RocksDB，所有 Node 共用接入层服务，接入层的两个服务可平行扩展。它适用于容量可控（T 级以内）的生产环境，能够支持多群组扩展。</p>
-<p>大容量 Max 版本：由各个层的所有服务构成，每个服务都可独立扩展，存储采用分布式存储 TiKV，管理采用 Tars-Framework 服务。它适用于海量交易上链，需要支持大量数据落盘存储的场景。</p>
-<h1 id="WeBASE-子系统"><a href="#WeBASE-子系统" class="headerlink" title="WeBASE 子系统"></a>WeBASE 子系统</h1><p>WeBASE 可以看作一种降低 FISCO-BCOS 的操作门槛中间件，采用微服务架构，内部含有多个子系统，可以按需部署，并且真正实现了零耦合。</p>
-<p><img src="/2024/04/16/Blockchain/FISCO%20BCOS/architecture2.webp" srcset="/img/loading.gif" lazyload alt="|500"></p>
-<h2 id="节点前置服务"><a href="#节点前置服务" class="headerlink" title="节点前置服务"></a>节点前置服务</h2><p>节点前置服务是和 FISCO-BCOS 配合使用的一个系统，可以让调用者通过 HTTP 请求和区块链节点进行交互。节点前置服务要和节点同机部署，且只能连接一个区块链节点。</p>
-<p>应用层在实际生活中难以和节点保持长连接，因此此时节点前置服务的作用就体现出来了。应用层可以通过节点前置服务订阅链上事件，当事件触发时，可以通过 RabbitMQ 消息队列通知到应用层。</p>
-<p>架构如下：<br><img src="/2024/04/16/Blockchain/FISCO%20BCOS/event_structure.webp" srcset="/img/loading.gif" lazyload alt="|450"></p>
-<h2 id="节点管理服务"><a href="#节点管理服务" class="headerlink" title="节点管理服务"></a>节点管理服务</h2><p>WeBASE-Node-Manager 可以看作一个后端服务，负责处理 WeBASE 前端发来的请求。</p>
-<h2 id="WeBase-管理平台"><a href="#WeBase-管理平台" class="headerlink" title="WeBase 管理平台"></a>WeBase 管理平台</h2><p>也就是 WeBASE 中间件的前端</p>
-<p><img src="/2024/04/16/Blockchain/FISCO%20BCOS/one_click_structure.webp" srcset="/img/loading.gif" lazyload alt="|375"></p>
-<h1 id="WeBase-部署（总套件）"><a href="#WeBase-部署（总套件）" class="headerlink" title="WeBase 部署（总套件）"></a>WeBase 部署（总套件）</h1><p>拉取部署脚本并安装：</p>
+<h1 id="版本说明">版本说明</h1>
+<p>轻便 Air 版本：采用 all-in-one
+的封装模式，将所有模块编译成一个二进制（进程），一个进程即为一个区块链节点，包括网络、共识、接入等所有功能模块，采用本地
+RocksDB 存储。它适用于初学者入门、功能验证、POC 产品等。</p>
+<p>专业 Pro 版本：包括 RPC、Gateway 两个接入层的服务和多个区块链节点
+Node 服务组成，其中一个 Node 服务代表一个群组，存储采用本地
+RocksDB，所有 Node
+共用接入层服务，接入层的两个服务可平行扩展。它适用于容量可控（T
+级以内）的生产环境，能够支持多群组扩展。</p>
+<p>大容量 Max
+版本：由各个层的所有服务构成，每个服务都可独立扩展，存储采用分布式存储
+TiKV，管理采用 Tars-Framework
+服务。它适用于海量交易上链，需要支持大量数据落盘存储的场景。</p>
+<h1 id="webase-子系统">WeBASE 子系统</h1>
+<p>WeBASE 可以看作一种降低 FISCO-BCOS
+的操作门槛中间件，采用微服务架构，内部含有多个子系统，可以按需部署，并且真正实现了零耦合。</p>
+<figure>
+<img src="/2024/04/16/Blockchain/FISCO%20BCOS/architecture2.webp" srcset="/img/loading.gif" lazyload alt="|500">
+<figcaption aria-hidden="true">|500</figcaption>
+</figure>
+<h2 id="节点前置服务">节点前置服务</h2>
+<p>节点前置服务是和 FISCO-BCOS 配合使用的一个系统，可以让调用者通过 HTTP
+请求和区块链节点进行交互。节点前置服务要和节点同机部署，且只能连接一个区块链节点。</p>
+<p>应用层在实际生活中难以和节点保持长连接，因此此时节点前置服务的作用就体现出来了。应用层可以通过节点前置服务订阅链上事件，当事件触发时，可以通过
+RabbitMQ 消息队列通知到应用层。</p>
+<p>架构如下： <img src="/2024/04/16/Blockchain/FISCO%20BCOS/event_structure.webp" srcset="/img/loading.gif" lazyload alt="|450"></p>
+<h2 id="节点管理服务">节点管理服务</h2>
+<p>WeBASE-Node-Manager 可以看作一个后端服务，负责处理 WeBASE
+前端发来的请求。</p>
+<h2 id="webase-管理平台">WeBase 管理平台</h2>
+<p>也就是 WeBASE 中间件的前端</p>
+<figure>
+<img src="/2024/04/16/Blockchain/FISCO%20BCOS/one_click_structure.webp" srcset="/img/loading.gif" lazyload alt="|375">
+<figcaption aria-hidden="true">|375</figcaption>
+</figure>
+<h1 id="webase-部署总套件">WeBase 部署（总套件）</h1>
+<p>拉取部署脚本并安装：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeBASE/releases/download/v3.1.1/webase-deploy.zip<br>unzip webase-deploy.zip<br><span class="hljs-built_in">cd</span> webase-deploy<br></code></pre></td></tr></table></figure>
-
 <p>修改配置文件 <code> common.properties</code></p>
 <ul>
 <li>修改数据库的用户名和密码</li>
-<li>对 <code>webase-sign</code> 和 <code>webase-node-mgr</code> 中的配置文件都要设置 <code>useSSL=false</code>，否则后面验证码会加载不出来。</li>
+<li>对 <code>webase-sign</code> 和 <code>webase-node-mgr</code>
+中的配置文件都要设置
+<code>useSSL=false</code>，否则后面验证码会加载不出来。</li>
 </ul>
 <p>部署：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 部署并启动所有服务</span><br>python3 deploy.py installAll<br></code></pre></td></tr></table></figure>
-
 <p>具体命令如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 一键部署</span><br>部署并启动所有服务        python3 deploy.py installAll<br>停止一键部署的所有服务    python3 deploy.py stopAll<br>启动一键部署的所有服务    python3 deploy.py startAll<br><span class="hljs-comment"># 各子服务启停</span><br>启动FISCO-BCOS节点:      python3 deploy.py startNode<br>停止FISCO-BCOS节点:      python3 deploy.py stopNode<br>启动WeBASE-Web:          python3 deploy.py startWeb<br>停止WeBASE-Web:          python3 deploy.py stopWeb<br>启动WeBASE-Node-Manager: python3 deploy.py startManager<br>停止WeBASE-Node-Manager: python3 deploy.py stopManager<br>启动WeBASE-Sign:        python3 deploy.py startSign<br>停止WeBASE-Sign:        python3 deploy.py stopSign<br>启动WeBASE-Front:        python3 deploy.py startFront<br>停止WeBASE-Front:        python3 deploy.py stopFront<br><span class="hljs-comment"># 可视化部署</span><br>部署并启动可视化部署的所有服务  python3 deploy.py installWeBASE<br>停止可视化部署的所有服务  python3 deploy.py stopWeBASE<br>启动可视化部署的所有服务  python3 deploy.py startWeBASE<br></code></pre></td></tr></table></figure>
-
-<p>然后访问本地的 5000 端口即可。默认用户名 <code>admin</code>，默认密码<code>Abcd1234</code></p>
-<p>官方文档： <a target="_blank" rel="noopener" href="https://webasedoc.readthedocs.io/zh-cn/latest/docs/WeBASE/install.html">https://webasedoc.readthedocs.io/zh-cn/latest/docs/WeBASE/install.html</a></p>
-<p>文档地址： <a target="_blank" rel="noopener" href="https://fisco-bcos-doc.readthedocs.io/zh-cn/latest/index.html">https://fisco-bcos-doc.readthedocs.io/zh-cn/latest/index.html</a></p>
-<h1 id="部署-WeBase-Node-Manager"><a href="#部署-WeBase-Node-Manager" class="headerlink" title="部署 WeBase-Node-Manager"></a>部署 WeBase-Node-Manager</h1><p>下载源码：</p>
+<p>然后访问本地的 5000 端口即可。默认用户名
+<code>admin</code>，默认密码<code>Abcd1234</code></p>
+<p>官方文档：
+https://webasedoc.readthedocs.io/zh-cn/latest/docs/WeBASE/install.html</p>
+<p>文档地址：
+https://fisco-bcos-doc.readthedocs.io/zh-cn/latest/index.html</p>
+<h1 id="部署-webase-node-manager">部署 WeBase-Node-Manager</h1>
+<p>下载源码：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/WeBankBlockchain/WeBASE-Node-Manager.git<br><span class="hljs-built_in">cd</span> WeBASE-Node-Manager<br><span class="hljs-built_in">chmod</span> +x ./gradlew &amp;&amp; ./gradlew build -x <span class="hljs-built_in">test</span><br></code></pre></td></tr></table></figure>
-
 <p>数据库配置：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#新建数据库：</span><br>CREATE DATABASE IF NOT EXISTS webasenodemanager DEFAULT CHARSET utf8 COLLATE utf8_general_ci;<br><span class="hljs-comment"># 修改配置文件</span><br><span class="hljs-built_in">mv</span> conf_template conf<br><span class="hljs-built_in">cd</span> conf<br></code></pre></td></tr></table></figure>
-
 <p>修改 <code>application.yml</code></p>
-<p>spring. datasource. username–&gt;数据库用户名<br>spring. datasource. password–&gt;数据库密码<br>spring. datasource. url–&gt;修改数据库名，以及加上 <code>useSSL=false</code></p>
+<p>spring. datasource. username--&gt;数据库用户名 spring. datasource.
+password--&gt;数据库密码 spring. datasource.
+url--&gt;修改数据库名，以及加上 <code>useSSL=false</code></p>
 <p>启动后端：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">chmod</span> +x start.sh &amp;&amp; ./start.sh<br></code></pre></td></tr></table></figure>
-
-<p>忘记密码参考： <a target="_blank" rel="noopener" href="https://webasedoc.readthedocs.io/zh-cn/latest/docs/WeBASE-Node-Manager/appendix.html">https://webasedoc.readthedocs.io/zh-cn/latest/docs/WeBASE-Node-Manager/appendix.html</a></p>
-<p>参考链接： <a target="_blank" rel="noopener" href="https://webasedoc.readthedocs.io/zh-cn/latest/docs/WeBASE-Web/install.html">https://webasedoc.readthedocs.io/zh-cn/latest/docs/WeBASE-Web/install.html</a></p>
-<h1 id="仅仅使用前置服务"><a href="#仅仅使用前置服务" class="headerlink" title="仅仅使用前置服务"></a>仅仅使用前置服务</h1><p>前面的 WeBase 太过于庞大，事实上，我们可以只使用前置服务。</p>
+<p>忘记密码参考：
+https://webasedoc.readthedocs.io/zh-cn/latest/docs/WeBASE-Node-Manager/appendix.html</p>
+<p>参考链接：
+https://webasedoc.readthedocs.io/zh-cn/latest/docs/WeBASE-Web/install.html</p>
+<h1 id="仅仅使用前置服务">仅仅使用前置服务</h1>
+<p>前面的 WeBase 太过于庞大，事实上，我们可以只使用前置服务。</p>
 <p>首先部署节点：</p>
 <p>使用 Fisco-BCOS 最新链路 3.6：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -<span class="hljs-comment">#LO https://github.com/FISCO-BCOS/FISCO-BCOS/releases/download/v3.6.0/build_chain.sh &amp;&amp; chmod u+x build_chain.sh</span><br></code></pre></td></tr></table></figure>
-
 <p>启动节点：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash nodes/127.0.0.1/start_all.sh<br></code></pre></td></tr></table></figure>
-
 <p>检查是否启动成功：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ps aux |grep -v grep |grep fisco-bcos<br></code></pre></td></tr></table></figure>
-
-<p>节点部署教程： <a target="_blank" rel="noopener" href="https://fisco-bcos-doc.readthedocs.io/zh-cn/latest/docs/quick_start/air_installation.html">https://fisco-bcos-doc.readthedocs.io/zh-cn/latest/docs/quick_start/air_installation.html</a></p>
+<p>节点部署教程：
+https://fisco-bcos-doc.readthedocs.io/zh-cn/latest/docs/quick_start/air_installation.html</p>
 <p>接下来是WeBase-Front</p>
 <p>前端服务: 注意一定是 master-3.0，否则报错</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> -b master-3.0 https://github.com/WeBankBlockchain/WeBASE-Front.git<br></code></pre></td></tr></table></figure>
-
 <p>然后编译前端服务：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">chmod</span> +x ./gradlew &amp;&amp; ./gradlew build -x <span class="hljs-built_in">test</span><br></code></pre></td></tr></table></figure>
-
 <p>然后修改配置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> dist<br><span class="hljs-built_in">cp</span> -r conf_template conf<br><span class="hljs-built_in">cd</span> conf<br></code></pre></td></tr></table></figure>
-
-<p>将节点所在目录 <code>nodes/${ip}/sdk</code> 下的所有文件拷贝到当前 <code>conf</code> 目录</p>
+<p>将节点所在目录 <code>nodes/${ip}/sdk</code> 下的所有文件拷贝到当前
+<code>conf</code> 目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cp</span> nodes/<span class="hljs-variable">${ip}</span>/sdk/* ./conf/<br><span class="hljs-comment"># 例如</span><br><span class="hljs-built_in">cp</span> ~/Desktop/fisco-node/nodes/127.0.0.1/sdk/* ./<br></code></pre></td></tr></table></figure>
-
 <p>然后启动 WeBase-Front</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./start_all.sh<br></code></pre></td></tr></table></figure>
-
 <p>在浏览器访问：<code>http://192.168.44.129:5002/WeBASE-Front/#/home</code></p>
 <p><img src="/2024/04/16/Blockchain/FISCO%20BCOS/image-20240415181851642.png" srcset="/img/loading.gif" lazyload></p>
-<p>We-BASE教程见：<a target="_blank" rel="noopener" href="https://webasedoc.readthedocs.io/zh-cn/lab/docs/WeBASE-Front/install.html">https://webasedoc.readthedocs.io/zh-cn/lab/docs/WeBASE-Front/install.html</a></p>
-<h1 id="Python-SDK-使用"><a href="#Python-SDK-使用" class="headerlink" title="Python-SDK 使用"></a>Python-SDK 使用</h1><h2 id="下载-SDK-并配置依赖"><a href="#下载-SDK-并配置依赖" class="headerlink" title="下载 SDK 并配置依赖"></a>下载 SDK 并配置依赖</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/FISCO-BCOS/python-sdk<br><span class="hljs-built_in">cd</span> python-sdk <br>pip install -r requirements.txt<br></code></pre></td></tr></table></figure>
-
-<h2 id="下载-C-语言基础库"><a href="#下载-C-语言基础库" class="headerlink" title="下载 C 语言基础库"></a>下载 C 语言基础库</h2><p>进入 <code>bcos3sdklib</code>，修改 <code>download_c_libs.py</code> 中的代理设置 (如果需要)</p>
+<p>We-BASE教程见：https://webasedoc.readthedocs.io/zh-cn/lab/docs/WeBASE-Front/install.html</p>
+<h1 id="python-sdk-使用">Python-SDK 使用</h1>
+<h2 id="下载-sdk-并配置依赖">下载 SDK 并配置依赖</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/FISCO-BCOS/python-sdk<br><span class="hljs-built_in">cd</span> python-sdk <br>pip install -r requirements.txt<br></code></pre></td></tr></table></figure>
+<h2 id="下载-c-语言基础库">下载 C 语言基础库</h2>
+<p>进入 <code>bcos3sdklib</code>，修改 <code>download_c_libs.py</code>
+中的代理设置 (如果需要)</p>
 <p>执行如下命令下载相关库文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python download_c_libs.py<br></code></pre></td></tr></table></figure>
-
-<h2 id="初始化环境"><a href="#初始化环境" class="headerlink" title="初始化环境"></a>初始化环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash init_env.sh -i<br></code></pre></td></tr></table></figure>
-
-<p>所执行的操作：</p>
-<ul>
-<li>拷贝 client_config.py.template-&gt;client_config.py </li>
-<li>下载 solc 编译器</li>
-</ul>
-<p>若没有执行以上初始化步骤，需要将 contracts/目录下的 sol 代码手动编译成 bin 和 abi 文件并放置于 contracts 目录，才可以部署和调用相应合约。</p>
+<h2 id="初始化环境">初始化环境</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash init_env.sh -i<br></code></pre></td></tr></table></figure>
+<p>所执行的操作： - 拷贝 client_config.py.template-&gt;client_config.py
+- 下载 solc 编译器</p>
+<p>若没有执行以上初始化步骤，需要将 contracts/目录下的 sol
+代码手动编译成 bin 和 abi 文件并放置于 contracts
+目录，才可以部署和调用相应合约。</p>
 <p>然后将下载的 solc 路径进行配置：</p>
 <p><code>client_config.py</code>:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">solc_path = <span class="hljs-string">"bin/solc/v0.4.25/solc"</span><br>gm_solc_path = <span class="hljs-string">"bin/solc/v0.4.25/solc-gm"</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="配置-bcos3-sdk-config-ini"><a href="#配置-bcos3-sdk-config-ini" class="headerlink" title="配置 bcos3_sdk_config.ini"></a>配置 bcos3_sdk_config.ini</h2><p>拷贝 bcos3_sdk_config_sample.ini–&gt;bcos3_sdk_config.ini</p>
-<h2 id="拷贝证书"><a href="#拷贝证书" class="headerlink" title="拷贝证书"></a>拷贝证书</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cp</span> ~/Desktop/fisco/nodes/127.0.0.1/sdk/* ~/Desktop/python-sdk/bcos3sdklib/<br></code></pre></td></tr></table></figure>
-
-<p>注意这里的 <code>bcos3sdklib</code> 路径和 <code>bcos3_sdk_config.ini</code> 中的路径要保持一致。</p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>部署 <code>HelloWorld.sol</code>:</p>
+<h2 id="配置-bcos3_sdk_config.ini">配置 bcos3_sdk_config.ini</h2>
+<p>拷贝 bcos3_sdk_config_sample.ini--&gt;bcos3_sdk_config.ini</p>
+<h2 id="拷贝证书">拷贝证书</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cp</span> ~/Desktop/fisco/nodes/127.0.0.1/sdk/* ~/Desktop/python-sdk/bcos3sdklib/<br></code></pre></td></tr></table></figure>
+<p>注意这里的 <code>bcos3sdklib</code> 路径和
+<code>bcos3_sdk_config.ini</code> 中的路径要保持一致。</p>
+<h2 id="测试">测试</h2>
+<p>部署 <code>HelloWorld.sol</code>:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python console3.py deploy HelloWorld<br></code></pre></td></tr></table></figure>
-
 <p><img src="/2024/04/16/Blockchain/FISCO%20BCOS/image-20240403184554728.png" srcset="/img/loading.gif" lazyload></p>
 <p>调用 HelloWorld:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python console3.py call HelloWorld 0xe16469be7721563d4d6a703932058d12ca2ca94c get<br></code></pre></td></tr></table></figure>
-
-<p>参考： </p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43491496/article/details/134476274">https://blog.csdn.net/weixin_43491496/article/details/134476274</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/FISCO-BCOS/python-sdk">https://github.com/FISCO-BCOS/python-sdk</a></li>
-</ul>
-<h1 id="Java-SDK-使用"><a href="#Java-SDK-使用" class="headerlink" title="Java-SDK 使用"></a>Java-SDK 使用</h1><h3 id="配置-IDEA"><a href="#配置-IDEA" class="headerlink" title="配置 IDEA"></a>配置 IDEA</h3><p>添加如下 Maven 依赖：</p>
+<p>参考： -
+https://blog.csdn.net/weixin_43491496/article/details/134476274 -
+https://github.com/FISCO-BCOS/python-sdk</p>
+<h1 id="java-sdk-使用">Java-SDK 使用</h1>
+<h3 id="配置-idea">配置 IDEA</h3>
+<p>添加如下 Maven 依赖：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.fisco-bcos.java-sdk<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>fisco-bcos-java-sdk<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.6.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>  <br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-comment">&lt;!-- 下面的依赖只是为了去掉警告--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.slf4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>slf4j-nop<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.7.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>  <br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="拷贝证书-1"><a href="#拷贝证书-1" class="headerlink" title="拷贝证书"></a>拷贝证书</h2><p>将 <code>nodes/127.0.0.1/sdk</code> 下的文件拷贝到 <code>resources/conf</code> 目录</p>
-<h2 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h2><p>拷贝官网的 <code>config-example.toml</code> 文件到 <code>resource</code> 目录。修改其中的节点 IP。</p>
-<h2 id="导出-JAVA-代码"><a href="#导出-JAVA-代码" class="headerlink" title="导出 JAVA 代码"></a>导出 JAVA 代码</h2><p>在 WeBASE-Front 界面导出 Java 代码 (单文件)。</p>
-<h2 id="调用合约"><a href="#调用合约" class="headerlink" title="调用合约"></a>调用合约</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">configFile</span> <span class="hljs-operator">=</span> <span class="hljs-string">"config-example.toml"</span>;  <br><span class="hljs-type">BcosSDK</span> <span class="hljs-variable">sdk</span> <span class="hljs-operator">=</span> BcosSDK.build(configFile);  <br><span class="hljs-comment">// 为群组group初始化client  </span><br><span class="hljs-type">Client</span> <span class="hljs-variable">client</span> <span class="hljs-operator">=</span> sdk.getClient(<span class="hljs-string">"group0"</span>);  <br><span class="hljs-type">CryptoKeyPair</span> <span class="hljs-variable">cryptoKeyPair</span> <span class="hljs-operator">=</span> client.getCryptoSuite().getCryptoKeyPair();  <br><span class="hljs-comment">//合约地址  </span><br><span class="hljs-type">SmartLink</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SmartLink</span>(<span class="hljs-string">"37a44585bf1e9618fdb4c62c4c96189a07dd4b48"</span>, client, cryptoKeyPair);  <br><span class="hljs-type">CryptoSuite</span> <span class="hljs-variable">cryptoSuite</span> <span class="hljs-operator">=</span> client.getCryptoSuite();  <br><span class="hljs-type">TransactionDecoderInterface</span> <span class="hljs-variable">decoder</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TransactionDecoderService</span>(cryptoSuite.getHashImpl(), client.isWASM());  <br><span class="hljs-type">String</span> <span class="hljs-variable">abi</span> <span class="hljs-operator">=</span> <span class="hljs-string">""</span>;  <br><span class="hljs-type">TransactionReceipt</span> <span class="hljs-variable">transactionReceipt</span> <span class="hljs-operator">=</span> sc.dispatchRequest(<span class="hljs-string">"调用参数"</span>);  <br>Map&lt;String, List&lt;List&lt;Object&gt;&gt;&gt; events = decoder.decodeEvents(abi, transactionReceipt.getLogEntries());  <br>System.out.println(events);  <br></code></pre></td></tr></table></figure>
-
-<h2 id="与-Python-SDK-对比"><a href="#与-Python-SDK-对比" class="headerlink" title="与 Python-SDK 对比"></a>与 Python-SDK 对比</h2><p>Java 在小型项目上的灵活度远不如 Python，代码过于臃肿，造成效率低下。例如多线程发送 500 个交易，Python 下只需要两秒多，而 Java 需要七秒多。</p>
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="WeBASE-端口说明"><a href="#WeBASE-端口说明" class="headerlink" title="WeBASE 端口说明"></a>WeBASE 端口说明</h2><p>节点管理子系统：端口 5001</p>
+<h2 id="拷贝证书-1">拷贝证书</h2>
+<p>将 <code>nodes/127.0.0.1/sdk</code> 下的文件拷贝到
+<code>resources/conf</code> 目录</p>
+<h2 id="创建配置文件">创建配置文件</h2>
+<p>拷贝官网的 <code>config-example.toml</code> 文件到
+<code>resource</code> 目录。修改其中的节点 IP。</p>
+<h2 id="导出-java-代码">导出 JAVA 代码</h2>
+<p>在 WeBASE-Front 界面导出 Java 代码 (单文件)。</p>
+<h2 id="调用合约">调用合约</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">configFile</span> <span class="hljs-operator">=</span> <span class="hljs-string">"config-example.toml"</span>;  <br><span class="hljs-type">BcosSDK</span> <span class="hljs-variable">sdk</span> <span class="hljs-operator">=</span> BcosSDK.build(configFile);  <br><span class="hljs-comment">// 为群组group初始化client  </span><br><span class="hljs-type">Client</span> <span class="hljs-variable">client</span> <span class="hljs-operator">=</span> sdk.getClient(<span class="hljs-string">"group0"</span>);  <br><span class="hljs-type">CryptoKeyPair</span> <span class="hljs-variable">cryptoKeyPair</span> <span class="hljs-operator">=</span> client.getCryptoSuite().getCryptoKeyPair();  <br><span class="hljs-comment">//合约地址  </span><br><span class="hljs-type">SmartLink</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SmartLink</span>(<span class="hljs-string">"37a44585bf1e9618fdb4c62c4c96189a07dd4b48"</span>, client, cryptoKeyPair);  <br><span class="hljs-type">CryptoSuite</span> <span class="hljs-variable">cryptoSuite</span> <span class="hljs-operator">=</span> client.getCryptoSuite();  <br><span class="hljs-type">TransactionDecoderInterface</span> <span class="hljs-variable">decoder</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TransactionDecoderService</span>(cryptoSuite.getHashImpl(), client.isWASM());  <br><span class="hljs-type">String</span> <span class="hljs-variable">abi</span> <span class="hljs-operator">=</span> <span class="hljs-string">""</span>;  <br><span class="hljs-type">TransactionReceipt</span> <span class="hljs-variable">transactionReceipt</span> <span class="hljs-operator">=</span> sc.dispatchRequest(<span class="hljs-string">"调用参数"</span>);  <br>Map&lt;String, List&lt;List&lt;Object&gt;&gt;&gt; events = decoder.decodeEvents(abi, transactionReceipt.getLogEntries());  <br>System.out.println(events);  <br></code></pre></td></tr></table></figure>
+<h2 id="与-python-sdk-对比">与 Python-SDK 对比</h2>
+<p>Java 在小型项目上的灵活度远不如
+Python，代码过于臃肿，造成效率低下。例如多线程发送 500 个交易，Python
+下只需要两秒多，而 Java 需要七秒多。</p>
+<h1 id="附录">附录</h1>
+<h2 id="webase-端口说明">WeBASE 端口说明</h2>
+<p>节点管理子系统：端口 5001</p>
 <p>节点前置子系统：端口 5002</p>
 <p>签名服务子系统：端口 5004</p>
 <p>节点 p2p：端口 30300</p>
 <p>节点链上链下：端口 20200</p>
 <p>节点 RPC 端口：8545</p>
-<p>![[FISCO BCOS/image-20240418123418331.png]]</p>
-<h2 id="交易流程"><a href="#交易流程" class="headerlink" title="交易流程"></a>交易流程</h2><ul>
-<li>交易生成：当用户的请求给到客户端后，客户端会构建出一笔交易，包括以下信息<ul>
+<p>[[FISCO BCOS/image-20240418123418331.png]]</p>
+<h2 id="交易流程">交易流程</h2>
+<ul>
+<li>交易生成：当用户的请求给到客户端后，客户端会构建出一笔交易，包括以下信息
+<ul>
 <li>接收地址：若是部署合约的交易，则接受地址为空。</li>
 <li>交易相关的数据</li>
-<li>交易签名：利用用户的私钥进行签名<br>  然后客户端会向交易填充一些必要字段，如防重放的交易 ID 等。然后客户端通过 RPC 信道将交易发给节点。</li>
-</ul>
-</li>
+<li>交易签名：利用用户的私钥进行签名
+然后客户端会向交易填充一些必要字段，如防重放的交易 ID 等。然后客户端通过
+RPC 信道将交易发给节点。</li>
+</ul></li>
 <li>交易池：节点首先验证交易是否合法，然后验证交易是否重复出现过，最后通过验证则加入到交易池，否则丢弃交易。</li>
-<li>交易广播：在将交易缓存在交易池的同时，还会将交易广播至已知的其他节点。为了避免出现广播风暴问题，对于从其它节点转发来的交易，节点会随机选取 25%的节点再次广播。</li>
-<li>交易打包：Sealer 线程负责从交易池中按照先进先出的顺序取出一定数量的交易，组装成共识区块，随后待共识区块会被发往各个节点进行处理。</li>
-<li>交易执行：节点在收到区块后，会进行执行。若是预编译合约代码，则将直接调用 C++，否则将交易交给 EVM 执行。交易执行的结果 (成功或者失败) 会在交易回执中返回。</li>
-<li>交易共识：使用 PMFT 算法，各个节点独立执行相同的区块，随后交换各自的执行结果，若发现 2/3 的节点结果相同，则出块。</li>
+<li>交易广播：在将交易缓存在交易池的同时，还会将交易广播至已知的其他节点。为了避免出现广播风暴问题，对于从其它节点转发来的交易，节点会随机选取
+25%的节点再次广播。</li>
+<li>交易打包：Sealer
+线程负责从交易池中按照先进先出的顺序取出一定数量的交易，组装成共识区块，随后待共识区块会被发往各个节点进行处理。</li>
+<li>交易执行：节点在收到区块后，会进行执行。若是预编译合约代码，则将直接调用
+C++，否则将交易交给 EVM 执行。交易执行的结果 (成功或者失败)
+会在交易回执中返回。</li>
+<li>交易共识：使用 PMFT
+算法，各个节点独立执行相同的区块，随后交换各自的执行结果，若发现 2/3
+的节点结果相同，则出块。</li>
 <li>交易落盘：共识出块后，节点需要将区块中的交易以及执行结果写入硬盘，并更新区块高度与区块哈希的映射表。用户可以通过交易哈希查询回执信息。</li>
 </ul>
 
