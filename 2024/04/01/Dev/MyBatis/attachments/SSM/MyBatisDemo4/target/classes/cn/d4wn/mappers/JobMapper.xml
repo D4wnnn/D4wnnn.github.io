@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.d4wn.mappers.JobMapper">
+
+<!--    <resultMap id="jobMap" type="job">-->
+<!--        <result column="job_id" property="jobId"/>-->
+<!--    </resultMap>-->
+<!--    <select id="selectAll" resultMap="jobMap">-->
+<!--        select * from jobs-->
+<!--    </select>-->
+    <select id="selectAll" resultType="Job">
+        select * from jobs
+    </select>
+<!--    <select id="selectByID" resultMap="jobMap">-->
+<!--        select * from jobs where job_id=#{job_id}-->
+<!--    </select>-->
+
+<!--    <select id="selectByCondition" resultMap="jobMap">-->
+<!--        select * from jobs-->
+<!--        <where>-->
+<!--            <if test="jobTitle != null and jobTitle !=''">-->
+<!--                and job_title = #{jobTitle}-->
+<!--            </if>-->
+<!--        </where>-->
+<!--    </select>-->
+</mapper>
